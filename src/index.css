@@ -1,0 +1,40 @@
+* {
+  position: relative;
+  background-color: #131313;
+  margin : 0;
+  color: #F8F8F8;
+}
+
+#logoname {
+  width: 75%;
+  height: 100%;
+  right: 0;
+}
+
+#login{
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+}
+
+#logo{
+  padding: 0%;
+  font-family: 'Manrope';
+  font-size: 100%;
+  width : 8.8%;
+  margin-left : 8.8%;
+  margin-top: 4.4%;
+}
+
+#loginbox{
+  position: relative;
+  height: 65%;
+}
+
+#loginbox div{
+  height: 10%;
+  width: 25%;
+  left:40vw;
+  border-radius: 0.5rem;
+  background-color: #CDCCD9;
+}

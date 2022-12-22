@@ -1,14 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import reportWebVitals from './reportWebVitals';
-import Logo from './components/logo'
+import './CSS/login.css' ;
+import Logo from './components/logo';
+import Oauth from './components/loginbox';
+import Input from './components/authinput';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+  <div id = "login">
     <Logo />
+    <Oauth />
+    <Input lable='Password' placeholder='Enter Your Password'/>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function

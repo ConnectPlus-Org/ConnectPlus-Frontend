@@ -3,6 +3,11 @@
   background-color: #131313;
   margin : 0;
   color: #F8F8F8;
+  
+}
+
+body{
+  overflow-x: hidden;
 }
 
 #logoname {

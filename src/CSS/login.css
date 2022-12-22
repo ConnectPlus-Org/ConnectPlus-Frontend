@@ -10,6 +10,12 @@
     border-color: aliceblue;
 }
 
+#input:focus{
+    -webkit-appearance: none;
+    outline: none;
+    background-color: #2E2E2E;
+}
+
 #input::placeholder{
     padding-left: 1rem;
 }
@@ -19,8 +25,9 @@
     left: 20%;
 }
 
-#switch span{
+#switch a{
     color:#7E57C2;
+    font-size: 1.3rem;
 }
 
 #authblock { 

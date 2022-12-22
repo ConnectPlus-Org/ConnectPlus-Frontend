@@ -5,6 +5,7 @@ import './CSS/login.css' ;
 import Logo from './components/logo';
 import Oauth from './components/loginbox';
 import Input from './components/authinput';
+import Switch from './components/switch';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -14,6 +15,7 @@ root.render(
     <Logo />
     <Oauth />
     <Input lable='Password' placeholder='Enter Your Password'/>
+    <Switch status="Don't" action='Sign Up' />
   </div>
 );
 

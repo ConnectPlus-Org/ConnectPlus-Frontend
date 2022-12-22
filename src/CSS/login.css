@@ -1,6 +1,18 @@
-#input{
+.authbox {
     height:2.875rem;
     width: 23.375rem;
+}
+
+#input{
     border-radius: 0.5rem;
     border-color: aliceblue;
+}
+
+#switch{
+    top: 30%;
+    left: 20%;
+}
+
+#switch span{
+    color:#7E57C2;
 }

@@ -4,8 +4,14 @@
 }
 
 #input{
+    height:2.5rem;
+    width: 23rem;
     border-radius: 0.5rem;
     border-color: aliceblue;
+}
+
+#input::placeholder{
+    padding-left: 1rem;
 }
 
 #switch{
@@ -15,4 +21,37 @@
 
 #switch span{
     color:#7E57C2;
+}
+
+#authblock { 
+    background-color: #512DA8;
+    border-radius: 0.5rem;
+    font-family: 'Manrope';
+    font-size: 1rem;
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+#authblock:hover{
+    background-color: #7E57C2;
+}
+
+#loginbox p{
+    font-size: 2.25rem;
+    text-align: center;
+}
+
+#oauth{
+    border-radius: 0.5rem;
+    background-color: #CDCCD9;
+    color: #3E3E3E;
+    text-align: center;
+    line-height: 2.5rem;
+}
+
+#auth_instruction{
+    width: 23.375rem;
+    height: 1.25rem;
+    text-align: center;
+    margin-top : 1rem;
 }

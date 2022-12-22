@@ -2,19 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import './CSS/login.css' ;
-import Logo from './components/logo';
 import Oauth from './components/loginbox';
 import Input from './components/authinput';
-import Switch from './components/switch';
+import Switch from './components/authswitch';
+import Authblock from './components/authblock';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <div id = "login">
-    <Logo />
     <Oauth />
-    <Input lable='Password' placeholder='Enter Your Password'/>
+    <Input lable='Email Address' placeholder='Enter Email' />
+    <Input lable='Password' placeholder='Must be at least 8 characters.'/>
+    <Authblock name="Log In" />
     <Switch status="Don't" action='Sign Up' />
   </div>
 );

@@ -1,13 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  position: relative;
+  background-color: #131313;
+  margin : 0
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#logoname {
+  width: 75%;
+  height: 100%;
+  right: 0;
+}
+
+#root{
+  height: 4vh;
+}
+#logo{
+  color: #F8F8F8;
+  font-family: 'Manrope';
+  width : 8.8%;
+  margin-left : 8.8%;
+  margin-top: 4.4%;
 }

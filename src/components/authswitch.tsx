@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 type switchprops = {
     status : string
@@ -8,7 +8,7 @@ type switchprops = {
 
 const Switch = (props: switchprops) => {
     return <div className="authbox" >
-        <p id="switch">{props.status} Have An Account?<a>{props.action}</a></p>
+        <p id="switch">{props.status} Have An Account?<a href="www.google.com">{props.action}</a></p>
     </div>
 }
 

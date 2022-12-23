@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+
 .authbox {
     height:2.875rem;
     width: 23.375rem;
+    font-family: 'Manrope';
+    font-style: normal;
 }
 
 #input{
@@ -62,3 +66,25 @@
     text-align: center;
     margin-top : 1rem;
 }
+header{
+    margin-top: 2.22%;
+    margin-left: 5.55%;
+    width: 8rem;
+    height: 2rem;
+    font-family: 'Manrope';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.5rem;
+    line-height: 2.063rem;
+    display: flex;
+    align-items: center;
+  }
+  .illustration{
+    position: absolute;
+left: 8.89%;
+right: 49.58%;
+top: 26.83%;
+bottom: 20.83%;
+
+  }
+ 

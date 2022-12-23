@@ -1,6 +1,6 @@
 import React from "react";
-import Login from "../Authentication/login/LoginApp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "../Authentication/login/LoginApp";
 import SignUp from "../Authentication/Signup/SignUpApp";
 
 const App = () => {

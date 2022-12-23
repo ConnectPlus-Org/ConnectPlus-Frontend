@@ -1,19 +1,25 @@
 import React, { FC } from "react"
-import './login.css' ;
+import '../login/login.css' ;
 import Oauth from '../components/loginbox';
 import Input from '../components/authinput';
 import Switch from '../components/authswitch';
 import Authblock from '../components/authblock';
 import Heading from '../components/heading';
-import Illustration from '../components/illustration'
-import { useNavigate } from "react-router-dom";
+const illustration: string = require("../images/google.svg").default;
+// import { useNavigate } from "react-router-dom";
 
-const Login:FC = () => {
+const Login = () => {
+    // const Navhandler = useNavigate()
+
+    // const f =() => {
+    //     Navhandler('/SignUp')
+    // }
 
     return <div>
     <Heading />  
-    <div>
-    <Illustration type="login" />
+    {/* <Illustration type="login" /> */}
+    
+    <img className="illustration" src={illustration} alt="" />
     <div id = "login">
       <Oauth  status="Log in"/>
       <Input lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address'/>
@@ -21,7 +27,6 @@ const Login:FC = () => {
       <a id="forgot_password">Forgot Password?</a>
       <Authblock name="Log In" />
       <Switch status="Don't" action='Sign Up' />
-    </div>
     </div>
     </div>
 }

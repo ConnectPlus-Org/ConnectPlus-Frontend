@@ -40,7 +40,7 @@ input:focus::placeholder {
 
 #error{
     padding-top: 0.1rem;
-    /* visibility: hidden; */
+    visibility: hidden;
     color: #CF6679;
     font-size: 0.75rem;
 }
@@ -75,6 +75,7 @@ input:focus::placeholder {
 }
 
 #oauth {
+  border: none;
   border-radius: 0.5rem;
   background-color: #cdccd9;
   color: #3e3e3e;
@@ -144,12 +145,11 @@ height:26.25rem;
 #login{
   margin-left: 50rem;
   margin-top: 7.3rem;
+  height: 32rem;
+  width: 23.375rem;
   display: flex;
   flex-direction: column;
-}
-
-#login>div,button,a{
-  margin: 1rem;
+  justify-content: space-between;
 }
 
 #logo{

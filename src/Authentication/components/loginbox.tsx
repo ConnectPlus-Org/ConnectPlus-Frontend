@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React from "react";
 
 type insprop = {
   status: string;
@@ -7,20 +7,25 @@ type insprop = {
 const Instruction = (props: insprop) => {
   return (
     <div id="auth_instruction">
-      <pre className="line"></pre>Or {props.status} with email  
+      <pre className="line"></pre>
+      <span>Or {props.status} with email</span>
       <pre className="line"></pre>
     </div>
   );
 };
 
-const Oauth: FC = () => {
+type oprop = {
+  status: string;
+};
+
+const Oauth = (props : oprop ) => {
   return (
     <div id="loginbox">
       <p className="authbox">Welcome to ProFolio</p>
       <div id="oauth" className="authbox">
         Continue with Google
       </div>
-      <Instruction status="Log In" />
+      <Instruction status={props.status} />
     </div>
   );
 };

@@ -1,37 +1,12 @@
 * {
   box-sizing: border-box;
-  background-color: #131313;
   margin : 0;
   color: #F8F8F8;
 }
 
 body{
+  background-color: #131313;
   overflow-x: hidden;
   font-family: "Manrope";
 }
 
-#logoname {
-  width: 75%;
-  height: 100%;
-  right: 0;
-}
-
-#login{
-  margin-left: 60vw;
-  margin-top: 7.3rem;
-  display: flex;
-  flex-direction: column;
-}
-
-#login>div,button,a{
-  margin: 1rem;
-}
-
-#logo{
-  padding: 0%;
-  font-family: 'Manrope';
-  font-size: 100%;
-  width : 8.8%;
-  margin-left : 8.8%;
-  margin-top: 4.4%;
-}

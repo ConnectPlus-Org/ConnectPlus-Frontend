@@ -5,7 +5,7 @@ type authprops ={
 }
 
 const Authblock = (props: authprops) => {
-    return <div className="authbox" id = "authblock">{props.name}</div>
+    return <button className="authbox" id = "authblock">{props.name}</button>
 }
 
 export default Authblock;

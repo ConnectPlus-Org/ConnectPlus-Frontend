@@ -1,13 +1,13 @@
 * {
-  position: relative;
+  box-sizing: border-box;
   background-color: #131313;
   margin : 0;
   color: #F8F8F8;
-  
 }
 
 body{
   overflow-x: hidden;
+  font-family: "Manrope";
 }
 
 #logoname {
@@ -17,14 +17,13 @@ body{
 }
 
 #login{
-  position: relative;
-  left: 52.3rem;
-  top: 7.3rem;
+  margin-left: 60vw;
+  margin-top: 7.3rem;
   display: flex;
   flex-direction: column;
 }
 
-#login>div,button{
+#login>div,button,a{
   margin: 1rem;
 }
 

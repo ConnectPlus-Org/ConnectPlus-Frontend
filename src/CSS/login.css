@@ -1,90 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Manrope&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
 .authbox {
-    height:2.875rem;
-    width: 23.375rem;
-    font-family: 'Manrope';
-    font-style: normal;
+  height: 2.875rem;
+  width: 23.375rem;
+  font-style: normal;
+  font-size: 0.875rem;
 }
 
-#input{
-    height:2.5rem;
-    width: 23rem;
-    border-radius: 0.5rem;
-    border-color: aliceblue;
+#input {
+  height: 2.5rem;
+  width: 23rem;
+  border-radius: 0.5rem;
+  border: 1px solid #F8F8F8;
+  border-color: aliceblue;
 }
 
-#input:focus{
-    -webkit-appearance: none;
-    outline: none;
-    background-color: #2E2E2E;
+#input:focus {
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #2e2e2e;
 }
 
-#input::placeholder{
-    padding-left: 1rem;
+#input::placeholder {
+  padding-left: 1rem;
 }
 
-#switch{
-    top: 30%;
-    left: 20%;
+input:focus::placeholder {
+    color: transparent;
+    /* curs */
 }
 
-#switch a{
-    color:#7E57C2;
-    font-size: 1.3rem;
+#error{
+    padding-top: 0.1rem;
+    visibility: hidden;
+    color: #CF6679;
+    font-size: 0.75rem;
 }
 
-#authblock { 
-    background-color: #512DA8;
-    border-radius: 0.5rem;
-    font-family: 'Manrope';
-    font-size: 1rem;
-    text-align: center;
-    line-height: 2.5rem;
+#switch {
+  top: 30%;
+  left: 20%;
 }
 
-#authblock:hover{
-    background-color: #7E57C2;
+#switch a {
+  color: #7e57c2;
+  font-size: 1.3rem;
 }
 
-#loginbox p{
-    font-size: 2.25rem;
-    text-align: center;
+#authblock {
+  border: none;
+  background-color: #512da8;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2.5rem;
 }
 
-#oauth{
-    border-radius: 0.5rem;
-    background-color: #CDCCD9;
-    color: #3E3E3E;
-    text-align: center;
-    line-height: 2.5rem;
+#authblock:hover {
+  background-color: #7e57c2;
 }
 
-#auth_instruction{
-    width: 23.375rem;
-    height: 1.25rem;
-    text-align: center;
-    margin-top : 1rem;
+#loginbox p {
+  margin-bottom: 1rem;
+  font-size: 2.25rem;
+  text-align: center;
 }
-header{
-    margin-top: 2.22%;
-    margin-left: 5.55%;
-    width: 8rem;
-    height: 2rem;
-    font-family: 'Manrope';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 1.5rem;
-    line-height: 2.063rem;
-    display: flex;
-    align-items: center;
-  }
-  .illustration{
-    position: absolute;
-left: 8.89%;
-right: 49.58%;
-top: 26.83%;
-bottom: 20.83%;
 
-  }
- 
+#oauth {
+  border-radius: 0.5rem;
+  background-color: #cdccd9;
+  color: #3e3e3e;
+  text-align: center;
+  line-height: 2.5rem;
+  font-weight: 5rem;
+}
+
+#auth_instruction {
+  width: 23.375rem;
+  height: 1.25rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+header {
+  margin-top: 2.22%;
+  margin-left: 5.55%;
+  width: 8rem;
+  height: 2rem;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.5rem;
+  line-height: 2.063rem;
+  display: flex;
+  align-items: center;
+}
+.illustration {
+  position: absolute;
+  width: 32rem;
+  left: 8.89%;
+  right: 49.58%;
+  top: 26.83%;
+  bottom: 20.83%;
+}
+
+#forgot_password {
+  height: 1.375rem;
+  width: 23.375rem;
+  text-align: end;
+  margin-left: 1rem;
+  color:#7e57c2;
+}
+
+.line{
+    vertical-align: middle;
+    display: inline-block;
+    width: 6rem;
+    border: 1px solid #F8F8F8;
+}

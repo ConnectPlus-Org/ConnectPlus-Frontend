@@ -1,4 +1,5 @@
 import React from "react";
+// import {loginImage} from "../images/loginImage.svg"
 
 function illustration(props:{type:string}) {  
     if(props.type==="login")

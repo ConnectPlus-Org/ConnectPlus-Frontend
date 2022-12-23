@@ -22,9 +22,9 @@ const Oauth = (props : oprop ) => {
   return (
     <div id="loginbox">
       <p className="authbox">Welcome to ProFolio</p>
-      <div id="oauth" className="authbox">
+      <button id="oauth" className="authbox">
         Continue with Google
-      </div>
+      </button>
       <Instruction status={props.status} />
     </div>
   );

@@ -27,6 +27,20 @@
   background-color: #7e57c2;
 }
 
-#phone span{
-    padding-left: 5rem;
+#phone span {
+  padding-left: 5rem;
+}
+
+#signup {
+  margin-left: 50rem;
+  margin-top: 7.3rem;
+  height: 24.8rem;
+  width: 23.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#authblock{
+    margin-top: 1rem;
 }

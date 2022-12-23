@@ -96,11 +96,14 @@ header {
 }
 .illustration {
   position: absolute;
-  width: 32rem;
+  /* width: 32rem; */
   left: 8.89%;
   right: 49.58%;
   top: 26.83%;
   bottom: 20.83%;
+  width:37.375rem;
+height:26.25rem;
+/* overflow-block: hidden  ; */
 }
 
 #forgot_password {

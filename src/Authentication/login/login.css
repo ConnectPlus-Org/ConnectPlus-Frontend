@@ -1,5 +1,16 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
+* {
+  box-sizing: border-box;
+  margin : 0;
+  color: #F8F8F8;
+}
+
+body{
+  background-color: #131313;
+  overflow-x: hidden;
+  font-family: "Manrope";
+}
 .authbox {
   height: 2.875rem;
   width: 23.375rem;
@@ -13,6 +24,8 @@
   border-radius: 0.5rem;
   border: 1px solid #F8F8F8;
   border-color: aliceblue;
+  padding-left: 1rem;
+  background-color: #131313;
 }
 
 #input:focus {
@@ -21,28 +34,23 @@
   background-color: #2e2e2e;
 }
 
-#input::placeholder {
-  padding-left: 1rem;
-}
-
 input:focus::placeholder {
     color: transparent;
-    /* curs */
 }
 
 #error{
     padding-top: 0.1rem;
-    visibility: hidden;
+    /* visibility: hidden; */
     color: #CF6679;
     font-size: 0.75rem;
 }
 
-#switch {
-  top: 30%;
-  left: 20%;
+#switch { 
+  text-align: center;
 }
 
-#switch a {
+#switch p {
+    display: inline;
   color: #7e57c2;
   font-size: 1.3rem;
 }
@@ -81,6 +89,11 @@ input:focus::placeholder {
   text-align: center;
   margin-top: 1rem;
 }
+
+#auth_instruction span{
+    padding: 0.9rem;
+}
+
 header {
   margin-top: 2.22%;
   margin-left: 5.55%;
@@ -116,4 +129,31 @@ header {
     display: inline-block;
     width: 6rem;
     border: 1px solid #F8F8F8;
+}
+
+
+#logoname {
+  width: 75%;
+  height: 100%;
+  right: 0;
+}
+
+#login{
+  margin-left: 50rem;
+  margin-top: 7.3rem;
+  display: flex;
+  flex-direction: column;
+}
+
+#login>div,button,a{
+  margin: 1rem;
+}
+
+#logo{
+  padding: 0%;
+  font-family: 'Manrope';
+  font-size: 100%;
+  width : 8.8%;
+  margin-left : 8.8%;
+  margin-top: 4.4%;
 }

@@ -1,12 +1,13 @@
 import React from "react";
-import Login from "../components/LoginApp";
+import Login from "../Authentication/login/LoginApp";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SignUp from "../Authentication/Signup/SignUpApp";
 
 const App = () => {
   return <BrowserRouter>
   <Routes>
-    <Route path="/LogIn" element={<Login />} ></Route>
-    <Route></Route>
+    <Route path="/login" element={<Login />} ></Route>
+    <Route path="/signup" element={<SignUp />}></Route>
   </Routes>
 </BrowserRouter>;;
 };

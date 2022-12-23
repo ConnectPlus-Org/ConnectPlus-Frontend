@@ -15,7 +15,7 @@ const SignUp:FC = () => {
     <Illustration type="login" />
     <div id = "login">
       <Oauth status="Sign up" />
-      <Input lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address'/>
+      <Input type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address'/>
       <Authblock name="Sign Up" />
       <Switch status="Already" action='Log In' />
     </div>

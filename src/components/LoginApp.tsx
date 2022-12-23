@@ -1,17 +1,19 @@
-import React, { FC } from "react"
+import React,{useState} from "react";
 import '../index.css';
 import '../CSS/login.css' ;
 import Oauth from './loginbox';
 import Input from './authinput';
 import Switch from './authswitch';
 import Authblock from './authblock';
-import Heading from './heading';
+import Heading from './heading'
 const illustration: string = require("../images/loginImage.svg").default;
 // import { useNavigate } from "react-router-dom";
 
+
+
+
 const Login = () => {
     // const Navhandler = useNavigate()
-
     // const f =() => {
     //     Navhandler('/SignUp')
     // }

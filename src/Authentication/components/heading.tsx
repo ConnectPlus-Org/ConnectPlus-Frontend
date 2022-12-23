@@ -4,7 +4,6 @@ import React from "react";
 // const logo = require("../images/Profoliologo.svg") as string;
 const logo: string = require("../images/Profoliologo.svg").default;
 
-console.log(logo);
 function Heading() {  
     return (
       <header>
@@ -12,7 +11,7 @@ function Heading() {
       ProFolio
       </header>
     );
-  }
+}
   
-  export default Heading;
+export default Heading;
   

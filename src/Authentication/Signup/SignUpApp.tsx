@@ -15,6 +15,7 @@ const SignUp = () => {
 
     return <div>
     <Heading />  
+    <img className="illustration"src={illustration} alt="" />
     <div>
     <img className="illustration" src={illustration} alt="Enter phone number" />
     <div id = "signup">

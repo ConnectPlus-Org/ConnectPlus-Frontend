@@ -1,7 +1,7 @@
 import React, { ChangeEventHandler } from "react";
 
 type inputprops = {
-    onchange: ChangeEventHandler
+    onchange?: ChangeEventHandler
     lable: string
     placeholder: string
     message: string

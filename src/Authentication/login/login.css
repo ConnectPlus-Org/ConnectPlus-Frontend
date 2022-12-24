@@ -75,13 +75,19 @@ input:focus::placeholder {
 }
 
 #oauth {
+  z-index: 1;
   border: none;
   border-radius: 0.5rem;
   background-color: #cdccd9;
-  color: #3e3e3e;
   text-align: center;
   line-height: 2.5rem;
   font-weight: 5rem;
+}
+
+#oauth span b{
+  color: #3e3e3e;
+  font-size: 1.05rem;
+  vertical-align: middle;
 }
 
 #auth_instruction {
@@ -125,6 +131,7 @@ height:26.25rem;
   width: 23.375rem;
   text-align: end;
   margin-left: 1rem;
+  padding-right: 1.5rem;
   color:#7e57c2;
 }
 
@@ -159,4 +166,10 @@ height:26.25rem;
   width : 8.8%;
   margin-left : 8.8%;
   margin-top: 4.4%;
+}
+
+#oauth img{
+
+  vertical-align: middle;
+  margin-right: 0.4rem;
 }

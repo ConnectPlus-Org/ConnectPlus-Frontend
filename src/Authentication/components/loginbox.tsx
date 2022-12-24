@@ -1,4 +1,5 @@
 import React from "react";
+const illustration: string = require("../images/google.svg").default;
 
 type insprop = {
   status: string;
@@ -23,7 +24,8 @@ const Oauth = (props : oprop ) => {
     <div id="loginbox">
       <p className="authbox">Welcome to ProFolio</p>
       <button id="oauth" className="authbox">
-        Continue with Google
+      <img id="googleicon" src={illustration} alt="google" />
+        <span><b>Continue with Google</b></span>
       </button>
       <Instruction status={props.status} />
     </div>

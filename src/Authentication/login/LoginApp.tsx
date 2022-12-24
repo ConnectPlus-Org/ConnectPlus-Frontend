@@ -14,8 +14,8 @@ const Login = () => {
     // const f =() => {
     //     Navhandler('/SignUp')
     // }
-    function handlepass() {
-      console.log(1)
+    function handlepass(e: any) {
+      console.log(e.target.value)
     }
 
     return <div>

@@ -1,5 +1,4 @@
 import React, { ChangeEventHandler } from "react";
-import { JsxAttributeLike } from "typescript";
 
 type inputprops = {
     onchange: ChangeEventHandler

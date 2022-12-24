@@ -125,6 +125,8 @@ height:26.25rem;
   width: 23.375rem;
   text-align: end;
   margin-left: 1rem;
+  /* margin-right: 1rem; */
+  padding-right: 1.5rem;
   color:#7e57c2;
 }
 
@@ -132,7 +134,7 @@ height:26.25rem;
     vertical-align: middle;
     display: inline-block;
     width: 6rem;
-    border: 1px solid #F8F8F8;
+    border: 0.1px solid #F8F8F8;
 }
 
 

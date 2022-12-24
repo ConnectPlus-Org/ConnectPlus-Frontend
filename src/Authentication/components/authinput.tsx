@@ -2,7 +2,7 @@ import React, { ChangeEventHandler } from "react";
 import { JsxAttributeLike } from "typescript";
 
 type inputprops = {
-    onchange: ChangeEventHandler
+    onchange?: ChangeEventHandler
     lable: string
     placeholder: string
     message: string

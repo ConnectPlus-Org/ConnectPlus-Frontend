@@ -1,0 +1,35 @@
+span{
+    color: #5E35B1;
+}
+input{
+    background-color: #131313; 
+}
+.otp{
+    width:74.44vw;
+    height:80vh;
+    position: absolute;
+    /* left: 0%; */
+    right: 35%;
+    top: 10%;
+    bottom: 10%;
+
+}
+p{
+    font-family: 'Manrope';
+font-style: normal;
+}
+.topline{
+    margin-top: 5vh;
+    font-weight: 700;
+font-size: 36px;
+line-height: 49px;
+}
+.middle{
+    margin-top: -5vh;
+    font-weight: 400;
+font-size: 14px;
+line-height: 140.8%;
+}
+.lowline{
+    margin-bottom: -6vh;
+}

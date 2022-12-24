@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+#phone {
+  margin-left: 50rem;
+  margin-top: 16.125rem;
+  width: 23.375rem;
+  height: 12.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#phone button {
+  margin: 0;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  border: none;
+  display: inline;
+  background-color: #512da8;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 2.5rem;
+  width: 10rem;
+  height: 2.5rem;
+}
+
+#phone button:hover {
+  background-color: #7e57c2;
+}
+
+#phone span {
+  padding-left: 5rem;
+}
+
+#signup {
+  margin-left: 50rem;
+  margin-top: 7.3rem;
+  height: 24.8rem;
+  width: 23.375rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#authblock{
+    margin-top: 1rem;
+}

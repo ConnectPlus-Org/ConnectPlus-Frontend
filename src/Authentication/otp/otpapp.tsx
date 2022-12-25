@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import './otp.css' ;
 import Input from '../components/authinput';
 import Authblock from '../components/authblock';
@@ -8,18 +8,24 @@ const illustration: string = require("../images/otp.svg").default;
 
 const Otp = () => {
 
-    const [counter,setcounter] =useState(60);
+    const [seconds,setSeconds] =useState(60);
 
-    setInterval(()=>{
-        if(counter===0)
-        {
-          setcounter(60);      
-        }
-        else{
-        let newcount=counter-1;
-        setcounter(newcount);
-    }},1000);
-
+    // setInterval(()=>{
+    //     if(counter===0)
+    //     {
+    //       setcounter(60);      
+    //     }
+    //     else{
+    //     let newcount=counter-1;
+    //     setcounter(newcount);
+    // }},1000);
+    useEffect(()=>{
+        const timer:any=
+        seconds >0 && setInterval(()=>{
+            setSeconds(seconds-1)
+        },1000)
+        return ()=> clearInterval(timer)
+    },[seconds])
 
     return <div>
     <Heading />  
@@ -29,7 +35,7 @@ const Otp = () => {
         <p className="topline">Check For OTP</p>
         <p className="middle">Enter the OTP sent to your email address </p>
         <Otpbox />
-        <p className="lowline">Didn't get OTP?<span> Resend OTP </span> 0:{counter}</p>
+        <p className="lowline">Didn't get OTP?<span> Resend OTP </span> 0:{seconds}</p>
     
       <Authblock name="Verify" />
     </div>

@@ -50,7 +50,8 @@ input:focus::placeholder {
 }
 
 #switch p {
-    display: inline;
+  cursor: pointer;
+  display: inline;
   color: #7e57c2;
   font-size: 1.3rem;
 }

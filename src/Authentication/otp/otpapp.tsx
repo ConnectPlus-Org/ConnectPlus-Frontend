@@ -9,6 +9,14 @@ const Otp = () => {
 
     const [counter,setcounter] =useState(60);
 
+  //   useEffect(()=>{
+  //     const timer=
+  //     seconds >0 && setInterval(()=>{
+  //         setSeconds(seconds-1)
+  //     },1000)
+  //     return ()=> clearInterval(timer)
+  // },[seconds])
+
     setInterval(()=>{
         if(counter===0)
         {
@@ -32,7 +40,7 @@ const Otp = () => {
             // onChange={handleInput}
             required
             maxLength={6}></input>
-        <p className="lowline">Didn't get OTP?<span> Resend OTP </span> 0:{counter}</p>
+        <p className="lowline">Didn't get OTP?<span id="resend"> Resend OTP </span> 0:{counter}</p>
     
       <Authblock name="Verify" />
     </div>

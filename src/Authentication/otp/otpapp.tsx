@@ -3,6 +3,7 @@ import './otp.css' ;
 import Input from '../components/authinput';
 import Authblock from '../components/authblock';
 import Heading from '../components/heading';
+import Otpbox from '../components/otpbox';
 const illustration: string = require("../images/otp.svg").default;
 
 const Otp = () => {
@@ -22,16 +23,12 @@ const Otp = () => {
 
     return <div>
     <Heading />  
-    <img className="otp"src={illustration} alt="" />
+    <img className="otpillustration"src={illustration} alt="" />
     <div>
     <div id = "signup">
         <p className="topline">Check For OTP</p>
         <p className="middle">Enter the OTP sent to your email address </p>
-        <input type='text' placeholder='Enter Otp' name="otp"
-            // value={userOtp.otp}
-            // onChange={handleInput}
-            required
-            maxLength={6}></input>
+        <Otpbox />
         <p className="lowline">Didn't get OTP?<span> Resend OTP </span> 0:{counter}</p>
     
       <Authblock name="Verify" />

@@ -18,6 +18,7 @@ const Navhandler = useNavigate()
       }
 
   function handleapi(){
+    localStorage.setItem("email",email);
     axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/",{
      email:email,
      context:"register" 

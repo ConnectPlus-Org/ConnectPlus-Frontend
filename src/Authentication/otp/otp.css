@@ -18,36 +18,40 @@ p {
   font-style: normal;
 }
 .topline {
-  margin-top: 5vh;
+ 
   font-weight: 700;
   font-size: 36px;
   line-height: 49px;
 }
 .middle {
-  margin-top: -5vh;
+  
   font-weight: 400;
   font-size: 14px;
   line-height: 140.8%;
 }
 .lowline {
-  margin-bottom: -6vh;
+margin-bottom: 2vh;
 }
-#otpbox {
+.otpsignup{
+    height: 17vw ;
+}
+.otp-field {
   display: flex;
-  margin-top: -4vh;
-  margin-bottom: -4vh;
+ 
   width: 22.778vw;
   height: 6.667vh;
-  /* justify-content: space-around; */
+  /* justify-content: space-between; */
 }
-#otpbox input {
-    padding: 0.85rem;
+.otp-field__input{
+    padding:1.1rem;
   margin: 5px;
-  width: 40px;
-  border-radius: 5px;
+  font-weight: bold;
+  width: 49px;
+  height: 48px;
+  border-radius: 8px;
   border: 2px solid #e6e5ec;
 }
-#otpbox input:focus {
+.otp-field__input:focus {
   background: #2e2e2e;
 }
 input::-webkit-outer-spin-button,

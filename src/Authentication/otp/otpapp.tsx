@@ -36,7 +36,7 @@ const Otp = () => {
         <p className="topline">Check For OTP</p>
         <p className="middle">Enter the OTP sent to your email address </p>
         <Otpbox />
-        <p className="lowline">Didn't get OTP?<span id ="resend"> Resend OTP </span> 0:{seconds}</p>
+        <p className="lowline">Didn't get OTP?<span id ="resend" onClick={() => setSeconds(60)}> Resend OTP </span> 0:{seconds}</p>
     
       <Authblock name="Verify" />
     </div>

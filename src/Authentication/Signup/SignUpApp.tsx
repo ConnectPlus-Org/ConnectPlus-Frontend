@@ -20,7 +20,7 @@ const SignUp = () => {
      email:email,
      context:"register" 
     }).then((res) => {
-      console.log(res.data);
+      console.log(res);
       // localStorage.setItem("accesstoken" , res.data.tokens.access);
     })
       .catch((err) => {
@@ -28,7 +28,7 @@ const SignUp = () => {
       }
       );
   }
-  
+
     return <div>
     <Heading />  
     <img className="illustration"src={illustration} alt="" />

@@ -50,7 +50,8 @@ input:focus::placeholder {
 }
 
 #switch p {
-    display: inline;
+  cursor: pointer;
+  display: inline;
   color: #7e57c2;
   font-size: 1.3rem;
 }
@@ -69,8 +70,8 @@ input:focus::placeholder {
 }
 
 #loginbox p {
-  margin-bottom: 1rem;
-  font-size: 2.25rem;
+  margin-bottom: 0.75rem;
+  font-size: 1.75rem;
   text-align: center;
 }
 
@@ -150,7 +151,7 @@ height:26.25rem;
 }
 
 #login{
-  margin-left: 50rem;
+  margin-left: 53rem;
   margin-top: 7.3rem;
   height: 32rem;
   width: 23.375rem;

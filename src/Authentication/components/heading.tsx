@@ -8,7 +8,7 @@ function Heading() {
     return (
       <header>
         <img src={logo} alt="logo" />
-      ProFolio
+      ConnectPlus
       </header>
     );
 }

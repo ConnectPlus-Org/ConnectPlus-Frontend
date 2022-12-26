@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../Authentication/login/LoginApp";
 import SignUp from "../Authentication/Signup/SignUpApp";
-import Phone from "../Authentication/Signup/PhoneNo";
+import Phone from "../Authentication/Signup/signup";
 import OTP from "../Authentication/otp/otpapp"
 
 const App = () => {

@@ -42,14 +42,11 @@ const Navhandler = useNavigate()
     return <div>
     <Heading />  
     <img className="illustration"src={illustration} alt="" />
-    <div>
-    <img className="illustration" src={illustration} alt="Enter phone number" />
     <div id = "signup">
       <Oauth status="Sign up" />
       <Input onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address'/>
       <Authblock onclick={handleapi} name="Sign Up" />
       <Switch status="Already" action='Log In' destination={() => Navhandler('/login')} />
-    </div>
     </div>
     </div>
 }

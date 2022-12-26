@@ -8,14 +8,13 @@
 }
 
 #forgot {
-  width: 26vw;
-  height: 40vh;
+  width: 30vw;
+  height: 25vw;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   margin-top: -55vh;
   margin-left: 35vw;
-  margin-right: 35vw;
   font-size: 1.1vw;
 }
 
@@ -25,17 +24,48 @@
 
 #forgot pre {
   text-align: center;
+  width: 30vw;
   font-size: 1.1vw;
 }
 
 #forgotillustration1 {
   width: 14vw;
   margin-left: 12.9vw;
-  margin-top: 45vh;
+  margin-top: 55vh;
+  transform: rotateY(180deg);
 }
 #forgotillustration2 {
-  width: 14vw;
-  margin-left: 84.1vw;
-  margin-right: 2.01vw;
-  margin-top: -60vh;
+    position: absolute;
+    width: 14vw;
+    margin-left: 70vw;
+    margin-top: -60vh;
+}
+
+#inputbox{
+    height: 12vh;
+}
+
+@media (max-width: 800px){
+    #forgotillustration1{
+        display: none;
+    }
+    #forgotillustration2{
+        margin-left: 40vw;
+        margin-top: -47vh;
+    }
+    #forgot {
+        width: 80vw;
+        height: 40vh;
+        margin-top: 10vh;
+        margin-left: 10vw;
+        font-size: 3.5vw;
+      }
+
+    #error{
+        margin-top: 0;
+    }
+    #forgot pre{
+        width: 80vw;
+        font-size: 3vw;
+    }
 }

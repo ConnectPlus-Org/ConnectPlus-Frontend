@@ -12,14 +12,14 @@ body {
   font-family: "Manrope";
 }
 .authbox {
-  height: 3.2vw;
+  height: 3vw;
   width: 30vw;
   font-style: normal;
   font-size: 1.1vw;
 }
 
-#inputbox {
-  margin-bottom: 1.5vw;
+#inputbox p{
+  padding-left: 0.3vw;
 }
 
 #input {
@@ -131,7 +131,7 @@ header {
 }
 
 #forgot_password {
-  height: 1.5vw;
+  height: 3.5vw;
   width: 30vw;
   font-size: 1.25vw;
   text-align: end;
@@ -157,7 +157,7 @@ header {
 #login {
   margin-left: 56vw;
   margin-top: 20vh;
-  height: 40vh;
+  height: 36.4vw;
   width: 30vw;
   display: flex;
   flex-direction: column;
@@ -182,7 +182,7 @@ header {
   width: 2vw;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .illustration {
     display: none;
   }
@@ -190,7 +190,9 @@ header {
   #login {
     margin-left: 10vw;
     width: 80vw;
-    height: 60vh;
+    height: 65vh;
+    margin-top: 10vh;
+    justify-content: space-between;
   }
 
   .authbox {
@@ -235,30 +237,37 @@ header {
 
   #forgot_password {
     width: 35vw;
+    height: 5vh;
     font-size: 3.5vw;
     text-align: end;
     margin-left: 45vw;
     color: #7e57c2;
-}
+  }
 
-  #authblock{
+  #authblock {
     font-size: 3.5vw;
   }
 
   header {
     margin-top: 10vh;
-    margin-left: 30vw;
+    margin-left: 25vw;
   }
-  .line{
+  .line {
     width: 20vw;
-    margin-left: 2vw ;
+    margin-left: 2vw;
   }
-  #auth_instruction span{
+  #auth_instruction span {
     font-size: 3vw;
     margin: 2vw;
   }
 
-  #inputbox p{
+  #inputbox p {
     margin-left: 1vw;
+  }
+
+  #inputbox {
+    margin-bottom: 1vh;
+    height: 10vh;
+    margin-top: 1vh;
   }
 }

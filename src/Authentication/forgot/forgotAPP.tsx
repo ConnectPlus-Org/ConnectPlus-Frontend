@@ -3,7 +3,7 @@ import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import './forgot.css'
-const illustration: string = require("../images/otp.svg").default;
+const illustration: string = require("../images/forgot.svg").default;
 
 const Forgot = () => {
     return <div>
@@ -16,7 +16,7 @@ const Forgot = () => {
             <Authblock name="Continue"/>
             <pre>Back</pre>
         </div>
-        {/* <img id="forgotillustration2"src={illustration} alt="" /> */}
+        <img id="forgotillustration2"src={illustration} alt="" />
     </div>
 }
 

@@ -15,6 +15,5 @@ function Otpbox() {
         </div>
     );
 }
-  
+
 export default Otpbox;
-  

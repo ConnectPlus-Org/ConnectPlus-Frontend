@@ -1,57 +1,64 @@
-span{
-    color: #5E35B1;
+#resend {
+  color: #5e35b1;
+  cursor: pointer;
 }
-input{
-    background-color: #131313; 
+input {
+  background-color: #131313;
 }
-.otpillustration{
-    width:54.44vw;
-    height:80vh;
-    position: absolute;
-    /* left: 0%; */
-    right: 45%;
-    top: 10%;
-    bottom: 10%;
-
+.otpillustration {
+  width: 54.44vw;
+  height: 80vh;
+  position: absolute;
+  right: 45%;
+  top: 10%;
+  bottom: 10%;
 }
-p{
-    font-family: 'Manrope';
-font-style: normal;
+p {
+  font-family: "Manrope";
+  font-style: normal;
 }
-.topline{
-    margin-top: 5vh;
-    font-weight: 700;
-font-size: 36px;
-line-height: 49px;
+.topline {
+  margin-top: 5vh;
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 49px;
 }
-.middle{
-    margin-top: -5vh;
-    font-weight: 400;
-font-size: 14px;
-line-height: 140.8%;
+.middle {
+  margin-top: -5vh;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 140.8%;
 }
-.lowline{
-    margin-bottom: -6vh;
+.lowline {
+  margin-bottom: -6vh;
 }
-#otpbox{
-    display: flex;
-    margin-top: -4vh;
-    margin-bottom: -4vh;
-    width:22.778vw;
-    height: 6.667vh;
-    /* justify-content: space-around; */
+#otpbox {
+  display: flex;
+  margin-top: -4vh;
+  margin-bottom: -4vh;
+  width: 22.778vw;
+  height: 6.667vh;
+  /* justify-content: space-around; */
 }
-.otpelement{
-    margin: 5px;
-    width:  40px;
-    border-radius: 5px;
-    border: 2px solid #E6E5EC;
+#otpbox input {
+    padding: 0.85rem;
+  margin: 5px;
+  width: 40px;
+  border-radius: 5px;
+  border: 2px solid #e6e5ec;
 }
-.otpelement:focus{
-    background: #2E2E2E;
+#otpbox input:focus {
+  background: #2e2e2e;
 }
 input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
+input::-webkit-inner-spin-button
+{
   -webkit-appearance: none;
   margin: 0;
+}
+
+@media (max-width: 800px){
+    .otpillustration{
+        display: none;
+    }
 }

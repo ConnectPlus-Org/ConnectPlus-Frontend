@@ -6,14 +6,12 @@ import Switch from '../components/authswitch';
 import Authblock from '../components/authblock';
 import Heading from '../components/heading';
 import axios from 'axios';
+import {useNavigate} from "react-router-dom";
+
 const illustration: string = require("../images/loginImage.svg").default;
-// import { useNavigate } from "react-router-dom";
 
 function Login() {
-  // const Navhandler = useNavigate()
-  // const f =() => {
-  //     Navhandler('/SignUp')
-  // }
+  const Navhandler = useNavigate()
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
 
@@ -24,8 +22,6 @@ function Login() {
     setemail(e.target.value);
   }
   function handleapi() {
-    // console.log(email);
-    // console.log(password);
     axios.post("https://linkedin-back.azurewebsites.net/auth/account/login/", {
       email :  email ,
       password : password 
@@ -48,7 +44,7 @@ function Login() {
       <Input onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters.' />
       <a id="forgot_password">Forgot Password?</a>
       <Authblock onclick={handleapi} name="Log In" />
-      <Switch status="Don't" action='Sign Up' />
+      <Switch status="Don't" action='Sign Up' destination={() => Navhandler('/signup')}  />
     </div>
   </div>;
 }

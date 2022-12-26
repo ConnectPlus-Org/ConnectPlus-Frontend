@@ -14,7 +14,7 @@ const Phone = () => {
 
     return<div>
         <Heading />
-        <img className="illustration" src={illustration} alt="Enter phone number" />
+        <img className="illustration" id = "phoneillustration" src={illustration} alt="Enter phone number" />
         <div id="phone">
             <h1>Register your contact</h1>
             <Input onchange={handlepass} type="number" lable="Mobile Nunmber" placeholder="Enter Number" message="Enter a 10-digit valid number" />

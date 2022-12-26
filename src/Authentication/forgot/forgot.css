@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin : 0;
+  color: #F8F8F8;
+  font-family: 'Manrope';
+}
+
+#forgot { 
+    width: 26vw ;
+    height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 25vh;
+    margin-left: 35vw;
+    margin-right: 35vw;
+}
+
+#forgot p{
+    margin-top: 0.5rem;
+}
+
+#forgot pre{
+    text-align: center;
+    font-size: 1.1vw;
+}

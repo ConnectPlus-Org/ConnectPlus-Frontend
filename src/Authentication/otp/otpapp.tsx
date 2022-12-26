@@ -19,6 +19,8 @@ const Otp = () => {
     //     let newcount=counter-1;
     //     setcounter(newcount);
     // }},1000);
+
+    // e.next("input").focus()
     
     useEffect(()=>{
         const timer:any=

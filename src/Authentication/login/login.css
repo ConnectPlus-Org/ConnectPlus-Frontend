@@ -2,29 +2,34 @@
 
 * {
   box-sizing: border-box;
-  margin : 0;
-  color: #F8F8F8;
+  margin: 0;
+  color: #f8f8f8;
 }
 
-body{
+body {
   background-color: #131313;
   overflow-x: hidden;
   font-family: "Manrope";
 }
 .authbox {
-  height: 2.875rem;
-  width: 23.375rem;
+  height: 3.2vw;
+  width: 30vw;
   font-style: normal;
-  font-size: 0.875rem;
+  font-size: 1.1vw;
+}
+
+#inputbox {
+  margin-bottom: 1.5vw;
 }
 
 #input {
-  height: 2.5rem;
-  width: 23rem;
-  border-radius: 0.5rem;
-  border: 1px solid #F8F8F8;
+  font-size: 1vw;
+  height: 3.33vw;
+  width: 30vw;
+  border-radius: 0.5vw;
+  border: 1px solid #f8f8f8;
   border-color: aliceblue;
-  padding-left: 1rem;
+  padding-left: 1.25vw;
   background-color: #131313;
 }
 
@@ -35,17 +40,17 @@ body{
 }
 
 input:focus::placeholder {
-    color: transparent;
+  color: transparent;
 }
 
-#error{
-    padding-top: 0.1rem;
-    visibility: hidden;
-    color: #CF6679;
-    font-size: 0.75rem;
+#error {
+  padding-top: 0.15vw;
+  /* visibility: hidden; */
+  color: #cf6679;
+  font-size: 0.8vw;
 }
 
-#switch { 
+#switch {
   text-align: center;
 }
 
@@ -53,16 +58,15 @@ input:focus::placeholder {
   cursor: pointer;
   display: inline;
   color: #7e57c2;
-  font-size: 1.3rem;
+  font-size: 1.45vw;
 }
 
 #authblock {
   border: none;
   background-color: #512da8;
-  border-radius: 0.5rem;
-  font-size: 1rem;
+  border-radius: 0.6vw;
+  font-size: 1.15vw;
   text-align: center;
-  line-height: 2.5rem;
 }
 
 #authblock:hover {
@@ -70,36 +74,39 @@ input:focus::placeholder {
 }
 
 #loginbox p {
-  margin-bottom: 0.75rem;
-  font-size: 1.75rem;
+  margin-bottom: 0.83vw;
+  font-size: 2vw;
   text-align: center;
 }
 
 #oauth {
-  z-index: 1;
   border: none;
-  border-radius: 0.5rem;
+  border-radius: 0.6vw;
   background-color: #cdccd9;
   text-align: center;
-  line-height: 2.5rem;
-  font-weight: 5rem;
+  line-height: 2.75vw;
 }
 
-#oauth span b{
+#oauth span b {
   color: #3e3e3e;
-  font-size: 1.05rem;
+  font-size: 1.2vw;
   vertical-align: middle;
 }
 
 #auth_instruction {
-  width: 23.375rem;
-  height: 1.25rem;
+  width: 30vw;
+  height: 1.45vw;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 1.15vw;
 }
 
-#auth_instruction span{
-    padding: 0.9rem;
+#auth_instruction pre {
+  margin-left: -0.5vw;
+}
+
+#auth_instruction span {
+  padding: 1vw;
+  font-size: 1.15vw;
 }
 
 header {
@@ -107,7 +114,7 @@ header {
   margin-left: 5.55%;
   width: 8rem;
   height: 2rem;
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-style: normal;
   font-weight: 700;
   font-size: 1.5rem;
@@ -117,32 +124,29 @@ header {
 }
 .illustration {
   position: absolute;
-  /* width: 32rem; */
-  left: 8.89%;
-  right: 49.58%;
-  top: 26.83%;
-  bottom: 20.83%;
-  width:37.375rem;
-height:26.25rem;
-/* overflow-block: hidden  ; */
+  margin-left: 8.89vw;
+  margin-top: 24vh;
+  width: 42vw;
+  height: 29vw;
 }
 
 #forgot_password {
-  height: 1.375rem;
-  width: 23.375rem;
+  height: 1.5vw;
+  width: 30vw;
+  font-size: 1.25vw;
   text-align: end;
-  margin-left: 1rem;
-  padding-right: 1.5rem;
-  color:#7e57c2;
+  margin-left: 1.1vw;
+  padding-right: 1.65vw;
+  color: #7e57c2;
 }
 
-.line{
-    vertical-align: middle;
-    display: inline-block;
-    width: 6rem;
-    border: 0.1px solid #F8F8F8;
-}
+.line {
+  vertical-align: middle;
 
+  display: inline-block;
+  width: 7vw;
+  border: 0.1px solid #f8f8f8;
+}
 
 #logoname {
   width: 75%;
@@ -150,27 +154,111 @@ height:26.25rem;
   right: 0;
 }
 
-#login{
-  margin-left: 53rem;
-  margin-top: 7.3rem;
-  height: 32rem;
-  width: 23.375rem;
+#login {
+  margin-left: 56vw;
+  margin-top: 20vh;
+  height: 40vh;
+  width: 30vw;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-#logo{
+#logo {
   padding: 0%;
-  font-family: 'Manrope';
+  font-family: "Manrope";
   font-size: 100%;
-  width : 8.8%;
-  margin-left : 8.8%;
+  width: 8.8%;
+  margin-left: 8.8%;
   margin-top: 4.4%;
 }
 
-#oauth img{
-
+#oauth img {
   vertical-align: middle;
   margin-right: 0.4rem;
+}
+
+#googleicon {
+  width: 2vw;
+}
+
+@media (max-width: 600px) {
+  .illustration {
+    display: none;
+  }
+
+  #login {
+    margin-left: 10vw;
+    width: 80vw;
+    height: 60vh;
+  }
+
+  .authbox {
+    font-size: 3.33vw;
+  }
+
+  #error {
+    font-size: 2vw;
+  }
+
+  #input {
+    width: 80vw;
+    height: 6vh;
+    font-size: 3.33vw;
+    border-radius: 2vw;
+  }
+
+  #switch p {
+    font-size: 3.33vw;
+  }
+
+  .authbox {
+    height: 6vh;
+    width: 80vw;
+  }
+  #auth_instruction {
+    width: 80vw;
+    font-size: 2.3vw;
+    margin-top: 2vh;
+  }
+
+  #loginbox p {
+    font-size: 6vw;
+  }
+
+  #googleicon {
+    width: 6vw;
+  }
+  #oauth span b {
+    font-size: 3.5vw;
+  }
+
+  #forgot_password {
+    width: 35vw;
+    font-size: 3.5vw;
+    text-align: end;
+    margin-left: 45vw;
+    color: #7e57c2;
+}
+
+  #authblock{
+    font-size: 3.5vw;
+  }
+
+  header {
+    margin-top: 10vh;
+    margin-left: 30vw;
+  }
+  .line{
+    width: 20vw;
+    margin-left: 2vw ;
+  }
+  #auth_instruction span{
+    font-size: 3vw;
+    margin: 2vw;
+  }
+
+  #inputbox p{
+    margin-left: 1vw;
+  }
 }

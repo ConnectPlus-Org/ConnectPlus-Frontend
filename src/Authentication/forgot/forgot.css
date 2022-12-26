@@ -2,27 +2,40 @@
 
 * {
   box-sizing: border-box;
-  margin : 0;
-  color: #F8F8F8;
-  font-family: 'Manrope';
+  margin: 0;
+  color: #f8f8f8;
+  font-family: "Manrope";
 }
 
-#forgot { 
-    width: 26vw ;
-    height: 40vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 25vh;
-    margin-left: 35vw;
-    margin-right: 35vw;
+#forgot {
+  width: 26vw;
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin-top: -55vh;
+  margin-left: 35vw;
+  margin-right: 35vw;
+  font-size: 1.1vw;
 }
 
-#forgot p{
-    margin-top: 0.5rem;
+#forgot p {
+  margin-top: 0.5rem;
 }
 
-#forgot pre{
-    text-align: center;
-    font-size: 1.1vw;
+#forgot pre {
+  text-align: center;
+  font-size: 1.1vw;
+}
+
+#forgotillustration1 {
+  width: 14vw;
+  margin-left: 12.9vw;
+  margin-top: 45vh;
+}
+#forgotillustration2 {
+  width: 14vw;
+  margin-left: 84.1vw;
+  margin-right: 2.01vw;
+  margin-top: -60vh;
 }

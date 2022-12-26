@@ -3,10 +3,12 @@ import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import './forgot.css'
+const illustration: string = require("../images/otp.svg").default;
 
 const Forgot = () => {
     return <div>
         <Heading />
+        <img id="forgotillustration1" src={illustration} alt="" />
         <div id = "forgot">
             <div><h1>Forgot password?</h1>
             <p>No worries, reset your password </p></div>
@@ -14,6 +16,7 @@ const Forgot = () => {
             <Authblock name="Continue"/>
             <pre>Back</pre>
         </div>
+        {/* <img id="forgotillustration2"src={illustration} alt="" /> */}
     </div>
 }
 

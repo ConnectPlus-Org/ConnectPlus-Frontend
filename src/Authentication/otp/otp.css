@@ -40,6 +40,7 @@ p {
   /* justify-content: space-around; */
 }
 #otpbox input {
+    padding: 0.85rem;
   margin: 5px;
   width: 40px;
   border-radius: 5px;

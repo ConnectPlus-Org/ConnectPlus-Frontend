@@ -22,7 +22,7 @@ type oprop = {
 const Oauth = (props : oprop ) => {
   return (
     <div id="loginbox">
-      <p className="authbox">Welcome to ProFolio</p>
+      <p className="authbox">Welcome to ConnectPlus</p>
       <button id="oauth" className="authbox">
       <img id="googleicon" src={illustration} alt="google" />
         <span><b>Continue with Google</b></span>

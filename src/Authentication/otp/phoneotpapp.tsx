@@ -6,10 +6,12 @@ import OtpField from 'react-otp-field';
 import Heading from '../components/heading';
 import Otpbox from '../components/otpbox';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/otp.svg").default;
 
 const Phoneotp = () => {
 
+    const Navhandler = useNavigate();
     const [seconds,setSeconds] =useState(60);
     const [value, setValue] = useState('');
 
@@ -34,17 +36,20 @@ const Phoneotp = () => {
     },[seconds])
 
     function handleapi(){
-        // const email=localStorage.getItem("email");
-        // axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/verify/",{
-        //     email:email,
-        //     otp:value
-        // }).then((res) => {
-        //     console.log(res.data);
-        //   })
-        //     .catch((err) => {
-        //       console.log(err);
-        //     }
-        //     );
+        const number=localStorage.getItem("number");
+        axios.post("https://linkedin-back.azurewebsites.net/auth/otp/phone/verify/",{
+            phone_number:number,
+            otp:value
+        }).then((res) => {
+            if(res.status==200)
+            {
+                Navhandler("/set_password");
+            }
+          })
+            .catch((err) => {
+              console.log(err);
+            }
+            );
     }
 
     return <div>

@@ -6,24 +6,14 @@ import OtpField from 'react-otp-field';
 import Heading from '../components/heading';
 import Otpbox from '../components/otpbox';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/otp.svg").default;
 
 const Otp = () => {
 
+    const Navhandler = useNavigate();
     const [seconds,setSeconds] =useState(60);
     const [value, setValue] = useState('');
-
-    // setInterval(()=>{
-    //     if(counter===0)
-    //     {
-    //       setcounter(60);      
-    //     }
-    //     else{
-    //     let newcount=counter-1;
-    //     setcounter(newcount);
-    // }},1000);
-
-    // e.next("input").focus()
     
     useEffect(()=>{
         const timer:any=
@@ -36,11 +26,18 @@ const Otp = () => {
     function handleapi(){
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
+        const context = localStorage.getItem("context");
         axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/verify/",{
             email:email,
             otp:value
         }).then((res) => {
-            console.log(res.data);
+            if(res.status==200)
+            {
+                if(context=='register')
+                Navhandler("/authphone");
+                else
+                Navhandler("/reset_password");
+            }
           })
             .catch((err) => {
               console.log(err);

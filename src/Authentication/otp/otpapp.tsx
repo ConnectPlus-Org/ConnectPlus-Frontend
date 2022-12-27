@@ -51,7 +51,7 @@ const Otp = () => {
     <Heading />  
     <img className="otpillustration"src={illustration} alt="" />
     <div>
-    <div id = "signup" style={{height:"17vw"}}>
+    <div id = "otpbox">
         <p className="topline">Check For OTP</p>
         <p className="middle">Enter the OTP sent to your email address </p>
         <OtpField

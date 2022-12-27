@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
 #phone {
-  margin-left: 50rem;
-  margin-top: 16.125rem;
-  width: 23.375rem;
-  height: 12.5rem;
+  margin-left: 60vw;
+  margin-top: 25vh;
+  width: 30vw;
+  height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -30,19 +30,43 @@
 }
 
 #phone span {
-  padding-left: 5rem;
+  padding-left: 6vw;
 }
 
 #signup {
-  margin-left: 53rem;
-  margin-top: 7.3rem;
-  height: 24.8rem;
-  width: 23.375rem;
+  margin-left: 58vw;
+  margin-top: 20vh;
+  height: 30vw;
+  width: 30vw;
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 #authblock{
-    margin-top: 1rem;
+    margin-top: -1vw;
+}
+
+@media (max-width: 800px) 
+{
+    #signup {
+        margin-left: 10vw;
+        margin-top: 10vh;
+        height: 50vh;
+        width: 30vw;
+    }
+
+    #phone{
+        width: 80vw;
+        margin-left: 10vw;
+        font-size: 3vw;
+    }
+
+    #phoneillustration{
+        display: block;
+        margin-left: 40vw;
+        margin-top: 5vh;
+        width: 30vw;
+      }
+
 }

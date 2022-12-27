@@ -9,7 +9,7 @@ type inputprops = {
 }
 
 const Input = (props: inputprops) => {
-    return <div className="authbox" ><p>{props.lable}</p><input id="input" placeholder= {props.placeholder} type={props.type} onChange={props.onchange} /><p id="error">{props.message}</p></div>
+    return <div className="authbox" id = "inputbox" ><p>{props.lable}</p><input id="input" placeholder= {props.placeholder} type={props.type} onChange={props.onchange} /><p id="error">{props.message}</p></div>
 }
 
 export default Input;

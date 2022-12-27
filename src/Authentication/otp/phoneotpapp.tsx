@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import './phoneotp.css' ;
+import './otp.css' ;
 import Input from '../components/authinput';
 import Authblock from '../components/authblock';
 import OtpField from 'react-otp-field';

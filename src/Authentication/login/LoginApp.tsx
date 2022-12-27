@@ -42,7 +42,7 @@ function Login() {
       <Oauth status="Log in" />
       <Input onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
       <Input onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters.' />
-      <a id="forgot_password">Forgot Password?</a>
+      <p onClick={() => Navhandler('/forgot_password')} id="forgot_password">Forgot Password?</p>
       <Authblock onclick={handleapi} name="Log In" />
       <Switch status="Don't" action='Sign Up' destination={() => Navhandler('/signup')}  />
     </div>

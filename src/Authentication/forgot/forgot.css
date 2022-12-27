@@ -23,6 +23,7 @@
 }
 
 #forgot pre {
+  cursor: pointer;
   text-align: center;
   width: 30vw;
   font-size: 1.1vw;

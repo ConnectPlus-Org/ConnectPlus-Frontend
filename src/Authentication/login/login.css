@@ -131,6 +131,7 @@ header {
 }
 
 #forgot_password {
+  cursor: pointer;
   height: 3.5vw;
   width: 30vw;
   font-size: 1.25vw;

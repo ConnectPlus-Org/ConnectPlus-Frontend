@@ -31,9 +31,10 @@ const Otp = () => {
             email:email,
             otp:value
         }).then((res) => {
-            if(res.status==200)
+            console.log(res.data);
+            if(res.status===200)
             {
-                if(context=='register')
+                if(context==='register')
                 Navhandler("/authphone");
                 else
                 Navhandler("/reset_password");

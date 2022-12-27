@@ -3,8 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "../Authentication/login/LoginApp";
 import SignUp from "../Authentication/Signup/SignUpApp";
 import Phone from "../Authentication/Signup/signup";
-import OTP from "../Authentication/otp/otpapp"
-import PhoneOTP from "../Authentication/phoneotp/phoneotpapp"
+import OTP from "../Authentication/otp/emailotpapp"
+import PhoneOTP from "../Authentication/otp/phoneotpapp"
 import Forgot from "../Authentication/forgot/forgotAPP";
 import Resetpass from "../Authentication/reset password/resetPassApp"
 import Setpass from "../Authentication/set password/setPassApp"

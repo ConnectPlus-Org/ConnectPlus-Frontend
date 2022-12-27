@@ -37,3 +37,33 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
     width: 30vw;
     font-size: 1.1vw;
   }
+
+  @media (max-width: 800px){
+    #svg1{
+      position: absolute;
+      width: 26.67vw;
+      height: 10.75vh;
+      left:36.16vw;
+      top:17vh;
+      
+      transform: scaleX(-1);
+  }
+  #svg2{
+    display: none;
+  }
+  #setpass{
+    position: absolute;
+    left: 8.44%;
+    right: 4.44%;
+    top: 29.88%;
+    bottom: 32.88%;
+    margin-left: 0;
+    margin-top: 0;
+    width: 91.1111vw;
+    height: 37.25vh;
+}
+  #setpass pre{
+    width: 80vw;
+    font-size: 3vw;
+}
+}

@@ -13,8 +13,8 @@ function passwordset(){
        <Heading /> 
        <img className='svgsetpass' id='svg1' src={illustration} alt="" />
        <div id="setpass" >
-       <div><h1>Set password?</h1>
-            <p>No worries, set password</p></div>
+       <div><h1 className='topline'>Set password?</h1>
+            <p className='middle'>No worries, set password</p></div>
             <Input  type="password" lable="Password" placeholder="Enter Password" message="Required Field" />
             <Input  type="password" lable="Confirm-Password" placeholder="Enter Password" message="Required Field" />
             <br />

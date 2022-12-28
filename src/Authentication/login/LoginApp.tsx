@@ -26,7 +26,7 @@ function Login() {
       email :  email ,
       password : password 
     }).then((res) => {
-      console.log(res.data.message);
+      alert(res.data.message);
       localStorage.setItem("accesstoken" , res.data.tokens.access);
     })
       .catch((err) => {

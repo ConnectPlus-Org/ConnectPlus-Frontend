@@ -45,7 +45,7 @@ input:focus::placeholder {
 
 #error {
   padding-top: 0.15vw;
-  /* visibility: hidden; */
+  visibility: hidden;
   color: #cf6679;
   font-size: 0.8vw;
 }

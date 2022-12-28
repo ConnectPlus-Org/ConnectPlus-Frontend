@@ -26,7 +26,7 @@ function Passwordset(){
     function handleapi(){
         if(password===password2)
         {
-            axios.post("https://linkedin-back.azurewebsites.net/auth/password/forget/",{
+            axios.put("https://linkedin-back.azurewebsites.net/auth/password/forget/",{
             email:email,
             new_password:password,
             otp:otp

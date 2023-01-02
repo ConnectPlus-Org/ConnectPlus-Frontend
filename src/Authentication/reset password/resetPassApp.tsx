@@ -4,6 +4,7 @@ import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import axios from 'axios';
+import Loader from "../../loader";
 const illustration: string = require("../images/setpass.svg").default;
 
 
@@ -12,8 +13,10 @@ function Passwordset(){
 
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
+    const [loading,setLoading]=useState(false);
     const email = localStorage.getItem("email");
     const otp = localStorage.getItem("otp")
+    const rightpass = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/
 
     function handlepass(e:any){
         setpassword(e.target.value);
@@ -24,6 +27,7 @@ function Passwordset(){
     }
 
     function handleapi(){
+        setLoading(true);
         if(password===password2)
         {
             axios.put("https://linkedin-back.azurewebsites.net/auth/password/forget/",{
@@ -32,19 +36,22 @@ function Passwordset(){
             otp:otp
             }).then((res) => {
                 console.log(res.data);
+                setLoading(false);
               })
                 .catch((err) => {
                   console.log(err);
+                  setLoading(false);
                 }
                 );
             localStorage.clear();
         }
         else
-        console.log("passwords not matching");
+        {console.log("passwords not matching");
+        setLoading(false);}
     }
 
-    return (
-    <div>
+    return <div>
+        {loading?<Loader />:<div>
        <Heading /> 
        <img className='svgsetpass' id='svg1' src={illustration} alt="" />
        <div id="setpass" >
@@ -58,6 +65,7 @@ function Passwordset(){
             
        </div>
        <img className='svgsetpass' id='svg2' src={illustration} alt="" />
+    </div>}
     </div>
-);}
+}
 export default Passwordset;

@@ -1,5 +1,8 @@
 import React from "react";
+// import * as google from 'googleapis';
 const illustration: string = require("../images/google.svg").default;
+// const {google} = require('googleapis');
+
 
 type insprop = {
   status: string;
@@ -20,6 +23,9 @@ type oprop = {
 };
 
 const Oauth = (props : oprop ) => {
+
+ 
+
   return (
     <div id="loginbox">
       <p className="authbox">Welcome to ConnectPlus</p>

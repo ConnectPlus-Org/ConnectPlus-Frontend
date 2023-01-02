@@ -4,6 +4,7 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import "../login/login.css";
 import "./signup.css";
+import Loader from '../../loader';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/signup.svg").default;

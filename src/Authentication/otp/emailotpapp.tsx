@@ -24,7 +24,6 @@ const Otp = () => {
     },[seconds])
 
     function handleapi(){
-        localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
         const context = localStorage.getItem("context");
         axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/verify/",{
@@ -34,6 +33,7 @@ const Otp = () => {
             console.log(res.data);
             if(res.status===200)
             {
+                localStorage.setItem("otp",value);
                 if(context==='register')
                 Navhandler("/authphone");
                 else

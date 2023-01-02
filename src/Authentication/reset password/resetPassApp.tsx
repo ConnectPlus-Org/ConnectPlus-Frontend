@@ -35,6 +35,7 @@ function Passwordset(){
               })
                 .catch((err) => {
                   console.log(err);
+                  console.log(otp)
                 }
                 );
             localStorage.clear();

@@ -34,8 +34,9 @@ function Login() {
       Navhandler('/success')
     })
       .catch((err) => {
-        console.log(err);
         setLoading(false);
+        document.getElementById("error")!.style.visibility = "visible";
+        console.log(err);
       }
       );
 

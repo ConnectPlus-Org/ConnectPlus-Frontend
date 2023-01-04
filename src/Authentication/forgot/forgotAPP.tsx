@@ -72,7 +72,6 @@ const Forgot = () => {
             <div><h1>Forgot password?</h1>
             <p>No worries, reset your password </p></div>
             <Input onchange={handlemail} type="text" lable="Email Address" placeholder="Enter Email" message={errormsg} />
-            {/* <p id='validation'>Invalid Mail</p> */}
             <br />
             <Authblock onclick={Handleapi} name="Continue"/>
             <pre onClick={()=>Navhandler('/login')}> Back </pre>

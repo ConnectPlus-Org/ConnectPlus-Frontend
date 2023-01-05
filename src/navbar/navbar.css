@@ -1,3 +1,38 @@
 #navbar{
     width: 15vw;
+    height: 100vh;
+    background-color: black;
+    position:sticky;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    vertical-align:middle;
+}
+
+.navimg {
+    margin-right: 1vw;
+    width: 2.5vw;
+    vertical-align: middle;
+}
+
+.navitem {
+    height: 3.3vw;
+    margin: 1vw;
+    margin-left: 0.5vw;
+    font-size: 1.5vw;
+    width: 12vw;
+    overflow-y: hidden;
+}
+
+#navlogo{
+    margin: 1vw;
+}
+
+#navlogoimg{
+    margin-right: 0.2vw;
+}
+
+#accountimg{
+    border: 0.2vw solid white;
+    border-radius: 50%;
 }

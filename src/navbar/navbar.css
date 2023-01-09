@@ -1,8 +1,8 @@
 #navbar{
-    width: 15vw;
+    width: 11.11vw;
     height: 100vh;
     background-color: black;
-    position:sticky;
+    position:absolute;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */
@@ -26,11 +26,11 @@
 }
 
 #navlogo{
-    margin: 1vw;
+    margin: 0.9vw;
 }
 
 #navlogoimg{
-    width: 2.5vw;
+    width: 2vw;
     margin-right: 0.2vw;
 }
 

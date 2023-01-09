@@ -4,6 +4,7 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import "../login/login.css";
 import "./signup.css";
+import Loader from '../../loader';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/signup.svg").default;
@@ -11,11 +12,13 @@ const illustration: string = require("../images/signup.svg").default;
 const Phone = () => {
   const Navhandler = useNavigate();
   const [number, setnumber] = useState("");
+  const [loading,setLoading]=useState(false);
 
   function handlenumber(e: any) {
     setnumber(e.target.value);
   }
   function Handleapi() {
+    setLoading(true);
     axios
       .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
         phone_number: number,
@@ -26,17 +29,20 @@ const Phone = () => {
         if (res.status === 200) {
           Navhandler("/phoneotp");
         } else {
+          document.getElementById("error")!.style.visibility = "hidden";
+          setLoading(false);
           console.log("f");
         }
         localStorage.setItem("number", number);
       })
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   }
 
-  return (
-    <div>
+  return (<div>
+    {(loading?<Loader/>:<div>
       <Heading />
       <img
         className="illustration"
@@ -58,6 +64,7 @@ const Phone = () => {
           <span>Skip</span>
         </div>
       </div>
+    </div>)}
     </div>
   );
 };

@@ -18,7 +18,7 @@ p {
   font-style: normal;
 }
 .topline {
-  width: 21.52vw;
+  width: 30vw;
   height: 6.67vh;  
   font-weight: 700;
   font-size: 2.25rem;
@@ -53,7 +53,9 @@ margin-bottom: 2vh;
   width: 3.4vw;
   height:3.4vw ;
   border-radius: 8px;
-  border: 2px solid #e6e5ec;
+  border: 2px solid ;
+  border-color: #e6e5ec;
+  
 }
 #otpbox {
     margin-left: 58vw;
@@ -95,6 +97,7 @@ input::-webkit-inner-spin-button
         margin-top: 0;
         width: 91.1111vw;
         height: 37.25vh;
+        
     }
     .otp-field__input{
         width: 11.4806vw;

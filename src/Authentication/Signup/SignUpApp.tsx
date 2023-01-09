@@ -6,11 +6,13 @@ import Switch from '../components/authswitch';
 import Authblock from '../components/authblock';
 import Heading from '../components/heading';
 import axios from "axios";
+import Loader from '../../loader';
 import {useNavigate} from "react-router-dom";
 const illustration: string = require("../images/signup.svg").default;
 
 const SignUp = () => {
 const Navhandler = useNavigate()
+const [loading,setLoading]=useState(false);
 
   const [email,setemail] = useState("");  
   function handlemail(e:any) {
@@ -18,7 +20,9 @@ const Navhandler = useNavigate()
       }
 
   function handleapi(){
+    setLoading(true);
     localStorage.setItem("email",email);
+    localStorage.setItem("context",'register');
     axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/",{
      email:email,
      context:"register" 
@@ -35,12 +39,15 @@ const Navhandler = useNavigate()
       // localStorage.setItem("accesstoken" , res.data.tokens.access);
     })
       .catch((err) => {
+        setLoading(false);
+        // alert(err.response.data.email)
         console.log(err);
       }
       );
   }
 
-    return <div>
+  return <div>
+    {(loading?<Loader/>:<div>
     <Heading />  
     <img className="illustration"src={illustration} alt="" />
     <div id = "signup">
@@ -49,7 +56,8 @@ const Navhandler = useNavigate()
       <Authblock onclick={handleapi} name="Sign Up" />
       <Switch status="Already" action='Log In' destination={() => Navhandler('/login')} />
     </div>
-    </div>
+    </div>)}
+  </div>
 }
 
 export default SignUp;

@@ -5,14 +5,17 @@ import Authblock from '../components/authblock';
 import OtpField from 'react-otp-field';
 import Heading from '../components/heading';
 import Otpbox from '../components/otpbox';
+import Loader from "../../loader";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/otp.svg").default;
 
 const Phoneotp = () => {
 
+    const Navhandler = useNavigate();
     const [seconds,setSeconds] =useState(60);
     const [value, setValue] = useState('');
-
+    const [loading,setLoading]=useState(false);
     // setInterval(()=>{
     //     if(counter===0)
     //     {
@@ -33,21 +36,53 @@ const Phoneotp = () => {
         return ()=> clearInterval(timer)
     },[seconds])
 
+
+    function ResendApi(){
+        if(seconds===0){
+    const number=localStorage.getItem("number");
+    axios
+      .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
+        phone_number: number,
+      })
+      .then((res) => {
+        console.log(res.data.message);
+        console.log(res.status);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+        setSeconds(60);}
+        else
+        {
+            //if timer not go brr
+            console.log("wait");
+        }
+    }
+
     function handleapi(){
-        // const email=localStorage.getItem("email");
-        // axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/verify/",{
-        //     email:email,
-        //     otp:value
-        // }).then((res) => {
-        //     console.log(res.data);
-        //   })
-        //     .catch((err) => {
-        //       console.log(err);
-        //     }
-        //     );
+        setLoading(true);
+        const number=localStorage.getItem("number");
+        axios.post("https://linkedin-back.azurewebsites.net/auth/otp/phone/verify/",{
+            phone_number:number,
+            otp:value
+        }).then((res) => {
+            setLoading(false);
+            if(res.status===200)
+            {
+                Navhandler("/set_password");
+            }
+            
+          })
+            .catch((err) => {
+              console.log(err);
+              setLoading(false);
+            }
+            );
+           
     }
 
     return <div>
+        {loading?<Loader />:(<div>
     <Heading />  
     <img className="otpillustration"src={illustration} alt="" />
     <div>
@@ -64,11 +99,11 @@ const Phoneotp = () => {
             isTypeNumber
             inputProps={{ className: 'otp-field__input', disabled: false }}
         />
-        <p className="lowline">Didn't get OTP?<span id ="resend" onClick={() => setSeconds(60)}> Resend OTP </span> 0:{seconds}</p>
+        <p className="lowline">Didn't get OTP?<span id ="resend" onClick={ResendApi}> Resend OTP </span> 0:{seconds}</p>
     
       <Authblock name="Verify" onclick={handleapi}/>
     </div>
-    </div>
+    </div></div>)}
     </div>
 }
 

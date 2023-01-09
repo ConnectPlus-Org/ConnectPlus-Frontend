@@ -41,9 +41,13 @@
     margin-left: 70vw;
     margin-top: -60vh;
 }
+#validation{
+  display: none;
+  font-size: 1rem;
+}
 
 #inputbox{
-    height: 12vh;
+    height: 9vh;
 }
 
 @media (max-width: 800px){

@@ -25,7 +25,7 @@ body {
 #input {
   font-size: 1vw;
   height: 3.33vw;
-  width: 30vw;
+  width: 100%;
   border-radius: 0.5vw;
   border: 1px solid #f8f8f8;
   border-color: aliceblue;

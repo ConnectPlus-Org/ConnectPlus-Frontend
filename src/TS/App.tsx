@@ -8,6 +8,7 @@ import PhoneOTP from "../Authentication/otp/phoneotpapp"
 import Forgot from "../Authentication/forgot/forgotAPP";
 import Resetpass from "../Authentication/reset password/resetPassApp"
 import Setpass from "../Authentication/set password/setPassApp"
+import Profile  from "../Authentication/profile creation/profileApp"
 
 const App = () => {
   return <BrowserRouter>
@@ -20,6 +21,7 @@ const App = () => {
     <Route path="/forgot_password" element={<Forgot />}></Route>
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
+    <Route path="/profile" element={<Profile />}></Route>
   </Routes>
 </BrowserRouter>;;
 };

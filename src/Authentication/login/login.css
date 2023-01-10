@@ -252,6 +252,8 @@ header {
   header {
     margin-top: 10vh;
     margin-left: 25vw;
+    width: 50vw;
+    justify-content: center;
   }
   .line {
     width: 20vw;

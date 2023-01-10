@@ -32,7 +32,7 @@ const Edit_profile = () => {
         <div>
           Headline
           <br />
-          <input id="headline" placeholder="Headline" />
+          <input id="headline" />
         </div>
     <button>Save</button>
       </div>

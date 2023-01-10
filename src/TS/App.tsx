@@ -25,7 +25,7 @@ const App = () => {
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
-    <Route path="/edit_profile" element={ <Edit_profile />}></Route>
+    <Route path="/account" element={ <Edit_profile />}></Route>
     <Route path="/profile" element={<Profile />}></Route>
   </Routes>
 </BrowserRouter>;;

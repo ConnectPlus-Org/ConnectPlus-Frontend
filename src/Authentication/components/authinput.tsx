@@ -7,10 +7,11 @@ type inputprops = {
     message: string
     type: string
     style?: object
+    err_id?: string
 }
 
 const Input = (props: inputprops) => {
-    return <div style={props.style} className="authbox" id = "inputbox" ><p>{props.lable}</p><input id="input" placeholder= {props.placeholder} type={props.type} onChange={props.onchange} /><p id="error">{props.message}</p></div>
+    return <div style={props.style} className="authbox" id = "inputbox" ><p>{props.lable}</p><input className="input" placeholder= {props.placeholder} type={props.type} onChange={props.onchange} /><p className="error" id={props.err_id}>{props.message}</p></div>
 }
 
 export default Input;

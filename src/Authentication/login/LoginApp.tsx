@@ -23,19 +23,20 @@ function Login() {
   function handlemail(e: any) {
     setemail(e.target.value);
   }
+  function handlerror() {
+    // document.getElementById("log")!.style.visibility = "visible";
+  }
   function handleapi() {
     setLoading(true);
     axios.post("https://linkedin-back.azurewebsites.net/auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {
-      // alert(res.data.message);
       localStorage.setItem("accesstoken" , res.data.tokens.access);
       Navhandler('/success')
     })
       .catch((err) => {
         setLoading(false);
-        document.getElementById("error")!.style.visibility = "visible";
         console.log(err);
       }
       );
@@ -47,7 +48,7 @@ function Login() {
   <img className="illustration" src={illustration} alt="" />
   <div id="login">
     <Oauth status="Log in" />
-    <Input onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
+    <Input onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' err_id="log"/>
     <Input onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters.' />
     <p onClick={() => Navhandler('/forgot_password')} id="forgot_password">Forgot Password?</p>
     <Authblock onclick={handleapi} name="Log In" />

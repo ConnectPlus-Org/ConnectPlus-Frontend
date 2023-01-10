@@ -22,7 +22,7 @@ body {
   padding-left: 0.3vw;
 }
 
-#input {
+.input {
   font-size: 1vw;
   height: 3.33vw;
   width: 100%;
@@ -33,17 +33,16 @@ body {
   background-color: #131313;
 }
 
-#input:focus {
+.input:focus {
   -webkit-appearance: none;
   outline: none;
   background-color: #2e2e2e;
 }
-
-input:focus::placeholder {
+.input:focus::placeholder {
   color: transparent;
 }
 
-#error {
+.error {
   padding-top: 0.15vw;
   visibility: hidden;
   color: #cf6679;
@@ -200,11 +199,11 @@ header {
     font-size: 3.33vw;
   }
 
-  #error {
+  .error {
     font-size: 2vw;
   }
 
-  #input {
+  .input {
     width: 80vw;
     height: 6vh;
     font-size: 3.33vw;

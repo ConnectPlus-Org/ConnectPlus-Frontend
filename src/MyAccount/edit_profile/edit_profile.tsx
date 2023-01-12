@@ -6,7 +6,13 @@ const Edit_profile = () => {
   return (
     <div>
       <Nav />
-      <div id="account_nav"></div>
+      <div id="account_nav">
+        <p>Edit profile</p>
+        <p>Skill Section</p>
+        <p>Experience</p>
+        <p>About Me</p>
+        <p>Education</p>
+      </div>
       <div id="edit_profile">
         <img />
         <div>
@@ -32,7 +38,7 @@ const Edit_profile = () => {
         <div>
           Headline
           <br />
-          <input id="headline" />
+          <input id="headline" placeholder="Heading"/>
         </div>
     <button>Save</button>
       </div>

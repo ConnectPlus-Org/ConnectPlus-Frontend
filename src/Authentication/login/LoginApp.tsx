@@ -19,12 +19,10 @@ function Login() {
 
   function handlepass(e: any) {
     setpassword(e.target.value);
+    document.getElementById("log")!.style.visibility = "visible";
   }
   function handlemail(e: any) {
     setemail(e.target.value);
-  }
-  function handlerror() {
-    // document.getElementById("log")!.style.visibility = "visible";
   }
   function handleapi() {
     setLoading(true);
@@ -40,7 +38,6 @@ function Login() {
         console.log(err);
       }
       );
-
   }
   return   <div>
   {(loading?<Loader/>:<div>
@@ -48,7 +45,7 @@ function Login() {
   <img className="illustration" src={illustration} alt="" />
   <div id="login">
     <Oauth status="Log in" />
-    <Input onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' err_id="log"/>
+    <Input err_id="log" onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
     <Input onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters.' />
     <p onClick={() => Navhandler('/forgot_password')} id="forgot_password">Forgot Password?</p>
     <Authblock onclick={handleapi} name="Log In" />

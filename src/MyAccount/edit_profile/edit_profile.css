@@ -9,6 +9,12 @@
   margin-top: 10vh;
 }
 
+#account_nav p{
+  cursor: pointer;
+  text-align: center;
+  margin-top: 3.4vw;
+}
+
 #edit_profile {
   font-family: "Manrope";
   font-style: normal;

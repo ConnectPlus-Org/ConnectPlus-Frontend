@@ -9,9 +9,8 @@ import Forgot from "../Authentication/forgot/forgotAPP";
 import Resetpass from "../Authentication/reset password/resetPassApp"
 import Setpass from "../Authentication/set password/setPassApp"
 import Success from "../Authentication/login/success";
-import Nav from "../navbar/navbar";
 import Profile  from "../Authentication/profile creation/profileApp"
-import Edit_profile from "../MyAccount/edit_profile/edit_profile";
+import Editprofile from "../MyAccount/edit_profile/edit_profile";
 
 const App = () => {
   return <BrowserRouter>
@@ -25,7 +24,7 @@ const App = () => {
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
-    <Route path="/account" element={ <Edit_profile />}></Route>
+    <Route path="/account" element={ <Editprofile />}></Route>
     <Route path="/profile" element={<Profile />}></Route>
   </Routes>
 </BrowserRouter>;;

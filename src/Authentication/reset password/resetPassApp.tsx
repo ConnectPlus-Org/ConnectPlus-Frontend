@@ -16,14 +16,27 @@ function Passwordset(){
     const [loading,setLoading]=useState(false);
     const email = localStorage.getItem("email");
     const otp = localStorage.getItem("otp")
-    const rightpass = /^(?=.[a-z])(?=.[A-Z])(?=.\d)(?=.[@$!%?&])[A-Za-z\d@$!%?&]{8,}$/
 
     function handlepass(e:any){
         setpassword(e.target.value);
+        if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
+        {
+            document.getElementById("pass")!.style.visibility = "hidden";
+        }
+        else{
+            document.getElementById("pass")!.style.visibility = "visible";
+        }
     }
 
     function handlepass2(e:any){
         setpassword2(e.target.value);
+        if(password!=password2)
+        {
+            document.getElementById("pass2")!.style.visibility = "visible";
+        }
+        else{
+            document.getElementById("pass2")!.style.visibility = "hidden";
+        }
     }
 
     function handleapi(){
@@ -57,8 +70,8 @@ function Passwordset(){
        <div id="setpass" >
        <div><h1 className='topline'>Reset password?</h1>
             <p className='middle'>No worries, reset password anytime</p></div>
-            <Input   onchange={handlepass} type="password" lable="Password" placeholder="Enter Password" message="Required Field" />
-            <Input  onchange={handlepass2} type="password" lable="Confirm-Password" placeholder="Enter Password" message="Required Field" />
+            <Input   onchange={handlepass} type="password" lable="Password" placeholder="Enter Password" message="Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet" err_id='pass' />
+            <Input  onchange={handlepass2} type="password" lable="Confirm-Password" placeholder="Enter Password" message="Passwords Must Match" err_id='pass2'/>
             <br />
             <Authblock onclick={handleapi} name="Save"/>
             <pre>Cancel</pre>

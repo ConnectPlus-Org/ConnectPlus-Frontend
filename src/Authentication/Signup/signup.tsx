@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import "../login/login.css";

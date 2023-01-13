@@ -2,7 +2,7 @@ import React from "react";
 import Nav from "../../navbar/navbar";
 import "./edit_profile.css";
 
-const Edit_profile = () => {
+const Editprofile = () => {
   return (
     <div>
       <Nav />
@@ -14,7 +14,7 @@ const Edit_profile = () => {
         <p>Education</p>
       </div>
       <div id="edit_profile">
-        <img />
+        <img alt="" />
         <div>
           First Name
           <br />
@@ -46,4 +46,4 @@ const Edit_profile = () => {
   );
 };
 
-export default Edit_profile;
+export default Editprofile;

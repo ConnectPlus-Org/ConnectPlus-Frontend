@@ -1,11 +1,9 @@
 #setpass {
     width: 30vw;
-    height: 25vw;
+    height: 30vw;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    /* margin-top: -55vh; */
-    /* margin-left: 35vw; */
+    justify-content: space-between;
     font-size: 1.1vw;
     position: absolute;
     top: 24vh;

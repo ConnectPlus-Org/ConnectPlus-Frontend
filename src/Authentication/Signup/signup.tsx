@@ -12,15 +12,28 @@ const Phone = () => {
   const Navhandler = useNavigate();
   const [number, setnumber] = useState("");
   const [loading,setLoading]=useState(false);
+  const email =localStorage.getItem("email")
 
   function handlenumber(e: any) {
-    setnumber(e.target.value);
+    if(e.target.value>=1000000000 && e.target.value<10000000000){
+      document.getElementById("num")!.style.visibility = "hidden"
+      document.getElementById("numb")!.style.borderColor = "#66DF98";
+      setnumber(e.target.value);
+    }
+    else
+    {setnumber("")
+    if(e.target.value==="")
+    {document.getElementById("num")!.style.visibility = "hidden";
+    document.getElementById("numb")!.style.borderColor = "white";}
+    else
+    {document.getElementById("num")!.style.visibility = "visible";
+    document.getElementById("numb")!.style.borderColor = "#CF6679";}}
   }
   function handleskip(){
     Navhandler('/success');
   }
   function Handleapi() {
-    setLoading(true);
+    if(number){setLoading(true);
     axios
       .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
         phone_number: number,
@@ -31,7 +44,6 @@ const Phone = () => {
         if (res.status === 200) {
           Navhandler("/phoneotp");
         } else {
-          document.getElementById("error")!.style.visibility = "hidden";
           setLoading(false);
           console.log("f");
         }
@@ -40,7 +52,7 @@ const Phone = () => {
       .catch((err) => {
         console.log(err);
         setLoading(false);
-      });
+      });}
   }
 
   return (<div>
@@ -60,6 +72,8 @@ const Phone = () => {
           lable="Mobile Number"
           placeholder="Enter Number"
           message="Enter a 10-digit valid number"
+          err_id="num"
+          inp="numb"
         />
         <div>
           <button onClick={Handleapi}>Verify</button>

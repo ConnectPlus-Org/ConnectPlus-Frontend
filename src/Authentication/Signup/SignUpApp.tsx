@@ -26,6 +26,7 @@ const SignUp = () => {
     } 
     else {
       document.getElementById("sign")!.style.visibility = "visible";
+      document.getElementById("signb")!.style.borderColor = "#CF6679";
     }
   }
 
@@ -46,11 +47,9 @@ const SignUp = () => {
         } else {
           console.log("f");
         }
-        // localStorage.setItem("accesstoken" , res.data.tokens.access);
       })
       .catch((err) => {
         setLoading(false);
-        // alert(err.response.data.email)
         console.log(err);
       });
   }

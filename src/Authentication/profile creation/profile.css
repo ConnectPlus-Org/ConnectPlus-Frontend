@@ -16,6 +16,10 @@ flex-direction: column;
 justify-content: space-between;
 
 }
+.smol{
+    width: 35.5556vw;
+height: 54.5833vh;
+}
 .bigboi{
     font-family: 'Manrope';
 font-style: normal;

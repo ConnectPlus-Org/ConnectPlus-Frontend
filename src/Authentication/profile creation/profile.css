@@ -1,48 +1,42 @@
-.profileillustration{
-    position: absolute;
-    width: 22.7778vw;
-height: 45.5556vh;
-left: 8.88889vw;
-top: 26.25vh;
+.profileillustration {
+  position: absolute;
+  width: 22.7778vw;
+  height: 45.5556vh;
+  left: 8.88889vw;
+  top: 26.25vh;
 }
-.centrebox{
-    width: 32.9861vw;
-height: 70.2778vh;
-    display: flex;
-    position: absolute;
-   left: 39.0139vw;
-top: 14.4444vh;
-flex-direction: column;
-justify-content: space-between;
-
+.centrebox {
+  width: 32.9861vw;
+  height: 40vw;
+  display: flex;
+  position: absolute;
+  left: 39.0139vw;
+  top: 14.4444vh;
+  flex-direction: column;
+  justify-content: space-between;
 }
-.smol{
-    width: 35.5556vw;
-height: 54.5833vh;
-}
-.bigboi{
-    font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 2.5vw;
-line-height: 6.80556vh;
+.bigboi {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  margin-bottom: 3vw;
+  /* line-height: 6.80556vh; */
 }
 
-@media (max-width: 1000px){
-    .profileillustration{
-        display: none;
-    }
-    .centrebox{
-        margin-left: 4vw;
-        width: 92.2222vw;
-        height: 61.625vh;
-        left: 4.44444vw;
-        top: 20vh;
-    }
-    .bigboi{
-        font-size: 6.66667vw;
-line-height: 4.125vh;
-    }
-   }
-
-
+@media (max-width: 800px) {
+  .profileillustration {
+    display: none;
+  }
+  .centrebox {
+    margin-left: 4vw;
+    width: 92.2222vw;
+    height: 70vh;
+    left: 4.44444vw;
+    top: 20vh;
+  }
+  .bigboi {
+    font-size: 6.66667vw;
+    line-height: 4.125vh;
+  }
+}

@@ -12,25 +12,22 @@ const Forgot = () => {
     const Navhandler = useNavigate()
     const [email, setemail] = useState("");
     const [correctMail , setCorrectMail] = useState(false);
-    const rightmail= /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
     const [loading,setLoading]=useState(false);
     const [errormsg,seterror] = useState("")
 
     useEffect(() => {
-      seterror("Invalid Mail")
       setemail(email.trim());
-      if (rightmail.test(email)) {
-        document.getElementById("error")!.style.visibility = "hidden";
-        console.log("true");
-        setCorrectMail(true);
-      } else if (email) {
-        document.getElementById("error")!.style.visibility = "visible";
-        setCorrectMail(false);
-      }
     }, [email]);
 
     function handlemail(e: any) {
         setemail(e.target.value);
+        if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(e.target.value) || e.target.value === "") {
+          document.getElementById("emailerr")!.style.visibility = "hidden";
+          setCorrectMail(e.target.value);
+        } 
+        else {
+          document.getElementById("emailerr")!.style.visibility = "visible";
+        }
       }
 
     function Handleapi() {
@@ -42,16 +39,13 @@ const Forgot = () => {
     }).then((res) => {
         console.log(res.data.message);
         console.log(res.status);
-        if (res.status === 201)
-      {
-        Navhandler('/otp');
-      }
-      else {
+        if (res.status === 201){
+          Navhandler('/otp'); }
+        else {
         console.log('f')
       }
         localStorage.setItem("email" , email);
         setLoading(false);
-        
     })
     .catch((err) => {
       
@@ -71,7 +65,7 @@ const Forgot = () => {
         <div id = "forgot">
             <div><h1>Forgot password?</h1>
             <p>No worries, reset your password </p></div>
-            <Input onchange={handlemail} type="text" lable="Email Address" placeholder="Enter Email" message={errormsg} />
+            <Input onchange={handlemail} type="text" lable="Email Address" placeholder="Enter Email" message="Enter Valid Email Address" err_id="emailerr" />
             <br />
             <Authblock onclick={Handleapi} name="Continue"/>
             <pre onClick={()=>Navhandler('/login')}> Back </pre>

@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react"
 import './otp.css' ;
-import Input from '../components/authinput';
 import Authblock from '../components/authblock';
 import OtpField from 'react-otp-field';
 import Heading from '../components/heading';
-import Otpbox from '../components/otpbox';
 import Loader from "../../loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -60,6 +58,7 @@ const Otp = () => {
             setLoading(false);
             if(res.status===200)
             {
+                localStorage.setItem("otp",value);
                 if(context==='register')
                 Navhandler("/authphone");
                 else

@@ -1,0 +1,42 @@
+#navbar{
+    width: 11.11vw;
+    height: 100vh;
+    background-color: black;
+    position:absolute;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: space-between; */
+    vertical-align:middle;
+}
+
+.navimg {
+    margin-right: 1vw;
+    width: 1.5vw;
+    vertical-align: middle;
+}
+
+.navitem {
+    height: 3.3vw;
+    margin: 0.8vw;
+    margin-left: 0.5vw;
+    font-size: 1.2vw;
+    width: 12vw;
+    overflow-y: hidden;
+    cursor: pointer;
+}
+
+#navlogo{
+    margin: 0.9vw;
+}
+
+#navlogoimg{
+    width: 2vw;
+    margin-right: 0.2vw;
+}
+
+#accountimg{
+    border: 0.2vw solid white;
+    border-radius: 50%;
+    width: 1.8vw;
+    margin-right: 0.8vw;
+}

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProtectedRoute from '../util/protectedroute';
 import Login from "../Authentication/login/LoginApp";
 import SignUp from "../Authentication/Signup/SignUpApp";
 import Phone from "../Authentication/Signup/signup";
@@ -11,6 +12,7 @@ import Setpass from "../Authentication/set password/setPassApp"
 import Success from "../Authentication/login/success";
 import Profile  from "../Authentication/profile creation/profileApp"
 import Editprofile from "../MyAccount/edit_profile/edit_profile";
+
 
 const App = () => {
   return <BrowserRouter>
@@ -24,8 +26,8 @@ const App = () => {
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
-    <Route path="/account" element={ <Editprofile />}></Route>
-    <Route path="/profile" element={<Profile />}></Route>
+    <Route path="/account" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
+    <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

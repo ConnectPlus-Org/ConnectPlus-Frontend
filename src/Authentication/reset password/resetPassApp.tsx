@@ -5,12 +5,13 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import axios from 'axios';
 import Loader from "../../loader";
+import { useNavigate } from "react-router-dom";
 const illustration: string = require("../images/setpass.svg").default;
 
 
 
 function Passwordset(){
-
+    const Navhandler = useNavigate();
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
     const [loading,setLoading]=useState(false);
@@ -50,6 +51,7 @@ function Passwordset(){
             }).then((res) => {
                 console.log(res.data);
                 setLoading(false);
+                Navhandler("/login");
               })
                 .catch((err) => {
                   console.log(err);

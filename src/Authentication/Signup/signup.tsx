@@ -16,6 +16,9 @@ const Phone = () => {
   function handlenumber(e: any) {
     setnumber(e.target.value);
   }
+  function handleskip(){
+    Navhandler('/success');
+  }
   function Handleapi() {
     setLoading(true);
     axios
@@ -54,13 +57,13 @@ const Phone = () => {
         <Input
           onchange={handlenumber}
           type="number"
-          lable="Mobile Nunmber"
+          lable="Mobile Number"
           placeholder="Enter Number"
           message="Enter a 10-digit valid number"
         />
         <div>
           <button onClick={Handleapi}>Verify</button>
-          <span>Skip</span>
+          <span onClick={handleskip}>Skip</span>
         </div>
       </div>
     </div>)}

@@ -16,19 +16,20 @@ const Otp = () => {
     const [loading,setLoading]=useState(false);
 
    useEffect(()=>{
-        const timer:any=
-        seconds >0 && setInterval(()=>{
-            setSeconds(seconds-1)
+        // const timer:any=
+        seconds >0 && setTimeout(()=>{
+            setSeconds(seconds-1);
         },1000)
-        return ()=> clearInterval(timer)
+        // return ()=> clearInterval(timer)
     },[seconds])
 
     function ResendApi(){
         if(seconds===0){
     const email=localStorage.getItem("email");
+    const context = localStorage.getItem("context");
     axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/",{
      email:email,
-     context:"register" 
+     context:context 
     }).then((res) => {
       console.log(res);
       console.log(res.status);

@@ -45,6 +45,7 @@ const Forgot = () => {
         console.log('f')
       }
         localStorage.setItem("email" , email);
+        localStorage.setItem("context" , "forget");
         setLoading(false);
     })
     .catch((err) => {

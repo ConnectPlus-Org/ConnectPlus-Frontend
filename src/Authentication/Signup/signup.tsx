@@ -13,6 +13,7 @@ const Phone = () => {
   const [number, setnumber] = useState("");
   const [loading,setLoading]=useState(false);
   const email =localStorage.getItem("email")
+  // const context =localStorage.getItem("context")
 
   function handlenumber(e: any) {
     if(e.target.value>=1000000000 && e.target.value<10000000000){
@@ -30,7 +31,7 @@ const Phone = () => {
     document.getElementById("numb")!.style.borderColor = "#CF6679";}}
   }
   function handleskip(){
-    Navhandler('/success');
+    Navhandler('/set_password');
   }
   function Handleapi() {
     if(number){setLoading(true);

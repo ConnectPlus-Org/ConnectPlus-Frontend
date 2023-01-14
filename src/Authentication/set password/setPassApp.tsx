@@ -5,12 +5,14 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import axios from 'axios';
 import Loader from "../../loader";
+import { useNavigate } from "react-router-dom";
+
 const illustration: string = require("../images/setpass.svg").default;
 
 
 
 function Passwordset(){
-    
+    const Navhandler = useNavigate();
     const [password,setpassword] =useState("");
     const [password2,setpassword2] =useState("");
     const email = localStorage.getItem("email");
@@ -58,7 +60,12 @@ function Passwordset(){
             password:password,
             email_otp:otp
             }).then((res) => {
-                console.log(res.data);
+                console.log(res);
+                if (res.data.message === "User Created Successfully") {
+                    Navhandler("/login");
+                  } else {
+                    console.log("f");
+                  }
                 setLoading(false);
               })
                 .catch((err) => {

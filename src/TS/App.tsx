@@ -15,6 +15,7 @@ import Editprofile from "../MyAccount/edit_profile/edit_profile";
 import ProfileHead from "../Authentication/profile creation/profileHead";
 import Skill from "../MyAccount/skill/skillApp";
 import AboutMe from "../MyAccount/AboutMe/aboutMeApp";
+import Experience from "../MyAccount/edit_profile/experience"
 
 
 const App = () => {
@@ -30,6 +31,7 @@ const App = () => {
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
     <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
+    <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
     <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
     <Route path="/account/skill" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>

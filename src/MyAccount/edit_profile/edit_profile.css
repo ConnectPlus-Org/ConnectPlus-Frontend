@@ -2,11 +2,11 @@
   background-color: #13131A;
   position: absolute;
   width: 17.77vw;
-  height: 80vh;
   border: 1px solid #cdccd9;
   border-radius: 0.2vw;
   margin-left: 16.67vw;
   margin-top: 10vh;
+  padding-bottom: 5vh;
 }
 
 #account_nav p{
@@ -72,6 +72,7 @@
   padding-left: 1vw;
   font-size: 0.8vw;
   height: 5vw;
+  resize: none;
 }
 
 #headline:focus {

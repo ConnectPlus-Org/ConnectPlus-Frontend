@@ -12,6 +12,7 @@ const Editprofile = () => {
         <p>Experience</p>
         <p>About Me</p>
         <p>Education</p>
+        <p>Additional</p>
       </div>
       <div id="edit_profile">
         <img alt="" />

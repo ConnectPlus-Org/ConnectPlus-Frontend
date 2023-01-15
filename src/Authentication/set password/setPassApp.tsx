@@ -64,6 +64,7 @@ function Passwordset(){
                 if (res.data.message === "User Created Successfully") {
                     localStorage.clear();
                     Navhandler("/login");
+                    localStorage.clear();
                   } else {
                     console.log("f");
                   }

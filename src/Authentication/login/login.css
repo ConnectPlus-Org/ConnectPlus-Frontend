@@ -7,7 +7,7 @@
 }
 
 body {
-  background-color: #131313;
+  background-color: #0C0C0F;
   overflow-x: hidden;
   font-family: "Manrope";
 }
@@ -37,7 +37,7 @@ body {
   border: 1px solid #f8f8f8;
   border-color: aliceblue;
   padding-left: 1.25vw;
-  background-color: #131313;
+  background-color: #0C0C0F;
 }
 
 .input:focus {

@@ -1,12 +1,12 @@
 #account_nav {
-  background-color: black;
+  background-color: #13131A;
   position: absolute;
   width: 17.77vw;
-  height: 80vh;
   border: 1px solid #cdccd9;
   border-radius: 0.2vw;
   margin-left: 16.67vw;
   margin-top: 10vh;
+  padding-bottom: 5vh;
 }
 
 #account_nav p{
@@ -34,7 +34,7 @@ line-height: 6.80556vh;
   padding-right: 6.67vw;
   padding-top: 6.8vh;
   padding-bottom: 4vw;
-  background-color: black;
+  background-color: #13131A;
   position: absolute;
   width: 51.11vw;
   height: 80vh;
@@ -92,7 +92,20 @@ line-height: 140.8%;
 }
 
 #headline{
-    height: 5vw;
+  background-color: #13131A;
+  width: 37.77vw;
+  border: 0.1vw solid white;
+  border-radius: 0.4vw;
+  padding-left: 1vw;
+  font-size: 0.8vw;
+  height: 5vw;
+  resize: none;
+}
+
+#headline:focus {
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #2e2e2e;
 }
 
 #edit_profile button{

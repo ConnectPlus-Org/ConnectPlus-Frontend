@@ -19,6 +19,7 @@ const Editprofile = () => {
         {/* <a href="/account/experience" >Experience</a> */}
         <p>About Me</p>
         <p>Education</p>
+        <p>Additional</p>
       </div>
       <div id="edit_profile">
         <img alt="" />
@@ -45,7 +46,7 @@ const Editprofile = () => {
         <div>
           Headline
           <br />
-          <input className="profileinput" id="headline" placeholder="Heading"/>
+          <textarea id="headline" placeholder="Heading"/>
         </div>
     <button>Save</button>
       </div>

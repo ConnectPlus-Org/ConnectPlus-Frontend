@@ -20,7 +20,7 @@ const Experience = () => {
     <div>
       <Nav />
       <div id="account_nav">
-        <p onClick={()=>{Navhandler("/account"); } }>Edit profile</p>
+        <p onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p>Skill Section</p>
         <p style={activestyle}>Experience</p>
         {/* <a href="/account/experience" >Experience</a> */}

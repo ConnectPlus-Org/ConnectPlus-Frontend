@@ -6,6 +6,8 @@ import Heading from '../components/heading';
 import Loader from "../../loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const illustration: string = require("../images/otp.svg").default;
 
 const Otp = () => {
@@ -47,7 +49,7 @@ const Otp = () => {
         }
     }
     function handleapi(){
-        setLoading(true);
+        if(value){setLoading(true);
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
         const context = localStorage.getItem("context");
@@ -70,8 +72,10 @@ const Otp = () => {
             .catch((err) => {
               console.log(err);
               setLoading(false); 
+              if(err.response.status==401)
+              toast.error(err.response.data.email)
             }
-            );
+            );}
             // setLoading(false);
     }
 
@@ -97,7 +101,9 @@ const Otp = () => {
     
       <Authblock name="Verify" onclick={handleapi}/>
     </div>
-    </div></div>)}
+    </div>
+    <ToastContainer position="top-center" theme="dark" />
+    </div>)}
     </div>
 }
 

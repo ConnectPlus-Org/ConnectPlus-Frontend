@@ -12,6 +12,9 @@ import Setpass from "../Authentication/set password/setPassApp"
 import Success from "../Authentication/login/success";
 import Profile  from "../Authentication/profile creation/profileApp"
 import Editprofile from "../MyAccount/edit_profile/edit_profile";
+import ProfileHead from "../Authentication/profile creation/profileHead";
+import Skill from "../MyAccount/skill/skillApp";
+import AboutMe from "../MyAccount/AboutMe/aboutMeApp";
 import Experience from "../MyAccount/edit_profile/experience"
 
 
@@ -27,9 +30,12 @@ const App = () => {
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
-    <Route path="/account" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
+    <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
     <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
+    <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
+    <Route path="/account/skill" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>
+    <Route path="/account/aboutme" element={<ProtectedRoute><AboutMe /></ProtectedRoute>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

@@ -8,7 +8,6 @@ const Experience = () => {
     const activestyle={
         color:'#A950FB' ,
         borderLeft:'3px solid #A950FB',
-       
     }
     const [checked, setChecked] = React.useState(false);
 
@@ -80,11 +79,13 @@ const Experience = () => {
         <div>
           Description
           <br />
-          <textarea className="edit_input profileinput" placeholder="Description" />
+          <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
+        <div id="middiv">
         <p className="midtext">Skills</p>
-        <p className="midline">We recommend adding your top 5 used in this role. They’ll also appear in your Skills section. </p>
+        <p className="midline">We recommend adding your top 5 used in this role. They'll also appear in your Skills section. </p>
         <input className="edit_input profileinput" placeholder="Enter Skill" />
+        </div>
         <button>Save</button>
       </div>
     </div>

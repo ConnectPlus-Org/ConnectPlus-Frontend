@@ -2,7 +2,7 @@
     width: 11.11vw;
     height: 100vh;
     background-color: #13131A;
-    position:absolute;
+    position:fixed;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */

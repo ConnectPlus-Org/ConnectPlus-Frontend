@@ -1,6 +1,6 @@
 #account_nav {
   background-color: #13131A;
-  position: absolute;
+  position: fixed;
   width: 17.77vw;
   border: 1px solid #cdccd9;
   border-radius: 0.2vw;
@@ -23,6 +23,9 @@ font-style: normal;
 font-weight: 700;
 font-size: 2.5vw;
 line-height: 6.80556vh;
+margin-left: -3vw;
+margin-top: -2vw;
+color: #F5F5FA;
 }
 #edit_profile {
   font-family: "Manrope";
@@ -55,7 +58,7 @@ line-height: 6.80556vh;
 }
 
 .profileinput {
-  background-color: black;
+  background-color: #13131A;
   width: 37.77vw;
   border: 0.1vw solid white;
   border-radius: 0.4vw;
@@ -168,4 +171,26 @@ align-items: center; */
 font-style: normal;
 font-weight: 400;
 font-size: 0.972222vw;
+}
+
+textarea{
+  resize: none;
+}
+
+#desc{
+  height: 6vw;
+}
+
+#desc:focus{
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #2e2e2e;
+}
+
+#middiv{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 8vw;
+  margin-top: -1vw;
 }

@@ -14,7 +14,16 @@
   text-align: center;
   margin-top: 3.4vw;
 }
-
+/* #account_nav a:active{
+  color: #A950FB;
+} */
+.accountnavtopline{
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 2.5vw;
+line-height: 6.80556vh;
+}
 #edit_profile {
   font-family: "Manrope";
   font-style: normal;
@@ -45,7 +54,7 @@
   border-radius: 50%;
 }
 
-#edit_profile input {
+.profileinput {
   background-color: black;
   width: 37.77vw;
   border: 0.1vw solid white;
@@ -53,8 +62,26 @@
   padding-left: 1vw;
   font-size: 0.8vw;
 }
+.halfbox{
+  width: 16.885vw;
+}
+.midtext{
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 1.38889vw;
+line-height: 3.75vh;
+}
+.midline{
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 0.902222vw;
+line-height: 140.8%;
+}
 
 .edit_input{
+    margin-top: 0.5vh;
     height: 2.77vw;
 }
 
@@ -76,4 +103,56 @@
     border-radius: 0.4vw;
     cursor: pointer;
     margin-left: 1.34vw;
+}
+
+.checkbox{
+display: inline-block;
+ width:  1.66667vw;
+ height: 1.66667vw;;
+ border: 2px solid #EBEBF0;
+}
+.tickbox{
+  display: inline-block;
+  width:  1.66667vw;
+  height: 1.66667vw;;
+  border: 2px solid #EBEBF0;
+  background-color: #A950FB;
+}
+.tick{
+  position: relative;
+  width: 40%;
+  height: 87%;
+  z-index: 1;
+  margin-left: 30%;
+  /* margin-top: 3%; */
+  transform: rotate(45deg);
+  border-bottom: 5%;
+  border-right: 5%;
+  border-top: 0;
+  border-left: 0;
+  border-color: #EBEBF0;
+  border-style: solid;
+  padding-bottom: 1px;
+  background-color: #A950FB;
+  color: #A950FB;
+}
+.checkboxlabel{
+  position: relative;
+  bottom:17%;
+  padding-left: 1vw;
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 700;
+font-size: 1.11111vw;
+line-height: 3.05556vh;
+/* identical to box height */
+
+/* display: flex;
+align-items: center; */
+}
+#edit_profile div{
+  font-family: 'Manrope';
+font-style: normal;
+font-weight: 400;
+font-size: 0.972222vw;
 }

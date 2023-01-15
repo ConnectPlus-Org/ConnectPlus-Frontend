@@ -13,13 +13,12 @@ const Editprofile = () => {
     <div>
       <Nav />
       <div id="account_nav">
-        <p  style={activestyle}>Edit profile</p>
-        <p>Skill Section</p>
-        <p onClick={()=>{Navhandler("/account/experience"); } }>Experience</p>
-        {/* <a href="/account/experience" >Experience</a> */}
-        <p>About Me</p>
-        <p>Education</p>
-        <p>Additional</p>
+        <p style={activestyle} >Edit profile</p>
+        <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
+        <p  onClick={()=>{Navhandler("/account/experience"); } }>Experience</p>
+        <p onClick={()=>{Navhandler("/account/aboutme"); } }>About Me</p>
+        <p onClick={()=>{Navhandler("/account/education"); } }>Education</p>
+        <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="edit_profile">
         <img alt="" />

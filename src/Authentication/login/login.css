@@ -11,18 +11,25 @@ body {
   overflow-x: hidden;
   font-family: "Manrope";
 }
-.authbox {
+
+.authbox{
   height: 3vw;
   width: 30vw;
   font-style: normal;
   font-size: 1.1vw;
 }
 
-#inputbox p{
+.inputbox {
+  width: 30vw;
+  font-style: normal;
+  font-size: 1.1vw;
+}
+
+.inputbox p{
   padding-left: 0.3vw;
 }
 
-#input {
+.input {
   font-size: 1vw;
   height: 3.33vw;
   width: 100%;
@@ -33,17 +40,16 @@ body {
   background-color: #131313;
 }
 
-#input:focus {
+.input:focus {
   -webkit-appearance: none;
   outline: none;
   background-color: #2e2e2e;
 }
-
-input:focus::placeholder {
+.input:focus::placeholder {
   color: transparent;
 }
 
-#error {
+.error {
   padding-top: 0.15vw;
   visibility: hidden;
   color: #cf6679;
@@ -156,8 +162,9 @@ header {
 }
 
 #login {
+  position: absolute;
   margin-left: 56vw;
-  margin-top: 20vh;
+  margin-top: 10vh;
   height: 36.4vw;
   width: 30vw;
   display: flex;
@@ -191,24 +198,21 @@ header {
   #login {
     margin-left: 10vw;
     width: 80vw;
-    height: 65vh;
-    margin-top: 10vh;
+    height: 75vh;
     justify-content: space-between;
   }
 
-  .authbox {
-    font-size: 3.33vw;
+  .error {
+    font-size: 2.5vw;
+    width: 80vw;
   }
 
-  #error {
-    font-size: 2vw;
-  }
-
-  #input {
+  .input {
     width: 80vw;
     height: 6vh;
     font-size: 3.33vw;
     border-radius: 2vw;
+    padding-left: 3vw;
   }
 
   #switch p {
@@ -218,7 +222,9 @@ header {
   .authbox {
     height: 6vh;
     width: 80vw;
+    font-size: 3.33vw;
   }
+
   #auth_instruction {
     width: 80vw;
     font-size: 2.3vw;
@@ -252,6 +258,8 @@ header {
   header {
     margin-top: 10vh;
     margin-left: 25vw;
+    width: 50vw;
+    justify-content: center;
   }
   .line {
     width: 20vw;
@@ -266,9 +274,11 @@ header {
     margin-left: 1vw;
   }
 
-  #inputbox {
+  .inputbox {
     margin-bottom: 1vh;
     height: 10vh;
     margin-top: 1vh;
+    font-size: 3.33vw;
   }
+
 }

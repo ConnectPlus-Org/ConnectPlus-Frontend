@@ -1,17 +1,3 @@
-#setpass {
-    width: 30vw;
-    height: 25vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    /* margin-top: -55vh; */
-    /* margin-left: 35vw; */
-    font-size: 1.1vw;
-    position: absolute;
-    top: 24vh;
-    left: 35.01vw;
-  }
-  
   .svgsetpass{
     width: 25.5556vw;
     height: 40.5556vh;

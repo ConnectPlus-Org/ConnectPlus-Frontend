@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import "../login/login.css";
@@ -13,12 +12,29 @@ const Phone = () => {
   const Navhandler = useNavigate();
   const [number, setnumber] = useState("");
   const [loading,setLoading]=useState(false);
+  const email =localStorage.getItem("email")
+  // const context =localStorage.getItem("context")
 
   function handlenumber(e: any) {
-    setnumber(e.target.value);
+    if(e.target.value>=1000000000 && e.target.value<10000000000){
+      document.getElementById("num")!.style.visibility = "hidden"
+      document.getElementById("numb")!.style.borderColor = "#66DF98";
+      setnumber(e.target.value);
+    }
+    else
+    {setnumber("")
+    if(e.target.value==="")
+    {document.getElementById("num")!.style.visibility = "hidden";
+    document.getElementById("numb")!.style.borderColor = "white";}
+    else
+    {document.getElementById("num")!.style.visibility = "visible";
+    document.getElementById("numb")!.style.borderColor = "#CF6679";}}
+  }
+  function handleskip(){
+    Navhandler('/set_password');
   }
   function Handleapi() {
-    setLoading(true);
+    if(number){setLoading(true);
     axios
       .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
         phone_number: number,
@@ -29,7 +45,6 @@ const Phone = () => {
         if (res.status === 200) {
           Navhandler("/phoneotp");
         } else {
-          document.getElementById("error")!.style.visibility = "hidden";
           setLoading(false);
           console.log("f");
         }
@@ -38,7 +53,7 @@ const Phone = () => {
       .catch((err) => {
         console.log(err);
         setLoading(false);
-      });
+      });}
   }
 
   return (<div>
@@ -55,13 +70,15 @@ const Phone = () => {
         <Input
           onchange={handlenumber}
           type="number"
-          lable="Mobile Nunmber"
+          lable="Mobile Number"
           placeholder="Enter Number"
           message="Enter a 10-digit valid number"
+          err_id="num"
+          inp="numb"
         />
         <div>
           <button onClick={Handleapi}>Verify</button>
-          <span>Skip</span>
+          <span onClick={handleskip}>Skip</span>
         </div>
       </div>
     </div>)}

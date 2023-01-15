@@ -63,6 +63,7 @@ function Passwordset(){
                 console.log(res);
                 if (res.data.message === "User Created Successfully") {
                     Navhandler("/login");
+                    localStorage.clear();
                   } else {
                     console.log("f");
                   }
@@ -73,7 +74,6 @@ function Passwordset(){
                   setLoading(false);
                 }
                 );
-            localStorage.clear();
         }
         else
         {console.log("passwords not matching");

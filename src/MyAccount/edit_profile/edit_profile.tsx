@@ -38,7 +38,7 @@ const Editprofile = () => {
         <div>
           Headline
           <br />
-          <input id="headline" placeholder="Heading"/>
+          <textarea id="headline" placeholder="Heading"/>
         </div>
     <button>Save</button>
       </div>

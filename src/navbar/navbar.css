@@ -1,7 +1,7 @@
 #navbar{
     width: 11.11vw;
     height: 100vh;
-    background-color: black;
+    background-color: #13131A;
     position:absolute;
     display: flex;
     flex-direction: column;

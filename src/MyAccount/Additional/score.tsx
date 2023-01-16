@@ -1,19 +1,18 @@
 import React from "react";
 import Nav from "../../navbar/navbar";
 import "../edit_profile/edit_profile.css";
+import "./additional.css"
 import { useNavigate } from "react-router-dom";
 
-const Education = () => {
+const Score = () => {
 
     const activestyle={
         color:'#A950FB' ,
         borderLeft:'3px solid #A950FB',
     }
-    const [checked, setChecked] = React.useState(false);
 
-  const handleChange = () => {
-    setChecked(!checked);
-  };
+
+    
   const time:any = new Date();
 //   console.log(time);
     const Navhandler=useNavigate();
@@ -23,55 +22,56 @@ const Education = () => {
       <div id="account_nav">
         <p  onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
-        <p   onClick={()=>{Navhandler("/account/experience"); } }>Experience</p>
+        <p  onClick={()=>{Navhandler("/account/experience"); } } >Experience</p>
         <p onClick={()=>{Navhandler("/account/aboutme"); } }>About Me</p>
-        <p style={activestyle}>Education</p>
-        <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
+        <p onClick={()=>{Navhandler("/account/education"); } }>Education</p>
+        <p onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
-      <div id="edit_profile"  style={{height:'125vh'}}>
-        <p className="accountnavtopline">Education</p>
-        <div>
-          School
-          <br />
-          <input className="edit_input profileinput" placeholder="School" />
+      <div id="edit_profile"  style={{height:'101.389vh'}}>
+        <div className="additionalline">
+        Add test scores
         </div>
         <div>
-          Degree
+          Title
           <br />
-          <input className="edit_input profileinput" placeholder="Degree" />
+          <input className="edit_input profileinput" placeholder="Title" />
         </div>
         <div>
-          Field of Study
+          Associated With
           <br />
-          <input className="edit_input profileinput dropdown" placeholder="Field of Study" />
+          <input className="edit_input dropdown profileinput" placeholder="Associated With" />
         </div>
         <div>
-          Grade
+          Score
           <br />
-          <input className="edit_input profileinput" placeholder="Grade" />
+          <input className="edit_input profileinput dropdown" placeholder="Score" />
         </div>
+        
+        
         <div>
             Start Date
             <br />
             <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
             <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
         </div>
+        
         <div>
             End Date
             <br />
             <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
             <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
         </div>
+        
         <div>
           Description
           <br />
           <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
-    
+        
         <button>Save</button>
       </div>
     </div>
   );
 };
 
-export default Education;
+export default Score;

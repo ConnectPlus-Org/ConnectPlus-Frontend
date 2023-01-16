@@ -17,6 +17,9 @@ import Skill from "../MyAccount/skill/skillApp";
 import AboutMe from "../MyAccount/AboutMe/aboutMeApp";
 import Experience from "../MyAccount/edit_profile/experience"
 import Education from "../MyAccount/Education/Education"
+import Additional from "../MyAccount/Additional/Additional"
+import Courses from "../MyAccount/Additional/courses"
+import Score from "../MyAccount/Additional/score"
 
 const App = () => {
   return <BrowserRouter>
@@ -37,6 +40,9 @@ const App = () => {
     <Route path="/account/skills" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>
     <Route path="/account/aboutme" element={<ProtectedRoute><AboutMe /></ProtectedRoute>}></Route>
     <Route path="/account/education" element={<ProtectedRoute><Education/></ProtectedRoute>}></Route>
+    <Route path="/account/additional" element={<ProtectedRoute><Additional/></ProtectedRoute>}></Route>
+    <Route path="/account/additional/courses" element={<ProtectedRoute><Courses/></ProtectedRoute>}></Route>
+    <Route path="/account/additional/score" element={<ProtectedRoute><Score/></ProtectedRoute>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

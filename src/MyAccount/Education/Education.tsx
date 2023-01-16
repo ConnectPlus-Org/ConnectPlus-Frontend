@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "../../navbar/navbar";
-import "./edit_profile.css";
+import "../edit_profile/edit_profile.css";
 import { useNavigate } from "react-router-dom";
 
 const Experience = () => {
@@ -23,35 +23,32 @@ const Experience = () => {
       <div id="account_nav">
         <p  onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
-        <p style={activestyle} >Experience</p>
+        <p   onClick={()=>{Navhandler("/account/experience"); } }>Experience</p>
         <p onClick={()=>{Navhandler("/account/aboutme"); } }>About Me</p>
-        <p onClick={()=>{Navhandler("/account/education"); } }>Education</p>
+        <p style={activestyle}>Education</p>
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
-      <div id="edit_profile"  style={{height:'168.75vh'}}>
-        <p className="accountnavtopline">Experience</p>
+      <div id="edit_profile"  style={{height:'125vh'}}>
+        <p className="accountnavtopline">Education</p>
         <div>
-          Title
+          School
           <br />
-          <input className="edit_input profileinput" placeholder="Title" />
+          <input className="edit_input profileinput" placeholder="School" />
         </div>
         <div>
-          Company Name
+          Degree
           <br />
-          <input className="edit_input profileinput" placeholder="Company Name" />
+          <input className="edit_input profileinput" placeholder="Degree" />
         </div>
         <div>
-          Employment Type
+          Field of Study
           <br />
-          <input className="edit_input profileinput dropdown" placeholder="Employment Type" />
+          <input className="edit_input profileinput dropdown" placeholder="Field of Study" />
         </div>
         <div>
-          Location
+          Grade
           <br />
-          <input className="edit_input profileinput" placeholder="Location" />
-        </div>
-        <div>
-         {checked ? <div className="tickbox" onClick={handleChange}> <div className="tick"></div></div> : <div className="checkbox" onClick={handleChange}></div>} <span className="checkboxlabel">I am currently working on this role</span>
+          <input className="edit_input profileinput" placeholder="Grade" />
         </div>
         <div>
             Start Date
@@ -59,35 +56,18 @@ const Experience = () => {
             <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
             <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
         </div>
-        {checked ? 
-        <div style={{opacity:'50%'}}>
-            End Date
-            <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month" readOnly/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year" readOnly/>
-        </div> 
-        : 
         <div>
             End Date
             <br />
             <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
             <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
-        </div>}
-        <div>
-          Industry
-          <br />
-          <input className="edit_input profileinput" placeholder="Industry" />
         </div>
         <div>
           Description
           <br />
           <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
-        <div id="middiv">
-        <p className="midtext">Skills</p>
-        <p className="midline">We recommend adding your top 5 used in this role. They'll also appear in your Skills section. </p>
-        <input className="edit_input profileinput" placeholder="Enter Skill" />
-        </div>
+    
         <button>Save</button>
       </div>
     </div>

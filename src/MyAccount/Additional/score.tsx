@@ -27,7 +27,7 @@ const Score = () => {
         <p onClick={()=>{Navhandler("/account/education"); } }>Education</p>
         <p onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
-      <div id="edit_profile"  style={{height:'101.389vh'}}>
+      <div id="edit_profile"  style={{height:'101.389vh'} }>
         <div className="additionalline">
         Add test scores
         </div>

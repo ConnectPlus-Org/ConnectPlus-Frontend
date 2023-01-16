@@ -58,8 +58,27 @@ function Login() {
       email :  email ,
       password : password 
     }).then((res) => {
+      console.log(res);
       localStorage.setItem("accesstoken" , res.data.tokens.access);
-      Navhandler('/success')
+      var accesstoken = localStorage.getItem("accesstoken");
+      const config ={
+      headers:{
+    Authorization:`Bearer ${accesstoken}`,
+      }
+}
+      axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
+      .then((res) => {
+        console.log(res); 
+          setLoading(false);
+          Navhandler('/success')
+        })
+        .catch((err) => {
+          setLoading(false);
+          if(err.response.status == 404)
+          Navhandler('/profile');
+          console.log(err);
+        });
+      
     })
       .catch((err) => {
         setLoading(false);

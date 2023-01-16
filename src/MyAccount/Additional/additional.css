@@ -3,6 +3,7 @@
 height: 4.44444vh;
 margin-bottom: 5vh;
 border-bottom: 1px solid white;
+cursor: pointer;
 }
 .rightarrowbox{
     float: right;

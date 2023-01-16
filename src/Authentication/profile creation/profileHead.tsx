@@ -4,15 +4,62 @@ import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import Loader from "../../loader";
+import { useNavigate } from 'react-router';
+import axios from 'axios';
+
+
 const illustration: string = require("../images/profile.svg").default;
 const edit:string = require("../images/edit.svg").default;
+var accesstoken=localStorage.getItem("accesstoken");
+  const config ={
+      headers:{
+        Authorization:`Bearer ${accesstoken}`,
+      }
+    };
 
 function ProfileHead(){
-    
+    const Navhandler =useNavigate();
+    const [loading,setLoading]=useState(false);
+
+    const fname = sessionStorage.getItem("fname");
+    const lname = sessionStorage.getItem("lname");
+    const country = sessionStorage.getItem("country");
+    const city = sessionStorage.getItem("city");
+
+    if(!fname && !lname && !country && !city)
+    Navhandler("/profile");
+
    const boxstyle = {
        height: '35vw'
    }
-    const [loading]=useState(false);
+    const [headline,setheadline]=useState("");
+
+    function handlechange(e:any){
+      setheadline(e.target.value);
+    }
+
+    function handleapi(){
+      
+    const object = 
+    {"first_name": fname,
+    "last_name": lname,
+    "country": country,
+    "city": city,
+    "headline": headline};
+    
+    axios.post(
+          "https://linkedin-backend.azurewebsites.net/profile/userprofile/",
+          object,config)
+        .then((res) => {
+          console.log(res);
+          setLoading(false);
+          // Navhandler("/foodadd");
+        })
+        .catch((err) => {
+          console.log(err);
+          setLoading(false);
+        });
+    }
 
     return <div>
     {loading?<Loader />:
@@ -25,9 +72,9 @@ function ProfileHead(){
         <div>
           Headline
           <br />
-          <textarea id="prof_head" placeholder="Heading"/>
+          <textarea onChange={handlechange} id="prof_head" placeholder="Heading"/>
         </div>
-        <Authblock name='Next'/>
+        <Authblock onclick={handleapi} name='Next'/>
        </div>
     </div>}</div>
 }

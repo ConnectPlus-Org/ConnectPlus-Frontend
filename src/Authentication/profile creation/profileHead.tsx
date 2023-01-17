@@ -17,14 +17,13 @@ var accesstoken=localStorage.getItem("accesstoken");
       }
     };
 
-function ProfileHead(){
+function ProfileHead(this: any){
     const Navhandler =useNavigate();
     const [loading,setLoading]=useState(false);
-
-    const fname = sessionStorage.getItem("fname");
-    const lname = sessionStorage.getItem("lname");
-    const country = sessionStorage.getItem("country");
-    const city = sessionStorage.getItem("city");
+    const fname:string = (sessionStorage.getItem("fname") || (""));
+    const lname:string = (sessionStorage.getItem("lname") || (""));
+    const country:string = (sessionStorage.getItem("country") || (""));
+    const city:string = (sessionStorage.getItem("city") || (""));
 
     if(!fname && !lname && !country && !city)
     Navhandler("/profile");
@@ -35,17 +34,29 @@ function ProfileHead(){
     const [headline,setheadline]=useState("");
 
     function handlechange(e:any){
-      setheadline(e.target.value);
+        setheadline(e.target.value);
+    }
+
+    const inputavatar = () => {
+        document.getElementById('inpava')?.click()
+    }
+
+    const [fileData, setFileData] = useState('')
+
+    async function handleavatar(e:any) {
+        setFileData(e.target.files[0])
+        console.log(fileData)
     }
 
     function handleapi(){
       
-    const object = 
-    {"first_name": fname,
-    "last_name": lname,
-    "country": country,
-    "city": city,
-    "headline": headline};
+    const object = new FormData()
+    object.append("first_name",fname)
+    object.append("last_name",lname)
+    object.append("country",country)
+    object.append("city",city)
+    object.append("headline",headline)
+    object.append("avatar",fileData)
     
     axios.post(
           "https://linkedin-backend.azurewebsites.net/profile/userprofile/",
@@ -53,13 +64,14 @@ function ProfileHead(){
         .then((res) => {
           console.log(res);
           setLoading(false);
-          // Navhandler("/foodadd");
+          Navhandler('/account')
         })
         .catch((err) => {
           console.log(err);
           setLoading(false);
         });
     }
+
 
     return <div>
     {loading?<Loader />:
@@ -68,7 +80,7 @@ function ProfileHead(){
        <img className='profileillustration' src={illustration} alt="illustration" />
        <div className='centrebox' style={boxstyle}>
         <p className='bigboi'>Make a Professional Profile</p>
-        <div id="ava"><img id="avatar" alt="" /><img id="editavatar" src={edit} alt="" /></div>
+        <div id="ava"><input type="file" id="inpava" style={{display:'none'}} onChange={handleavatar}/><img id="avatar" alt="" /><img id="editavatar" src={edit} alt="" onClick={inputavatar}/></div>
         <div>
           Headline
           <br />

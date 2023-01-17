@@ -20,6 +20,7 @@ import Education from "../MyAccount/Education/Education"
 import Additional from "../MyAccount/Additional/Additional"
 import Courses from "../MyAccount/Additional/courses"
 import Score from "../MyAccount/Additional/score"
+import Account from "../MyAccount/Main/MainApp";
 
 const App = () => {
   return <BrowserRouter>
@@ -33,10 +34,11 @@ const App = () => {
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
     <Route path="/success" element={ <Success />}></Route>
-    <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
-    <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
     <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
+    <Route path="/account" element={ <ProtectedRoute><Account /></ProtectedRoute>}></Route>
+    <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
+    <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/account/skills" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>
     <Route path="/account/aboutme" element={<ProtectedRoute><AboutMe /></ProtectedRoute>}></Route>
     <Route path="/account/education" element={<ProtectedRoute><Education/></ProtectedRoute>}></Route>

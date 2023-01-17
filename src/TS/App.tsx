@@ -9,7 +9,6 @@ import Phoneotp from "../Authentication/otp/phoneotpapp";
 import Forgot from "../Authentication/forgot/forgotAPP";
 import Resetpass from "../Authentication/reset password/resetPassApp"
 import Setpass from "../Authentication/set password/setPassApp"
-import Success from "../Authentication/login/success";
 import Profile  from "../Authentication/profile creation/profileApp"
 import Editprofile from "../MyAccount/edit_profile/edit_profile";
 import ProfileHead from "../Authentication/profile creation/profileHead";
@@ -33,7 +32,6 @@ const App = () => {
     <Route path="/forgot_password" element={<Forgot />}></Route>
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
-    <Route path="/success" element={ <Success />}></Route>
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
     <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
     <Route path="/account" element={ <ProtectedRoute><Account /></ProtectedRoute>}></Route>

@@ -70,7 +70,7 @@ function Login() {
       .then((res) => {
         console.log(res); 
           setLoading(false);
-          Navhandler('/success')
+          Navhandler('/account/edit_profile')
         })
         .catch((err) => {
           setLoading(false);

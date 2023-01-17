@@ -43,7 +43,7 @@ function ProfileHead(this: any){
 
     const [fileData, setFileData] = useState('')
 
-    async function handleavatar(e:any) {
+    function handleavatar(e:any) {
         setFileData(e.target.files[0])
         console.log(fileData)
     }

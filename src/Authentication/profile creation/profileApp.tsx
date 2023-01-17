@@ -4,14 +4,41 @@ import Authblock from "../components/authblock";
 import Input from "../components/authinput";
 import Heading from "../components/heading";
 import Loader from "../../loader";
+import { useNavigate } from 'react-router';
 const illustration: string = require("../images/profile.svg").default;
 
 
 
 function Profile(){
     
-   
+   const Navhandler =useNavigate();
     const [loading]=useState(false);
+    const [fname,setfname]=useState("");
+    const [lname,setlname]=useState("");
+    const [country,setcountry]=useState("");
+    const [city,setcity]=useState("");
+
+    function handlefname(e:any){
+        setfname(e.target.value);
+    }
+    function handlelname(e:any){
+        setlname(e.target.value);
+    }
+    function handlecountry(e:any){
+        setcountry(e.target.value);
+    }
+    function handlecity(e:any){
+        setcity(e.target.value);
+    }
+
+    function handleclick(){
+        sessionStorage.setItem("fname",fname);
+        sessionStorage.setItem("lname",lname);
+        sessionStorage.setItem("country",country);
+        sessionStorage.setItem("city",city);
+        Navhandler("/profilehead");
+    }
+
 
     return <div>
     {loading?<Loader />:
@@ -20,11 +47,11 @@ function Profile(){
        <img className='profileillustration' src={illustration} alt="illustration" />
        <div className='centrebox'>
         <p className='bigboi'>Make a Professional Profile</p>
-        <Input type='text' lable='First Name' placeholder='Enter First Name' message='Enter Correct Name'/>
-        <Input type='text' lable='Last Name' placeholder='Enter Last Name' message='Enter Correct Name'/>
-        <Input type='text' lable='Country/Region' placeholder='Enter Country' message='Enter Correct Country'/>
-        <Input  type='text' lable='City/District' placeholder='Enter City' message='Enter Correct City'/>
-        <Authblock name='Next'/>
+        <Input  required={true} onchange={handlefname} type='text' lable='First Name' placeholder='Enter First Name' message='Enter Correct Name'/>
+        <Input required={true} onchange={handlelname} type='text' lable='Last Name' placeholder='Enter Last Name' message='Enter Correct Name'/>
+        <Input required={true} onchange={handlecountry} type='text' lable='Country/Region' placeholder='Enter Country' message='Enter Correct Country'/>
+        <Input required={true} onchange={handlecity}  type='text' lable='City/District' placeholder='Enter City' message='Enter Correct City'/>
+        <Authblock onclick={handleclick} name='Next'/>
        </div>
     </div>}</div>
 }

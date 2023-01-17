@@ -8,16 +8,18 @@ import Heading from "../components/heading";
 import axios from "axios";
 import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const illustration: string = require("../images/signup.svg").default;
 
 const SignUp = () => {
   const Navhandler = useNavigate();
   const [loading, setLoading] = useState(false);
 
-  const [email, setemail] = useState("");
+  var [email, setemail] = useState("");
   function handlemail(e: any) {
-    setemail(e.target.value);
     if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(e.target.value) || e.target.value === "") {
+      setemail(e.target.value);
       document.getElementById("sign")!.style.visibility = "hidden";
       if(e.target.value==="")
       document.getElementById("signb")!.style.borderColor = "white";
@@ -27,15 +29,15 @@ const SignUp = () => {
     else {
       document.getElementById("sign")!.style.visibility = "visible";
       document.getElementById("signb")!.style.borderColor = "#CF6679";
+      email = ""
     }
   }
 
   function handleapi() {
-    setLoading(true);
+    if(email){setLoading(true);
     localStorage.setItem("email", email);
     localStorage.setItem("context", "register");
-    axios
-      .post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/", {
+    axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/", {
         email: email,
         context: "register",
       })
@@ -51,7 +53,11 @@ const SignUp = () => {
       .catch((err) => {
         setLoading(false);
         console.log(err);
-      });
+        toast.error(err.response.data.email)
+      });}
+      else
+      toast.error("Enter a valid email address")
+      
   }
 
   return (
@@ -80,6 +86,7 @@ const SignUp = () => {
               destination={() => Navhandler("/login")}
             />
           </div>
+          <ToastContainer position="top-center" theme="dark" />
         </div>
       )}
     </div>

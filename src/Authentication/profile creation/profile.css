@@ -24,6 +24,42 @@
   /* line-height: 6.80556vh; */
 }
 
+#avatar{
+  width: 7vw;
+  height: 7vw;
+  border: 4px solid #F5F5FA;
+  border-radius: 100%;
+}
+
+#editavatar{
+  width: 2vw;
+  height: 2vw;
+  align-self: end;
+  margin-left: -0.8vw;
+  cursor: pointer;
+}
+
+#ava{
+  display: flex;
+  align-self: center;
+}
+
+#prof_head {
+  background-color: #0C0C0F;
+  border: 0.1vw solid white;
+  border-radius: 0.4vw;
+  padding-left: 1vw;
+  font-size: 0.8vw;
+  height: 5vw;
+  width: 30vw;
+}
+
+#prof_head:focus{
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #2e2e2e;
+}
+
 @media (max-width: 800px) {
   .profileillustration {
     display: none;

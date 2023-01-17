@@ -1,8 +1,8 @@
 #navbar{
     width: 11.11vw;
     height: 100vh;
-    background-color: black;
-    position:absolute;
+    background-color: #13131A;
+    position:fixed;
     display: flex;
     flex-direction: column;
     /* justify-content: space-between; */

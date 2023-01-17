@@ -8,6 +8,8 @@ import Heading from '../components/heading';
 import axios from 'axios';
 import Loader from '../../loader';
 import {useNavigate} from "react-router-dom";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const illustration: string = require("../images/loginImage.svg").default;
 
@@ -16,11 +18,14 @@ function Login() {
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
   const [loading,setLoading]=useState(false);
+  const toaststyle ={
+    color : "black"
+  }
 
   function handlepass(e: any) {
-    setpassword(e.target.value);
     if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
     {
+      setpassword(e.target.value);
       document.getElementById("pass")!.style.visibility = "hidden";
       if(e.target.value==="")
       {document.getElementById("passb")!.style.borderColor = "white";}
@@ -33,9 +38,9 @@ function Login() {
     }
   }
   function handlemail(e: any) {
-    setemail(e.target.value);
     if((/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/).test(e.target.value) || e.target.value==="")
     {
+      setemail(e.target.value);
       document.getElementById("log")!.style.visibility = "hidden";
       if(e.target.value==="")
       document.getElementById("logb")!.style.borderColor = "white";
@@ -48,19 +53,44 @@ function Login() {
     }
   }
   function handleapi() {
-    setLoading(true);
+    if(email && password){setLoading(true);
     axios.post("https://linkedin-back.azurewebsites.net/auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {
+      console.log(res);
       localStorage.setItem("accesstoken" , res.data.tokens.access);
-      Navhandler('/success')
+      var accesstoken = localStorage.getItem("accesstoken");
+      const config ={
+      headers:{
+    Authorization:`Bearer ${accesstoken}`,
+      }
+}
+      axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
+      .then((res) => {
+        console.log(res); 
+          setLoading(false);
+          Navhandler('/success')
+        })
+        .catch((err) => {
+          setLoading(false);
+          if(err.response.status == 404)
+          Navhandler('/profile');
+          console.log(err);
+        });
+      
     })
       .catch((err) => {
         setLoading(false);
         console.log(err);
+        if(err.response.status == 401)
+        toast.error("Wrong Password")
+        else
+        toast.error('Enter a valid email address')
       }
-      );
+      );}
+      else
+      toast.error("Enter All The Credentials")
   }
   return   <div>
   {(loading?<Loader/>:<div>
@@ -74,6 +104,7 @@ function Login() {
     <Authblock onclick={handleapi} name="Log In" />
     <Switch status="Don't" action='Sign Up' destination={() => Navhandler('/signup')}  />
   </div>
+  <ToastContainer position="top-center" theme="dark" />
 </div>)}
 </div>;
 

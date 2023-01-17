@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
+
+#account_details{
+    position: absolute;
+    margin-left: 16.67vw;
+    margin-top: 3.88vw;
+    width: 77.77vw;
+    height: 38.33vw;
+}
+
+#cover_image{
+    width: 77.77vw;
+    height: 15vw;
+    background-color:"#B39DDB";
+}
+
+#account_avatar{
+    width: 8vw;
+    height: 180vw;
+    border: 4px solid #F5F5FA;
+    border-radius: 100%;
+    margin-left: 4.45vw;
+}

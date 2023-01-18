@@ -1,3 +1,5 @@
+import axios from "axios";
+import { config } from "process";
 import React from "react";
 import { useNavigate } from "react-router";
 import Nav from "../../navbar/navbar";
@@ -9,6 +11,27 @@ const Skill = () => {
     color:'#A950FB' ,
     borderLeft:'3px solid #A950FB',
    
+}
+
+var accesstoken=localStorage.getItem("accesstoken");
+
+const config ={
+  headers:{
+    Authorization:`Bearer ${accesstoken}`,
+  }
+}
+
+function handleskill (e:any){
+  const value:string = e.target.value
+  console.log(value)
+  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/list/?search_input='+value,config)
+  .then((res)=>
+  {
+    console.log(res.data);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
 }
 
   return (
@@ -27,7 +50,7 @@ const Skill = () => {
         <div>
           Skill
           <br />
-          <input placeholder="Enter Skill"/>
+          <input placeholder="Enter Skill" onChange={handleskill}/>
         </div>
     <button>Save</button>
       </div>

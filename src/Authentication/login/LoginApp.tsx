@@ -68,7 +68,6 @@ function Login() {
 }
       axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
       .then((res) => {
-        console.log(res); 
           setLoading(false);
           Navhandler('/account/edit_profile')
         })

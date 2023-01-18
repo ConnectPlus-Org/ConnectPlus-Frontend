@@ -41,6 +41,11 @@
   margin-bottom: 22vw;
 }
 
+#skill input:focus{
+  outline: none;
+  background-color: #2e2e2e;
+}
+
 #skill div{
 font-weight: 400;
 font-size: 1vw;

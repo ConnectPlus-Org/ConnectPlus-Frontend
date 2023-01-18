@@ -18,7 +18,7 @@ const config ={
     Authorization:`Bearer ${accesstoken}`,
   }
 };
-
+var c:number =0
 var [fname,setfname] = useState('')
 var [lname,setlname] = useState('')
 var [city,setcity] = useState('')
@@ -51,6 +51,7 @@ function getdetails() {
   function handleavatar(e:any) {
       setFileData(e.target.files[0])
       setavatar(fileData)
+      c=1
   }
 
   function handleapi(){
@@ -62,13 +63,32 @@ function getdetails() {
     object.append("city",city)
     object.append("headline",heading)
     object.append("avatar",fileData)
-    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
+    const object2 = {
+      first_name: fname,
+      last_name: lname,
+      city:city,
+      country:country,
+      headline:heading
+    }
+    if(c===1)
+    {axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
+    .then((res)=>{
+      console.log(res)
+      console.log("Yes")
+    }) 
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+  else{
+    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object2,config)
     .then((res)=>{
       console.log(res)
     }) 
     .catch((err)=>{
       console.log(err)
     })
+  }
   }
   return (
     <div>
@@ -83,7 +103,7 @@ function getdetails() {
       </div>
       <div id="edit_profile">
         <div style={{display:"inline"}}>
-        <img alt="" src={avatar}/><input type="file" id="editava" style={{display:'none'}} onChange={handleavatar}/><p onClick={inputavatar}><img src={edit} alt="edit" id="edit_icon"/>Change profile photo</p>
+        <img alt="" src={avatar}/><input type="file" id="editava" style={{display:'none'}} onChange={handleavatar}/><b onClick={inputavatar}><img src={edit} alt="edit" id="edit_icon"/>Change profile photo</b>
         </div>
         <div>
           First Name

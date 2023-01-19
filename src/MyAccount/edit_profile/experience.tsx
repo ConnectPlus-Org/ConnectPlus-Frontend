@@ -10,7 +10,19 @@ const Experience = () => {
     const [searchres,setsearchres] = useState([]);
     const [title,settitle] = useState("");
     const [company,setcompany] = useState("");
-    const [emptype,setemptype] = useState("");
+    const [emptype,setemptype] = useState(1);
+    const [location,setlocation] = useState("");
+    const [industry,setindustry] = useState("");
+    const [description,setdescription] = useState("");
+    const curryear=new Date().getFullYear();
+    const currmonth=new Date().getMonth();
+    const [startmonth,setstartmonth] = useState(currmonth);
+    const [startyear,setstartyear] = useState(curryear);
+    const [endmonth,setendmonth] = useState(currmonth);
+    const [endyear,setendyear] = useState(curryear);
+
+    const years = Array.from(new Array(20),(val, index) => curryear - index);
+    const months =["January","February","March","April","May","June","July","August","Septempber","October","November","December"];
     var accesstoken=localStorage.getItem("accesstoken");
   const config ={
       headers:{
@@ -35,6 +47,44 @@ const Experience = () => {
       console.log(err);
     });
 
+  }
+
+  function handleapi(){
+  
+    const startdatestring ="" + startyear +"-"+startmonth+"-01";
+    const enddatestring ="" + endyear +"-"+endmonth+"-01";
+    
+    let req;
+    req={
+      "role":title,
+      "location":location,
+      "currently_working":checked,
+    "start_date":startdatestring,
+    "industry":industry,
+    "employment_type":emptype,
+    "description":description
+    }
+    if(!checked)
+    {
+     req={...req,"end_date":enddatestring};  
+    }
+    const compid=parseInt(sessionStorage.getItem("companyid")!, 10);
+    if(compid && sessionStorage.getItem("compname")===company)
+    {
+     req={...req,"company":compid};  
+    }
+    else
+    {
+      req={...req,"company":company}; 
+    }
+    axios.post("https://linkedin-backend.azurewebsites.net/profile/experience/",req,config)
+    .then((res) => {
+      console.log(res);
+    })
+    .catch((err) => { 
+      console.log(err);
+    });
+  
   }
 
   const handleChange = () => {
@@ -66,6 +116,7 @@ const Experience = () => {
           <br />
           <input onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
           <div className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
+            
             {
               searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})
             }
@@ -74,12 +125,17 @@ const Experience = () => {
         <div>
           Employment Type
           <br />
-          <input onChange={(e:any)=>{setemptype(e.target.value);}} className="edit_input profileinput dropdown" placeholder="Employment Type" />
+          {/* <input onChange={(e:any)=>{setemptype(e.target.value);}} className="edit_input profileinput dropdown" placeholder="Employment Type" /> */}
+          <select onChange={(e:any)=>{setemptype(e.target.value);}} name="emptype" id="emptype" >
+            <option  value={1}>Part-Time</option>
+            <option  value={2}>Full-Time</option>
+            <option  value={3}>Self-Employed</option>
+          </select>
         </div>
         <div>
           Location
           <br />
-          <input className="edit_input profileinput" placeholder="Location" />
+          <input onChange={(e:any)=>{setlocation(e.target.value);}} value={location} className="edit_input profileinput" placeholder="Location" />
         </div>
         <div>
          {checked ? <div className="tickbox" onClick={handleChange}> <div className="tick"></div></div> : <div className="checkbox" onClick={handleChange}></div>} <span className="checkboxlabel">I am currently working on this role</span>
@@ -87,8 +143,22 @@ const Experience = () => {
         <div>
             Start Date
             <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
+            {/* <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/> */}
+            <select className="halfbox" onChange={(e:any)=>{setstartmonth(e.target.value);}} name="month" id="month" >
+            {
+            months.map((month, index) => {
+              return <option key={`month${index}`} value={index}>{month}</option>
+            })
+           }
+          </select>
+          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{setstartyear(e.target.value);}} name="month" id="month" >
+            {
+            years.map((year, index) => {
+              return <option key={`year${index}`} value={year}>{year}</option>
+            })
+           }
+          </select>
+            {/* <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/> */}
         </div>
         {checked ? 
         <div style={{opacity:'50%'}}>
@@ -101,25 +171,37 @@ const Experience = () => {
         <div>
             End Date
             <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
+            <select className="halfbox" onChange={(e:any)=>{setendmonth(e.target.value);}} name="month" id="month" >
+            {
+            months.map((month, index) => {
+              return <option key={`month${index}`} value={index}>{month}</option>
+            })
+           }
+          </select>
+          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{setendyear(e.target.value);}} name="month" id="month" >
+            {
+            years.map((year, index) => {
+              return <option key={`year${index}`} value={year}>{year}</option>
+            })
+           }
+          </select>
         </div>}
         <div>
           Industry
           <br />
-          <input className="edit_input profileinput" placeholder="Industry" />
+          <input  onChange={(e:any)=>{setindustry(e.target.value);}} value={industry} className="edit_input profileinput" placeholder="Industry" />
         </div>
         <div>
           Description
           <br />
-          <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
+          <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
         <div id="middiv">
         <p className="midtext">Skills</p>
         <p className="midline">We recommend adding your top 5 used in this role. They'll also appear in your Skills section. </p>
         <input className="edit_input profileinput" placeholder="Enter Skill" />
         </div>
-        <button>Save</button>
+        <button onClick={handleapi}>Save</button>
       </div>
     </div>
   );

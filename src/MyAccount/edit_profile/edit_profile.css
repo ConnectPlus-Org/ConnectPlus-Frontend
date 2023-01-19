@@ -57,7 +57,7 @@ color: #F5F5FA;
   border-radius: 50%;
 }
 
-.profileinput {
+.profileinput,select {
   background-color: #13131A;
   width: 37.77vw;
   border: 0.1vw solid white;
@@ -83,7 +83,8 @@ font-size: 0.902222vw;
 line-height: 140.8%;
 }
 
-.edit_input{
+
+.edit_input,select{
     margin-top: 0.5vh;
     height: 2.77vw;
 }

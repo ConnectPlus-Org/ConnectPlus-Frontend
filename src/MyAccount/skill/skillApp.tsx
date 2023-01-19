@@ -1,10 +1,12 @@
 import axios from "axios";
+import { toNamespacedPath } from "node:path/win32";
 import { config } from "process";
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Nav from "../../navbar/navbar";
 import Skillcomponent from "./searchbox";
 import "./skill.css"
+import { ToastContainer, toast } from 'react-toastify';
 
 const Skill = () => {
   const Navhandler= useNavigate();
@@ -37,6 +39,21 @@ function handleskill (e:any){
     console.log(err);
   })
 }
+
+function addskill() { 
+  axios.post('https://linkedin-backend.azurewebsites.net/profile/skill/',
+  {
+    skill_name:skill
+  },config)
+  .then((res)=>{
+    console.log(res)
+    toast("Skill added successfully")
+  })
+  .catch((err)=>{
+    toast("Skill already added")
+    console.log(err)
+  })
+}
   return (
     <div>
       <Nav />
@@ -62,8 +79,9 @@ function handleskill (e:any){
           </div>
           </div>
         </div>
-    <button>Save</button>
+    <button onClick={addskill}>Save</button>
       </div>
+      <ToastContainer position="top-center" theme="dark" />
     </div>
   );
 };

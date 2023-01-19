@@ -196,11 +196,29 @@ textarea{
   margin-top: -1vw;
 }
 
+#edit_icon{
+  height: 1.2vw !important;
+  width: 1.2vw !important;
+  border: none !important;
+  border-radius: 0 !important;
+  vertical-align: bottom;
+}
+
+#edit_profile b{
+  width: 12vw;
+  background-color:#F5F5FA;
+  color:#13131A; 
+  font-weight: 700;
+  font-size: 0.9vw;
+  border-radius: 4px;
+  display: inline;
+  cursor: pointer;
+}
 .dropsearchbox{
   display: flex;
   flex-direction: column;
   position:absolute;
-top: 36.5vh;
+/* top: 36.5vh; */
 }
 .flexelement{
   width: 37.77vw;

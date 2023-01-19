@@ -1,8 +1,6 @@
 import "./edit_profile.css"
 
-
- const boxcomponent:any= (box:any)=>{
-    
+const boxcomponent:any= (box:any)=>{ 
     return(
         
         <div onClick={()=>{(sessionStorage.setItem("companyid",box.box.id) ); sessionStorage.setItem("compname",box.box.name)}} className="flexelement">
@@ -10,7 +8,6 @@ import "./edit_profile.css"
             {box.box.name}
         </div>
     )
-
 }
 
 export default boxcomponent;

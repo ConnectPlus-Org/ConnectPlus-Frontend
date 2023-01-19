@@ -1,7 +1,12 @@
-import React from "react";
+import axios from "axios";
+import { toNamespacedPath } from "node:path/win32";
+import { config } from "process";
+import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import Nav from "../../navbar/navbar";
+import Skillcomponent from "./searchbox";
 import "./skill.css"
+import { ToastContainer, toast } from 'react-toastify';
 
 const Skill = () => {
   const Navhandler= useNavigate();
@@ -10,7 +15,45 @@ const Skill = () => {
     borderLeft:'3px solid #A950FB',
    
 }
+var accesstoken=localStorage.getItem("accesstoken");
 
+const config ={
+  headers:{
+    Authorization:`Bearer ${accesstoken}`,
+  }
+}
+
+var [searches,setsearches] = useState([])
+var [skill,setskill] = useState("")
+
+var l:number = searches.length
+function handleskill (e:any){
+  setskill(e.target.value)
+  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/list/?search_input='+e.target.value,config)
+  .then((res)=>
+  {
+    console.log(res.data);
+    setsearches(res.data);
+  })
+  .catch((err)=>{
+    console.log(err);
+  })
+}
+
+function addskill() { 
+  axios.post('https://linkedin-backend.azurewebsites.net/profile/skill/',
+  {
+    skill_name:skill
+  },config)
+  .then((res)=>{
+    console.log(res)
+    toast("Skill added successfully")
+  })
+  .catch((err)=>{
+    toast("Skill already added")
+    console.log(err)
+  })
+}
   return (
     <div>
       <Nav />
@@ -27,10 +70,18 @@ const Skill = () => {
         <div>
           Skill
           <br />
-          <input placeholder="Enter Skill"/>
+          <input placeholder="Enter Skill" onChange={handleskill} value={skill}/>
+          <div style={{height:"15vw"}}>
+          <div className="dropsearchbox" onClick={()=>{setsearches([]); const skillname:string=sessionStorage.getItem("skillname")!; setskill(skillname)}}>
+          {
+            searches.map((box:any)=>{return <Skillcomponent key={box.id} box={box} />})
+          }
+          </div>
+          </div>
         </div>
-    <button>Save</button>
+    <button onClick={addskill}>Save</button>
       </div>
+      <ToastContainer position="top-center" theme="dark" />
     </div>
   );
 };

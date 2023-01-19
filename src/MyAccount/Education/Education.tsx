@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../navbar/navbar";
 import "../edit_profile/edit_profile.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Boxcomponent from "./boxcomponent";
 
 const Education = () => {
 
@@ -9,13 +11,87 @@ const Education = () => {
         color:'#A950FB' ,
         borderLeft:'3px solid #A950FB',
     }
-    const [checked, setChecked] = React.useState(false);
+    
+    window.onclick = () => {
+      const i:any = document.getElementById("i")
+    if(i === document.activeElement)
+      document.getElementById("drop")!.style.visibility = "visible";
+    else
+      document.getElementById("drop")!.style.visibility = "hidden";
+    }
+  
+      const [searchres,setsearchres] = useState([]);
+      const [school,setschool] = useState("");
+      const [degree,setdegree] = useState("");
+      const [fos,setfos] = useState(1);
+      const [grade,setgrade] = useState("");
+      const [description,setdescription] = useState("");
+      const curryear=new Date().getFullYear();
+      const currmonth=new Date().getMonth();
+      const [startmonth,setstartmonth] = useState(currmonth);
+      const [startyear,setstartyear] = useState(curryear);
+      const [endmonth,setendmonth] = useState(currmonth);
+      const [endyear,setendyear] = useState(curryear);
+  
+      const years = Array.from(new Array(20),(val, index) => curryear - index);
+      const months =["January","February","March","April","May","June","July","August","Septempber","October","November","December"];
+      var accesstoken=localStorage.getItem("accesstoken");
+    const config ={
+        headers:{
+          Authorization:`Bearer ${accesstoken}`,
+        }
+      };
 
-  const handleChange = () => {
-    setChecked(!checked);
-  };
-  const time:any = new Date();
-//   console.log(time);
+      function handleschoolname(e:any){
+        setschool(e.target.value);
+        axios.get(`https://linkedin-backend.azurewebsites.net/profile/organization/?search_input=school ${e.target.value}`,config)
+        .then((res) => {
+          console.log(res);
+          setsearchres(res.data);
+        })
+        .catch((err) => { 
+          console.log(err);
+        });
+    
+      }
+
+      function handleapi(){
+        const startmonth1= startmonth+1;
+        const endmonth1= endmonth+1;
+        
+        const startdatestring ="" + startyear +"-"+startmonth1+"-01";
+        const enddatestring ="" + endyear +"-"+endmonth1+"-01";
+        console.log(startdatestring);
+        console.log(enddatestring);
+        let req;
+        req={
+          "school":school,
+          "degree":degree,
+          "field_of_study":fos,
+        "start_date":startdatestring,
+        "end_date":enddatestring,
+        "grade":grade,
+        "description":description
+        }
+        
+        const schoolid=parseInt(sessionStorage.getItem("schoolid")!, 10);
+        if(school && sessionStorage.getItem("schoolame")===school)
+        {
+         req={...req,"school":schoolid};  
+        }
+        else
+        {
+          req={...req,"school":school}; 
+        }
+        axios.post("https://linkedin-backend.azurewebsites.net/profile/education/",req,config)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => { 
+          console.log(err);
+        });
+      
+      }
     const Navhandler=useNavigate();
   return (
     <div>
@@ -33,42 +109,72 @@ const Education = () => {
         <div>
           School
           <br />
-          <input className="edit_input profileinput" placeholder="School" />
+          <input id="i" onChange={handleschoolname} value={school} className="edit_input profileinput" placeholder="School" />
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const schoolname:string=sessionStorage.getItem("schoolname")!; setschool(schoolname)}}>
+            
+            {
+              searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})
+            }
+          </div>
         </div>
         <div>
           Degree
           <br />
-          <input className="edit_input profileinput" placeholder="Degree" />
+          <input onChange={(e:any)=>{setdegree(e.target.value);}} className="edit_input profileinput" placeholder="Degree" />
         </div>
         <div>
           Field of Study
           <br />
-          <input className="edit_input profileinput dropdown" placeholder="Field of Study" />
+          <input onChange={(e:any)=>{setfos(e.target.value);}} className="edit_input profileinput dropdown" placeholder="Field of Study" />
         </div>
         <div>
           Grade
           <br />
-          <input className="edit_input profileinput" placeholder="Grade" />
+          <input type="number" onChange={(e:any)=>{setgrade(e.target.value);}} className="edit_input profileinput" placeholder="Grade" />
         </div>
         <div>
             Start Date
             <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
+            <select className="halfbox" onChange={(e:any)=>{setstartmonth(e.target.value);}} name="month" id="month" >
+            {
+            months.map((month, index) => {
+              return <option key={`month${index}`} value={index}>{month}</option>
+            })
+           }
+          </select>
+          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{setstartyear(e.target.value);}} name="month" id="month" >
+            {
+            years.map((year, index) => {
+              return <option key={`year${index}`} value={year}>{year}</option>
+            })
+           }
+          </select>
         </div>
         <div>
             End Date
             <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
+            <select className="halfbox" onChange={(e:any)=>{setendmonth(e.target.value);}} name="month" id="month" >
+            {
+            months.map((month, index) => {
+              return <option key={`month${index}`} value={index}>{month}</option>
+            })
+           }
+          </select>
+          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{setendyear(e.target.value);}} name="month" id="month" >
+            {
+            years.map((year, index) => {
+              return <option key={`year${index}`} value={year}>{year}</option>
+            })
+           }
+          </select>
         </div>
         <div>
           Description
           <br />
-          <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
+          <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
     
-        <button>Save</button>
+        <button onClick={handleapi}>Save</button>
       </div>
     </div>
   );

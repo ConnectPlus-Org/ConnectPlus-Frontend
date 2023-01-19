@@ -54,7 +54,7 @@ function Login() {
   }
   function handleapi() {
     if(email && password){setLoading(true);
-    axios.post("https://linkedin-back.azurewebsites.net/auth/account/login/", {
+    axios.post("https://linkedin-backend.azurewebsites.net/auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {

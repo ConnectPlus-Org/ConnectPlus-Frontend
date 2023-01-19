@@ -60,7 +60,7 @@ const Phoneotp = () => {
     function handleapi(){
         setLoading(true);
         const number=localStorage.getItem("number");
-        axios.post("https://linkedin-back.azurewebsites.net/auth/otp/phone/verify/",{
+        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/verify/",{
             phone_number:number,
             otp:value
         }).then((res) => {

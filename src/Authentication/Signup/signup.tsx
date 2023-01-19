@@ -36,7 +36,7 @@ const Phone = () => {
   function Handleapi() {
     if(number){setLoading(true);
     axios
-      .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
+      .post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/send/", {
         phone_number: number,
       })
       .then((res) => {

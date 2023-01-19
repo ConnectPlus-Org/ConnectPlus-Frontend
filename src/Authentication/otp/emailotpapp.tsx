@@ -53,7 +53,7 @@ const Otp = () => {
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
         const context = localStorage.getItem("context");
-        axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/verify/",{
+        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/verify/",{
             email:email,
             otp:value
         }).then((res) => {

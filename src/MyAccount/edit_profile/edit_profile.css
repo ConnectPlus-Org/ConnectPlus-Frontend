@@ -194,3 +194,21 @@ textarea{
   height: 8vw;
   margin-top: -1vw;
 }
+
+.dropsearchbox{
+  display: flex;
+  flex-direction: column;
+  position:absolute;
+top: 36.5vh;
+}
+.flexelement{
+  width: 37.77vw;
+  padding-top: 1vh;
+  border: 2px solid #13131A;
+  padding-left: 4vh;
+  background-color:black;
+  cursor:pointer;
+}
+.flexelement:hover{
+  background-color: #A950FB;
+}

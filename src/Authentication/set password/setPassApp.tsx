@@ -55,7 +55,7 @@ function Passwordset(){
         setLoading(true);
         if(password===password2 && password)
         {
-            axios.post("https://linkedin-back.azurewebsites.net/auth/account/register/",{
+            axios.post("https://linkedin-backend.azurewebsites.net/auth/account/register/",{
             email:email,
             password:password,
             email_otp:otp

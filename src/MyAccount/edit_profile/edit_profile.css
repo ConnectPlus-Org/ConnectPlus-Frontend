@@ -217,7 +217,7 @@ textarea{
   display: flex;
   flex-direction: column;
   position:absolute;
-top: 36.5vh;
+/* top: 36.5vh; */
 }
 .flexelement{
   width: 37.77vw;

@@ -1,15 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../navbar/navbar";
 import "./edit_profile.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import loader from "../../loader"
+import Boxcomponent from "./boxcomponent"
 
 const Experience = () => {
+    const [searchres,setsearchres] = useState([]);
+    const [title,settitle] = useState("");
+    const [company,setcompany] = useState("");
+    const [emptype,setemptype] = useState("");
+    var accesstoken=localStorage.getItem("accesstoken");
+  const config ={
+      headers:{
+        Authorization:`Bearer ${accesstoken}`,
+      }
+    };
 
     const activestyle={
         color:'#A950FB' ,
         borderLeft:'3px solid #A950FB',
     }
     const [checked, setChecked] = React.useState(false);
+
+  function handlecompanyname(e:any){
+    setcompany(e.target.value);
+    axios.get(`https://linkedin-backend.azurewebsites.net/profile/organization/?search_input=${e.target.value}`,config)
+    .then((res) => {
+      console.log(res);
+      setsearchres(res.data);
+    })
+    .catch((err) => { 
+      console.log(err);
+    });
+
+  }
 
   const handleChange = () => {
     setChecked(!checked);
@@ -33,17 +59,22 @@ const Experience = () => {
         <div>
           Title
           <br />
-          <input className="edit_input profileinput" placeholder="Title" />
+          <input onChange={(e:any)=>{settitle(e.target.value);}} className="edit_input profileinput" placeholder="Title" />
         </div>
         <div>
           Company Name
           <br />
-          <input className="edit_input profileinput" placeholder="Company Name" />
+          <input onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
+          <div className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
+            {
+              searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})
+            }
+          </div>
         </div>
         <div>
           Employment Type
           <br />
-          <input className="edit_input profileinput dropdown" placeholder="Employment Type" />
+          <input onChange={(e:any)=>{setemptype(e.target.value);}} className="edit_input profileinput dropdown" placeholder="Employment Type" />
         </div>
         <div>
           Location

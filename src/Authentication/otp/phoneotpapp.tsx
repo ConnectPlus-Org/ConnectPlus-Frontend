@@ -39,7 +39,7 @@ const Phoneotp = () => {
         if(seconds===0){
     const number=localStorage.getItem("number");
     axios
-      .post("https://linkedin-back.azurewebsites.net/auth/otp/phone/send/", {
+      .post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/send/", {
         phone_number: number,
       })
       .then((res) => {

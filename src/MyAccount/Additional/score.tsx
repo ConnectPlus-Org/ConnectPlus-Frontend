@@ -1,19 +1,80 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../navbar/navbar";
 import "../edit_profile/edit_profile.css";
 import "./additional.css"
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const Score = () => {
+
+  const [searchres,setsearchres] = useState([]);
+  var accesstoken=localStorage.getItem("accesstoken");
+  const config ={
+      headers:{
+        Authorization:`Bearer ${accesstoken}`,
+      }
+    };
+    
+    function handleassociations(){
+    axios.get(`https://linkedin-backend.azurewebsites.net/profile/myorganization/`,config)
+      .then((res) => {
+        console.log(res);
+        setsearchres(res.data.my_organizations);
+      })
+      .catch((err) => { 
+        console.log(err);
+      });
+    }
 
     const activestyle={
         color:'#A950FB' ,
         borderLeft:'3px solid #A950FB',
     }
 
+    function handleapi(){
 
+      const testmonth1= testmonth+1;
     
-  const time:any = new Date();
+    
+    const testdatestring ="" + testyear +"-"+testmonth1+"-01";
+
+      let obj:any={
+        "title":title,
+        "score":score,
+        "test_date":testdatestring,
+        "description":description
+        
+      }
+      if(association===undefined || association===null)
+      {
+        obj={...obj,"organization":null}
+      }
+      else
+      {
+        const asso=parseInt(association, 10);
+        obj={...obj,"organization":asso};
+      }
+      axios.post(`https://linkedin-backend.azurewebsites.net/profile/testscore/`,obj,config)
+      .then((res) => {
+        console.log(res);
+        
+      })
+      .catch((err) => { 
+        console.log(err);
+      });
+    }
+    
+    const [association,setassociation] = useState(null);
+    const [title,settitle] = useState("");
+    const [score,setscore] = useState("");
+    const [description,setdescription] = useState("");
+    const curryear=new Date().getFullYear();
+    const currmonth=new Date().getMonth();
+    const [testmonth,settestmonth] = useState(currmonth);
+    const [testyear,settestyear] = useState(curryear);
+    const years = Array.from(new Array(20),(val, index) => curryear - index);
+    const months =["January","February","March","April","May","June","July","August","Septempber","October","November","December"];
+
 //   console.log(time);
     const Navhandler=useNavigate();
   return (
@@ -34,41 +95,61 @@ const Score = () => {
         <div>
           Title
           <br />
-          <input className="edit_input profileinput" placeholder="Title" />
+          <input  onChange={(e:any)=>{settitle(e.target.value);}} value={title} className="edit_input profileinput" placeholder="Title" />
         </div>
         <div>
           Associated With
           <br />
-          <input className="edit_input dropdown profileinput" placeholder="Associated With" />
+          <select onClick={handleassociations} onChange={(e:any)=>{setassociation(e.target.value);}} name="month" id="month" >
+            
+              <option value={undefined}>None</option>
+            {
+            searchres.map((associ:any) => {
+              return <option key={`associ${associ.organization}`} value={associ.organization}>{associ.tagline}</option>
+            })
+           }
+          </select>
         </div>
         <div>
           Score
           <br />
-          <input className="edit_input profileinput dropdown" placeholder="Score" />
+          <input  onChange={(e:any)=>{setscore(e.target.value);}} value={score} className="edit_input profileinput dropdown" placeholder="Score" />
         </div>
         
         
         <div>
-            Start Date
+            Test Date
             <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
+            <select className="halfbox" onChange={(e:any)=>{settestmonth(e.target.value);}} name="month" id="month" >
+            {
+            months.map((month, index) => {
+              return <option key={`month${index}`} value={index}>{month}</option>
+            })
+           }
+          </select>
+          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{settestyear(e.target.value);}} name="month" id="month" >
+            {
+            years.map((year, index) => {
+              return <option key={`year${index}`} value={year}>{year}</option>
+            })
+           }
+          </select>
         </div>
         
-        <div>
+        {/* <div>
             End Date
             <br />
             <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
             <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
-        </div>
+        </div> */}
         
         <div>
           Description
           <br />
-          <textarea id="desc" className="edit_input profileinput" placeholder="Description" />
+          <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
         
-        <button>Save</button>
+        <button  onClick={handleapi}>Save</button>
       </div>
     </div>
   );

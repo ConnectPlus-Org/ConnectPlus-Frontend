@@ -54,7 +54,7 @@ function Login() {
   }
   function handleapi() {
     if(email && password){setLoading(true);
-    axios.post("https://linkedin-backend.azurewebsites.net/auth/account/login/", {
+    axios.post("https://linkedin-back.azurewebsites.net/auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {
@@ -69,6 +69,8 @@ function Login() {
       axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
       .then((res) => {
           setLoading(false);
+          sessionStorage.setItem("avatar",res.data.avatar) 
+          sessionStorage.setItem("username",res.data.username) 
           Navhandler('/account/edit_profile')
         })
         .catch((err) => {

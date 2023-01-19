@@ -9,6 +9,13 @@ import "./skill.css"
 import { ToastContainer, toast } from 'react-toastify';
 
 const Skill = () => {
+  window.onclick = () => {
+    const i = document.getElementById("i")
+  if(i === document.activeElement)
+    document.getElementById("drop")!.style.visibility = "visible";
+  else
+    document.getElementById("drop")!.style.visibility = "hidden";
+  }
   const Navhandler= useNavigate();
   const activestyle={
     color:'#A950FB' ,
@@ -54,6 +61,7 @@ function addskill() {
     console.log(err)
   })
 }
+
   return (
     <div>
       <Nav />
@@ -70,9 +78,9 @@ function addskill() {
         <div>
           Skill
           <br />
-          <input placeholder="Enter Skill" onChange={handleskill} value={skill}/>
+          <input id="i" placeholder="Enter Skill" onChange={handleskill} value={skill}/>
           <div style={{height:"15vw"}}>
-          <div className="dropsearchbox" onClick={()=>{setsearches([]); const skillname:string=sessionStorage.getItem("skillname")!; setskill(skillname)}}>
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearches([]); const skillname:string=sessionStorage.getItem("skillname")!; setskill(skillname)}}>
           {
             searches.map((box:any)=>{return <Skillcomponent key={box.id} box={box} />})
           }

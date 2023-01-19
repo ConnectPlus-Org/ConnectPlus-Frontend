@@ -6,7 +6,17 @@ import axios from "axios";
 import loader from "../../loader"
 import Boxcomponent from "./boxcomponent"
 
+
+
 const Experience = () => {
+  window.onclick = () => {
+    const i:any = document.getElementById("i")
+  if(i === document.activeElement)
+    document.getElementById("drop")!.style.visibility = "visible";
+  else
+    document.getElementById("drop")!.style.visibility = "hidden";
+  }
+
     const [searchres,setsearchres] = useState([]);
     const [title,settitle] = useState("");
     const [company,setcompany] = useState("");
@@ -50,10 +60,14 @@ const Experience = () => {
   }
 
   function handleapi(){
-  
-    const startdatestring ="" + startyear +"-"+startmonth+"-01";
-    const enddatestring ="" + endyear +"-"+endmonth+"-01";
+    const startmonth1= startmonth+1;
+    const endmonth1= endmonth+1;
     
+    
+    const startdatestring ="" + startyear +"-"+startmonth1+"-01";
+    const enddatestring ="" + endyear +"-"+endmonth1+"-01";
+    
+    console.log(startdatestring);
     let req;
     req={
       "role":title,
@@ -114,8 +128,8 @@ const Experience = () => {
         <div>
           Company Name
           <br />
-          <input onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
-          <div className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
+          <input id="i" onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
             
             {
               searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})

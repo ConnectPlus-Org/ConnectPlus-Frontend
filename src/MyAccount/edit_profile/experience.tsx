@@ -70,7 +70,7 @@ const Experience = () => {
     console.log(startdatestring);
     let req;
     req={
-      "role":title,
+        "role":title,
       "location":location,
       "currently_working":checked,
     "start_date":startdatestring,
@@ -130,7 +130,6 @@ const Experience = () => {
           <br />
           <input id="i" onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
           <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
-            
             {
               searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})
             }

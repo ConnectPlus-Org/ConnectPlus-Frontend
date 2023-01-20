@@ -25,6 +25,8 @@ function loadAccount(){
     axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+username,config)
     .then((res)=>{
         console.log(res.data)
+        sessionStorage.setItem("cover",res.data.background_image)
+        Navhandler("/account")
     })
     .catch((err)=>{
         console.log(err)

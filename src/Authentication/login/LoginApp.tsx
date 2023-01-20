@@ -71,7 +71,7 @@ function Login() {
           setLoading(false);
           sessionStorage.setItem("avatar",res.data.avatar) 
           sessionStorage.setItem("username",res.data.username) 
-          Navhandler('/account/edit_profile')
+          Navhandler('/account')
         })
         .catch((err) => {
           setLoading(false);

@@ -1,11 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope&display=swap");
 
-#account_details{
-    position: absolute;
-    margin-left: 16.67vw;
-    margin-top: 3.88vw;
+#acc{
     width: 77.77vw;
-    height: 38.33vw;
+    margin-left: 16.67vw;
+    display:flex;
+    flex-direction:column;
+}
+
+#account_details{
+    margin: 3.88vw 0vw;
 }
 
 #cover_image{
@@ -21,4 +24,68 @@
     border-radius: 100%;
     margin-left: 4.45vw;
     margin-top: -5vw;
+}
+
+#Updateprofile{
+    background-color: #A950FB;
+    display: inline;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 4px;
+    margin-left:55vw;
+    cursor: pointer;
+}
+
+.acc_icon{
+    display: inline;
+    margin-left: 55vw;
+}
+
+.acc_box img{
+    cursor: pointer;
+    margin-right: 2vw;
+}
+
+.acc_box{
+    margin-top: 3vw;
+    border: 1px solid #EBEBF0;
+    border-radius: 0.4vw;
+    background-color: #13131A;
+    padding: 1.5vw;
+}
+
+.acc_box span{
+    font-weight: 700;
+    font-size: 1.66vw;
+    color: #f5f5fa;
+    width: 5vw;
+}
+
+.acc_box pre{
+    text-align: center;
+    font-size: 1.4vw;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.expbox{
+    display: flex;
+    margin: 3vw 0;
+    box-sizing: border-box;
+    border-bottom: 1px solid white;
+    width: 60vw;
+}
+
+.expbox img{ 
+    width: 7vw;
+    height: 7vw;
+    border-radius: 0.55vw;
+    display: inline-block;
+}
+
+.expbox div{
+    display: inline;
+}
+.expbox p{
+    margin-bottom: 0.2vw;
 }

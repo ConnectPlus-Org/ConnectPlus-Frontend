@@ -7,6 +7,7 @@ import Loader from '../../loader';
 import ExperienceBox from "./components/experience";
 import EducationBox from "./components/educationbox";
 import TestBox from "./components/test";
+import CourseBox from "./components/course";
 const edit: string = require("./images/edit.svg").default;
 const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
@@ -29,6 +30,7 @@ const Account = () => {
     const [education,setedu] = useState([])
     const [skills,setskill] = useState([])
     const [test,settest] = useState([])
+    const[course,setcourse] = useState([])
 
     useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+username,config)
     .then((res)=>{
@@ -41,6 +43,7 @@ const Account = () => {
         setedu(res.data.education_data)
         setskill(res.data.skill_data)
         settest(res.data.testscore_data)
+        setcourse(res.data.course_data)
     })
     .catch((err)=>{
         console.log(err)
@@ -49,7 +52,7 @@ const Account = () => {
         
     const Navhandler = useNavigate();
     const avatar = sessionStorage.getItem("avatar") || ""
-    const name = sessionStorage.getItem("name")
+    const name = sessionStorage.getItem("name") || ""
     const cover = sessionStorage.getItem("cover") || ""
 
     return <div>
@@ -114,6 +117,9 @@ const Account = () => {
         <span>Courses</span>
         <div className="acc_icon"><img src={plus} />
         <img src={edit} /></div>
+        {
+            course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})
+        }
         <pre>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>

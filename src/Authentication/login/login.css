@@ -41,7 +41,6 @@ body {
 }
 
 .input:focus {
-  -webkit-appearance: none;
   outline: none;
   background-color: #2e2e2e;
 }

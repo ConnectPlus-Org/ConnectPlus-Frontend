@@ -1,14 +1,95 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../../navbar/navbar";
 import "./edit_profile.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Heading from "../../Authentication/components/heading";
+const edit:string = require('./edit.svg').default;
 const Editprofile = () => {
+  const Navhandler=useNavigate();
   const activestyle={
     color:'#A950FB' ,
     borderLeft:'3px solid #A950FB'
 }
 
-  const Navhandler=useNavigate();
+var accesstoken=localStorage.getItem("accesstoken");
+const config ={
+  headers:{
+    Authorization:`Bearer ${accesstoken}`,
+  }
+};
+var c:number =0
+var [fname,setfname] = useState('')
+var [lname,setlname] = useState('')
+var [city,setcity] = useState('')
+var [country,setcountry] = useState('')
+var [avatar,setavatar] = useState('')
+var [heading,setheading] = useState('')
+
+function getdetails() {
+    axios.get('https://linkedin-backend.azurewebsites.net/profile/userprofile/',config)
+    .then((res)=>{
+        setfname(res.data.first_name)
+        setlname(res.data.last_name)
+        setcity(res.data.city)
+        setcountry(res.data.country)
+        setavatar(res.data.avatar)
+        setheading(res.data.headline)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
+  }
+  getdetails();
+
+  const inputavatar = () => {
+      document.getElementById('editava')?.click()
+  }
+
+  const [fileData, setFileData] = useState('')
+
+  function handleavatar(e:any) {
+      setFileData(e.target.files[0])
+      setavatar(fileData)
+      c=1
+  }
+
+  function handleapi(){
+    const object = new FormData()
+    console.log(fname,lname,city,country,heading,fileData)
+    object.append("first_name",fname)
+    object.append("last_name",lname)
+    object.append("country",country)
+    object.append("city",city)
+    object.append("headline",heading)
+    object.append("avatar",fileData)
+    const object2 = {
+      first_name: fname,
+      last_name: lname,
+      city:city,
+      country:country,
+      headline:heading
+    }
+    if(c===1)
+    {axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
+    .then((res)=>{
+      console.log(res)
+      console.log("Yes")
+    }) 
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+  else{
+    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object2,config)
+    .then((res)=>{
+      console.log(res)
+    }) 
+    .catch((err)=>{
+      console.log(err)
+    })
+  }
+  }
   return (
     <div>
       <Nav />
@@ -21,33 +102,35 @@ const Editprofile = () => {
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="edit_profile">
-        <img alt="" />
+        <div style={{display:"inline"}}>
+        <img alt="" src={avatar}/><input type="file" id="editava" style={{display:'none'}} onChange={handleavatar}/><b onClick={inputavatar}><img src={edit} alt="edit" id="edit_icon"/>Change profile photo</b>
+        </div>
         <div>
           First Name
           <br />
-          <input className="edit_input profileinput" placeholder="First Name" />
+          <input className="edit_input profileinput" placeholder="First Name" defaultValue={fname} onChange={(e:any)=>fname=e.target.value}/>
         </div>
         <div>
           Last Name
           <br />
-          <input className="edit_input profileinput" placeholder="Last Name" />
+          <input className="edit_input profileinput" placeholder="Last Name" defaultValue={lname} onChange={(e:any)=>lname=e.target.value}/>
         </div>
         <div>
           Country/Region
           <br />
-          <input className="edit_input profileinput" placeholder="Country/Region" />
+          <input className="edit_input profileinput" placeholder="Country/Region" defaultValue={country} onChange={(e:any)=>country=e.target.value}/>
         </div>
         <div>
           City/District
           <br />
-          <input className="edit_input profileinput" placeholder="City/District" />
+          <input className="edit_input profileinput" placeholder="City/District" defaultValue={city} onChange={(e:any)=>city=e.target.value}/>
         </div>
         <div>
           Headline
           <br />
-          <textarea id="headline" placeholder="Heading"/>
+          <textarea id="headline" placeholder="Heading" defaultValue={heading} onChange={(e:any)=>heading=e.target.value}/>
         </div>
-    <button>Save</button>
+    <button onClick={handleapi}>Save</button>
       </div>
     </div>
   );

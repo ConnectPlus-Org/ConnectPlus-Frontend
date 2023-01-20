@@ -9,7 +9,6 @@ import Phoneotp from "../Authentication/otp/phoneotpapp";
 import Forgot from "../Authentication/forgot/forgotAPP";
 import Resetpass from "../Authentication/reset password/resetPassApp"
 import Setpass from "../Authentication/set password/setPassApp"
-import Success from "../Authentication/login/success";
 import Profile  from "../Authentication/profile creation/profileApp"
 import Editprofile from "../MyAccount/edit_profile/edit_profile";
 import ProfileHead from "../Authentication/profile creation/profileHead";
@@ -21,6 +20,10 @@ import Additional from "../MyAccount/Additional/Additional"
 import Courses from "../MyAccount/Additional/courses"
 import Score from "../MyAccount/Additional/score"
 import Account from "../MyAccount/Main/MainApp";
+import Manage from "../network/manageapp"
+import Connection from "../network/connectionapp"
+import Followers from "../network/followersapp"
+import Following from "../network/followingapp"
 
 const App = () => {
   return <BrowserRouter>
@@ -33,7 +36,6 @@ const App = () => {
     <Route path="/forgot_password" element={<Forgot />}></Route>
     <Route path="/reset_password" element={<Resetpass />}></Route>
     <Route path="/set_password" element={<Setpass />}></Route>
-    <Route path="/success" element={ <Success />}></Route>
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
     <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
     <Route path="/account" element={ <ProtectedRoute><Account /></ProtectedRoute>}></Route>
@@ -45,6 +47,10 @@ const App = () => {
     <Route path="/account/additional" element={<ProtectedRoute><Additional/></ProtectedRoute>}></Route>
     <Route path="/account/additional/courses" element={<ProtectedRoute><Courses/></ProtectedRoute>}></Route>
     <Route path="/account/additional/score" element={<ProtectedRoute><Score/></ProtectedRoute>}></Route>
+    <Route path="/network/manage" element={<ProtectedRoute><Manage/></ProtectedRoute>}></Route>
+    <Route path="/network/connection" element={<ProtectedRoute><Connection/></ProtectedRoute>}></Route>
+    <Route path="/network/followers" element={<ProtectedRoute><Followers/></ProtectedRoute>}></Route>
+    <Route path="/network/following" element={<ProtectedRoute><Following/></ProtectedRoute>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

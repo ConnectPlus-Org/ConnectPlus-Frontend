@@ -38,7 +38,7 @@ const Forgot = () => {
     function Handleapi() {
       setLoading(true);
       if (correctMail){
-        axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/", {
+        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/send/", {
       email :  email,
       context : "forget"
     }).then((res) => {

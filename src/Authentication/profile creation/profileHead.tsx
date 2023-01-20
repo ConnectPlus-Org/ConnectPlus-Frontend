@@ -25,8 +25,8 @@ function ProfileHead(this: any){
     const country:string = (sessionStorage.getItem("country") || (""));
     const city:string = (sessionStorage.getItem("city") || (""));
 
-    if(!fname && !lname && !country && !city)
-    Navhandler("/profile");
+    // if(!fname && !lname && !country && !city)
+    // Navhandler("/profile");
 
    const boxstyle = {
        height: '35vw'
@@ -43,7 +43,7 @@ function ProfileHead(this: any){
 
     const [fileData, setFileData] = useState('')
 
-    async function handleavatar(e:any) {
+    function handleavatar(e:any) {
         setFileData(e.target.files[0])
         console.log(fileData)
     }
@@ -63,6 +63,7 @@ function ProfileHead(this: any){
           object,config)
         .then((res) => {
           console.log(res);
+            sessionStorage.clear();
           setLoading(false);
           Navhandler('/account')
         })

@@ -37,7 +37,7 @@ const SignUp = () => {
     if(email){setLoading(true);
     localStorage.setItem("email", email);
     localStorage.setItem("context", "register");
-    axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/", {
+    axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/send/", {
         email: email,
         context: "register",
       })

@@ -18,7 +18,6 @@ const config ={
     Authorization:`Bearer ${accesstoken}`,
   }
 };
-var c:number =0
 var [fname,setfname] = useState('')
 var [lname,setlname] = useState('')
 var [city,setcity] = useState('')
@@ -34,6 +33,7 @@ function getdetails() {
         setcity(res.data.city)
         setcountry(res.data.country)
         setavatar(res.data.avatar)
+        sessionStorage.setItem('avatar',res.data.avatar)
         setheading(res.data.headline)
     })
     .catch((err)=>{
@@ -51,7 +51,6 @@ function getdetails() {
   function handleavatar(e:any) {
       setFileData(e.target.files[0])
       setavatar(fileData)
-      c=1
   }
 
   function handleapi(){
@@ -63,32 +62,13 @@ function getdetails() {
     object.append("city",city)
     object.append("headline",heading)
     object.append("avatar",fileData)
-    const object2 = {
-      first_name: fname,
-      last_name: lname,
-      city:city,
-      country:country,
-      headline:heading
-    }
-    if(c===1)
-    {axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
-    .then((res)=>{
-      console.log(res)
-      console.log("Yes")
-    }) 
-    .catch((err)=>{
-      console.log(err)
-    })
-  }
-  else{
-    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object2,config)
+    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
     .then((res)=>{
       console.log(res)
     }) 
     .catch((err)=>{
       console.log(err)
     })
-  }
   }
   return (
     <div>

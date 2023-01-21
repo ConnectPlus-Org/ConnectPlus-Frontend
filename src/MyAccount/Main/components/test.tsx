@@ -1,5 +1,6 @@
 import React from "react";
 import "../main.css"
+const edit:string = require('../images/edit.svg').default
 
 const TestBox:any = (box:any) => {
     if(box.box.end_date == null)
@@ -10,6 +11,7 @@ const TestBox:any = (box:any) => {
         <p style={{fontWeight: '400',fontSize: '1.2vw',color:"#EBEBF0"}}>Test date:{box.box.test_date}</p>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>Score: {box.box.score} </p>
         </div>
+        <img className="editicon action" src={edit} />
     </div>
 }
 

@@ -72,7 +72,7 @@ function Login() {
           sessionStorage.setItem("avatar",res.data.avatar) 
           sessionStorage.setItem("username",res.data.username) 
           sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
-          Navhandler('/account')
+          Navhandler('/home')
         })
         .catch((err) => {
           setLoading(false);

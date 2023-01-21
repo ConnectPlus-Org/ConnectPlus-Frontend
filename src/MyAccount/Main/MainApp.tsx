@@ -32,6 +32,9 @@ const Account = () => {
     const [skills,setskill] = useState([])
     const [test,settest] = useState([])
     const[course,setcourse] = useState([])
+    const [avatar,setavatar] = useState('')
+    const [name,setname] = useState('')
+    const [cover,setcover] = useState('')
 
     useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
@@ -45,16 +48,16 @@ const Account = () => {
         setskill(res.data.skill_data)
         settest(res.data.testscore_data)
         setcourse(res.data.course_data)
+        setavatar(res.data.profile.avatar)
+        setcover(res.data.background_image)
+        setname(res.data.profile.first_name + " " + res.data.profile.last_name )
     })
     .catch((err)=>{
         console.log(err)
     })
-})
+},[])
         
     const Navhandler = useNavigate();
-    const avatar = sessionStorage.getItem("avatar") || ""
-    const name = sessionStorage.getItem("name") || ""
-    const cover = sessionStorage.getItem("cover") || ""
 
     if(username!=viewusername)
     {
@@ -91,7 +94,7 @@ const Account = () => {
             experiences.map((box:any)=>{return <ExperienceBox key={box.id} box={box} />})
         }
         </div>
-        <pre>Show more Experience       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewexperience')}> Show more Experience       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Education</span>
@@ -102,7 +105,7 @@ const Account = () => {
             education.map((box:any)=>{return <EducationBox key={box.id} box={box} />})
         }
         </div>
-        <pre>Show more Education       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('vieweducation')}>Show more Education       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Skills</span>
@@ -120,7 +123,7 @@ const Account = () => {
         {
             test.map((box:any)=>{return <TestBox key={box.id} box={box}/>})
         }
-        <pre>Show more Test       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewtestscore')}>Show more Test       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Courses</span>
@@ -129,7 +132,7 @@ const Account = () => {
         {
             course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})
         }
-        <pre>Show more Courses       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewcourse')}>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>
     </div>

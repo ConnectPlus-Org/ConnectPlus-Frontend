@@ -123,7 +123,7 @@ const Account = () => {
         {
             test.map((box:any)=>{return <TestBox key={box.id} box={box}/>})
         }
-        <pre>Show more Test       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewtestscore')}>Show more Test       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Courses</span>
@@ -132,7 +132,7 @@ const Account = () => {
         {
             course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})
         }
-        <pre>Show more Courses       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewcourse')}>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>
     </div>

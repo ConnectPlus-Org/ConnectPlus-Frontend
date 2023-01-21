@@ -27,6 +27,8 @@ import Following from "../network/followingapp"
 import Skill_View from "../MyAccount/Main/viewpage/skill_view";
 import Experience_View from "../MyAccount/Main/viewpage/experience_view";
 import Education_View from "../MyAccount/Main/viewpage/educationview";
+import Test_View from "../MyAccount/Main/viewpage/test";
+import Course_View from "../MyAccount/Main/viewpage/courseview";
 
 const App = () => {
   return <BrowserRouter>
@@ -51,6 +53,8 @@ const App = () => {
     <Route path="/account/education" element={<ProtectedRoute><Education/></ProtectedRoute>}></Route>
     <Route path="/account/vieweducation" element={<ProtectedRoute><Education_View/></ProtectedRoute>}></Route>
     <Route path="/account/additional" element={<ProtectedRoute><Additional/></ProtectedRoute>}></Route>
+    <Route path="/account/viewtestscore" element={<ProtectedRoute><Test_View/></ProtectedRoute>}></Route>
+    <Route path="/account/viewcourse" element={<ProtectedRoute><Course_View/></ProtectedRoute>}></Route>
     <Route path="/account/additional/courses" element={<ProtectedRoute><Courses/></ProtectedRoute>}></Route>
     <Route path="/account/additional/score" element={<ProtectedRoute><Score/></ProtectedRoute>}></Route>
     <Route path="/network/manage" element={<ProtectedRoute><Manage/></ProtectedRoute>}></Route>

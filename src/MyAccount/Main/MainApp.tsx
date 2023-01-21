@@ -13,6 +13,7 @@ const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
 const username = sessionStorage.getItem("username") || ""
+const viewusername = sessionStorage.getItem('viewusername')
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{
@@ -32,7 +33,7 @@ const Account = () => {
     const [test,settest] = useState([])
     const[course,setcourse] = useState([])
 
-    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+username,config)
+    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
         console.log(res.data);
         setheadline(res.data.profile.headline)
@@ -55,13 +56,21 @@ const Account = () => {
     const name = sessionStorage.getItem("name") || ""
     const cover = sessionStorage.getItem("cover") || ""
 
+    if(username!=viewusername)
+    {
+        var cols=document.getElementsByClassName('action') as HTMLCollectionOf<HTMLElement>
+        for(var i = 0; i < cols.length; i++) {
+            cols[i].style.visibility = 'hidden';
+          }
+    }
+
     return <div>
         <Nav />
         <div id="acc">
         <div id="account_details" >
             <img id="cover_image" src={cover} />
-            <div className="acc_icon"><img id="account_avatar" alt="avatar" src={avatar}/>
-            <div id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit} />Update profile</div></div>
+            <div><img id="account_avatar" alt="avatar" src={avatar}/>
+            <div className='action' id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit}/>Update profile</div></div>
             <div style={{display:"flex",justifyContent:"space-evenly",width:"50vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
                 <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>
             </div>
@@ -69,13 +78,13 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
+        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
         <br/><br/>
         {about}
         </div>
         <div className="acc_box">
         <span>Experience</span>
-        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("experience")} />
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("experience")} />
         </div>
         <div>
         {
@@ -86,7 +95,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Education</span>
-        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("education")}/>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("education")}/>
         </div>
         <div>
         {
@@ -97,7 +106,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Skills</span>
-        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("skills")}/>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("skills")}/>
         </div>
         {
             skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p>{box.skill_name}</p></div>})
@@ -106,7 +115,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Test score</span>
-        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("additional/score")}/>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("additional/score")}/>
         </div>
         {
             test.map((box:any)=>{return <TestBox key={box.id} box={box}/>})
@@ -115,7 +124,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Courses</span>
-        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("additional/courses")}/>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("additional/courses")}/>
         </div>
         {
             course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})

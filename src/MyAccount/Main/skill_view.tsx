@@ -17,8 +17,9 @@ const Skill_View = () => {
     borderLeft:'3px solid #A950FB',
    
 }
+const username = sessionStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-var username = sessionStorage.getItem("username")
+var viewusername = 'archas-srivastava-6LV3ZN79'
 
 const config ={
   headers:{
@@ -29,10 +30,10 @@ const config ={
 var [skills,setskill] = useState([])
 
 function handleskill (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/?username='+username,config)
+  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/?username='+viewusername,config)
   .then((res)=>
   {
-    console.log(res.data);
+    console.log(res);
     setskill(res.data);
   })
   .catch((err)=>{
@@ -43,17 +44,30 @@ useEffect(()=>handleskill())
 
 function removeskill(skill:number){
     axios.delete("https://linkedin-backend.azurewebsites.net/profile/skill/"+skill+"/",config)
+    .then((res)=>{
+        console.log(res)
+    })
+    .catch((err)=>{
+        console.log(err)
+    })
 }
 
+if(username!=viewusername)
+    {
+        var cols=document.getElementsByClassName('action') as HTMLCollectionOf<HTMLElement>
+        for(var i = 0; i < cols.length; i++) {
+            cols[i].style.visibility = 'hidden';
+          }
+    }
 
   return (
     <div>
       <Nav />
       <div id="viewskill">
-          <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Skill</span> <img id="add" src={add} alt='add' onClick={() => Navhandler("/account/skills")}></img>
+          <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Skill</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/skills")}></img>
           <div>
               {            
-                skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} src={del} onClick={()=>removeskill(box.id)} /></div>})
+                skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>removeskill(box.id)} /></div>})
               }
           </div>
       </div>

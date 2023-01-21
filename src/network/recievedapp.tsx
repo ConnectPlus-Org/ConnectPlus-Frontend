@@ -6,15 +6,15 @@ import Nav from "../navbar/navbar"
 // import "./skill.css"
 import { ToastContainer, toast } from 'react-toastify';
 import None from "./components/nonecomponent"
-import FollowerComponent from "./components/followercomponent"
+import NetworkComponent from "./components/recievedcomponent"
 
+const Recieved = () => {
 
-const Manage = () => {
   
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
 
-  useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/network/followers/",config)
+  useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/network/connection/request/received/",config)
     .then((res)=>{
         console.log(res);
         setsearchres(res.data);
@@ -47,17 +47,17 @@ const config ={
     <div>
       <Nav />
       <div id="account_nav">
-      <p onClick={()=>{Navhandler("/network/recieved"); } }  >Invitations Recieved</p>
+        <p onClick={()=>{Navhandler("/network/recieved"); } }  style={activestyle} >Invitations Recieved</p>
         <p onClick={()=>{Navhandler("/network/sent"); } }  >Invitations sent</p>
-        <p  onClick={()=>{Navhandler("/network/connection"); } } >Connections</p>
-        <p  style={activestyle} onClick={()=>{Navhandler("/network/followers"); } }>Followers</p>
+        <p onClick={()=>{Navhandler("/network/connection"); } } >Connections</p>
+        <p   onClick={()=>{Navhandler("/network/followers"); } }>Followers</p>
         <p onClick={()=>{Navhandler("/network/following"); } }>Following</p>
       </div>
-      <div  style={{height:"auto"}} id="skill">
-        <p>Followers</p>
-        {none ? <None showtext="No Followers" />: 
+      <div style={{height:"auto"}} id="skill">
+        <p>Invitations Recieved</p>
+        {none ? <None showtext="No Pending Invitations" />: 
         <div style={{marginTop:"2vh"}}>
-          {searchres.map((data)=>{return <FollowerComponent data={data}/>})}
+          {searchres.map((data)=>{return <NetworkComponent data={data}/>})}
         </div> }
       </div>
       <ToastContainer position="top-center" theme="dark" />
@@ -65,4 +65,4 @@ const config ={
   );
 };
 
-export default Manage;
+export default Recieved;

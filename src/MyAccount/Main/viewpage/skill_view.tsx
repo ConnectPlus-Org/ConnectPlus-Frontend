@@ -3,12 +3,12 @@ import { toNamespacedPath } from "node:path/win32";
 import { config } from "process";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import Nav from "../../navbar/navbar";
+import Nav from "../../../navbar/navbar";
 import { ToastContainer, toast } from 'react-toastify';
-import './view.css'
-const left:string = require('./images/leftarrow.svg').default
-const add:string = require('./images/add.svg').default
-const del:string = require('./images/delete.svg').default
+import '../view.css'
+const left:string = require('../images/leftarrow.svg').default
+const add:string = require('../images/add.svg').default
+const del:string = require('../images/delete.svg').default
 
 const Skill_View = () => {
   const Navhandler= useNavigate();
@@ -19,7 +19,8 @@ const Skill_View = () => {
 }
 const username = sessionStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-var viewusername = 'archas-srivastava-6LV3ZN79'
+// sessionStorage.setItem('viewusername','archas-srivastava-6LV3ZN79')
+var viewusername = sessionStorage.getItem('viewusername')
 
 const config ={
   headers:{
@@ -40,7 +41,7 @@ function handleskill (){
     console.log(err);
   })
 }
-useEffect(()=>handleskill())
+useEffect(()=>handleskill(),[])
 
 function removeskill(skill:number){
     axios.delete("https://linkedin-backend.azurewebsites.net/profile/skill/"+skill+"/",config)
@@ -52,13 +53,14 @@ function removeskill(skill:number){
     })
 }
 
-if(username!=viewusername)
+useEffect(()=>{if(username!=viewusername)
     {
         var cols=document.getElementsByClassName('action') as HTMLCollectionOf<HTMLElement>
         for(var i = 0; i < cols.length; i++) {
             cols[i].style.visibility = 'hidden';
-          }
-    }
+        }
+        // document.getElementById('endorse')!.style.display='block'
+    }})
 
   return (
     <div>
@@ -67,7 +69,7 @@ if(username!=viewusername)
           <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Skill</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/skills")}></img>
           <div>
               {            
-                skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>removeskill(box.id)} /></div>})
+                skills.map((box:any)=>{return <div key={box.id} style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline",paddingBottom:"1vw"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>{removeskill(box.id)}} /><span id="endorse">Endorse</span></div>})
               }
           </div>
       </div>

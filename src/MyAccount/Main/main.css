@@ -78,15 +78,16 @@
     width: 60vw;
 }
 
-.expbox img{ 
-    width: 7vw;
-    height: 7vw;
+.explogo{ 
+    width: 7vw !important;
+    height: 7vw !important;
     border-radius: 0.55vw;
     display: inline-block;
 }
 
 .expbox div{
     display: inline;
+    width: 70vw;
 }
 .expbox p{
     margin-bottom: 0.2vw;

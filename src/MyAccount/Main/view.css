@@ -22,3 +22,17 @@
 #add {
   float: right;
 }
+
+.editicon {
+    height: 1.2vw;
+    width: 1.2vw;
+    float: right;
+}
+#endorse{
+    color: #A950FB;
+    font-size: 1.2vw !important;
+    vertical-align: top;
+    float: right;
+    cursor: pointer;
+    display: none;
+}

@@ -2,6 +2,7 @@ import React from "react";
 import "../main.css"
 
 const TestBox:any = (box:any) => {
+    if(box.box.end_date == null)
     return <div className="expbox">
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw'}}>{box.box.organization_data.name}</p>

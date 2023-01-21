@@ -69,14 +69,14 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon"><img style={{marginLeft:"5vw"}} src={edit} /></div>
+        <div className="acc_icon"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
         <br/><br/>
         {about}
         </div>
         <div className="acc_box">
         <span>Experience</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("experience")} />
+        </div>
         <div>
         {
             experiences.map((box:any)=>{return <ExperienceBox key={box.id} box={box} />})
@@ -86,8 +86,8 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Education</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("education")}/>
+        </div>
         <div>
         {
             education.map((box:any)=>{return <EducationBox key={box.id} box={box} />})
@@ -97,17 +97,17 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Skills</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("skills")}/>
+        </div>
         {
             skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p>{box.skill_name}</p></div>})
         }
-        <pre>Show more Skills       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewskills')}>Show more Skills       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Test score</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("additional/score")}/>
+        </div>
         {
             test.map((box:any)=>{return <TestBox key={box.id} box={box}/>})
         }
@@ -115,8 +115,8 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>Courses</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon"><img src={plus} onClick={() => Navhandler("additional/courses")}/>
+        </div>
         {
             course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})
         }

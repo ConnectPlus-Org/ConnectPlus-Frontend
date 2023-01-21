@@ -24,6 +24,7 @@ import Manage from "../network/manageapp"
 import Connection from "../network/connectionapp"
 import Followers from "../network/followersapp"
 import Following from "../network/followingapp"
+import Skill_View from "../MyAccount/Main/skill_view";
 
 const App = () => {
   return <BrowserRouter>
@@ -42,6 +43,7 @@ const App = () => {
     <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
     <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/account/skills" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>
+    <Route path="/account/viewskills" element={<ProtectedRoute><Skill_View /></ProtectedRoute>}></Route>
     <Route path="/account/aboutme" element={<ProtectedRoute><AboutMe /></ProtectedRoute>}></Route>
     <Route path="/account/education" element={<ProtectedRoute><Education/></ProtectedRoute>}></Route>
     <Route path="/account/additional" element={<ProtectedRoute><Additional/></ProtectedRoute>}></Route>

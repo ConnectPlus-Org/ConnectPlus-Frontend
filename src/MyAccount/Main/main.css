@@ -40,7 +40,7 @@
 
 .acc_icon{
     display: inline;
-    margin-left: 55vw;
+    float: right;
 }
 
 .acc_box img{

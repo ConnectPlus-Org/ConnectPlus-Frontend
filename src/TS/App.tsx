@@ -29,6 +29,7 @@ import Experience_View from "../MyAccount/Main/viewpage/experience_view";
 import Education_View from "../MyAccount/Main/viewpage/educationview";
 import Test_View from "../MyAccount/Main/viewpage/test";
 import Course_View from "../MyAccount/Main/viewpage/courseview";
+import Home from "../homepage/homepage";
 
 const App = () => {
   return <BrowserRouter>
@@ -61,6 +62,7 @@ const App = () => {
     <Route path="/network/connection" element={<ProtectedRoute><Connection/></ProtectedRoute>}></Route>
     <Route path="/network/followers" element={<ProtectedRoute><Followers/></ProtectedRoute>}></Route>
     <Route path="/network/following" element={<ProtectedRoute><Following/></ProtectedRoute>}></Route>
+    <Route path="/home" element={<Home/>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

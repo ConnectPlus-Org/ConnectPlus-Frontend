@@ -55,7 +55,7 @@ const Account = () => {
     .catch((err)=>{
         console.log(err)
     })
-},[])
+})
         
     const Navhandler = useNavigate();
 

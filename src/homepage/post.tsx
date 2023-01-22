@@ -5,7 +5,7 @@ const add:string = require('./images/add.svg').default
 const Post = () => {
     const avatar = sessionStorage.getItem('avatar') || ''
     const name = sessionStorage.getItem('name') || ""
-    const headline = sessionStorage.getItem('headline') || ''
+    const headline = sessionStorage.getItem('headLine') || ''
     return <div id='postbox'>
         <img className="shortava" src={avatar} />
         <div id='postprofile'>

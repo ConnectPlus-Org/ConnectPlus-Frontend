@@ -5,6 +5,7 @@
   margin-left: 16.67vw;
   display: flex;
   flex-direction: column;
+  font-size: 2vw;
 }
 
 #account_details {
@@ -31,11 +32,17 @@
   background-color: #a950fb;
   display: inline;
   align-items: center;
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 0.3vw 0.6vw;
+  border-radius: 0.3vw;
   margin-left: 50vw;
   margin-top: 2vw;
   cursor: pointer;
+  font-size: 1vw;
+}
+
+#Updateprofile img {
+  width: 1.2vw;
+  height: 1.2vw;
 }
 
 .acc_icon {
@@ -46,6 +53,8 @@
 .acc_box img {
   cursor: pointer;
   margin-right: 2vw;
+  width: 1.2vw;
+  height: 1.2vw;
 }
 
 .acc_box {
@@ -94,25 +103,24 @@
   font-weight: 700;
 }
 
+@media (max-width: 800px) {
+  #mobNav {
+    background-color: #030303;
+    height: 100vh;
+    width: 100vw;
+    position: absolute;
+  }
 
-@media (max-width:800px) {
-    #mobNav {
-        background-color: #030303;
-        height: 100vh;
-        width: 100vw;
-        position: absolute;
-    }
-    
-    #mobNav p {
-        color: #f5f5fa;
-        font-size: 5.5vw;
-        font-weight: 700 !important;
-        margin: 10vw 6.67vw;
-    }
-    
-    #mobNav img {
-        margin-top: 2vw;
-        width: 1.5vw;
-        float: right;
-    }
+  #mobNav p {
+    color: #f5f5fa;
+    font-size: 5.5vw;
+    font-weight: 700 !important;
+    margin: 10vw 6.67vw;
+  }
+
+  #mobNav img {
+    margin-top: 2vw;
+    width: 1.5vw;
+    float: right;
+  }
 }

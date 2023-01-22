@@ -66,7 +66,7 @@ const App = () => {
     <Route path="/network/connection" element={<ProtectedRoute><Connection/></ProtectedRoute>}></Route>
     <Route path="/network/followers" element={<ProtectedRoute><Followers/></ProtectedRoute>}></Route>
     <Route path="/network/following" element={<ProtectedRoute><Following/></ProtectedRoute>}></Route>
-    <Route path="/home" element={<Home/>}></Route>
+    <Route path="" element={<Home/>}></Route>
   </Routes>
 </BrowserRouter>;;
 };

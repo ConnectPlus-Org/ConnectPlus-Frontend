@@ -41,3 +41,9 @@
     height: 1.8vw;
     margin-right: 0.8vw;
 }
+
+@media (max-width:800px) {
+    #navbar{
+        display: none;
+    }
+}

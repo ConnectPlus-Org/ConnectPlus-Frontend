@@ -10,12 +10,11 @@ import axios from 'axios';
 
 const illustration: string = require("../images/profile.svg").default;
 const edit:string = require("../images/edit.svg").default;
-var accesstoken=localStorage.getItem("accesstoken");
-  const config ={
+var accesstoken = localStorage.getItem("accesstoken");
+      const config ={
       headers:{
-        Authorization:`Bearer ${accesstoken}`,
-      }
-    };
+    Authorization:`Bearer ${accesstoken}`},
+    }
 
 function ProfileHead(this: any){
     const Navhandler =useNavigate();
@@ -25,8 +24,8 @@ function ProfileHead(this: any){
     const country:string = (sessionStorage.getItem("country") || (""));
     const city:string = (sessionStorage.getItem("city") || (""));
 
-    // if(!fname && !lname && !country && !city)
-    // Navhandler("/profile");
+    if(!fname && !lname && !country && !city)
+    Navhandler("/profile");
 
    const boxstyle = {
        height: '35vw'
@@ -63,9 +62,13 @@ function ProfileHead(this: any){
           object,config)
         .then((res) => {
           console.log(res);
-            sessionStorage.clear();
+          sessionStorage.clear();
+          sessionStorage.setItem("avatar",res.data.avatar) 
+          sessionStorage.setItem("username",res.data.username) 
+          sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
+          sessionStorage.setItem("headLine",res.data.headline) 
           setLoading(false);
-          Navhandler('/account')
+          Navhandler('/')
         })
         .catch((err) => {
           console.log(err);

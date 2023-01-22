@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import Nav from "../../navbar/navbar";
 import "../skill/skill.css"
 var accesstoken=localStorage.getItem("accesstoken");
+var user = sessionStorage.getItem("username")
   const config ={
       headers:{
         Authorization:`Bearer ${accesstoken}`,
@@ -18,7 +19,7 @@ const AboutMe = () => {
 }
 const [about,setabout] = React.useState("");
 function handleapi(){
-  axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",{
+  axios.patch("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+user,{
     "about":about
   },config)
     .then((res) => {

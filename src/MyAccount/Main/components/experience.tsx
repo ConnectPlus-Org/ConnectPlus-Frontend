@@ -1,5 +1,7 @@
 import React from "react";
+import '../view.css'
 import "../main.css"
+const edit:string = require('../images/edit.svg').default
 
 const ExperienceBox:any = (box:any) => {
     var employment_type = ''
@@ -15,13 +17,14 @@ const ExperienceBox:any = (box:any) => {
     else
     end_date = box.box.end_date
     return <div className="expbox">
-        <img src={box.box.company_data.logo} alt="logo"/>
+        <img className="explogo" src={box.box.company_data.logo} alt="logo"/>
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{box.box.role}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{box.box.company_data.name} · {employment_type} </p>
         <p style={{fontWeight: '400',fontSize: '1.2vw',color:"#EBEBF0"}}>{box.box.start_date}  - {end_date} · </p>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>{box.box.location} </p>
         </div>
+        <img className="editicon" src={edit} />
     </div>
 }
 

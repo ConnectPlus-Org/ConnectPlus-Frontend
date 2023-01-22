@@ -9,6 +9,10 @@
   padding-bottom: 5vh;
 }
 
+.backarr{
+  visibility: hidden;
+}
+
 #account_nav p{
   cursor: pointer;
   text-align: center;
@@ -18,7 +22,7 @@
   color: #A950FB;
 } */
 .accountnavtopline{
-  font-family: 'Manrope';
+font-family: 'Manrope';
 font-style: normal;
 font-weight: 700;
 font-size: 2.5vw;
@@ -218,10 +222,12 @@ textarea{
   display: flex;
   flex-direction: column;
   position:absolute;
+  z-index: 1;
 /* top: 36.5vh; */
 }
 
 .flexelement{
+  display: flex;
   width: 37.77vw;
   padding-top: 1vh;
   border: 2px solid #13131A;
@@ -229,6 +235,28 @@ textarea{
   background-color:black;
   cursor:pointer;
 }
+/* .flexelement img{
+  width: 1vw;
+  height: 1vw;
+} */
+.flexelement span{
+  display: inline-block;
+  margin-top: 1.1vh;
+}
 .flexelement:hover{
   background-color: #A950FB;
+}
+
+
+@media (max-width:800px){
+  #account_nav{
+    display: none;
+  }
+
+  .backarr{
+    visibility: visible;
+    margin-right: 5vw;
+    width: 2vw;
+    rotate: 180deg;
+  }
 }

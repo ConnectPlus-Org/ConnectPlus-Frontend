@@ -13,6 +13,7 @@ const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
 const username = sessionStorage.getItem("username") || ""
+const viewusername = sessionStorage.getItem('viewusername')
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{
@@ -31,8 +32,11 @@ const Account = () => {
     const [skills,setskill] = useState([])
     const [test,settest] = useState([])
     const[course,setcourse] = useState([])
+    const [avatar,setavatar] = useState('')
+    const [name,setname] = useState('')
+    const [cover,setcover] = useState('')
 
-    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+username,config)
+    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
         console.log(res.data);
         setheadline(res.data.profile.headline)
@@ -44,6 +48,9 @@ const Account = () => {
         setskill(res.data.skill_data)
         settest(res.data.testscore_data)
         setcourse(res.data.course_data)
+        setavatar(res.data.profile.avatar)
+        setcover(res.data.background_image)
+        setname(res.data.profile.first_name + " " + res.data.profile.last_name )
     })
     .catch((err)=>{
         console.log(err)
@@ -51,17 +58,22 @@ const Account = () => {
 })
         
     const Navhandler = useNavigate();
-    const avatar = sessionStorage.getItem("avatar") || ""
-    const name = sessionStorage.getItem("name") || ""
-    const cover = sessionStorage.getItem("cover") || ""
+
+    if(username!=viewusername)
+    {
+        var cols=document.getElementsByClassName('action') as HTMLCollectionOf<HTMLElement>
+        for(var i = 0; i < cols.length; i++) {
+            cols[i].style.visibility = 'hidden';
+          }
+    }
 
     return <div>
         <Nav />
         <div id="acc">
         <div id="account_details" >
             <img id="cover_image" src={cover} />
-            <div className="acc_icon"><img id="account_avatar" alt="avatar" src={avatar}/>
-            <div id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit} />Update profile</div></div>
+            <div><img id="account_avatar" alt="avatar" src={avatar}/>
+            <div className='action' id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit}/>Update profile</div></div>
             <div style={{display:"flex",justifyContent:"space-evenly",width:"50vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
                 <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>
             </div>
@@ -69,58 +81,58 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon"><img style={{marginLeft:"5vw"}} src={edit} /></div>
+        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
         <br/><br/>
         {about}
         </div>
         <div className="acc_box">
         <span>Experience</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("experience")} />
+        </div>
         <div>
         {
             experiences.map((box:any)=>{return <ExperienceBox key={box.id} box={box} />})
         }
         </div>
-        <pre>Show more Experience       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewexperience')}> Show more Experience       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Education</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("education")}/>
+        </div>
         <div>
         {
             education.map((box:any)=>{return <EducationBox key={box.id} box={box} />})
         }
         </div>
-        <pre>Show more Education       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('vieweducation')}>Show more Education       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Skills</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("skills")}/>
+        </div>
         {
             skills.map((box:any)=>{return <div style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p>{box.skill_name}</p></div>})
         }
-        <pre>Show more Skills       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewskills')}>Show more Skills       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Test score</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("additional/score")}/>
+        </div>
         {
             test.map((box:any)=>{return <TestBox key={box.id} box={box}/>})
         }
-        <pre>Show more Test       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewtestscore')}>Show more Test       <img src={arr}/></pre>
         </div>
         <div className="acc_box">
         <span>Courses</span>
-        <div className="acc_icon"><img src={plus} />
-        <img src={edit} /></div>
+        <div className="acc_icon action"><img src={plus} onClick={() => Navhandler("additional/courses")}/>
+        </div>
         {
             course.map((box:any)=>{return <CourseBox key={box.id} box={box}/>})
         }
-        <pre>Show more Courses       <img src={arr}/></pre>
+        <pre onClick={()=> Navhandler('viewcourse')}>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>
     </div>

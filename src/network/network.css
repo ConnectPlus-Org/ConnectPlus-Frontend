@@ -1,0 +1,30 @@
+.none img{
+    margin-left : 7.2vw;
+}
+.sideimage{
+    display: inline-block;
+    width: 5vw;
+  height: 5vw;
+  border: 0.002vw solid #eff5f7;
+  border-radius: 50%;
+}
+
+.networkcomponent span{
+    color: #F5F5FA;
+    font-weight: 400;
+    font-size:  0.833333vw;
+}
+.networkcomponent{
+    display: flex;
+    margin-bottom: 3vh;
+    width: 48.3333vw;
+height: 10vh;
+margin-left: -4vw;
+}
+.textflex{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 1vw;
+    
+}

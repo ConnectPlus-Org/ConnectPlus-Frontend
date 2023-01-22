@@ -68,18 +68,20 @@ function Login() {
 }
       axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
       .then((res) => {
-          setLoading(false);
-          sessionStorage.setItem("avatar",res.data.avatar) 
-          sessionStorage.setItem("username",res.data.username) 
-          sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
-          Navhandler('/account')
-        })
-        .catch((err) => {
-          setLoading(false);
-          if(err.response.status == 404)
-          Navhandler('/profile');
-          console.log(err);
-        });
+        console.log(res)
+        setLoading(false);
+        sessionStorage.setItem("avatar",res.data.avatar) 
+        sessionStorage.setItem("username",res.data.username) 
+        sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
+        sessionStorage.setItem("headLine",res.data.headline) 
+        Navhandler('/')
+      })
+      .catch((err) => {
+        setLoading(false);
+        if(err.response.status == 404)
+        Navhandler('/profile');
+        console.log(err);
+      });
       
     })
       .catch((err) => {

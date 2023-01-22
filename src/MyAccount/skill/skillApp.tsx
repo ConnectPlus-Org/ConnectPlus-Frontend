@@ -7,6 +7,7 @@ import Nav from "../../navbar/navbar";
 import Skillcomponent from "./searchbox";
 import "./skill.css"
 import { ToastContainer, toast } from 'react-toastify';
+const arr: string = require("../Main/images/arrow.svg").default;
 
 const Skill = () => {
   window.onclick = () => {
@@ -74,7 +75,7 @@ function addskill() {
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="skill">
-        <p>Skill Section</p>
+        <p><img className="backarr" src={arr}/>Skill Section</p>
         <div>
           Skill
           <br />

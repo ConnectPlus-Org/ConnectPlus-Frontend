@@ -19,7 +19,7 @@ const Skill_View = () => {
 }
 const username = sessionStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-// sessionStorage.setItem('viewusername','archas-srivastava-6LV3ZN79')
+sessionStorage.setItem('viewusername','archas-srivastava-6LV3ZN79')
 var viewusername = sessionStorage.getItem('viewusername')
 
 const config ={
@@ -34,8 +34,8 @@ function handleskill (){
   axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/?username='+viewusername,config)
   .then((res)=>
   {
-    console.log(res);
     setskill(res.data);
+    console.log(res);
   })
   .catch((err)=>{
     console.log(err);
@@ -59,7 +59,6 @@ useEffect(()=>{if(username!=viewusername)
         for(var i = 0; i < cols.length; i++) {
             cols[i].style.visibility = 'hidden';
         }
-        // document.getElementById('endorse')!.style.display='block'
     }})
 
   return (
@@ -69,7 +68,7 @@ useEffect(()=>{if(username!=viewusername)
           <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Skill</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/skills")}></img>
           <div>
               {            
-                skills.map((box:any)=>{return <div key={box.id} style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline",paddingBottom:"1vw"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>{removeskill(box.id)}} /><span id="endorse">Endorse</span></div>})
+                skills.map((box:any)=>{return <div key={box.id} style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline",paddingBottom:"1vw"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>{removeskill(box.id)}} />{(username!=viewusername)?<span id="endorse">Endorse</span>:null}</div>})
               }
           </div>
       </div>

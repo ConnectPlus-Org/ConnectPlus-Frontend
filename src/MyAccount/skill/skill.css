@@ -78,3 +78,44 @@ font-size: 1vw;
     outline: none;
     background-color: #2e2e2e;
   }
+
+  @media (max-width:800px){
+    #skill{
+      border: none;
+      background-color:#0C0C0F;
+      width: 80vw;
+      height: 60vh;
+      margin-top: 0;
+      height: 95vh;
+      margin-left: 0;
+    }
+    #skill p{
+      font-size: 5.55vw;
+    }
+
+    #skill div{
+      font-size: 3.5vw;
+      height: 70vh;
+      margin-top: 5vh;
+      margin-left: -2vw;
+      width: 100vw;
+    }
+
+    #skill input{
+      width: 90vw;
+      height: 10vw;
+      font-size: 3vw;
+      padding-left: 2vw;
+      border-radius: 1.5vw;
+      margin-bottom: 70vh;
+      background-color: #0C0C0F;
+    }
+
+    #skill button{
+      width: 90vw;
+      height: 10vw;
+      font-size: 4vw;
+      margin-left: -2vw;
+    }
+    
+  }

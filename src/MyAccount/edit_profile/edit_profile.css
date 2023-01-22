@@ -9,6 +9,10 @@
   padding-bottom: 5vh;
 }
 
+.backarr{
+  visibility: hidden;
+}
+
 #account_nav p{
   cursor: pointer;
   text-align: center;
@@ -231,4 +235,18 @@ textarea{
 }
 .flexelement:hover{
   background-color: #A950FB;
+}
+
+
+@media (max-width:800px){
+  #account_nav{
+    display: none;
+  }
+
+  .backarr{
+    visibility: visible;
+    margin-right: 5vw;
+    width: 2vw;
+    rotate: 180deg;
+  }
 }

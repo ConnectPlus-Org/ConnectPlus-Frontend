@@ -3,6 +3,7 @@ import React from "react";
 import Nav from "../navbar/navbar";
 import './homepage.css'
 import { Navigate, useNavigate } from "react-router-dom";
+import Post from "./post";
 const photo:string = require('./images/photo.svg').default
 const video:string = require('./images/video.svg').default
 const line:string = require('./images/line.svg').default
@@ -51,6 +52,13 @@ const Home = () => {
             {headline}
             <br/>
             <img style={{marginRight:'1vw'}} src={item} /><p style={{display:"inline-block"}}>My Items</p>
+        </div>
+        <div style={{width:"45vw",position:"absolute",marginLeft:"23.33vw",marginTop:"11.4vw"}}>
+            <Post />
+            <Post />
+            <Post />
+            <Post />
+            <Post />
         </div>
     </div>
 }

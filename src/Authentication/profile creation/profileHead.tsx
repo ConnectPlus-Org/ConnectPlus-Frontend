@@ -13,8 +13,8 @@ const edit:string = require("../images/edit.svg").default;
 var accesstoken = localStorage.getItem("accesstoken");
       const config ={
       headers:{
-    Authorization:`Bearer ${accesstoken}`,
-      }}
+    Authorization:`Bearer ${accesstoken}`},
+    }
 
 function ProfileHead(this: any){
     const Navhandler =useNavigate();

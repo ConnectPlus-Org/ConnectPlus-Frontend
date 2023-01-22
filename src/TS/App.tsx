@@ -20,7 +20,8 @@ import Additional from "../MyAccount/Additional/Additional"
 import Courses from "../MyAccount/Additional/courses"
 import Score from "../MyAccount/Additional/score"
 import Account from "../MyAccount/Main/MainApp";
-import Manage from "../network/manageapp"
+import Manage from "../network/recievedapp"
+import Sent from "../network/sentapp"
 import Connection from "../network/connectionapp"
 import Followers from "../network/followersapp"
 import Following from "../network/followingapp"
@@ -60,7 +61,8 @@ const App = () => {
     <Route path="/account/viewcourse" element={<ProtectedRoute><Course_View/></ProtectedRoute>}></Route>
     <Route path="/account/additional/courses" element={<ProtectedRoute><Courses/></ProtectedRoute>}></Route>
     <Route path="/account/additional/score" element={<ProtectedRoute><Score/></ProtectedRoute>}></Route>
-    <Route path="/network/manage" element={<ProtectedRoute><Manage/></ProtectedRoute>}></Route>
+    <Route path="/network/recieved" element={<ProtectedRoute><Manage/></ProtectedRoute>}></Route>
+    <Route path="/network/sent" element={<ProtectedRoute><Sent/></ProtectedRoute>}></Route>
     <Route path="/network/connection" element={<ProtectedRoute><Connection/></ProtectedRoute>}></Route>
     <Route path="/network/followers" element={<ProtectedRoute><Followers/></ProtectedRoute>}></Route>
     <Route path="/network/following" element={<ProtectedRoute><Following/></ProtectedRoute>}></Route>

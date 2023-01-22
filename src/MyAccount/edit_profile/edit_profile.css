@@ -222,16 +222,26 @@ textarea{
   display: flex;
   flex-direction: column;
   position:absolute;
+  z-index: 1;
 /* top: 36.5vh; */
 }
 
 .flexelement{
+  display: flex;
   width: 37.77vw;
   padding-top: 1vh;
   border: 2px solid #13131A;
   padding-left: 4vh;
   background-color:black;
   cursor:pointer;
+}
+/* .flexelement img{
+  width: 1vw;
+  height: 1vw;
+} */
+.flexelement span{
+  display: inline-block;
+  margin-top: 1.1vh;
 }
 .flexelement:hover{
   background-color: #A950FB;

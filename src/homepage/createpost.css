@@ -1,0 +1,89 @@
+.overlay__background {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    z-index: 9;
+  }
+  
+  .overlay__container {
+    background-color: #13131A;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10;
+    padding: 30px;
+    border: 1px solid #D1C4E9;
+    border-radius: 8px;
+    /* width: fit-content;
+    height: fit-content; */
+    width: 56.25vw;
+    height: 61.9444vh;
+  }
+  
+  .overlay__controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .overlay__close:after {
+    display: inline-block;
+    content: "\00d7";
+  }
+  
+  .overlay__close {
+    border: none;
+    background-color: transparent;
+    font-size: 36px;
+    cursor: pointer;
+  }
+
+  .postboxtopline{
+    /* position: relative; */
+    /* top: 0%;
+    left: 5%; */
+    margin-left: 2.7vw;
+    font-size: 1.66667vw;
+    line-height: 4.58333vh;
+    font-weight: 700;
+  }
+  .createposttextbox{
+    background-color: #13131A;
+    
+    margin-top: 3vh;
+    margin-left: 2.7vw;
+    width: 48.4722vw;
+    height: 28.5556vh;
+    border: 1px solid #D1C4E9;
+    border-radius: 8px;
+    padding-left: 2%;
+    padding-top: 1%;
+  }
+  .overlay img{
+    /* position: relative; */
+    /* top: 15%; */
+    /* left: 5%; */
+    margin-top: 5vh;
+    margin-left: 2.1vw;
+
+  }
+  .postbutton{
+    /* position: relative; */
+    /* top: 12%; */
+    /* left: 51%; */
+    /* margin-left: 22.5vw; */
+    float: right;
+    margin-top: 5vh;
+    margin-right: 1.3vw;
+    width: 11.6667vw;
+    height: 6.38889vh;
+    background: #A950FB;
+    border-radius: 4px;
+  }

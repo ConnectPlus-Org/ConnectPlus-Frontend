@@ -37,7 +37,7 @@ const Account = () => {
     const [name,setname] = useState('')
     const [cover,setcover] = useState('')
 
-    useEffect(()=>{BaseUrl.get("/profile/mainpage/?username="+viewusername,config)
+    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
         console.log(res.data);
         setheadline(res.data.profile.headline)

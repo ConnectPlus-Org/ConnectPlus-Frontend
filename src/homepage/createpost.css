@@ -89,6 +89,7 @@
     background: #A950FB;
     border-radius: 4px;
     cursor: pointer;
+    border: none;
   }
 
   .preview img{
@@ -96,4 +97,5 @@
     height: 33.3333vh;
     object-fit:contain;
 
+    
   }

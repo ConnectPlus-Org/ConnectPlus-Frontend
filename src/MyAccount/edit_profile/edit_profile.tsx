@@ -4,6 +4,7 @@ import "./edit_profile.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Heading from "../../Authentication/components/heading";
+import BaseUrl from "../../BaseUrl";
 const edit:string = require('./edit.svg').default;
 const Editprofile = () => {
   const Navhandler=useNavigate();
@@ -26,7 +27,7 @@ var [avatar,setavatar] = useState('')
 var [heading,setheading] = useState('')
 
 function getdetails() {
-    axios.get('https://linkedin-backend.azurewebsites.net/profile/userprofile/',config)
+    BaseUrl.get('profile/userprofile/',config)
     .then((res)=>{
         setfname(res.data.first_name)
         setlname(res.data.last_name)
@@ -62,7 +63,7 @@ function getdetails() {
     object.append("city",city)
     object.append("headline",heading)
     object.append("avatar",fileData)
-    axios.patch("https://linkedin-backend.azurewebsites.net/profile/userprofile/",object,config)
+    BaseUrl.patch("/profile/userprofile/",object,config)
     .then((res)=>{
       console.log(res)
     }) 

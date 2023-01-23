@@ -5,14 +5,22 @@ import Nav from "../navbar/navbar"
 // import Skillcomponent from "./searchbox";
 import "./search.css"
 import { ToastContainer, toast } from 'react-toastify';
+import "../BaseUrl"
+import BaseUrl from "../BaseUrl";
+import SearchComponent from "./searchcomponent"
 
+// const search :string = require("../search/search.svg").default;
+const search: string = require("./search.svg").default;
+const nomatch: string = require("./nomatch.svg").default;
+// console.log(search);
 
 const Search = () => {
   
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
+  const [searchText,setSearchText] = useState("")
 
-  useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/network/connection/list/",config)
+  const api =()=>{BaseUrl.get(`/profile/search/?search=${searchText}`,config)
     .then((res)=>{
         console.log(res);
         setsearchres(res.data);
@@ -24,14 +32,10 @@ const Search = () => {
     .catch((err)=>{
         console.log(err)
     })
-})
+}
 
   const Navhandler= useNavigate();
-  const activestyle={
-    color:'#A950FB' ,
-    borderLeft:'3px solid #A950FB',
-   
-}
+  
 var accesstoken=localStorage.getItem("accesstoken");
 
 const config ={
@@ -45,10 +49,14 @@ const config ={
     <div>
       <Nav />
       <div className="searchtext">Search</div>
-        {/* {none ? <None showtext="No Connections" />: 
-        <div style={{marginTop:"2vh"}}>
-          {searchres.map((data)=>{return <ConnectionComponent data={data}/>})}
-        </div> } */}
+      <img className="searchicon" src={search} alt="searchicon" />
+      <input type="text" placeholder="Search" onChange={(e:any)=>{setSearchText(e.target.value); api()}} value={searchText} className="searchinput" />
+        {none ?  
+        <img src={nomatch} className="nomatch" alt="no match" />
+        : 
+        <div className="searchresults">
+          {searchres.map((data,index)=>{return <SearchComponent key={index} data={data} api={api}/>})}
+        </div> }
       <ToastContainer position="top-center" theme="dark" />
     </div>
   );

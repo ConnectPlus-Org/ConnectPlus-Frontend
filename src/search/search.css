@@ -1,0 +1,50 @@
+.searchtext{
+    position: absolute;
+    top:3vw;
+    left:15vw;
+    font-weight: 700;
+font-size: 24px;
+line-height: 33px;
+}
+
+.searchinput{
+    position: absolute;
+    left: 23.3333vw;
+    top:19.0278vh;
+    border: 1px solid #EBEBF0;
+    border-radius: 4px;
+    background-color: #13131A;
+    width: 64.4444vw;
+    height: 6.94444vh;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 22px;
+    padding-left: 3vw;
+}
+.searchicon{
+    position: absolute;
+    left: 24.3333vw;
+    z-index: 1;
+    top:21.3178vh;
+}
+.nomatch{
+    width: 22.2222vw;
+height: 39.2958vh;
+position: absolute;
+left: 43.3333vw;
+top:37.3611vh;
+}
+.searchresults{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 29.3333vw;
+    top:30.0278vh;
+    width: 51.1111vw;
+    border: 1px solid #EBEBF0;
+border-radius: 4px;
+}
+.searchcomponent{
+    margin-left: 2vw;
+    margin-top: 1vw;
+}

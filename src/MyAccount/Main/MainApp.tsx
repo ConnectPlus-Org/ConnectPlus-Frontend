@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Nav from "../../navbar/navbar";
 import "./main.css"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Loader from '../../loader';
 import ExperienceBox from "./components/experience";
 import EducationBox from "./components/educationbox";
@@ -14,7 +14,7 @@ const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
 const username = sessionStorage.getItem("username") || ""
-const viewusername = sessionStorage.getItem('viewusername')
+// const viewusername = sessionStorage.getItem('viewusername')
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{
@@ -22,7 +22,15 @@ const config ={
     }
 }
 
+
+
 const Account = () => {
+
+    const search = useLocation().search;
+    let viewusername = new URLSearchParams(search).get('username');
+    if(viewusername === null)
+    viewusername= username;
+
     const [loading,setLoading]=useState(false);
     const [headline,setheadline]=useState('');
     const [follower,setfollower]=useState(0);

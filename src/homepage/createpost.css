@@ -24,7 +24,8 @@
     /* width: fit-content;
     height: fit-content; */
     width: 56.25vw;
-    height: 61.9444vh;
+    /* height: 61.9444vh; */
+    height: fit-content;
   }
   
   .overlay__controls {
@@ -65,6 +66,7 @@
     border-radius: 8px;
     padding-left: 2%;
     padding-top: 1%;
+    font-size: large
   }
   .overlay img{
     /* position: relative; */
@@ -86,5 +88,14 @@
     height: 6.38889vh;
     background: #A950FB;
     border-radius: 4px;
+    cursor: pointer;
     border: none;
+  }
+
+  .preview img{
+    width: 41.1111vw;
+    height: 33.3333vh;
+    object-fit:contain;
+
+    
   }

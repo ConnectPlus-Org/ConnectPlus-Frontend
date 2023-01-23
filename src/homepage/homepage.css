@@ -134,18 +134,26 @@
 }
 
 #postComp {
-  margin: 2vw 0;
+  margin-bottom: 2vw;
   display: flex;
   justify-content: space-between;
   height: 1.5vw;
   cursor: pointer;
 }
 
-#reactions {
+.reactions {
+  position: relative;
+  z-index: 2;
   background: #0c0c0f;
   border: 1px solid #707070;
   border-radius: 0.3vw;
   height: 3.33vw;
   width: 23.33vw;
   margin-top: -2vw;
+  margin-bottom: 2vw;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.3vw;
+  cursor: pointer;
+  visibility: hidden;
 }

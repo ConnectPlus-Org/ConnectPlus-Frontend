@@ -14,14 +14,18 @@ const laugh:string = require('./images/laugh.svg').default
 const think:string = require('./images/think.svg').default
 const heart:string = require('./images/heart.svg').default
 const hand:string = require('./images/hand.svg').default
-let reactionId:number 
+let reactionId:number
+var commentlist:number = 0
 
 
 const Post = (box:any) => {
+    if(box.box.self_reaction == true)
+    reactionId=box.box.self_reaction_data.id
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
   const avatar = sessionStorage.getItem('avatar') || ""
+//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
 //   if(selfReaction==true)
 //   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
 
@@ -34,16 +38,39 @@ const Post = (box:any) => {
         else if (r == 5) setReaction(clap);
         else if (r == 4) setReaction(laugh);
     }
-    function viewComment(post:number){
-        BaseUrl.get('/post/comments/?post='+post,config)
+    function viewComment(){
+        if(commentlist==0)
+        {BaseUrl.get('/post/comments/?post='+box.box.id,config)
         .then((res)=>{
             getComment(res.data)
+            commentlist=1
         })
         .catch((err)=>{
             console.log(err)
         })}
+        else{
+            commentlist=0
+            getComment([])
+            console.log('y')
+        }}
 
-    // useEffect(()=>viewComment(box.box.id),[])
+    function postComment(e:any){
+        const details = {
+            text: e.target.value,
+            post: box.box.id
+        }
+       BaseUrl.post('/post/comments/',details,config)
+       .then((res)=>{
+           console.log(res)
+       })
+       .catch((err)=>{
+           console.log(err)
+       })
+    }
+
+    // function viewComment(){
+    //     // commentlist[box.index]!.style.display='none'
+    // }
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
     if (box.box.images_data[0]!=undefined)
@@ -94,6 +121,7 @@ const Post = (box:any) => {
 
     }
     return <div id='postbox'>
+        <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
         <img className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
             <p>{box.box.post_owner_profile.name}  <span><img src={add} />   Follow</span></p>
@@ -103,6 +131,7 @@ const Post = (box:any) => {
             {box.box.text}
         </p>
         <img id="postImg" src={images} />
+        <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.reactions_count} likes</span><span style={{float:"right"}}>{box.box.comments_count} comments</span></div>
         <div className="reactions">
         <img onClick={()=>addReaction(1)} style={{width:"1.67vw",verticalAlign:"top"}} src={liked} />
         <img onClick={()=>addReaction(2)} style={{width:"1.67vw",verticalAlign:"top"}} src={bulb} />
@@ -114,14 +143,14 @@ const Post = (box:any) => {
         </div>
         <div id="postComp">
             <p onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} onMouseOut={()=> setTimeout(()=>{reaction[box.seq]!.style.visibility='hidden';c=0},3000)} id="like"><img onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={reactionStatus} />Like</p>
-            <p onClick={()=>viewComment(box.box.id)}><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
+            <p onClick={()=>viewComment()}><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
-        <div id="comment"><img src={avatar} /><input placeholder="Comment Box"/></div>
-        <div>
+        <div id="comment"><img src={avatar} /><input onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
+        <div className='commentlist'>
             {
-                comments.map((comm:any)=>{return <Comment comm={comm} key={comm.id} />})
+                comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})
             }
         </div>
     </div>

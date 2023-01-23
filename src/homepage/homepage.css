@@ -143,14 +143,14 @@
 }
 
 .reactions {
-  position: relative;
+  position: absolute;
   z-index: 2;
   background: #0c0c0f;
   border: 1px solid #707070;
   border-radius: 0.3vw;
   height: 3.33vw;
   width: 23.33vw;
-  margin-top: -2vw;
+  margin-top: -5vw;
   margin-bottom: 2vw;
   display: flex;
   justify-content: space-between;
@@ -158,7 +158,6 @@
   cursor: pointer;
   visibility: hidden;
 }
-
 
 #comment img {
   width: 2.22vw;
@@ -174,59 +173,65 @@
   border-radius: 0.3vw;
   width: 37.78vw;
   height: 2.5vw;
-  background-color:#13131a;
+  background-color: #13131a;
   padding-left: 1vw;
 }
 
 #comment input:focus {
-    outline: none;
+  outline: none;
 }
 
-#comment div{
-    background: #0C0C0F;
-    font-weight: 600;
-font-size: 0.9vw;
-color: #D1C4E9;
-padding: 0.6vw 2.3vw;
-margin: 1vw 0;
-border-radius: 0.6vw;
-border-top-left-radius: 0;
+.commentDiv {
+  background: #0c0c0f;
+  font-weight: 600;
+  font-size: 0.9vw;
+  color: #d1c4e9;
+  padding: 0.6vw 2.3vw;
+  margin: 1vw 0;
+  border-radius: 0.6vw;
+  border-top-left-radius: 0;
 }
 
-#comment span{
-    color:#7C8B9F;
-    font-size: 1vw;
-    margin-right: 2vw;
-    cursor: pointer;
+#comment span {
+  color: #7c8b9f;
+  font-size: 1vw;
+  margin-right: 2vw;
+  cursor: pointer;
 }
 
-#replybox{
-    background-color: #13131a !important;
+#replybox {
+  background-color: #13131a !important;
 }
 
-#replybox input{
-    width: 30vw;
+#replybox input {
+  width: 30vw;
 }
 
-#replies{
-    margin-left: 5.5vw !important;
-    width: 30vw;
-    /* display: none; */
-    padding: 0 !important;
-    background-color: #13131a ;
+#replies {
+  margin-left: 5.5vw !important;
+  width: 30vw;
+  /* display: none; */
+  padding: 0 !important;
+  background-color: #13131a;
 }
 
-#reply{
-    margin: 0 !important;
+#reply {
+  margin: 0 !important;
 }
 
-#replytext{
-    background: #0C0C0F;
-    font-weight: 600;
-font-size: 0.9vw;
-color: #D1C4E9;
-padding: 0.6vw 2.3vw;
-margin: 1vw 0;
-border-radius: 0.6vw;
-border-top-left-radius: 0;
+#replytext {
+  background: #0c0c0f;
+  font-weight: 600;
+  font-size: 0.9vw;
+  color: #d1c4e9;
+  padding: 0.6vw 2.3vw;
+  margin: 1vw 0;
+  border-radius: 0.6vw;
+  border-top-left-radius: 0;
+}
+
+.postStatus {
+  font-size: 0.9vw;
+  border-bottom: 0.5px solid #ebebf0;
+  padding-bottom: 1vw;
 }

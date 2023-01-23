@@ -18,6 +18,7 @@ const None:any = (props:any) => {
 
     function handleredirect(){
         Navhandler(`/account/?username=${props.data.username}`)
+        sessionStorage.setItem('viewusername',props.data.username)
     }
     
     function handlefollow(){

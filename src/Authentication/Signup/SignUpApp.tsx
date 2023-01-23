@@ -54,6 +54,7 @@ const SignUp = () => {
       .catch((err) => {
         setLoading(false);
         console.log(err);
+        console.log(err.response.data.email)
         toast.error(err.response.data.email)
       });}
       else

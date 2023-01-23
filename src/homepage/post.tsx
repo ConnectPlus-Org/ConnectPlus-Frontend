@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import BaseUrl from "../BaseUrl";
 import './homepage.css';
+import Comment from "./comment";
 const add:string = require('./images/add.svg').default
 const like:string = require('./images/like.svg').default
 const liked:string = require('./images/liked.svg').default
@@ -13,12 +14,14 @@ const laugh:string = require('./images/laugh.svg').default
 const think:string = require('./images/think.svg').default
 const heart:string = require('./images/heart.svg').default
 const hand:string = require('./images/hand.svg').default
+let reactionId:number 
 
 
 const Post = (box:any) => {
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
-  var [reactionid,setReactionid] = useState(0);
+  var [comments,getComment] = useState([])
+  const avatar = sessionStorage.getItem('avatar') || ""
 //   if(selfReaction==true)
 //   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
 
@@ -30,7 +33,17 @@ const Post = (box:any) => {
         else if (r == 3) setReaction(think);
         else if (r == 5) setReaction(clap);
         else if (r == 4) setReaction(laugh);
-  }
+    }
+    function viewComment(post:number){
+        BaseUrl.get('/post/comments/?post='+post,config)
+        .then((res)=>{
+            getComment(res.data)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })}
+
+    // useEffect(()=>viewComment(box.box.id),[])
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
     if (box.box.images_data[0]!=undefined)
@@ -58,8 +71,8 @@ const Post = (box:any) => {
         .then((res)=>{
             console.log(res)
             setReactState(true)
-            setReactionid = res.data.id
-            console.log(reactionid,selfReaction)
+            reactionId = res.data.id
+            console.log(reactionId)
             updateReaction(r)
         })
         .catch((err)=>{
@@ -70,7 +83,7 @@ const Post = (box:any) => {
             const object = {
             reaction_type:r
         }
-        BaseUrl.patch('/post/reactions/'+reactionid+"/",object,config)
+        BaseUrl.patch(`/post/reactions/${reactionId}/`,object,config)
         .then((res)=>{
             console.log(res)
             updateReaction(r)
@@ -78,6 +91,7 @@ const Post = (box:any) => {
         .catch((err)=>{
             console.log(err)
         })}
+
     }
     return <div id='postbox'>
         <img className="shortava" src={box.box.post_owner_profile.avatar} />
@@ -100,9 +114,15 @@ const Post = (box:any) => {
         </div>
         <div id="postComp">
             <p onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} onMouseOut={()=> setTimeout(()=>{reaction[box.seq]!.style.visibility='hidden';c=0},3000)} id="like"><img onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={reactionStatus} />Like</p>
-            <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
+            <p onClick={()=>viewComment(box.box.id)}><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
+        </div>
+        <div id="comment"><img src={avatar} /><input placeholder="Comment Box"/></div>
+        <div>
+            {
+                comments.map((comm:any)=>{return <Comment comm={comm} key={comm.id} />})
+            }
         </div>
     </div>
 }

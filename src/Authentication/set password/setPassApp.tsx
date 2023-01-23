@@ -6,6 +6,7 @@ import Heading from "../components/heading";
 import axios from 'axios';
 import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
+import BaseUrl from '../../BaseUrl';
 
 const illustration: string = require("../images/setpass.svg").default;
 
@@ -55,7 +56,7 @@ function Passwordset(){
         setLoading(true);
         if(password===password2 && password)
         {
-            axios.post("https://linkedin-backend.azurewebsites.net/auth/account/register/",{
+            BaseUrl.post("/auth/account/register/",{
             email:email,
             password:password,
             email_otp:otp

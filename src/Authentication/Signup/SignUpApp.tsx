@@ -10,6 +10,7 @@ import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BaseUrl from "../../BaseUrl";
 const illustration: string = require("../images/signup.svg").default;
 
 const SignUp = () => {
@@ -37,7 +38,7 @@ const SignUp = () => {
     if(email){setLoading(true);
     localStorage.setItem("email", email);
     localStorage.setItem("context", "register");
-    axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/send/", {
+    BaseUrl.post("/auth/otp/email/send/", {
         email: email,
         context: "register",
       })

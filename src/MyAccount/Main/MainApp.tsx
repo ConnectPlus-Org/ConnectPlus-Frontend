@@ -8,6 +8,7 @@ import ExperienceBox from "./components/experience";
 import EducationBox from "./components/educationbox";
 import TestBox from "./components/test";
 import CourseBox from "./components/course";
+import BaseUrl from "../../BaseUrl";
 const edit: string = require("./images/edit.svg").default;
 const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
@@ -36,7 +37,7 @@ const Account = () => {
     const [name,setname] = useState('')
     const [cover,setcover] = useState('')
 
-    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
+    useEffect(()=>{BaseUrl.get("/profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
         console.log(res.data);
         setheadline(res.data.profile.headline)

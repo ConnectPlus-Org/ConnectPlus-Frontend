@@ -35,7 +35,7 @@ const Nav = () => {
         <div className="navitem"><img className="navimg" src={msg} alt="msg" />Messaging</div>
         <div className="navitem"><img className="navimg" src={search} alt="search" />Search</div>
         <div className="navitem"><img className="navimg" src={noti} alt="noti" />Notification</div>
-        <div className="navitem" onClick={()=>{refresh();sessionStorage.setItem('viewusername',username);Navhandler("/account")}} ><img id="accountimg" className="navimg" src={avatar} alt="ava" />My Account</div>
+        <div className="navitem" onClick={()=>{sessionStorage.setItem('viewusername',username);Navhandler("/account")}} ><img id="accountimg" className="navimg" src={avatar} alt="ava" />My Account</div>
         <div className="navitem"><img className="navimg" src={job} alt="job" />Jobs</div>
         <div className="navitem"><img className="navimg" src={work} alt="job" />Work</div>
         <div className="navitem" onClick={()=>{localStorage.clear();sessionStorage.clear();Navhandler('/login')}}><img className="navimg" src={signOut} alt="job" />Sign out</div>

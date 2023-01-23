@@ -4,6 +4,7 @@ import "../edit_profile/edit_profile.css";
 import "./additional.css"
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import BaseUrl from "../../BaseUrl";
 
 const Score = () => {
 
@@ -16,7 +17,7 @@ const Score = () => {
     };
     
     function handleassociations(){
-    axios.get(`https://linkedin-backend.azurewebsites.net/profile/myorganization/`,config)
+    BaseUrl.get('/profile/myorganization/',config)
       .then((res) => {
         console.log(res);
         setsearchres(res.data.my_organizations);
@@ -41,7 +42,7 @@ const Score = () => {
         const asso=parseInt(association, 10);
         obj={...obj,"organization":asso};
       }
-      axios.post(`https://linkedin-backend.azurewebsites.net/profile/course/`,obj,config)
+      BaseUrl.post('/profile/course/',obj,config)
       .then((res) => {
         console.log(res);
         

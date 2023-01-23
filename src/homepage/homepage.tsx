@@ -27,7 +27,7 @@ const Home = () => {
 
   const [posts, setPost] = useState([]);
 
-  BaseUrl.get("/profile/mainpage/?username=" + user, config)
+  useEffect(()=>{BaseUrl.get("/profile/mainpage/?username=" + user, config)
     .then((res) => {
       console.log(res);
       setCover(res.data.background_image);
@@ -36,11 +36,11 @@ const Home = () => {
       if (err.response.status == 404) Navhandler("/profile");
       if (err.response.status == 401) Navhandler("/login");
       console.log(err);
-    });
+    });},[])
     useEffect(()=>{BaseUrl.get("/post/feed/", config)
     .then((res) => {
       console.log(res);
-      setPost(res.data);
+      setPost(res.data.results);
     })
     .catch((err) => {
       console.log(err);

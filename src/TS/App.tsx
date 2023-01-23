@@ -32,6 +32,7 @@ import Test_View from "../MyAccount/Main/viewpage/test";
 import Course_View from "../MyAccount/Main/viewpage/courseview";
 import Home from "../homepage/homepage";
 import MobNav from "../MyAccount/Main/mobileNav";
+import Search from "../search/searchApp"
 
 const App = () => {
   return <BrowserRouter>
@@ -47,6 +48,7 @@ const App = () => {
     <Route path="/profile" element={<ProtectedRoute><Profile /></ProtectedRoute>}></Route>
     <Route path="/profilehead" element={<ProtectedRoute><ProfileHead /></ProtectedRoute>}></Route>
     <Route path="/account" element={ <ProtectedRoute><Account /></ProtectedRoute>}></Route>
+    <Route path="/search" element={ <ProtectedRoute><Search /></ProtectedRoute>}></Route>
     <Route path="/mobnav" element={ <ProtectedRoute><MobNav /></ProtectedRoute>}></Route>
     <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
     <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>

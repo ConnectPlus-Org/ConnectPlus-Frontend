@@ -52,11 +52,12 @@ const Home = () => {
     <div>
         { postClick ? <PostBox setPostClick={()=>setPostClick(!postClick)} />: <div></div>}
       <Nav />
-      <div id="search_post">
-        <input placeholder="Start Post" />
+      <div onClick={()=>setPostClick(!postClick) } id="search_post">
+        <input 
+            placeholder="Start Post" readOnly/>
         <img src={photo} /> Photo <img src={line} />
         <img src={video} /> Video <img src={line} />
-        <div onClick={()=>setPostClick(!postClick) } >Create Post</div>
+        <div >Create Post</div>
       </div>
       <div id="shortprofile">
         <img id="shortcover" src={coverImgae} alt="" />

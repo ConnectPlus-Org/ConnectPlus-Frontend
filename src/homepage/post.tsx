@@ -7,7 +7,10 @@ const share:string = require('./images/share.svg').default
 const item:string = require('./images/item.svg').default
 
 const Post = (box:any) => {
-    const images = box.box.images_data
+    if (box.box.images_data[0]!=undefined)
+    var images = box.box.images_data[0].image
+    else
+    images = ""
     console.log(images)
     return <div id='postbox'>
         <img className="shortava" src={box.box.post_owner_data.avatar} />
@@ -19,6 +22,9 @@ const Post = (box:any) => {
             {box.box.text}
         </p>
         <img id="postImg" src={images} />
+        <div id="reactions">
+
+        </div>
         <div id="postComp">
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={like} />Like</p>
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>

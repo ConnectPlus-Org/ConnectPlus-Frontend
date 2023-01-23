@@ -18,7 +18,7 @@ const Home = () => {
   var accesstoken = localStorage.getItem("accesstoken");
   const user = sessionStorage.getItem("username") || "";
   const [coverImgae, setCover] = useState("");
-  const [postClick,setPostClick] = useState(true);
+  const [postClick,setPostClick] = useState(false);
   const config = {
     headers: {
       Authorization: `Bearer ${accesstoken}`,

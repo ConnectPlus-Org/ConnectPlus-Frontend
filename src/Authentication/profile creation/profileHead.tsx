@@ -6,6 +6,7 @@ import Heading from "../components/heading";
 import Loader from "../../loader";
 import { useNavigate } from 'react-router';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
 
 
 const illustration: string = require("../images/profile.svg").default;
@@ -57,8 +58,8 @@ function ProfileHead(this: any){
     object.append("headline",headline)
     object.append("avatar",fileData)
     
-    axios.post(
-          "https://linkedin-backend.azurewebsites.net/profile/userprofile/",
+    BaseUrl.post(
+          "/profile/userprofile/",
           object,config)
         .then((res) => {
           console.log(res);

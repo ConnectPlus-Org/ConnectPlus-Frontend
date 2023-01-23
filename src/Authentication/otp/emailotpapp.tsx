@@ -8,6 +8,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import BaseUrl from "../../BaseUrl";
 const illustration: string = require("../images/otp.svg").default;
 
 const Otp = () => {
@@ -29,7 +30,7 @@ const Otp = () => {
         if(seconds===0){
     const email=localStorage.getItem("email");
     const context = localStorage.getItem("context");
-    axios.post("https://linkedin-back.azurewebsites.net/auth/otp/email/send/",{
+    BaseUrl.post("/auth/otp/email/send/",{
      email:email,
      context:context 
     }).then((res) => {
@@ -53,7 +54,7 @@ const Otp = () => {
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
         const context = localStorage.getItem("context");
-        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/verify/",{
+        BaseUrl.post("/auth/otp/email/verify/",{
             email:email,
             otp:value
         }).then((res) => {

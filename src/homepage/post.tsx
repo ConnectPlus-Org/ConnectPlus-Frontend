@@ -1,20 +1,30 @@
 import React from "react";
 import './homepage.css';
 const add:string = require('./images/add.svg').default
+const like:string = require('./images/like.svg').default
+const comment:string = require('./images/comment.svg').default
+const share:string = require('./images/share.svg').default
+const item:string = require('./images/item.svg').default
 
-const Post = () => {
-    const avatar = sessionStorage.getItem('avatar') || ''
-    const name = sessionStorage.getItem('name') || ""
-    const headline = sessionStorage.getItem('headLine') || ''
+const Post = (box:any) => {
+    const images = box.box.images_data
+    console.log(images)
     return <div id='postbox'>
-        <img className="shortava" src={avatar} />
+        <img className="shortava" src={box.box.post_owner_data.avatar} />
         <div id='postprofile'>
-            <p>{name}  <span><img src={add} />   Follow</span></p>
-            {headline}
+            <p>{box.box.post_owner_data.name}  <span><img src={add} />   Follow</span></p>
+            {box.box.post_owner_data.headline}
         </div>
-        <p>
-        Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+        <p style={{margin:"2vw 0"}}>
+            {box.box.text}
         </p>
+        <img id="postImg" src={images} />
+        <div id="postComp">
+            <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={like} />Like</p>
+            <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
+            <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
+            <p><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
+        </div>
     </div>
 }
 

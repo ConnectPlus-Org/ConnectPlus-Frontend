@@ -10,6 +10,7 @@ import Loader from '../../loader';
 import {useNavigate} from "react-router-dom";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import BaseUrl from "../../BaseUrl";
 
 const illustration: string = require("../images/loginImage.svg").default;
 
@@ -54,7 +55,7 @@ function Login() {
   }
   function handleapi() {
     if(email && password){setLoading(true);
-    axios.post("https://linkedin-backend.azurewebsites.net/auth/account/login/", {
+    BaseUrl.post("/auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {
@@ -66,7 +67,7 @@ function Login() {
     Authorization:`Bearer ${accesstoken}`,
       }
 }
-      axios.get("https://linkedin-backend.azurewebsites.net/profile/userprofile/",config)
+      BaseUrl.get("/profile/userprofile/",config)
       .then((res) => {
         console.log(res)
         setLoading(false);

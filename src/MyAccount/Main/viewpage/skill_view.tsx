@@ -6,6 +6,7 @@ import { useNavigate } from "react-router";
 import Nav from "../../../navbar/navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import '../view.css'
+import BaseUrl from "../../../BaseUrl";
 const left:string = require('../images/leftarrow.svg').default
 const add:string = require('../images/add.svg').default
 const del:string = require('../images/delete.svg').default
@@ -19,7 +20,7 @@ const Skill_View = () => {
 }
 const username = sessionStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-sessionStorage.setItem('viewusername','archas-srivastava-6LV3ZN79')
+// sessionStorage.setItem('viewusername','archas-srivastava-6LV3ZN79')
 var viewusername = sessionStorage.getItem('viewusername')
 
 const config ={
@@ -28,10 +29,11 @@ const config ={
   }
 }
 
+const [reload,setreload] = useState(false)
 var [skills,setskill] = useState([])
 
 function handleskill (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/?username='+viewusername,config)
+  BaseUrl.get('/profile/skill/?username='+viewusername,config)
   .then((res)=>
   {
     setskill(res.data);
@@ -41,12 +43,13 @@ function handleskill (){
     console.log(err);
   })
 }
-useEffect(()=>handleskill(),[])
+useEffect(()=>handleskill(),[reload])
 
 function removeskill(skill:number){
-    axios.delete("https://linkedin-backend.azurewebsites.net/profile/skill/"+skill+"/",config)
+    BaseUrl.delete("/profile/skill/"+skill+"/",config)
     .then((res)=>{
         console.log(res)
+        setreload(!reload)
     })
     .catch((err)=>{
         console.log(err)

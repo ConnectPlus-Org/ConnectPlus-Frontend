@@ -44,8 +44,12 @@ function ProfileHead(this: any){
     const [fileData, setFileData] = useState('')
 
     function handleavatar(e:any) {
+        var src = URL.createObjectURL(e.target.files[0])
+        let preview:any = document.getElementById('avatar')
+        preview!.src = src ;
+        preview!.style.display = "block";
         setFileData(e.target.files[0])
-        console.log(fileData)
+        console.log(e.target.files[0])
     }
 
     function handleapi(){
@@ -85,7 +89,7 @@ function ProfileHead(this: any){
        <img className='profileillustration' src={illustration} alt="illustration" />
        <div className='centrebox' style={boxstyle}>
         <p className='bigboi'>Make a Professional Profile</p>
-        <div id="ava"><input type="file" id="inpava" style={{display:'none'}} onChange={handleavatar}/><img id="avatar" alt="" /><img id="editavatar" src={edit} alt="" onClick={inputavatar}/></div>
+        <div id="ava"><input type="file" id="inpava" style={{display:'none'}} onChange={handleavatar}/><img style={{display:"none"}} id="avatar" /><img id="editavatar" src={edit} alt="" onClick={inputavatar}/></div>
         <div>
           Headline
           <br />

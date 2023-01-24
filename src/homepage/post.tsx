@@ -4,6 +4,10 @@ import './homepage.css';
 import Comment from "./comment";
 import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from 'react-responsive-carousel';
+
+
 const add:string = require('./images/add.svg').default
 const like:string = require('./images/like.svg').default
 const liked:string = require('./images/liked.svg').default
@@ -23,7 +27,14 @@ var commentlist:number = 0
 const Post = (box:any) => {
     const Navhandler = useNavigate()
     var [reactionStatus,setReaction] = useState(like)
-    function updateReaction(r:number){
+  var [selfReaction,setReactState] = useState(box.box.self_reaction);
+  var [comments,getComment] = useState([])
+  const avatar = sessionStorage.getItem('avatar') || ""
+//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
+//   if(selfReaction==true)
+//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
+
+  function updateReaction(r:number){
         if (r == 1) setReaction(liked);
         else if (r == 2) setReaction(bulb);
         else if (r == 6) setReaction(heart);
@@ -45,7 +56,6 @@ const Post = (box:any) => {
     }
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
-  const avatar = sessionStorage.getItem('avatar') || ""
 //   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
 //   if(selfReaction==true)
 //   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
@@ -86,9 +96,9 @@ const Post = (box:any) => {
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
     if (box.box.images_data[0]!=undefined)
-    var images = box.box.images_data[0].image
+    var images = box.box.images_data
     else
-    images = ""
+    images = false
     var c:number = 0
 
     var accesstoken=localStorage.getItem("accesstoken");
@@ -182,7 +192,21 @@ const Post = (box:any) => {
         <p style={{margin:"2vw 0"}}>
             {box.box.text}
         </p>
-        <img id="postImg" src={images} />
+        
+        {images && <Carousel showThumbs={false}>
+                
+                {images.map((data:any)=><div>
+                    <img id="postImg" src={data.image} />
+                </div>)}
+                {box.box.video_linked && <div>
+                    <video width="320" height="240" controls>
+                    <source src={box.box.video_linked} type="video/mp4" />
+                        
+                    Your browser does not support the video tag.
+                    </video>
+                </div>  }
+                
+            </Carousel> } 
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.reactions_count} likes</span><span style={{float:"right"}}>{box.box.comments_count} comments</span></div>
         <div className="reactions">
         <img onClick={()=>addReaction(1)} style={{width:"1.67vw",verticalAlign:"top"}} src={liked} />

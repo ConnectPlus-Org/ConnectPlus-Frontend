@@ -107,7 +107,7 @@ const Home = () => {
           marginTop: "11.4vw",
         }}
       >
-        { !loading? posts.map((box: any,index) => {
+        { !loading? posts.map((box: any,index:number) => {
           return <Post seq={index} box={box} key={box.id} />;
         }) : <Loader />}
         {hasmore && (scrollloading? <Loader />:<div  onClick={scroller} style={{textAlign:"center",backgroundColor:"#a950fb",border:"2px solid white"}}>See More.</div>)}

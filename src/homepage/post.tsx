@@ -34,6 +34,7 @@ const Post = (box:any) => {
 //   if(selfReaction==true)
 //   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
 
+    const likelist = document.getElementsByClassName('likestatus') as HTMLCollectionOf<HTMLElement>
   function updateReaction(r:number){
         if (r == 1) setReaction(liked);
         else if (r == 2) setReaction(bulb);
@@ -46,14 +47,19 @@ const Post = (box:any) => {
     if(box.box.self_reaction == true)
     {
         reactionId=box.box.self_reaction_data.id;
-        if (box.box.self_reaction_data.reaction_type == 1) reactionStatus=liked;
-        else if (box.box.self_reaction_data.reaction_type == 2) reactionStatus=bulb;
-        else if (box.box.self_reaction_data.reaction_type == 6) reactionStatus=heart;
-        else if (box.box.self_reaction_data.reaction_type == 7) reactionStatus=hand;
-        else if (box.box.self_reaction_data.reaction_type == 3) reactionStatus=think;
-        else if (box.box.self_reaction_data.reaction_type == 5) reactionStatus=clap;
-        else if (box.box.self_reaction_data.reaction_type == 4) reactionStatus=laugh;
+        // if (box.box.self_reaction_data.reaction_type == 1)
+        // {
+        //     const likeview:any = likelist[box.index]
+        //     likeview!.src=liked;
+        // } 
+        // else if (box.box.self_reaction_data.reaction_type == 2) setReaction(bulb);
+        // else if (box.box.self_reaction_data.reaction_type == 6) setReaction(heart);
+        // else if (box.box.self_reaction_data.reaction_type == 7) setReaction(hand);
+        // else if (box.box.self_reaction_data.reaction_type == 3) setReaction(think);
+        // else if (box.box.self_reaction_data.reaction_type == 5) setReaction(clap);
+        // else if (box.box.self_reaction_data.reaction_type == 4) setReaction(laugh);
     }
+
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
 //   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
@@ -218,7 +224,7 @@ const Post = (box:any) => {
         <img onClick={()=>addReaction(4)} style={{width:"1.67vw",verticalAlign:"top"}} src={laugh} />
         </div>
         <div id="postComp">
-            <p onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} onMouseOut={()=> setTimeout(()=>{reaction[box.seq]!.style.visibility='hidden';c=0},3000)} id="like"><img onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={reactionStatus} />Like</p>
+            <p onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} onMouseOut={()=> setTimeout(()=>{reaction[box.seq]!.style.visibility='hidden';c=0},3000)} id="like"><img onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} className='likestatus' src={reactionStatus} />Like</p>
             <p onClick={()=>viewComment()}><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>

@@ -4,6 +4,8 @@ import Nav from "../navbar/navbar";
 import './homepage.css'
 import PostBox from "./createpost"
 import { Navigate, useNavigate } from "react-router-dom";
+import Loader from "../loader"
+
 import Post from "./post";
 import BaseUrl from "../BaseUrl";
 const photo: string = require("./images/photo.svg").default;
@@ -13,12 +15,17 @@ const right: string = require("./images/rightarrow.svg").default;
 const item: string = require("./images/item.svg").default;
 const link: string = "https://linkedin-backend.azurewebsites.net/";
 
+
 const Home = () => {
   const Navhandler = useNavigate();
   var accesstoken = localStorage.getItem("accesstoken");
   const user = sessionStorage.getItem("username") || "";
   const [coverImgae, setCover] = useState("");
   const [postClick,setPostClick] = useState(false);
+  const [hasmore,setHasMore] = useState(false)
+  const [loading,setLoading] = useState(false)  
+  const [scrollloading,setscrollloading] = useState(false)  
+
   const config = {
     headers: {
       Authorization: `Bearer ${accesstoken}`,
@@ -26,6 +33,7 @@ const Home = () => {
   };
 
   const [posts, setPost] = useState([]);
+  const [page,setPage] = useState(1);
 
   useEffect(()=>{BaseUrl.get("/profile/mainpage/?username=" + user, config)
     .then((res) => {
@@ -37,18 +45,38 @@ const Home = () => {
       if (err.response.status == 401) Navhandler("/login");
       console.log(err);
     });},[])
-    useEffect(()=>{BaseUrl.get("/post/feed/?page=2", config)
+    useEffect(()=>{
+        if(page===1)
+        setLoading(true);
+        BaseUrl.get(`/post/feed/?page=${page}`, config)
     .then((res) => {
       console.log(res);
-      setPost(res.data.results);
+      setLoading(false);
+      setscrollloading(false);
+      if(res.data.next!=null)
+      setHasMore(true);
+      else
+      setHasMore(false);
+      let items:any =[...posts, ...res.data.results];
+        // console.log(items);
+      setPost(items);
     })
     .catch((err) => {
       console.log(err);
-    });},[])
+      setLoading(false);
+      setscrollloading(false);
+    });},[page])
+
+
+    function scroller(){
+        setPage(page+1);
+        setscrollloading(true);
+        // window.scrollTo(0,0);
+    }
+
   const avatar = sessionStorage.getItem("avatar") || "";
   const name = sessionStorage.getItem("name") || "";
   const headline = sessionStorage.getItem("headLine") || "";
-  const username = sessionStorage.getItem('username') || ""
   return (
     <div>
         { postClick ? <PostBox setPostClick={()=>setPostClick(!postClick)} />: <div></div>}
@@ -63,7 +91,7 @@ const Home = () => {
       <div id="shortprofile">
         <img id="shortcover" src={coverImgae} alt="" />
         <img id="shortava" src={avatar} alt="avatar" />
-        <p style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${username}`);sessionStorage.setItem('viewusername',username)}}>
+        <p>
           {name} <img src={right} />
         </p>
         {headline}
@@ -79,10 +107,12 @@ const Home = () => {
           marginTop: "11.4vw",
         }}
       >
-        {posts.map((box: any,index) => {
+        { !loading? posts.map((box: any,index) => {
           return <Post seq={index} box={box} key={box.id} />;
-        })}
+        }) : <Loader />}
+        {hasmore && (scrollloading? <Loader />:<div  onClick={scroller} style={{textAlign:"center",backgroundColor:"#a950fb",border:"2px solid white"}}>See More.</div>)}
       </div>
+      
     </div>
   );
 };

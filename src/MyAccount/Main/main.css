@@ -103,6 +103,9 @@
   font-weight: 700;
 }
 
+
+
+
 @media (max-width: 800px) {
   #mobNav {
     background-color: #030303;
@@ -123,4 +126,22 @@
     width: 1.5vw;
     float: right;
   }
+}
+
+.request{
+  background: #A950FB;
+border-radius: 0.3vw;
+width: 7vw;
+height: 2.22vw;
+margin: 0 1vw;
+font-size: 1.1vw;
+text-align: center;
+}
+
+#editCover{
+  position: absolute;
+  width: 1.5vw;
+  height: 1.5vw;
+  margin-left: -3vw;
+  margin-top: 2vw;
 }

@@ -2,18 +2,20 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Nav from "../../navbar/navbar";
 import "./main.css"
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Loader from '../../loader';
 import ExperienceBox from "./components/experience";
 import EducationBox from "./components/educationbox";
 import TestBox from "./components/test";
 import CourseBox from "./components/course";
+import BaseUrl from "../../BaseUrl";
+import { toast, ToastContainer } from "react-toastify";
 const edit: string = require("./images/edit.svg").default;
 const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
 const username = sessionStorage.getItem("username") || ""
-const viewusername = sessionStorage.getItem('viewusername')
+// const viewusername = sessionStorage.getItem('viewusername')
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{
@@ -21,7 +23,15 @@ const config ={
     }
 }
 
+
+
 const Account = () => {
+
+    const search = useLocation().search;
+    let viewusername = new URLSearchParams(search).get('username');
+    if(viewusername === null)
+    viewusername= username;
+
     const [loading,setLoading]=useState(false);
     const [headline,setheadline]=useState('');
     const [follower,setfollower]=useState(0);
@@ -36,7 +46,7 @@ const Account = () => {
     const [name,setname] = useState('')
     const [cover,setcover] = useState('')
 
-    useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+viewusername,config)
+    useEffect(()=>{BaseUrl.get("profile/mainpage/?username="+viewusername,config)
     .then((res)=>{
         console.log(res.data);
         setheadline(res.data.profile.headline)
@@ -55,7 +65,7 @@ const Account = () => {
     .catch((err)=>{
         console.log(err)
     })
-})
+},[])
         
     const Navhandler = useNavigate();
 
@@ -67,21 +77,66 @@ const Account = () => {
           }
     }
 
+    function sendFollow() {
+        BaseUrl.post('/network/following/',{username:viewusername},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("you started following this account!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("You are already following this account!!")
+        })
+    }
+
+    function sendConnection() {
+        BaseUrl.post('/network/connection/request/send/',{reciever:viewusername},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("Connection Request sent successfully!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("Request already sent to this account!!")
+        })
+    }
+    const inputphoto = () => {
+        document.getElementById('inpphoto')?.click()
+    }
+
+    function showPreview(e:any) {
+        var src = URL.createObjectURL(e.target.files[0]);
+        let preview:any = document.getElementById("cover_image");
+        preview!.src = src ;
+        const object = new FormData()
+        object.append("background_image",e.target.files[0])
+        BaseUrl.patch("profile/mainpage/?username="+viewusername,object,config)
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        console.log(cover)
+    }
+
     return <div>
         <Nav />
         <div id="acc">
         <div id="account_details" >
             <img id="cover_image" src={cover} />
+            <input style={{display:"none"}} type="file" id="inpphoto" accept="image/*" onChange={showPreview} ></input>
+            <img style={{cursor:"pointer"}} onClick={inputphoto} src={edit} id="editCover"/>
             <div><img id="account_avatar" alt="avatar" src={avatar}/>
             <div className='action' id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit}/>Update profile</div></div>
-            <div style={{display:"flex",justifyContent:"space-evenly",width:"50vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
-                <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>
+            <div style={{display:"flex",justifyContent:"space-evenly",width:"70vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
+                <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>{(username!=viewusername)?<span onClick={()=>sendFollow()} className="request">+ Follow</span>:null}{(username!=viewusername)?<span onClick={()=>sendConnection()} className="request">Connect</span>:null}
             </div>
                 <p style={{fontSize:"1.4vw",marginLeft:"2vw"}}>{headline}</p>
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
+        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => {Navhandler("aboutme");sessionStorage.setItem('aboutme',about)}}/></div>
         <br/><br/>
         {about}
         </div>
@@ -135,6 +190,7 @@ const Account = () => {
         <pre onClick={()=> Navhandler('viewcourse')}>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>
+        <ToastContainer theme="dark" position="top-center" />
     </div>
 }
 

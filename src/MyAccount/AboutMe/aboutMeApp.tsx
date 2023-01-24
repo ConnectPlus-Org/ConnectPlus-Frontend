@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import { useNavigate } from "react-router";
+import BaseUrl from "../../BaseUrl";
 import Nav from "../../navbar/navbar";
 import "../skill/skill.css"
 var accesstoken=localStorage.getItem("accesstoken");
@@ -19,7 +20,7 @@ const AboutMe = () => {
 }
 const [about,setabout] = React.useState("");
 function handleapi(){
-  axios.patch("https://linkedin-backend.azurewebsites.net/profile/mainpage/?username="+user,{
+  BaseUrl.patch("/profile/mainpage/?username="+user,{
     "about":about
   },config)
     .then((res) => {

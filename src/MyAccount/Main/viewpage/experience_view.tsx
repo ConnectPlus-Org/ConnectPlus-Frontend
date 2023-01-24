@@ -7,6 +7,7 @@ import Nav from "../../../navbar/navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import '../view.css'
 import ExperienceBox from "../components/experience";
+import BaseUrl from "../../../BaseUrl";
 const left:string = require('../images/leftarrow.svg').default
 const add:string = require('../images/add.svg').default
 const edit:string = require('../images/edit.svg').default
@@ -31,7 +32,7 @@ const config ={
 var [experience,setexp] = useState([])
 
 function handlexp (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/experience/?username='+viewusername,config)
+  BaseUrl.get('/profile/experience/?username='+viewusername,config)
   .then((res)=>
   {
     console.log(res);

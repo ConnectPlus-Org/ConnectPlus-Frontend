@@ -16,6 +16,9 @@ const ExperienceBox:any = (box:any) => {
     end_date = 'Present'
     else
     end_date = box.box.end_date
+    const username = sessionStorage.getItem("username")
+const viewusername = sessionStorage.getItem("viewusername")
+
     return <div className="expbox">
         <img className="explogo" src={box.box.company_data.logo} alt="logo"/>
         <div>
@@ -24,7 +27,7 @@ const ExperienceBox:any = (box:any) => {
         <p style={{fontWeight: '400',fontSize: '1.2vw',color:"#EBEBF0"}}>{box.box.start_date}  - {end_date} · </p>
         <p style={{fontWeight: '400',fontSize: '1vw',color:"#EBEBF0"}}>{box.box.location} </p>
         </div>
-        <img className="editicon" src={edit} />
+        {(username===viewusername)?<img  className="editicon action" src={edit} />:null}
     </div>
 }
 

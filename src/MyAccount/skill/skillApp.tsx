@@ -7,6 +7,7 @@ import Nav from "../../navbar/navbar";
 import Skillcomponent from "./searchbox";
 import "./skill.css"
 import { ToastContainer, toast } from 'react-toastify';
+import BaseUrl from "../../BaseUrl";
 const arr: string = require("../Main/images/arrow.svg").default;
 
 const Skill = () => {
@@ -37,7 +38,7 @@ var [skill,setskill] = useState("")
 var l:number = searches.length
 function handleskill (e:any){
   setskill(e.target.value)
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/skill/list/?search_input='+e.target.value,config)
+  BaseUrl.get('/profile/skill/list/?search_input='+e.target.value,config)
   .then((res)=>
   {
     console.log(res.data);
@@ -45,11 +46,16 @@ function handleskill (e:any){
   })
   .catch((err)=>{
     console.log(err);
+    // const searc = {
+    //   id: 0 ,
+    //   type: e.target.value
+    // }
+    // setsearches(searc)
   })
 }
 
 function addskill() { 
-  axios.post('https://linkedin-backend.azurewebsites.net/profile/skill/',
+  BaseUrl.post('/profile/skill/',
   {
     skill_name:skill
   },config)

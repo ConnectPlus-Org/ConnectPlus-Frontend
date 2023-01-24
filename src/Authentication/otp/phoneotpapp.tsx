@@ -6,6 +6,7 @@ import Heading from '../components/heading';
 import Loader from "../../loader";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import BaseUrl from "../../BaseUrl";
 const illustration: string = require("../images/otp.svg").default;
 
 const Phoneotp = () => {
@@ -38,8 +39,8 @@ const Phoneotp = () => {
     function ResendApi(){
         if(seconds===0){
     const number=localStorage.getItem("number");
-    axios
-      .post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/send/", {
+    BaseUrl
+      .post("/auth/otp/phone/send/", {
         phone_number: number,
       })
       .then((res) => {
@@ -60,7 +61,7 @@ const Phoneotp = () => {
     function handleapi(){
         setLoading(true);
         const number=localStorage.getItem("number");
-        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/verify/",{
+        BaseUrl.post("/auth/otp/phone/verify/",{
             phone_number:number,
             otp:value
         }).then((res) => {

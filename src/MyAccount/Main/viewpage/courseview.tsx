@@ -9,6 +9,7 @@ import '../view.css'
 import ExperienceBox from "../components/experience";
 import TestBox from "../components/test";
 import CourseBox from "../components/course";
+import BaseUrl from "../../../BaseUrl";
 const left:string = require('../images/leftarrow.svg').default
 const add:string = require('../images/add.svg').default
 const edit:string = require('../images/edit.svg').default
@@ -33,7 +34,7 @@ const config ={
 var [course,setcourse] = useState([])
 
 function handlecourse (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/course/?username='+viewusername,config)
+  BaseUrl.get('/profile/course/?username='+viewusername,config)
   .then((res)=>
   {
     console.log(res);

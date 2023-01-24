@@ -6,6 +6,8 @@ import Heading from "../components/heading";
 import Loader from "../../loader";
 import { useNavigate } from 'react-router';
 import axios from 'axios';
+import BaseUrl from '../../BaseUrl';
+import { toast } from 'react-toastify';
 
 
 const illustration: string = require("../images/profile.svg").default;
@@ -43,12 +45,17 @@ function ProfileHead(this: any){
     const [fileData, setFileData] = useState('')
 
     function handleavatar(e:any) {
+        var src = URL.createObjectURL(e.target.files[0])
+        let preview:any = document.getElementById('avatar')
+        preview!.src = src ;
+        preview!.style.display = "block";
         setFileData(e.target.files[0])
-        console.log(fileData)
+        console.log(e.target.files[0])
     }
 
     function handleapi(){
       
+    setLoading(true)
     const object = new FormData()
     object.append("first_name",fname)
     object.append("last_name",lname)
@@ -57,8 +64,8 @@ function ProfileHead(this: any){
     object.append("headline",headline)
     object.append("avatar",fileData)
     
-    axios.post(
-          "https://linkedin-backend.azurewebsites.net/profile/userprofile/",
+    BaseUrl.post(
+          "/profile/userprofile/",
           object,config)
         .then((res) => {
           console.log(res);
@@ -72,6 +79,7 @@ function ProfileHead(this: any){
         })
         .catch((err) => {
           console.log(err);
+          toast.error("profile already exist");
           setLoading(false);
         });
     }
@@ -84,7 +92,7 @@ function ProfileHead(this: any){
        <img className='profileillustration' src={illustration} alt="illustration" />
        <div className='centrebox' style={boxstyle}>
         <p className='bigboi'>Make a Professional Profile</p>
-        <div id="ava"><input type="file" id="inpava" style={{display:'none'}} onChange={handleavatar}/><img id="avatar" alt="" /><img id="editavatar" src={edit} alt="" onClick={inputavatar}/></div>
+        <div id="ava"><input type="file" id="inpava" style={{display:'none'}} onChange={handleavatar}/><img style={{display:"none"}} id="avatar" /><img id="editavatar" src={edit} alt="" onClick={inputavatar}/></div>
         <div>
           Headline
           <br />

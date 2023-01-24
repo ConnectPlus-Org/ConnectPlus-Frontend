@@ -5,7 +5,8 @@
 }
 
 body{
-  background-color: #131313;
+  /* background-color: #131313; */
+  background-color: #0C0C0F;
   overflow-y: hidden;
   font-family: "Manrope";
 }

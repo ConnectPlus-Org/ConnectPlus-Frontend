@@ -4,6 +4,7 @@ import "../edit_profile/edit_profile.css";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Boxcomponent from "./boxcomponent";
+import BaseUrl from "../../BaseUrl";
 
 const Education = () => {
 
@@ -44,7 +45,7 @@ const Education = () => {
 
       function handleschoolname(e:any){
         setschool(e.target.value);
-        axios.get(`https://linkedin-backend.azurewebsites.net/profile/organization/?search_input=school ${e.target.value}`,config)
+        BaseUrl.get(`/profile/organization/?search_input=school ${e.target.value}`,config)
         .then((res) => {
           console.log(res);
           setsearchres(res.data);
@@ -83,7 +84,7 @@ const Education = () => {
         {
           req={...req,"school":school}; 
         }
-        axios.post("https://linkedin-backend.azurewebsites.net/profile/education/",req,config)
+        BaseUrl.post("/profile/education/",req,config)
         .then((res) => {
           console.log(res);
         })

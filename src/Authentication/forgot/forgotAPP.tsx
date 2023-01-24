@@ -6,6 +6,7 @@ import './forgot.css'
 import axios from 'axios';
 import Loader from '../../loader';
 import {useNavigate} from "react-router-dom";
+import BaseUrl from "../../BaseUrl";
 const illustration: string = require("../images/forgot.svg").default;
 
 const Forgot = () => {
@@ -38,7 +39,7 @@ const Forgot = () => {
     function Handleapi() {
       setLoading(true);
       if (correctMail){
-        axios.post("https://linkedin-backend.azurewebsites.net/auth/otp/email/send/", {
+        BaseUrl.post("/auth/otp/email/send/", {
       email :  email,
       context : "forget"
     }).then((res) => {

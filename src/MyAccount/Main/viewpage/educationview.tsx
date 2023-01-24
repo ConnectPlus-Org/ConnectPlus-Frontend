@@ -6,6 +6,7 @@ import Nav from "../../../navbar/navbar";
 import { ToastContainer, toast } from 'react-toastify';
 import '../view.css'
 import EducationBox from "../components/educationbox";
+import BaseUrl from "../../../BaseUrl";
 const left:string = require('../images/leftarrow.svg').default
 const add:string = require('../images/add.svg').default
 const edit:string = require('../images/edit.svg').default
@@ -31,7 +32,7 @@ const config ={
 var [education,setedu] = useState([])
 
 function handledu (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/education/?username='+viewusername,config)
+  BaseUrl.get('/profile/education/?username='+viewusername,config)
   .then((res)=>
   {
     console.log(res);

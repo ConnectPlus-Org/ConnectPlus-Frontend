@@ -8,6 +8,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import '../view.css'
 import ExperienceBox from "../components/experience";
 import TestBox from "../components/test";
+import BaseUrl from "../../../BaseUrl";
 const left:string = require('../images/leftarrow.svg').default
 const add:string = require('../images/add.svg').default
 const edit:string = require('../images/edit.svg').default
@@ -32,7 +33,7 @@ const config ={
 var [test,settest] = useState([])
 
 function handletest (){
-  axios.get('https://linkedin-backend.azurewebsites.net/profile/testscore/?username='+viewusername,config)
+  BaseUrl.get('/profile/testscore/?username='+viewusername,config)
   .then((res)=>
   {
     console.log(res);

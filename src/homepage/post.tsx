@@ -22,17 +22,8 @@ var commentlist:number = 0
 
 const Post = (box:any) => {
     const Navhandler = useNavigate()
-    if(box.box.self_reaction == true)
-    reactionId=box.box.self_reaction_data.id
     var [reactionStatus,setReaction] = useState(like)
-  var [selfReaction,setReactState] = useState(box.box.self_reaction);
-  var [comments,getComment] = useState([])
-  const avatar = sessionStorage.getItem('avatar') || ""
-//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
-//   if(selfReaction==true)
-//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
-
-  function updateReaction(r:number){
+    function updateReaction(r:number){
         if (r == 1) setReaction(liked);
         else if (r == 2) setReaction(bulb);
         else if (r == 6) setReaction(heart);
@@ -41,6 +32,23 @@ const Post = (box:any) => {
         else if (r == 5) setReaction(clap);
         else if (r == 4) setReaction(laugh);
     }
+    if(box.box.self_reaction == true)
+    {
+        reactionId=box.box.self_reaction_data.id;
+        if (box.box.self_reaction_data.reaction_type == 1) reactionStatus=liked;
+        else if (box.box.self_reaction_data.reaction_type == 2) reactionStatus=bulb;
+        else if (box.box.self_reaction_data.reaction_type == 6) reactionStatus=heart;
+        else if (box.box.self_reaction_data.reaction_type == 7) reactionStatus=hand;
+        else if (box.box.self_reaction_data.reaction_type == 3) reactionStatus=think;
+        else if (box.box.self_reaction_data.reaction_type == 5) reactionStatus=clap;
+        else if (box.box.self_reaction_data.reaction_type == 4) reactionStatus=laugh;
+    }
+  var [selfReaction,setReactState] = useState(box.box.self_reaction);
+  var [comments,getComment] = useState([])
+  const avatar = sessionStorage.getItem('avatar') || ""
+//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
+//   if(selfReaction==true)
+//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
     function viewComment(){
         if(commentlist==0)
         {BaseUrl.get('/post/comments/?post='+box.box.id,config)
@@ -89,9 +97,7 @@ const Post = (box:any) => {
           Authorization:`Bearer ${accesstoken}`,
         }
       }
-    const [reload,setReload] = useState(false)
     function addReaction(r:number){
-        setReload(!reload)
         if(selfReaction===false)
         {
             const object = {
@@ -127,6 +133,20 @@ const Post = (box:any) => {
             toast.error("reaction is not edited")
         })}
 
+    }
+
+    function deleteReaction(){
+        BaseUrl.delete(`http://linkedin-backend.centralindia.cloudapp.azure.com/post/reactions/${reactionId}/`,config)
+        .then((res)=>{
+            setReaction(like);
+            console.log(res);
+            selfReaction=false;
+            toast.info("Reaction removed")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.info("Reaction not removed")
+        })
     }
 
     function sendFollow() {

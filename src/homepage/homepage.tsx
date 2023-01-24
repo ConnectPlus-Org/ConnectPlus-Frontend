@@ -18,14 +18,14 @@ const link: string = "https://linkedin-backend.azurewebsites.net/";
 
 const Home = () => {
   const Navhandler = useNavigate();
-  var accesstoken = localStorage.getItem("accesstoken");
   const user = sessionStorage.getItem("username") || "";
   const [coverImgae, setCover] = useState("");
   const [postClick,setPostClick] = useState(false);
   const [hasmore,setHasMore] = useState(false)
   const [loading,setLoading] = useState(false)  
   const [scrollloading,setscrollloading] = useState(false)  
-
+  
+  var accesstoken = localStorage.getItem("accesstoken");
   const config = {
     headers: {
       Authorization: `Bearer ${accesstoken}`,
@@ -96,8 +96,8 @@ const Home = () => {
         </p>
         {headline}
         <br />
-        <img style={{ marginRight: "1vw" }} src={item} />
-        <p style={{ display: "inline-block" }}>My Items</p>
+        <img onClick={()=>Navhandler('/savedposts')} style={{ marginRight: "1vw",cursor:"pointer" }} src={item} />
+        <p onClick={()=>Navhandler('/savedposts')} style={{ display: "inline-block", cursor:"pointer" }}>My Items</p>
       </div>
       <div
         style={{

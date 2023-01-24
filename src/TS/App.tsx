@@ -33,6 +33,7 @@ import Course_View from "../MyAccount/Main/viewpage/courseview";
 import Home from "../homepage/homepage";
 import MobNav from "../MyAccount/Main/mobileNav";
 import Search from "../search/searchApp"
+import Saved from "../homepage/saved";
 
 const App = () => {
   return <BrowserRouter>
@@ -69,6 +70,8 @@ const App = () => {
     <Route path="/network/followers" element={<ProtectedRoute><Followers/></ProtectedRoute>}></Route>
     <Route path="/network/following" element={<ProtectedRoute><Following/></ProtectedRoute>}></Route>
     <Route path="" element={<Home/>}></Route>
+    <Route path="/savedPosts" element={ <ProtectedRoute><Saved /></ProtectedRoute>}></Route>
+
   </Routes>
 </BrowserRouter>;;
 };

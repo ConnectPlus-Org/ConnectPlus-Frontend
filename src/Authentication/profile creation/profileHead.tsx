@@ -7,6 +7,7 @@ import Loader from "../../loader";
 import { useNavigate } from 'react-router';
 import axios from 'axios';
 import BaseUrl from '../../BaseUrl';
+import { toast } from 'react-toastify';
 
 
 const illustration: string = require("../images/profile.svg").default;
@@ -54,6 +55,7 @@ function ProfileHead(this: any){
 
     function handleapi(){
       
+    setLoading(true)
     const object = new FormData()
     object.append("first_name",fname)
     object.append("last_name",lname)
@@ -77,6 +79,7 @@ function ProfileHead(this: any){
         })
         .catch((err) => {
           console.log(err);
+          toast.error("profile already exist");
           setLoading(false);
         });
     }

@@ -25,6 +25,7 @@ var commentlist:number = 0
 
 
 const Post = (box:any) => {
+    const username:string = sessionStorage.getItem('username') || ""
     const Navhandler = useNavigate()
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
@@ -166,7 +167,8 @@ const Post = (box:any) => {
     }
 
     function sendFollow() {
-        BaseUrl.post('/network/following/',{username:box.box.post_owner_profile.username},config)
+        if(box.box.post_owner_profile.username!=username)
+        {BaseUrl.post('/network/following/',{username:box.box.post_owner_profile.username},config)
         .then((res)=>{
             console.log(res)
             toast.info("you started following this account!!")
@@ -174,7 +176,9 @@ const Post = (box:any) => {
         .catch((err)=>{
             console.log(err)
             toast.error("You are already following this account!!")
-        })
+        })}
+        else
+        toast.error("you can't follow yourself");
     }
 
     function bookmarkPost(){
@@ -192,7 +196,8 @@ const Post = (box:any) => {
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
         <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);sessionStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
-            <p>{box.box.post_owner_profile.name}  <span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img src={add} />   Follow</span></p>
+            <p>{box.box.post_owner_profile.name}  {(box.box.post_owner_profile.username!=username)?<span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img src={add} />
+            Follow</span>:null}</p>
             {box.box.post_owner_profile.headline}
         </div>
         <p style={{margin:"2vw 0"}}>

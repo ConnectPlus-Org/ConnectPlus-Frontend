@@ -127,3 +127,13 @@
     float: right;
   }
 }
+
+.request{
+  background: #A950FB;
+border-radius: 0.3vw;
+width: 7vw;
+height: 2.22vw;
+margin: 0 1vw;
+font-size: 1.1vw;
+text-align: center;
+}

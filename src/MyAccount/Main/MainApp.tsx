@@ -9,6 +9,7 @@ import EducationBox from "./components/educationbox";
 import TestBox from "./components/test";
 import CourseBox from "./components/course";
 import BaseUrl from "../../BaseUrl";
+import { toast, ToastContainer } from "react-toastify";
 const edit: string = require("./images/edit.svg").default;
 const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
@@ -64,7 +65,7 @@ const Account = () => {
     .catch((err)=>{
         console.log(err)
     })
-})
+},[])
         
     const Navhandler = useNavigate();
 
@@ -76,6 +77,30 @@ const Account = () => {
           }
     }
 
+    function sendFollow() {
+        BaseUrl.post('/network/following/',{username:viewusername},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("you started following this account!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("You are already following this account!!")
+        })
+    }
+
+    function sendConnection() {
+        BaseUrl.post('/network/connection/request/send/',{reciever:viewusername},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("Connection Request sent successfully!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("Request already sent to this account!!")
+        })
+    }
+
     return <div>
         <Nav />
         <div id="acc">
@@ -83,8 +108,8 @@ const Account = () => {
             <img id="cover_image" src={cover} />
             <div><img id="account_avatar" alt="avatar" src={avatar}/>
             <div className='action' id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit}/>Update profile</div></div>
-            <div style={{display:"flex",justifyContent:"space-evenly",width:"50vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
-                <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>
+            <div style={{display:"flex",justifyContent:"space-evenly",width:"70vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
+                <p style={{fontSize:"2.5vw"}}>{name}</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{follower} followers</p><p style={{fontSize:"1.6vw",alignSelf:"center"}}>{connection} connections</p>{(username!=viewusername)?<span onClick={()=>sendFollow()} className="request">+ Follow</span>:null}{(username!=viewusername)?<span onClick={()=>sendConnection()} className="request">Connect</span>:null}
             </div>
                 <p style={{fontSize:"1.4vw",marginLeft:"2vw"}}>{headline}</p>
         </div>
@@ -144,6 +169,7 @@ const Account = () => {
         <pre onClick={()=> Navhandler('viewcourse')}>Show more Courses       <img src={arr}/></pre>
         </div>
         </div>
+        <ToastContainer theme="dark" position="top-center" />
     </div>
 }
 

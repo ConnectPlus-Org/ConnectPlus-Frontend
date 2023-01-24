@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import BaseUrl from "../BaseUrl";
 import './homepage.css';
 import Comment from "./comment";
+import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 const add:string = require('./images/add.svg').default
 const like:string = require('./images/like.svg').default
 const liked:string = require('./images/liked.svg').default
@@ -19,6 +21,7 @@ var commentlist:number = 0
 
 
 const Post = (box:any) => {
+    const Navhandler = useNavigate()
     if(box.box.self_reaction == true)
     reactionId=box.box.self_reaction_data.id
     var [reactionStatus,setReaction] = useState(like)
@@ -51,7 +54,6 @@ const Post = (box:any) => {
         else{
             commentlist=0
             getComment([])
-            console.log('y')
         }}
 
     function postComment(e:any){
@@ -62,9 +64,11 @@ const Post = (box:any) => {
        BaseUrl.post('/post/comments/',details,config)
        .then((res)=>{
            console.log(res)
+           toast.info("Comment Successfully Posted")
        })
        .catch((err)=>{
            console.log(err)
+           toast.error("comment posting failed")
        })
     }
 
@@ -101,9 +105,11 @@ const Post = (box:any) => {
             reactionId = res.data.id
             console.log(reactionId)
             updateReaction(r)
+            toast.info("reaction is successfully added")
         })
         .catch((err)=>{
             console.log(err)
+            toast.error('you already reacted on this post')
         })}
         else
         {
@@ -114,17 +120,43 @@ const Post = (box:any) => {
         .then((res)=>{
             console.log(res)
             updateReaction(r)
+            toast.info("reaction is successfully updated")
         })
         .catch((err)=>{
             console.log(err)
+            toast.error("reaction is not edited")
         })}
 
     }
+
+    function sendFollow() {
+        BaseUrl.post('/network/following/',{username:box.box.post_owner_profile.username},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("you started following this account!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("You are already following this account!!")
+        })
+    }
+
+    function bookmarkPost(){
+        BaseUrl.post('post/bookmark/',{post_id:box.box.id},config)
+        .then((res)=>{
+            console.log(res)
+            toast.info("Post Is Successfully saved!!")
+        })
+        .catch((err)=>{
+            console.log(err)
+            toast.error("Post is not saved!!")
+        })
+    }
     return <div id='postbox'>
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
-        <img className="shortava" src={box.box.post_owner_profile.avatar} />
+        <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);sessionStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
-            <p>{box.box.post_owner_profile.name}  <span><img src={add} />   Follow</span></p>
+            <p>{box.box.post_owner_profile.name}  <span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img src={add} />   Follow</span></p>
             {box.box.post_owner_profile.headline}
         </div>
         <p style={{margin:"2vw 0"}}>
@@ -145,7 +177,7 @@ const Post = (box:any) => {
             <p onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} onMouseOut={()=> setTimeout(()=>{reaction[box.seq]!.style.visibility='hidden';c=0},3000)} id="like"><img onMouseOver={()=>{reaction[box.seq]!.style.visibility='visible';c=1}} style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={reactionStatus} />Like</p>
             <p onClick={()=>viewComment()}><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={comment} />Comments</p>
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
-            <p><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
+            <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
         <div id="comment"><img src={avatar} /><input onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
         <div className='commentlist'>
@@ -153,6 +185,7 @@ const Post = (box:any) => {
                 comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})
             }
         </div>
+        <ToastContainer theme="dark" position="top-center" />
     </div>
 }
 

@@ -48,6 +48,7 @@ const Home = () => {
   const avatar = sessionStorage.getItem("avatar") || "";
   const name = sessionStorage.getItem("name") || "";
   const headline = sessionStorage.getItem("headLine") || "";
+  const username = sessionStorage.getItem('username') || ""
   return (
     <div>
         { postClick ? <PostBox setPostClick={()=>setPostClick(!postClick)} />: <div></div>}
@@ -62,7 +63,7 @@ const Home = () => {
       <div id="shortprofile">
         <img id="shortcover" src={coverImgae} alt="" />
         <img id="shortava" src={avatar} alt="avatar" />
-        <p>
+        <p style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${username}`);sessionStorage.setItem('viewusername',username)}}>
           {name} <img src={right} />
         </p>
         {headline}

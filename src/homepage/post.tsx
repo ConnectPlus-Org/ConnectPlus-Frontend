@@ -174,13 +174,13 @@ const Post = (box:any) => {
                 {images.map((data:any)=><div>
                     <img id="postImg" src={data.image} />
                 </div>)}
-                {box.box.video_linked && <div>
+               { (box.box.video_linked) && <div>
                     <video width="320" height="240" controls>
                     <source src={box.box.video_linked} type="video/mp4" />
                         
                     Your browser does not support the video tag.
                     </video>
-                </div>  }
+                </div>} 
                 
             </Carousel> } 
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.reactions_count} likes</span><span style={{float:"right"}}>{box.box.comments_count} comments</span></div>

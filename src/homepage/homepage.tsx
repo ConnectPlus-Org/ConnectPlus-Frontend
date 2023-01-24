@@ -79,7 +79,7 @@ const Home = () => {
   const headline = sessionStorage.getItem("headLine") || "";
   return (
     <div>
-        { postClick ? <PostBox setPostClick={()=>setPostClick(!postClick)} />: <div></div>}
+        { postClick ? <PostBox setPostClick={setPostClick} postClick={postClick} />: <div></div>}
       <Nav />
       <div onClick={()=>setPostClick(!postClick) } id="search_post">
         <input 

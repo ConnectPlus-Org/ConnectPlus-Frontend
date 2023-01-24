@@ -37,7 +37,7 @@ const Home = () => {
       if (err.response.status == 401) Navhandler("/login");
       console.log(err);
     });},[])
-    useEffect(()=>{BaseUrl.get("/post/feed/", config)
+    useEffect(()=>{BaseUrl.get("/post/feed/?page=2", config)
     .then((res) => {
       console.log(res);
       setPost(res.data.results);

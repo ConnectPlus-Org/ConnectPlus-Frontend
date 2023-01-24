@@ -91,7 +91,7 @@ const Home = () => {
       <div id="shortprofile">
         <img id="shortcover" src={coverImgae} alt="" />
         <img id="shortava" src={avatar} alt="avatar" />
-        <p>
+        <p style={{cursor:"pointer"}} onClick={()=>Navhandler('/account')}>
           {name} <img src={right} />
         </p>
         {headline}

@@ -100,12 +100,33 @@ const Account = () => {
             toast.error("Request already sent to this account!!")
         })
     }
+    const inputphoto = () => {
+        document.getElementById('inpphoto')?.click()
+    }
+
+    function showPreview(e:any) {
+        var src = URL.createObjectURL(e.target.files[0]);
+        let preview:any = document.getElementById("cover_image");
+        preview!.src = src ;
+        const object = new FormData()
+        object.append("background_image",e.target.files[0])
+        BaseUrl.patch("profile/mainpage/?username="+viewusername,object,config)
+        .then((res)=>{
+            console.log(res)
+        })
+        .catch((err)=>{
+            console.log(err)
+        })
+        console.log(cover)
+    }
 
     return <div>
         <Nav />
         <div id="acc">
         <div id="account_details" >
             <img id="cover_image" src={cover} />
+            <input style={{display:"none"}} type="file" id="inpphoto" accept="image/*" onChange={showPreview} ></input>
+            <img style={{cursor:"pointer"}} onClick={inputphoto} src={edit} id="editCover"/>
             <div><img id="account_avatar" alt="avatar" src={avatar}/>
             <div className='action' id="Updateprofile" onClick={() => Navhandler("edit_profile")}><img src={edit}/>Update profile</div></div>
             <div style={{display:"flex",justifyContent:"space-evenly",width:"70vw",fontWeight:"700",margin:"1.5vw 0vw"}}>
@@ -115,7 +136,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => Navhandler("aboutme")}/></div>
+        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => {Navhandler("aboutme");sessionStorage.setItem('aboutme',about)}}/></div>
         <br/><br/>
         {about}
         </div>

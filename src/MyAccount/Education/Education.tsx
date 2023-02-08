@@ -22,6 +22,7 @@ const Education = () => {
     }
   
       const [searchres,setsearchres] = useState([]);
+      const arr: string = require("../Main/images/arrow.svg").default;
       const [school,setschool] = useState("");
       const [degree,setdegree] = useState("");
       const [fos,setfos] = useState(1);
@@ -106,7 +107,7 @@ const Education = () => {
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'125vh'}}>
-        <p className="accountnavtopline">Education</p>
+        <p className="accountnavtopline"><img className="backarr" src={arr} onClick={()=>Navhandler("/mobnav")} />Education</p>
         <div>
           School
           <br />

@@ -4,6 +4,7 @@ import "../edit_profile/edit_profile.css";
 import "./additional.css"
 import { useNavigate } from "react-router-dom";
 
+const arr: string = require("../Main/images/arrow.svg").default;
 const Additional = () => {
 
     const activestyle={
@@ -30,6 +31,7 @@ const Additional = () => {
         <p  onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'77.7778vh',display:'block'}}>
+      {/* <p><img className="backarr" src={arr} onClick={()=>Navhandler("/mobnav")} />About Me</p> */}
         <div className="linkbox" onClick={()=>{Navhandler("/account/additional/score")}}>
             Add test score
             <div className="rightarrowbox">

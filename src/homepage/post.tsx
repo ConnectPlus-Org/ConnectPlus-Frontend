@@ -197,7 +197,7 @@ const Post = (box:any) => {
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
         <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);sessionStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
-            <p>{box.box.post_owner_profile.name}  {(box.box.post_owner_profile.username!=username)?<span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img src={add} />
+            <p>{box.box.post_owner_profile.name}  {(box.box.post_owner_profile.username!=username)?<span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img style={{width:"1vw"}} src={add} />
             Follow</span>:null}</p>
             {box.box.post_owner_profile.headline}
         </div>
@@ -235,7 +235,7 @@ const Post = (box:any) => {
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
-        <div id="comment"><img src={avatar} /><input onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
+        <div id="comment"><img src={avatar} /><input style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
         <div className='commentlist'>
             {
                 comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})

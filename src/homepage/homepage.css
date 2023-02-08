@@ -235,3 +235,26 @@
   border-bottom: 0.5px solid #ebebf0;
   padding-bottom: 1vw;
 }
+
+#settle {
+  width: 45vw;
+  position: absolute;
+  margin-left: 20vw;
+  margin-top: 11.4vw;
+}
+
+@media (max-width: 800px) {
+  #search_post,
+  #shortprofile {
+    visibility: hidden;
+  }
+
+  #postbox {
+    width: 100vw;
+    font-size: 2vw;
+  }
+  #settle {
+    width: 100vw;
+    margin-left: 0vw;
+  }
+}

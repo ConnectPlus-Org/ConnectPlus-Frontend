@@ -1,5 +1,5 @@
 #account_nav {
-  background-color: #13131A;
+  background-color: #13131a;
   position: fixed;
   width: 17.77vw;
   border: 1px solid #cdccd9;
@@ -9,11 +9,11 @@
   padding-bottom: 5vh;
 }
 
-.backarr{
+.backarr {
   visibility: hidden;
 }
 
-#account_nav p{
+#account_nav p {
   cursor: pointer;
   text-align: center;
   margin-top: 3.4vw;
@@ -21,15 +21,15 @@
 /* #account_nav a:active{
   color: #A950FB;
 } */
-.accountnavtopline{
-font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 2.5vw;
-line-height: 6.80556vh;
-margin-left: -3vw;
-margin-top: -2vw;
-color: #F5F5FA;
+.accountnavtopline {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.5vw;
+  line-height: 6.80556vh;
+  margin-left: -3vw;
+  margin-top: -2vw;
+  color: #f5f5fa;
 }
 #edit_profile {
   font-family: "Manrope";
@@ -41,7 +41,7 @@ color: #F5F5FA;
   padding-right: 6.67vw;
   padding-top: 6.8vh;
   padding-bottom: 4vw;
-  background-color: #13131A;
+  background-color: #13131a;
   position: absolute;
   width: 51.11vw;
   height: 80vh;
@@ -61,36 +61,37 @@ color: #F5F5FA;
   border-radius: 50%;
 }
 
-.profileinput,select {
-  background-color: #13131A;
+.profileinput,
+select {
+  background-color: #13131a;
   width: 37.77vw;
   border: 0.1vw solid white;
   border-radius: 0.4vw;
   padding-left: 1vw;
   font-size: 0.8vw;
 }
-.halfbox{
+.halfbox {
   width: 16.885vw;
 }
-.midtext{
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 1.38889vw;
-line-height: 3.75vh;
+.midtext {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.38889vw;
+  line-height: 3.75vh;
 }
-.midline{
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 0.902222vw;
-line-height: 140.8%;
+.midline {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.902222vw;
+  line-height: 140.8%;
 }
 
-
-.edit_input,select{
-    margin-top: 0.5vh;
-    height: 2.77vw;
+.edit_input,
+select {
+  margin-top: 0.5vh;
+  height: 2.77vw;
 }
 
 #edit_profile input:focus {
@@ -99,8 +100,8 @@ line-height: 140.8%;
   background-color: #2e2e2e;
 }
 
-#headline{
-  background-color: #13131A;
+#headline {
+  background-color: #13131a;
   width: 37.77vw;
   border: 0.1vw solid white;
   border-radius: 0.4vw;
@@ -116,30 +117,30 @@ line-height: 140.8%;
   background-color: #2e2e2e;
 }
 
-#edit_profile button{
-    width: 35vw;
-    height: 2.5vw;
-    background-color: #A950FB;
-    border: none;
-    border-radius: 0.4vw;
-    cursor: pointer;
-    margin-left: 1.34vw;
+#edit_profile button {
+  width: 35vw;
+  height: 2.5vw;
+  background-color: #a950fb;
+  border: none;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  margin-left: 1.34vw;
 }
 
-.checkbox{
-display: inline-block;
- width:  1.66667vw;
- height: 1.66667vw;;
- border: 2px solid #EBEBF0;
-}
-.tickbox{
+.checkbox {
   display: inline-block;
-  width:  1.66667vw;
-  height: 1.66667vw;;
-  border: 2px solid #EBEBF0;
-  background-color: #A950FB;
+  width: 1.66667vw;
+  height: 1.66667vw;
+  border: 2px solid #ebebf0;
 }
-.tick{
+.tickbox {
+  display: inline-block;
+  width: 1.66667vw;
+  height: 1.66667vw;
+  border: 2px solid #ebebf0;
+  background-color: #a950fb;
+}
+.tick {
   position: relative;
   width: 40%;
   height: 87%;
@@ -151,48 +152,48 @@ display: inline-block;
   border-right: 5%;
   border-top: 0;
   border-left: 0;
-  border-color: #EBEBF0;
+  border-color: #ebebf0;
   border-style: solid;
   padding-bottom: 1px;
-  background-color: #A950FB;
-  color: #A950FB;
+  background-color: #a950fb;
+  color: #a950fb;
 }
-.checkboxlabel{
+.checkboxlabel {
   position: relative;
-  bottom:17%;
+  bottom: 17%;
   padding-left: 1vw;
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 700;
-font-size: 1.11111vw;
-line-height: 3.05556vh;
-/* identical to box height */
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.11111vw;
+  line-height: 3.05556vh;
+  /* identical to box height */
 
-/* display: flex;
+  /* display: flex;
 align-items: center; */
 }
-#edit_profile div{
-  font-family: 'Manrope';
-font-style: normal;
-font-weight: 400;
-font-size: 0.972222vw;
+#edit_profile div {
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 0.972222vw;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
-#desc{
+#desc {
   height: 6vw;
 }
 
-#desc:focus{
+#desc:focus {
   -webkit-appearance: none;
   outline: none;
   background-color: #2e2e2e;
 }
 
-#middiv{
+#middiv {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -200,7 +201,7 @@ textarea{
   margin-top: -1vw;
 }
 
-#edit_icon{
+#edit_icon {
   height: 1.2vw !important;
   width: 1.2vw !important;
   border: none !important;
@@ -208,55 +209,90 @@ textarea{
   vertical-align: bottom;
 }
 
-#edit_profile b{
+#edit_profile b {
   width: 12vw;
-  background-color:#F5F5FA;
-  color:#13131A; 
+  background-color: #f5f5fa;
+  color: #13131a;
   font-weight: 700;
   font-size: 0.9vw;
   border-radius: 4px;
   display: inline;
   cursor: pointer;
 }
-.dropsearchbox{
+.dropsearchbox {
   display: flex;
   flex-direction: column;
-  position:absolute;
+  position: absolute;
   z-index: 1;
-/* top: 36.5vh; */
+  /* top: 36.5vh; */
 }
 
-.flexelement{
+.flexelement {
   display: flex;
   width: 37.77vw;
   padding-top: 1vh;
-  border: 2px solid #13131A;
+  border: 2px solid #13131a;
   padding-left: 4vh;
-  background-color:black;
-  cursor:pointer;
+  background-color: black;
+  cursor: pointer;
 }
 /* .flexelement img{
   width: 1vw;
   height: 1vw;
 } */
-.flexelement span{
+.flexelement span {
   display: inline-block;
   margin-top: 1.1vh;
 }
-.flexelement:hover{
-  background-color: #A950FB;
+.flexelement:hover {
+  background-color: #a950fb;
+}
+.mobtext{
+  display:none;
+  font-size:5vw;
 }
 
-
-@media (max-width:800px){
-  #account_nav{
+@media (max-width: 800px) {
+  .mobtext{
+    display: block;
+  }
+  #account_nav {
     display: none;
   }
 
-  .backarr{
+  #edit_profile {
+    border: none;
+    background-color: #0c0c0f;
+    width: 90vw;
+    height: 60vh;
+    margin-top: 0;
+    height: 95vh;
+    margin-left: 0;
+  }
+  .backarr {
     visibility: visible;
     margin-right: 5vw;
     width: 2vw;
     rotate: 180deg;
+    border: none !important;
   }
+  #edit_profile div {
+    height: 10vw;
+    font-size: 2.1vw;
+  }
+
+#edit_profile div img{
+  width: 10vw;
+  height: 10vw;
+}
+.edit_input,#headline,#edit_profile button,#edit_profile b {
+  height: 8vw;
+    width: 80vw;
+    font-size: 2vw;
+}
+
+#edit_icon {
+  height: 4.2vw !important;
+  width: 4.2vw !important;
+}
 }

@@ -119,7 +119,6 @@ return <div className="overlay">
   <input multiple style={{display:"none"}} type="file" id="inpphoto" accept="image/*" onChange={showPreview} ></input>
   <img  onClick={inputvideo} style={{cursor:"pointer"}}  src={videobox} alt="videobox" />
   <input style={{display:"none"}} type="file" id="inpvideo" accept="video/*" onChange={handlevideo}  ></input>
-
   <button onClick={handleapi} className="postbutton" >Post</button></div>}
 </div>
 </div>

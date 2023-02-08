@@ -81,7 +81,7 @@ function addskill() {
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="skill">
-        <p><img className="backarr" src={arr}/>Skill Section</p>
+        <p><img className="backarr" src={arr} onClick={()=>Navhandler("/mobnav")} />Skill Section</p>
         <div>
           Skill
           <br />

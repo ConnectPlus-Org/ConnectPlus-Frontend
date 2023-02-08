@@ -7,6 +7,7 @@ import Nav from "../navbar/navbar"
 import { ToastContainer, toast } from 'react-toastify';
 import None from "./components/nonecomponent"
 import FollowingComponent from "./components/followingcomponent"
+import BaseUrl from "../BaseUrl";
 
 
 const Manage = () => {
@@ -14,7 +15,7 @@ const Manage = () => {
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
 
-  useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/network/following/",config)
+  useEffect(()=>{BaseUrl.get("/network/following/",config)
     .then((res)=>{
         console.log(res);
         setsearchres(res.data);

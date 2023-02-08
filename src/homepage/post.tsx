@@ -89,6 +89,7 @@ const Post = (box:any) => {
        BaseUrl.post('/post/comments/',details,config)
        .then((res)=>{
            console.log(res)
+           e.target.value = ""
            toast.info("Comment Successfully Posted")
        })
        .catch((err)=>{

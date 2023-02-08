@@ -55,6 +55,9 @@ const Comment = (comm:any) => {
        .then((res)=>{
            console.log(res)
            toast.info('reply posted')
+           e.target.value=''
+           replyBox[comm.index]!.style.display='none'
+
        })
        .catch((err)=>{
            console.log(err)

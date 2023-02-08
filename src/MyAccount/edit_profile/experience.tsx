@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import loader from "../../loader"
 import Boxcomponent from "./boxcomponent"
+import BaseUrl from "../../BaseUrl";
 
 
 
@@ -48,7 +49,7 @@ const Experience = () => {
 
   function handlecompanyname(e:any){
     setcompany(e.target.value);
-    axios.get(`https://linkedin-backend.azurewebsites.net/profile/organization/?search_input=${e.target.value}`,config)
+    BaseUrl.get(`/profile/organization/?search_input=${e.target.value}`,config)
     .then((res) => {
       console.log(res);
       setsearchres(res.data);

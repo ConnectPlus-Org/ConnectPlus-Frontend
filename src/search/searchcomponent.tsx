@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import "../network/network.css"
 import { useNavigate } from "react-router-dom";

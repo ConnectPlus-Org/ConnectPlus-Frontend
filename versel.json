@@ -1,0 +1,11 @@
+{
+  "build": {
+    "env": {
+      "NODE_ENV": "production",
+      "VERCEL_ENV": "development"
+    }
+  },
+  "env": {
+    "VERCEL_URL": "http://localhost:3000" // Replace with your frontend URL
+  }
+}

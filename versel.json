@@ -6,6 +6,6 @@
     }
   },
   "env": {
-    "VERCEL_URL": "http://localhost:3000" // Replace with your frontend URL
+    "VERCEL_URL": "http://connect-plus-deploy.vercel.app/"
   }
 }

@@ -55,7 +55,7 @@ function Login() {
   }
   function handleapi() {
     if(email && password){setLoading(true);
-    BaseUrl.post("/auth/account/login/", {
+    BaseUrl.post("auth/account/login/", {
       email :  email ,
       password : password 
     }).then((res) => {

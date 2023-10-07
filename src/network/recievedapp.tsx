@@ -7,6 +7,7 @@ import Nav from "../navbar/navbar"
 import { ToastContainer, toast } from 'react-toastify';
 import None from "./components/nonecomponent"
 import NetworkComponent from "./components/recievedcomponent"
+import BaseUrl from "../BaseUrl";
 
 const Recieved = () => {
 
@@ -14,7 +15,7 @@ const Recieved = () => {
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
 
-  useEffect(()=>{axios.get("https://linkedin-backend.azurewebsites.net/network/connection/request/received/",config)
+  useEffect(()=>{BaseUrl.get("/network/connection/request/received/",config)
     .then((res)=>{
         console.log(res);
         setsearchres(res.data);

@@ -117,5 +117,12 @@ font-size: 1vw;
       font-size: 4vw;
       margin-left: -2vw;
     }
+
+    #aboutme{
+      width: 90vw;
+      height: 60vh;
+      font-size: 3vw;
+      padding: 2vw 2vw;
+    }
     
   }

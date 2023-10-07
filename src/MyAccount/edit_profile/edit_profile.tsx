@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Heading from "../../Authentication/components/heading";
 import BaseUrl from "../../BaseUrl";
+const arr: string = require("../Main/images/arrow.svg").default;
 const edit:string = require('./edit.svg').default;
 const Editprofile = () => {
   const Navhandler=useNavigate();
@@ -83,6 +84,7 @@ function getdetails() {
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="edit_profile">
+        <p className="mobtext"><img className="backarr" src={arr} onClick={()=>Navhandler("/mobnav")} />Update Profile</p>
         <div style={{display:"inline"}}>
         <img alt="" src={avatar}/><input type="file" id="editava" style={{display:'none'}} onChange={handleavatar}/><b onClick={inputavatar}><img src={edit} alt="edit" id="edit_icon"/>Change profile photo</b>
         </div>

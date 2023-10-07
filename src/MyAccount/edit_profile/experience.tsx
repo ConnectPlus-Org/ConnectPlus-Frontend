@@ -7,7 +7,6 @@ import loader from "../../loader"
 import Boxcomponent from "./boxcomponent"
 import BaseUrl from "../../BaseUrl";
 
-
 const Experience = () => {
   window.onclick = () => {
     const i:any = document.getElementById("i")

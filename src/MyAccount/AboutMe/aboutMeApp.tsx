@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import BaseUrl from "../../BaseUrl";
 import Nav from "../../navbar/navbar";
 import "../skill/skill.css"
+const arr: string = require("../Main/images/arrow.svg").default;
+
 var accesstoken=localStorage.getItem("accesstoken");
 var user = sessionStorage.getItem("username")
   const config ={
@@ -44,7 +46,7 @@ function handleapi(){
         <p onClick={()=>{Navhandler("/account/additional"); } } >Additional</p>
       </div>
       <div id="skill">
-        <p>About Me</p>
+        <p><img className="backarr" src={arr} onClick={()=>Navhandler("/mobnav")} />About Me</p>
         <div>
           About Me
           <br />

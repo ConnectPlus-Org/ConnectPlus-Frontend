@@ -99,15 +99,8 @@ const Home = () => {
         <img onClick={()=>Navhandler('/savedposts')} style={{ marginRight: "1vw",cursor:"pointer" }} src={item} />
         <p onClick={()=>Navhandler('/savedposts')} style={{ display: "inline-block", cursor:"pointer" }}>My Items</p>
       </div>
-      <div
-        style={{
-          width: "45vw",
-          position: "absolute",
-          marginLeft: "20vw",
-          marginTop: "11.4vw",
-        }}
-      >
-        { !loading? posts.map((box: any,index) => {
+      <div id="settle">
+        { !loading? posts.map((box: any,index:number) => {
           return <Post seq={index} box={box} key={box.id} />;
         }) : <Loader />}
         {hasmore && (scrollloading? <Loader />:<div  onClick={scroller} style={{textAlign:"center",backgroundColor:"#a950fb",border:"2px solid white"}}>See More.</div>)}

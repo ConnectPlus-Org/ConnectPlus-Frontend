@@ -55,7 +55,7 @@ const Score = () => {
         const asso=parseInt(association, 10);
         obj={...obj,"organization":asso};
       }
-      axios.post(`https://linkedin-backend.azurewebsites.net/profile/testscore/`,obj,config)
+      BaseUrl.post(`/profile/testscore/`,obj,config)
       .then((res) => {
         console.log(res);
         

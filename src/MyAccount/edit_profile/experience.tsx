@@ -7,8 +7,6 @@ import loader from "../../loader"
 import Boxcomponent from "./boxcomponent"
 import BaseUrl from "../../BaseUrl";
 
-
-
 const Experience = () => {
   window.onclick = () => {
     const i:any = document.getElementById("i")
@@ -92,7 +90,7 @@ const Experience = () => {
     {
       req={...req,"company":company}; 
     }
-    axios.post("https://linkedin-backend.azurewebsites.net/profile/experience/",req,config)
+    BaseUrl.post("/profile/experience/",req,config)
     .then((res) => {
       console.log(res);
     })

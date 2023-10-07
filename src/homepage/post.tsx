@@ -94,7 +94,9 @@ const Post = (box:any) => {
        })
        .catch((err)=>{
            console.log(err)
-           toast.error("comment posting failed")
+            e.target.value = ""
+           viewComment();
+        //    toast.error("comment posting failed")
        })
     }
 
@@ -154,7 +156,7 @@ const Post = (box:any) => {
     }
 
     function deleteReaction(){
-        BaseUrl.delete(`http://linkedin-backend.centralindia.cloudapp.azure.com/post/reactions/${reactionId}/`,config)
+        BaseUrl.delete(`/post/reactions/${reactionId}/`,config)
         .then((res)=>{
             setReaction(like);
             console.log(res);

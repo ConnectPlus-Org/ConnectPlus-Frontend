@@ -104,7 +104,6 @@ const Experience = () => {
     setChecked(!checked);
   };
   const time:any = new Date();
-//   console.log(time);
     const Navhandler=useNavigate();
   return (
     <div>
@@ -155,7 +154,6 @@ const Experience = () => {
         <div>
             Start Date
             <br />
-            {/* <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/> */}
             <select className="halfbox" onChange={(e:any)=>{setstartmonth(e.target.value);}} name="month" id="month" >
             {
             months.map((month, index) => {
@@ -170,7 +168,6 @@ const Experience = () => {
             })
            }
           </select>
-            {/* <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/> */}
         </div>
         {checked ? 
         <div style={{opacity:'50%'}}>

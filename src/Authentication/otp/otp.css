@@ -22,8 +22,6 @@ p {
   height: 6.67vh;  
   font-weight: 700;
   font-size: 2.25rem;
-  /* font-size:200%; */
-  /* line-height: 49px; */
 }
 .middle {
   
@@ -39,17 +37,11 @@ margin-bottom: 2vh;
 }
 .otp-field {
   display: flex;
-
-  /* width: 22.778vw; */
-  /* height: 6.667vh; */
-  /* justify-content: space-between; */
 }
 .otp-field__input{
     padding:1.1rem;
   margin: 5px;
   font-weight: bold;
-  /* width: 49px;
-  height: 48px; */
   width: 3.4vw;
   height:3.4vw ;
   border-radius: 8px;

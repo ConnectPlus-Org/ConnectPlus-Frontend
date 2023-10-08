@@ -15,17 +15,7 @@ const Phoneotp = () => {
     const [seconds,setSeconds] =useState(60);
     const [value, setValue] = useState('');
     const [loading,setLoading]=useState(false);
-    // setInterval(()=>{
-    //     if(counter===0)
-    //     {
-    //       setcounter(60);      
-    //     }
-    //     else{
-    //     let newcount=counter-1;
-    //     setcounter(newcount);
-    // }},1000);
 
-    // e.next("input").focus()
     
     useEffect(()=>{
         const timer:any=

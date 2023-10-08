@@ -31,9 +31,6 @@ const Post = (box:any) => {
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
   const avatar = sessionStorage.getItem('avatar') || ""
-//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
-//   if(selfReaction==true)
-//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
 
     const likelist = document.getElementsByClassName('likestatus') as HTMLCollectionOf<HTMLElement>
   function updateReaction(r:number){
@@ -48,24 +45,10 @@ const Post = (box:any) => {
     if(box.box.self_reaction == true)
     {
         reactionId=box.box.self_reaction_data.id;
-        // if (box.box.self_reaction_data.reaction_type == 1)
-        // {
-        //     const likeview:any = likelist[box.index]
-        //     likeview!.src=liked;
-        // } 
-        // else if (box.box.self_reaction_data.reaction_type == 2) setReaction(bulb);
-        // else if (box.box.self_reaction_data.reaction_type == 6) setReaction(heart);
-        // else if (box.box.self_reaction_data.reaction_type == 7) setReaction(hand);
-        // else if (box.box.self_reaction_data.reaction_type == 3) setReaction(think);
-        // else if (box.box.self_reaction_data.reaction_type == 5) setReaction(clap);
-        // else if (box.box.self_reaction_data.reaction_type == 4) setReaction(laugh);
     }
 
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
-//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
-//   if(selfReaction==true)
-//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
     function viewComment(){
         if(commentlist==0)
         {BaseUrl.get('/post/comments/?post='+box.box.id,config)
@@ -96,13 +79,8 @@ const Post = (box:any) => {
            console.log(err)
             e.target.value = ""
            viewComment();
-        //    toast.error("comment posting failed")
        })
     }
-
-    // function viewComment(){
-    //     // commentlist[box.index]!.style.display='none'
-    // }
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
     if (box.box.images_data[0]!=undefined)

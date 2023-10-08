@@ -18,9 +18,6 @@
   text-align: center;
   margin-top: 3.4vw;
 }
-/* #account_nav a:active{
-  color: #A950FB;
-} */
 .accountnavtopline {
   font-family: "Manrope";
   font-style: normal;
@@ -167,10 +164,7 @@ select {
   font-weight: 700;
   font-size: 1.11111vw;
   line-height: 3.05556vh;
-  /* identical to box height */
 
-  /* display: flex;
-align-items: center; */
 }
 #edit_profile div {
   font-family: "Manrope";
@@ -224,7 +218,7 @@ textarea {
   flex-direction: column;
   position: absolute;
   z-index: 1;
-  /* top: 36.5vh; */
+  
 }
 
 .flexelement {
@@ -236,10 +230,7 @@ textarea {
   background-color: black;
   cursor: pointer;
 }
-/* .flexelement img{
-  width: 1vw;
-  height: 1vw;
-} */
+
 .flexelement span {
   display: inline-block;
   margin-top: 1.1vh;

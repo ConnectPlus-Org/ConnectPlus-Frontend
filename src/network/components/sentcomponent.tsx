@@ -38,7 +38,7 @@ var config2 = {
         <span> {props.data.reciever_data.headline}</span></div>
         <div style={{marginLeft:"auto",marginTop:"25px",marginRight:"2vw"}}>
         <p style={{ cursor:"pointer", width:"6vw" ,display:"inline-block", fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handlewithdraw} >Withdraw</p>
-        {/* <p style={{cursor:"pointer", color:"#A950FB", display:"inline-block",  fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handleaccept} >Accept</p> */}
+        
         </div>
     </div>)
 }

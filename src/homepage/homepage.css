@@ -177,6 +177,18 @@
   padding-left: 1vw;
 }
 
+#comment{
+  position: relative;
+}
+.commentAvatar{
+  position: absolute;
+  top: 0;
+  left: 3px;
+}
+#comment input::placeholder{
+  padding-left: 30px;
+}
+
 #comment input:focus {
   outline: none;
 }

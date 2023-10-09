@@ -44,13 +44,19 @@ function ProfileHead(this: any){
 
     const [fileData, setFileData] = useState('')
 
-    function handleavatar(e:any) {
-        var src = URL.createObjectURL(e.target.files[0])
-        let preview:any = document.getElementById('avatar')
-        preview!.src = src ;
-        preview!.style.display = "block";
-        setFileData(e.target.files[0])
-        console.log(e.target.files[0])
+    function handleavatar(e: any) {
+      const selectedFile = e.target.files[0];
+    
+      if (selectedFile) {
+        console.log("Selected File:", selectedFile);
+    
+        const src = URL.createObjectURL(selectedFile);
+        const preview: any = document.getElementById('avatar');
+        preview.src = src;
+        preview.style.display = "block";
+        
+        setFileData(selectedFile);
+      }
     }
 
     function handleapi(){
@@ -96,7 +102,7 @@ function ProfileHead(this: any){
         <div>
           Headline
           <br />
-          <textarea onChange={handlechange} id="prof_head" placeholder="Heading"/>
+          <textarea className='' onChange={handlechange} id="prof_head" placeholder="heading"/>
         </div>
         <Authblock onclick={handleapi} name='Next'/>
        </div>

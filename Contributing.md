@@ -27,3 +27,9 @@ We're excited to have you join us in this journey of learning and contributing t
 6. **Create a Pull Request (PR)**: Go back to the main repository on GitHub and create a new Pull Request from your branch. Provide a clear description of your contribution.
 7. **Get your PR reviewed**: Wait for the maintainers to review your PR. You may need to make additional changes based on their feedback.
 8. **Celebrate**: Once your PR is merged, celebrate your contribution to open source and don't forget to ⭐ this repository to show your appreciation.
+
+## Join Us
+
+Be a part of the Community by joining our [Discord Server](https://discord.com/invite/DBba9McZDq). Here you can discuss about the project or ask any other queries and there will be a lot of folks to help
+
+[![](https://img.shields.io/discord/849036512045039637?color=5865F2&logo=Discord&style=flat-square)](https://discord.com/invite/DBba9McZDq)

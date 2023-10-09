@@ -209,17 +209,21 @@ header {
   .input {
     width: 80vw;
     height: 6vh;
-    font-size: 3.33vw;
+    font-size: 2.33vw;
     border-radius: 2vw;
     padding-left: 3vw;
   }
 
   #switch p {
-    font-size: 3.33vw;
+    font-size: 2.8vw;
   }
 
+  #switch{
+    font-size: 2.5vw;
+  }
+  
   .authbox {
-    height: 6vh;
+    height: 8vh;
     width: 80vw;
     font-size: 3.33vw;
   }
@@ -227,31 +231,31 @@ header {
   #auth_instruction {
     width: 80vw;
     font-size: 2.3vw;
-    margin-top: 2vh;
+    padding: 3vh 0vh 2vh 0vh;
   }
 
   #loginbox p {
-    font-size: 6vw;
+    font-size: 5vw;
   }
 
   #googleicon {
-    width: 6vw;
+    width: 5vw;
   }
   #oauth span b {
-    font-size: 3.5vw;
+    font-size: 3vw;
   }
 
   #forgot_password {
     width: 35vw;
     height: 5vh;
-    font-size: 3.5vw;
+    font-size: 2.8vw;
     text-align: end;
-    margin-left: 45vw;
+    margin: 0vw 0vw 1vw 45vw ;
     color: #7e57c2;
   }
 
   #authblock {
-    font-size: 3.5vw;
+    font-size: 2.5vw;
   }
 
   header {
@@ -261,7 +265,7 @@ header {
     justify-content: center;
   }
   .line {
-    width: 20vw;
+    width: 15vw;
     margin-left: 2vw;
   }
   #auth_instruction span {
@@ -277,7 +281,8 @@ header {
     margin-bottom: 1vh;
     height: 10vh;
     margin-top: 1vh;
-    font-size: 3.33vw;
+    font-size: 2.33vw;
+    line-height: 140%;
   }
 
 }

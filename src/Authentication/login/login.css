@@ -188,6 +188,105 @@ header {
 #googleicon {
   width: 2vw;
 }
+@media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+  .illustration {
+    display: none;
+  }
+
+  #login {
+    margin-left: 10vw;
+    width: 80vw;
+    height: 75vh;
+    justify-content: space-between;
+  }
+
+  .error {
+    font-size: 2.5vw;
+    width: 80vw;
+  }
+
+  .input {
+    width: 80vw;
+    height: 6vh;
+    font-size: 4vw!important;
+    border-radius: 2vw;
+    padding-left: 3vw;
+  }
+
+  #switch p {
+    font-size: 4vw!important;
+  }
+
+  #switch{
+    font-size: 4vw!important;
+  }
+  
+  .authbox {
+    height: 8vh;
+    width: 80vw;
+    font-size: 6.33vw!important;
+  }
+
+  #auth_instruction {
+    width: 80vw;
+    font-size: 2.3vw;
+    padding: 3vh 0vh 2vh 0vh;
+  }
+
+  #loginbox p {
+    font-size: 5vw;
+  }
+
+  #googleicon {
+    width: 8vw!important;
+  }
+  #oauth span b {
+    font-size: 5vw!important;
+  }
+
+  #forgot_password {
+    width: 35vw;
+    height: 5vh;
+    font-size: 4vw!important;
+    text-align: end;
+    margin: 0vw 0vw 0vw 45vw!important ;
+    color: #7e57c2;
+  }
+
+  #authblock {
+    font-size: 2.5vw;
+  }
+
+  header {
+    margin-top: 10vh;
+    margin-left: 25vw;
+    width: 50vw;
+    justify-content: center;
+  }
+  .line {
+    width: 15vw;
+    margin-left: 2vw;
+  }
+  #auth_instruction span {
+    font-size: 5vw!important;
+    margin: 2vw;
+  }
+
+  #inputbox p {
+    margin-left: 1vw;
+   
+  }
+
+  .inputbox {
+    margin-bottom: 1vh;
+    margin-top: 1vh;
+    font-size: 4vw!important;
+    line-height: 140%;
+  }
+
+}
 
 @media (max-width: 800px) {
   .illustration {

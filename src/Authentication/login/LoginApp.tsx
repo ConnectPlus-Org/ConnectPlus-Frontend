@@ -24,7 +24,7 @@ function Login() {
   }
 
   function handlepass(e: any) {
-    if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
+    if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
     {
       setpassword(e.target.value);
       document.getElementById("pass")!.style.visibility = "hidden";

@@ -53,7 +53,6 @@ const None:any = (props:any) => {
    <div onClick={handleredirect} className="textflex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.first_name} {props.data.last_name}</p>
     <span> {props.data.headline}</span></div>
     <div style={{marginLeft:"auto",marginTop:"25px"}}>
-    {/* <p style={{cursor:"pointer", marginRight:"4vw",border: "1px solid #F5F5FA",borderRadius:"4px",padding:"5px 30px", display:"inline-block",  fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handlemessage} >Follow</p>     */}
     {!props.data.is_following?<img src={illustration} onClick={handlefollow} style={{cursor:"pointer", marginTop:"1vh",marginRight:"2.7vw", display:"inline-block" }}alt="follow" />
     :  <p style={{cursor:"pointer", marginRight:"2vw",border: "1px solid #F5F5FA",borderRadius:"4px",padding:"5px 19px", display:"inline-block",  fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handleunfollow} >Following</p>}
     </div>

@@ -2,8 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Nav from "../navbar/navbar"
-// import Skillcomponent from "./searchbox";
-// import "./skill.css"
 import { ToastContainer, toast } from 'react-toastify';
 import None from "./components/nonecomponent"
 import SentComponent from "./components/sentcomponent"
@@ -11,7 +9,7 @@ import BaseUrl from "../BaseUrl";
 
 const Recieved = () => {
 
-//   const [reload,setreload] = useState(false);
+
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
 

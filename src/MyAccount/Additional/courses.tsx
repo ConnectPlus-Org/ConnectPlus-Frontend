@@ -64,7 +64,6 @@ const Score = () => {
 
 
   const time:any = new Date();
-//   console.log(time);
     const Navhandler=useNavigate();
   return (
     <div>
@@ -89,7 +88,6 @@ const Score = () => {
         <div>
           Associated With
           <br />
-          {/* <input className="edit_input dropdown profileinput" placeholder="Associated With" /> */}
           <select onClick={handleassociations} onChange={(e:any)=>{setassociation(e.target.value);}} name="month" id="month" >
             
               <option value={undefined}>None</option>

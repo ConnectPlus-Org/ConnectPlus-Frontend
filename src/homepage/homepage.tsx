@@ -61,7 +61,6 @@ const Home = () => {
       else
       setHasMore(false);
       let items:any =[...posts, ...res.data.results];
-        // console.log(items);
       setPost(items);
     })
     .catch((err) => {
@@ -74,7 +73,6 @@ const Home = () => {
     function scroller(){
         setPage(page+1);
         setscrollloading(true);
-        // window.scrollTo(0,0);
     }
 
   const avatar = sessionStorage.getItem("avatar") || "";

@@ -2,17 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import Nav from "../navbar/navbar"
-// import Skillcomponent from "./searchbox";
 import "./search.css"
 import { ToastContainer, toast } from 'react-toastify';
 import "../BaseUrl"
 import BaseUrl from "../BaseUrl";
 import SearchComponent from "./searchcomponent"
 
-// const search :string = require("../search/search.svg").default;
 const search: string = require("./search.svg").default;
 const nomatch: string = require("./nomatch.svg").default;
-// console.log(search);
 
 const Search = () => {
   

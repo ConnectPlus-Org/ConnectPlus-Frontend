@@ -22,7 +22,7 @@ const Forgot = () => {
 
     function handlemail(e: any) {
         setemail(e.target.value);
-        if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(e.target.value) || e.target.value === "") {
+        if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value) || e.target.value === "") {
           document.getElementById("emailerr")!.style.visibility = "hidden";
           if(e.target.value==="")
           document.getElementById("emailb")!.style.borderColor = "white";
@@ -72,7 +72,7 @@ const Forgot = () => {
         <div id = "forgot">
             <div><h1>Forgot password?</h1>
             <p>No worries, reset your password </p></div>
-            <Input onchange={handlemail} type="text" lable="Email Address" placeholder="Enter Email" message="Enter Valid Email Address" err_id="emailerr" inp="emailb" />
+            <Input onchange={handlemail} type="email" lable="Email Address" placeholder="Enter Email" message="Enter Valid Email Address" err_id="emailerr" inp="emailb" />
             <br />
             <Authblock onclick={Handleapi} name="Continue"/>
             <pre onClick={()=>Navhandler('/login')}> Back </pre>

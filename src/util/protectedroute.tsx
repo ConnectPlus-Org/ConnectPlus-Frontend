@@ -9,7 +9,6 @@ const ProtectedRoute = (props:any) => {
             setIsLoggedIn(false);
             return navigate('/login');
         }
-        // console.log(userToken);
         setIsLoggedIn(true);
     }
     useEffect(() => {

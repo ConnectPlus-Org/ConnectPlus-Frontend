@@ -46,11 +46,6 @@ function handleskill (e:any){
   })
   .catch((err)=>{
     console.log(err);
-    // const searc = {
-    //   id: 0 ,
-    //   type: e.target.value
-    // }
-    // setsearches(searc)
   })
 }
 

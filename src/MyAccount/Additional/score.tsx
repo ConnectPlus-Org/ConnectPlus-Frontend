@@ -76,7 +76,6 @@ const Score = () => {
     const years = Array.from(new Array(20),(val, index) => curryear - index);
     const months =["January","February","March","April","May","June","July","August","Septempber","October","November","December"];
 
-//   console.log(time);
     const Navhandler=useNavigate();
   return (
     <div>
@@ -136,13 +135,6 @@ const Score = () => {
            }
           </select>
         </div>
-        
-        {/* <div>
-            End Date
-            <br />
-            <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/>
-            <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/>
-        </div> */}
         
         <div>
           Description

@@ -13,7 +13,6 @@ const Phone = () => {
   const [number, setnumber] = useState("");
   const [loading,setLoading]=useState(false);
   const email =localStorage.getItem("email")
-  // const context =localStorage.getItem("context")
 
   function handlenumber(e: any) {
     if(e.target.value>=1000000000 && e.target.value<10000000000){

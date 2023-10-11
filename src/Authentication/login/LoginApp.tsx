@@ -54,47 +54,49 @@ function Login() {
     }
   }
   function handleapi() {
-    if(email && password){setLoading(true);
-    BaseUrl.post("/auth/account/login/", {
-      email :  email ,
-      password : password 
-    }).then((res) => {
-      console.log(res);
-      localStorage.setItem("accesstoken" , res.data.tokens.access);
-      var accesstoken = localStorage.getItem("accesstoken");
-      const config ={
-      headers:{
-    Authorization:`Bearer ${accesstoken}`,
-      }
-}
-      BaseUrl.get("/profile/userprofile/",config)
-      .then((res) => {
+    if (email && password) {
+      setLoading(true);
+      BaseUrl.post("/auth/account/login/", {
+        email: email,
+        password: password
+      }).then((res) => {
         console.log(res)
-        setLoading(false);
-        sessionStorage.setItem("avatar",res.data.avatar) 
-        sessionStorage.setItem("username",res.data.username) 
-        sessionStorage.setItem("name",res.data.first_name + " " + res.data.last_name) 
-        sessionStorage.setItem("headLine",res.data.headline) 
-        Navhandler('/')
+        localStorage.setItem("accesstoken", res.data.tokens.access);
+        var accesstoken = localStorage.getItem("accesstoken");
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accesstoken}`,
+          }
+        }
+        BaseUrl.get("/profile/userprofile/", config)
+          .then((res) => {
+            console.log(res)
+            setLoading(false);
+            sessionStorage.setItem("avatar", res.data.avatar)
+            sessionStorage.setItem("username", res.data.username)
+            sessionStorage.setItem("name", res.data.first_name + " " + res.data.last_name)
+            sessionStorage.setItem("headLine", res.data.headline)
+            Navhandler('/')
+          })
+          .catch((err) => {
+            setLoading(false);
+            if (err.response.status == 404)
+              Navhandler('/profile');
+            console.log(err);
+          });
+
       })
-      .catch((err) => {
-        setLoading(false);
-        if(err.response.status == 404)
-        Navhandler('/profile');
-        console.log(err);
-      });
-      
-    })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-        if(err.response.status == 401)
-        toast.error("Wrong Password")
-        else
-        toast.error('Enter a valid email address')
-      }
-      );}
-      else
+        .catch((err) => {
+          setLoading(false);
+          console.log(err);
+          if (err.response.status == 401)
+            toast.error("Wrong Password")
+          else
+            toast.error('Enter a valid email address')
+        }
+        );
+    }
+    else
       toast.error("Enter All The Credentials")
   }
   return   <div>

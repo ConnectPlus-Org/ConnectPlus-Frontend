@@ -15,7 +15,6 @@ const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
 const username = sessionStorage.getItem("username") || ""
-// const viewusername = sessionStorage.getItem('viewusername')
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{

@@ -64,7 +64,6 @@ const Score = () => {
 
 
   const time:any = new Date();
-//   console.log(time);
     const Navhandler=useNavigate();
   return (
     <div>

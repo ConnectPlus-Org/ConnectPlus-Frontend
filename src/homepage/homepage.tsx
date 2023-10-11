@@ -26,6 +26,9 @@ const Home = () => {
   const [scrollloading,setscrollloading] = useState(false)  
   
   var accesstoken = localStorage.getItem("accesstoken");
+
+  if(!accesstoken) Navhandler("/login");
+
   const config = {
     headers: {
       Authorization: `Bearer ${accesstoken}`,

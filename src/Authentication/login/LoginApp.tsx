@@ -24,7 +24,7 @@ function Login() {
   }
 
   function handlepass(e: any) {
-    if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
+    if((/^(?=.*[0-9])(?=.*[!@#$%^_=&*])(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9!@#$%_=^&*]{8,100}$/).test(e.target.value) || e.target.value==="")
     {
       setpassword(e.target.value);
       document.getElementById("pass")!.style.visibility = "hidden";
@@ -39,7 +39,7 @@ function Login() {
     }
   }
   function handlemail(e: any) {
-    if((/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/).test(e.target.value) || e.target.value==="")
+    if((/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/).test(e.target.value) || e.target.value==="")
     {
       setemail(e.target.value);
       document.getElementById("log")!.style.visibility = "hidden";
@@ -103,7 +103,7 @@ function Login() {
   <img className="illustration" src={illustration} alt="" />
   <div id="login">
     <Oauth status="Log in" />
-    <Input inp="logb" err_id="log" onchange={handlemail} type="text" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
+    <Input inp="logb" err_id="log" onchange={handlemail} type="email" lable='Email Address' placeholder='Enter Email' message='Enter Valid Email Address' />
     <Input inp="passb" onchange={handlepass} type="password" lable='Password' placeholder='Enter Your Password' message='Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet.' err_id="pass" />
     <p onClick={() => Navhandler('/forgot_password')} id="forgot_password">Forgot Password?</p>
     <Authblock onclick={handleapi} name="Log In" />

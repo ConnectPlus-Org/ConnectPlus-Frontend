@@ -19,7 +19,7 @@ const SignUp = () => {
 
   var [email, setemail] = useState("");
   function handlemail(e: any) {
-    if (/^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$/.test(e.target.value) || e.target.value === "") {
+    if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value) || e.target.value === "") {
       setemail(e.target.value);
       document.getElementById("sign")!.style.visibility = "hidden";
       if(e.target.value==="")

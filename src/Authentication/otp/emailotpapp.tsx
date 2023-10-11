@@ -19,11 +19,11 @@ const Otp = () => {
     const [loading,setLoading]=useState(false);
 
    useEffect(()=>{
-        // const timer:any=
+  
         seconds >0 && setTimeout(()=>{
             setSeconds(seconds-1);
         },1000)
-        // return ()=> clearInterval(timer)
+        
     },[seconds])
 
     function ResendApi(){
@@ -36,7 +36,7 @@ const Otp = () => {
     }).then((res) => {
       console.log(res);
       console.log(res.status);
-    // localStorage.setItem("accesstoken" , res.data.tokens.access);
+    
     })
       .catch((err) => {
         console.log(err);
@@ -77,7 +77,7 @@ const Otp = () => {
               toast.error(err.response.data.email)
             }
             );}
-            // setLoading(false);
+            
     }
 
     return <div>

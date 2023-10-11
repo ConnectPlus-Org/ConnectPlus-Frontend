@@ -1,7 +1,7 @@
 import React from "react";
-// import * as google from 'googleapis';
+
 const illustration: string = require("../images/google.svg").default;
-// const {google} = require('googleapis');
+
 
 
 type insprop = {

@@ -215,7 +215,7 @@ const Post = (box:any) => {
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
-        <div id="comment"><img src={avatar} /><input style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
+        <div id="comment"><img className="commentAvatar" src={avatar} /><input className="commentInput" style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
         <div className='commentlist'>
             {
                 comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})

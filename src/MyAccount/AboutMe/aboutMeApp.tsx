@@ -7,7 +7,7 @@ import "../skill/skill.css"
 const arr: string = require("../Main/images/arrow.svg").default;
 
 var accesstoken=localStorage.getItem("accesstoken");
-var user = sessionStorage.getItem("username")
+var user = localStorage.getItem("username")
   const config ={
       headers:{
         Authorization:`Bearer ${accesstoken}`,

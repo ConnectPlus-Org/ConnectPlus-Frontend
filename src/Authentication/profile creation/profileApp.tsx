@@ -5,6 +5,7 @@ import Input from "../components/authinput";
 import Heading from "../components/heading";
 import Loader from "../../loader";
 import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 const illustration: string = require("../images/profile.svg").default;
 
 
@@ -32,11 +33,11 @@ function Profile(){
     }
 
     function handleclick(){
-        sessionStorage.setItem("fname",fname);
-        sessionStorage.setItem("lname",lname);
-        sessionStorage.setItem("country",country);
-        sessionStorage.setItem("city",city);
-        Navhandler("/profilehead");
+        {localStorage.setItem("fname",fname);
+        localStorage.setItem("lname",lname);
+        localStorage.setItem("country",country);
+        localStorage.setItem("city",city);
+        Navhandler("/profilehead");}
     }
 
 
@@ -51,7 +52,7 @@ function Profile(){
         <Input required={true} onchange={handlelname} type='text' lable='Last Name' placeholder='Enter Last Name' message='Enter Correct Name'/>
         <Input required={true} onchange={handlecountry} type='text' lable='Country/Region' placeholder='Enter Country' message='Enter Correct Country'/>
         <Input required={true} onchange={handlecity}  type='text' lable='City/District' placeholder='Enter City' message='Enter Correct City'/>
-        <Authblock onclick={handleclick} name='Next'/>
+        {(fname && lname && country && city) && <Authblock onclick={handleclick} name='Next'/>}
        </div>
     </div>}</div>
 }

@@ -46,11 +46,6 @@ function handleskill (e:any){
   })
   .catch((err)=>{
     console.log(err);
-    // const searc = {
-    //   id: 0 ,
-    //   type: e.target.value
-    // }
-    // setsearches(searc)
   })
 }
 
@@ -87,7 +82,7 @@ function addskill() {
           <br />
           <input id="i" placeholder="Enter Skill" onChange={handleskill} value={skill}/>
           <div style={{height:"15vw"}}>
-          <div id="drop" className="dropsearchbox" onClick={()=>{setsearches([]); const skillname:string=sessionStorage.getItem("skillname")!; setskill(skillname)}}>
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearches([]); const skillname:string=localStorage.getItem("skillname")!; setskill(skillname)}}>
           {
             searches.map((box:any)=>{return <Skillcomponent key={box.id} box={box} />})
           }

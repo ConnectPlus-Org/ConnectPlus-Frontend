@@ -81,8 +81,8 @@ const Experience = () => {
     {
      req={...req,"end_date":enddatestring};  
     }
-    const compid=parseInt(sessionStorage.getItem("companyid")!, 10);
-    if(compid && sessionStorage.getItem("compname")===company)
+    const compid=parseInt(localStorage.getItem("companyid")!, 10);
+    if(compid && localStorage.getItem("compname")===company)
     {
      req={...req,"company":compid};  
     }
@@ -104,7 +104,6 @@ const Experience = () => {
     setChecked(!checked);
   };
   const time:any = new Date();
-//   console.log(time);
     const Navhandler=useNavigate();
   return (
     <div>
@@ -128,7 +127,7 @@ const Experience = () => {
           Company Name
           <br />
           <input id="i" onChange={handlecompanyname} className="edit_input profileinput" value={company} placeholder="Company Name" />
-          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=sessionStorage.getItem("compname")!; setcompany(compname)}}>
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const compname:string=localStorage.getItem("compname")!; setcompany(compname)}}>
             {
               searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})
             }
@@ -155,7 +154,6 @@ const Experience = () => {
         <div>
             Start Date
             <br />
-            {/* <input className="edit_input profileinput dropdown halfbox" placeholder="Month"/> */}
             <select className="halfbox" onChange={(e:any)=>{setstartmonth(e.target.value);}} name="month" id="month" >
             {
             months.map((month, index) => {
@@ -170,7 +168,6 @@ const Experience = () => {
             })
            }
           </select>
-            {/* <input style={{marginLeft:'3.8vw'}} className="edit_input profileinput dropdown halfbox" placeholder="Year"/> */}
         </div>
         {checked ? 
         <div style={{opacity:'50%'}}>

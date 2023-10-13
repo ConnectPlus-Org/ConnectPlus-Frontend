@@ -11,12 +11,6 @@ const Saved = () => {
     const [saved,setSaved] = useState([])
     const [loading,setLoading] = useState(false)  
     const [postClick,setPostClick] = useState(false);
-    // const [scrollloading,setscrollloading] = useState(false) 
-    // const [hasmore,setHasMore] = useState(false)
-    // function scroller(){
-    //     setscrollloading(true);
-    //     // window.scrollTo(0,0);
-    // }
     var accesstoken = localStorage.getItem("accesstoken");
   const config = {
     headers: {
@@ -53,7 +47,6 @@ const Saved = () => {
         { !loading? saved.map((box: any,index) => {
           return <Post seq={index} box={box} key={box.id} />;
         }) : <Loader />}
-        {/* {hasmore && (scrollloading? <Loader />:<div  onClick={scroller} style={{textAlign:"center",backgroundColor:"#a950fb",border:"2px solid white"}}>See More.</div>)} */}
       </div>
     </div>
 }

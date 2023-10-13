@@ -14,8 +14,7 @@ const edit: string = require("./images/edit.svg").default;
 const plus: string = require("./images/plus.svg").default;
 const arr: string = require("./images/arrow.svg").default;
 
-const username = sessionStorage.getItem("username") || ""
-// const viewusername = sessionStorage.getItem('viewusername')
+const username = localStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
 const config ={
     headers:{
@@ -136,7 +135,7 @@ const Account = () => {
         </div>
         <div className="acc_box">
         <span>About Me</span>
-        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => {Navhandler("aboutme");sessionStorage.setItem('aboutme',about)}}/></div>
+        <div className="acc_icon action"><img style={{marginLeft:"5vw"}} src={edit} onClick={() => {Navhandler("aboutme");localStorage.setItem('aboutme',about)}}/></div>
         <br/><br/>
         {about}
         </div>

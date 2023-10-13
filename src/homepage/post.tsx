@@ -25,15 +25,12 @@ var commentlist:number = 0
 
 
 const Post = (box:any) => {
-    const username:string = sessionStorage.getItem('username') || ""
+    const username:string = localStorage.getItem('username') || ""
     const Navhandler = useNavigate()
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
-  const avatar = sessionStorage.getItem('avatar') || ""
-//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
-//   if(selfReaction==true)
-//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
+  const avatar = localStorage.getItem('avatar') || ""
 
     const likelist = document.getElementsByClassName('likestatus') as HTMLCollectionOf<HTMLElement>
   function updateReaction(r:number){
@@ -48,24 +45,10 @@ const Post = (box:any) => {
     if(box.box.self_reaction == true)
     {
         reactionId=box.box.self_reaction_data.id;
-        // if (box.box.self_reaction_data.reaction_type == 1)
-        // {
-        //     const likeview:any = likelist[box.index]
-        //     likeview!.src=liked;
-        // } 
-        // else if (box.box.self_reaction_data.reaction_type == 2) setReaction(bulb);
-        // else if (box.box.self_reaction_data.reaction_type == 6) setReaction(heart);
-        // else if (box.box.self_reaction_data.reaction_type == 7) setReaction(hand);
-        // else if (box.box.self_reaction_data.reaction_type == 3) setReaction(think);
-        // else if (box.box.self_reaction_data.reaction_type == 5) setReaction(clap);
-        // else if (box.box.self_reaction_data.reaction_type == 4) setReaction(laugh);
     }
 
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
-//   const commentlist = document.getElementsByClassName('commentlist') as HTMLCollectionOf<HTMLElement>
-//   if(selfReaction==true)
-//   useEffect(()=>updateReaction(box.box.self_reaction_data.reaction_type),[])
     function viewComment(){
         if(commentlist==0)
         {BaseUrl.get('/post/comments/?post='+box.box.id,config)
@@ -96,13 +79,8 @@ const Post = (box:any) => {
            console.log(err)
             e.target.value = ""
            viewComment();
-        //    toast.error("comment posting failed")
        })
     }
-
-    // function viewComment(){
-    //     // commentlist[box.index]!.style.display='none'
-    // }
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
     if (box.box.images_data[0]!=undefined)
@@ -197,7 +175,7 @@ const Post = (box:any) => {
     }
     return <div id='postbox'>
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
-        <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);sessionStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
+        <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);localStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
             <p>{box.box.post_owner_profile.name}  {(box.box.post_owner_profile.username!=username)?<span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img style={{width:"1vw"}} src={add} />
             Follow</span>:null}</p>
@@ -237,7 +215,7 @@ const Post = (box:any) => {
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
-        <div id="comment"><img src={avatar} /><input style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
+        <div id="comment"><img className="commentAvatar" src={avatar} /><input className="commentInput" style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
         <div className='commentlist'>
             {
                 comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})

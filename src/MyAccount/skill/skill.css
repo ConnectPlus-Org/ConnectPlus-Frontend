@@ -11,7 +11,6 @@
   background-color: #13131a;
   position: absolute;
   width: 51.11vw;
-  height: 70vh;
   border: 1px solid #cdccd9;
   border-radius: 0.2vw;
   margin-left: 36.67vw;
@@ -30,8 +29,8 @@
   margin-bottom: 2vw;
 }
 
-#skill input{
-    background-color: #13131A;
+#skill input {
+  background-color: #13131a;
   width: 37.77vw;
   border: 0.1vw solid white;
   border-radius: 0.4vw;
@@ -40,89 +39,88 @@
   height: 2.8vw;
 }
 
-#skill input:focus{
+#skill input:focus {
   outline: none;
   background-color: #2e2e2e;
 }
 
-#skill div{
-font-weight: 400;
-font-size: 1vw;
+#skill div {
+  font-weight: 400;
+  font-size: 1vw;
 }
 
-#skill button{
-    width: 35vw;
-    height: 2.5vw;
-    background-color: #A950FB;
-    border: none;
-    border-radius: 0.4vw;
-    cursor: pointer;
-    margin-left: 1.34vw;
+#skill button {
+  width: 35vw;
+  height: 2.5vw;
+  background-color: #a950fb;
+  border: none;
+  border-radius: 0.4vw;
+  cursor: pointer;
+  margin-left: 1.34vw;
 }
 
-#aboutme{
-    background-color: #13131A;
-    width: 37.77vw;
-    border: 0.1vw solid white;
-    border-radius: 0.4vw;
-    padding-left: 1vw;
-    font-size: 0.8vw;
-    height: 22vw;
-    padding-top: 1vw;
-    margin-bottom: 2vw;
-    resize: none;
+#aboutme {
+  background-color: #13131a;
+  width: 37.77vw;
+  border: 0.1vw solid white;
+  border-radius: 0.4vw;
+  padding-left: 1vw;
+  font-size: 0.8vw;
+  height: 22vw;
+  padding-top: 1vw;
+  margin: 1vw 0 2vw;
+  resize: none;
 }
 
 #aboutme:focus {
-    -webkit-appearance: none;
-    outline: none;
-    background-color: #2e2e2e;
+  -webkit-appearance: none;
+  outline: none;
+  background-color: #2e2e2e;
+}
+
+@media (max-width: 800px) {
+  #skill {
+    border: none;
+    background-color: #0c0c0f;
+    width: 80vw;
+    height: 60vh;
+    margin-top: 0;
+    height: 95vh;
+    margin-left: 0;
+  }
+  #skill p {
+    font-size: 5.55vw;
   }
 
-  @media (max-width:800px){
-    #skill{
-      border: none;
-      background-color:#0C0C0F;
-      width: 80vw;
-      height: 60vh;
-      margin-top: 0;
-      height: 95vh;
-      margin-left: 0;
-    }
-    #skill p{
-      font-size: 5.55vw;
-    }
-
-    #skill div{
-      font-size: 3.5vw;
-      height: 70vh;
-      margin-top: 5vh;
-      margin-left: -2vw;
-      width: 100vw;
-    }
-
-    #skill input{
-      width: 90vw;
-      height: 10vw;
-      font-size: 3vw;
-      padding-left: 2vw;
-      border-radius: 1.5vw;
-      margin-bottom: 70vh;
-      background-color: #0C0C0F;
-    }
-
-    #skill button{
-      width: 90vw;
-      height: 10vw;
-      font-size: 4vw;
-      margin-left: -2vw;
-    }
-
-    #aboutme{
-      width: 90vw;
-      height: 60vh;
-      font-size: 3vw;
-      padding: 2vw 2vw;
-    }
-    
+  #skill div {
+    font-size: 3.5vw;
+    height: 70vh;
+    margin-top: 5vh;
+    margin-left: -2vw;
+    width: 100vw;
   }
+
+  #skill input {
+    width: 90vw;
+    height: 10vw;
+    font-size: 3vw;
+    padding-left: 2vw;
+    border-radius: 1.5vw;
+    margin-bottom: 70vh;
+    background-color: #0c0c0f;
+  }
+
+  #skill button {
+    width: 90vw;
+    height: 10vw;
+    font-size: 4vw;
+    margin-left: -2vw;
+  }
+
+  #aboutme {
+    width: 90vw;
+    height: 60vh;
+    font-size: 3vw;
+    padding: 2vw 2vw;
+  }
+}

@@ -16,8 +16,8 @@ const ExperienceBox:any = (box:any) => {
     end_date = 'Present'
     else
     end_date = box.box.end_date
-    const username = sessionStorage.getItem("username")
-const viewusername = sessionStorage.getItem("viewusername")
+    const username = localStorage.getItem("username")
+const viewusername = localStorage.getItem("viewusername")
 
     return <div className="expbox">
         <img className="explogo" src={box.box.company_data.logo} alt="logo"/>

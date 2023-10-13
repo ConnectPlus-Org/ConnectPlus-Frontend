@@ -22,10 +22,10 @@ function ProfileHead(this: any) {
     },
   }
   const [loading, setLoading] = useState(false);
-  const fname: string = (sessionStorage.getItem("fname") || (""));
-  const lname: string = (sessionStorage.getItem("lname") || (""));
-  const country: string = (sessionStorage.getItem("country") || (""));
-  const city: string = (sessionStorage.getItem("city") || (""));
+  const fname: string = (localStorage.getItem("fname") || (""));
+  const lname: string = (localStorage.getItem("lname") || (""));
+  const country: string = (localStorage.getItem("country") || (""));
+  const city: string = (localStorage.getItem("city") || (""));
 
   if (!(fname && lname && country && city))
     Navhandler("/profile");
@@ -73,11 +73,11 @@ function ProfileHead(this: any) {
       object, config)
       .then((res) => {
         console.log(res);
-        sessionStorage.clear();
-        sessionStorage.setItem("avatar", res.data.avatar)
-        sessionStorage.setItem("username", res.data.username)
-        sessionStorage.setItem("name", res.data.first_name + " " + res.data.last_name)
-        sessionStorage.setItem("headLine", res.data.headline)
+        localStorage.clear();
+        localStorage.setItem("avatar", res.data.avatar)
+        localStorage.setItem("username", res.data.username)
+        localStorage.setItem("name", res.data.first_name + " " + res.data.last_name)
+        localStorage.setItem("headLine", res.data.headline)
         setLoading(false);
         Navhandler('/')
       })

@@ -76,8 +76,8 @@ const Education = () => {
         "description":description
         }
         
-        const schoolid=parseInt(sessionStorage.getItem("schoolid")!, 10);
-        if(school && sessionStorage.getItem("schoolame")===school)
+        const schoolid=parseInt(localStorage.getItem("schoolid")!, 10);
+        if(school && localStorage.getItem("schoolame")===school)
         {
          req={...req,"school":schoolid};  
         }
@@ -112,7 +112,7 @@ const Education = () => {
           School
           <br />
           <input id="i" onChange={handleschoolname} value={school} className="edit_input profileinput" placeholder="School" />
-          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const schoolname:string=sessionStorage.getItem("schoolname")!; setschool(schoolname)}}>
+          <div id="drop" className="dropsearchbox" onClick={()=>{setsearchres([]); const schoolname:string=localStorage.getItem("schoolname")!; setschool(schoolname)}}>
             
             {
               searchres.map((box:any)=>{return <Boxcomponent key={box.id} box={box} />})

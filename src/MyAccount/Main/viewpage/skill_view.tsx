@@ -19,9 +19,9 @@ const Skill_View = () => {
    
 }
 const skillist = document.getElementsByClassName('endorse') as HTMLCollectionOf<HTMLElement>
-const username = sessionStorage.getItem("username") || ""
+const username = localStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-var viewusername = sessionStorage.getItem('viewusername')
+var viewusername = localStorage.getItem('viewusername')
 
 const config ={
   headers:{

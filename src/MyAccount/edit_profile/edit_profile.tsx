@@ -35,7 +35,7 @@ function getdetails() {
         setcity(res.data.city)
         setcountry(res.data.country)
         setavatar(res.data.avatar)
-        sessionStorage.setItem('avatar',res.data.avatar)
+        localStorage.setItem('avatar',res.data.avatar)
         setheading(res.data.headline)
     })
     .catch((err)=>{

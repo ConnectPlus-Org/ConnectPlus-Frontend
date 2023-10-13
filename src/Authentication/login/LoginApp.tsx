@@ -72,10 +72,10 @@ function Login() {
           .then((res) => {
             console.log(res)
             setLoading(false);
-            sessionStorage.setItem("avatar", res.data.avatar)
-            sessionStorage.setItem("username", res.data.username)
-            sessionStorage.setItem("name", res.data.first_name + " " + res.data.last_name)
-            sessionStorage.setItem("headLine", res.data.headline)
+            localStorage.setItem("avatar", res.data.avatar)
+            localStorage.setItem("username", res.data.username)
+            localStorage.setItem("name", res.data.first_name + " " + res.data.last_name)
+            localStorage.setItem("headLine", res.data.headline)
             Navhandler('/')
           })
           .catch((err) => {

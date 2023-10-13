@@ -25,12 +25,12 @@ var commentlist:number = 0
 
 
 const Post = (box:any) => {
-    const username:string = sessionStorage.getItem('username') || ""
+    const username:string = localStorage.getItem('username') || ""
     const Navhandler = useNavigate()
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
   var [comments,getComment] = useState([])
-  const avatar = sessionStorage.getItem('avatar') || ""
+  const avatar = localStorage.getItem('avatar') || ""
 
     const likelist = document.getElementsByClassName('likestatus') as HTMLCollectionOf<HTMLElement>
   function updateReaction(r:number){
@@ -175,7 +175,7 @@ const Post = (box:any) => {
     }
     return <div id='postbox'>
         <div className='postStatus' style={{marginBottom:"2vw"}}><span>{box.box.message}</span><span style={{float:"right"}}>{box.box.created_at}</span></div>
-        <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);sessionStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
+        <img style={{cursor:"pointer"}} onClick={()=>{Navhandler(`/account/?username=${box.box.post_owner_profile.username}`);localStorage.setItem('viewusername',box.box.post_owner_profile.username)}} className="shortava" src={box.box.post_owner_profile.avatar} />
         <div id='postprofile'>
             <p>{box.box.post_owner_profile.name}  {(box.box.post_owner_profile.username!=username)?<span style={{cursor:"pointer"}} onClick={()=>sendFollow()}><img style={{width:"1vw"}} src={add} />
             Follow</span>:null}</p>

@@ -2,8 +2,8 @@ import React from "react";
 import "../main.css"
 const edit:string = require('../images/edit.svg').default
 
-const username = sessionStorage.getItem("username")
-const viewusername = sessionStorage.getItem("viewusername")
+const username = localStorage.getItem("username")
+const viewusername = localStorage.getItem("viewusername")
 const TestBox:any = (box:any) => {
     if(box.box.organisation == null)
     var org = " "

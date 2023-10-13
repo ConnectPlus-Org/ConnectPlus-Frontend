@@ -18,7 +18,7 @@ const link: string = "https://linkedin-backend.azurewebsites.net/";
 
 const Home = () => {
   const Navhandler = useNavigate();
-  const user = sessionStorage.getItem("username") || "";
+  const user = localStorage.getItem("username") || "";
   const [coverImgae, setCover] = useState("");
   const [postClick,setPostClick] = useState(false);
   const [hasmore,setHasMore] = useState(false)
@@ -38,16 +38,21 @@ const Home = () => {
   const [posts, setPost] = useState([]);
   const [page,setPage] = useState(1);
 
-  useEffect(()=>{BaseUrl.get("/profile/mainpage/?username=" + user, config)
-    .then((res) => {
-      console.log(res);
-      setCover(res.data.background_image);
-    })
-    .catch((err) => {
-      if (err.response.status == 404) Navhandler("/profile");
-      if (err.response.status == 401) Navhandler("/login");
-      console.log(err);
-    });},[])
+  useEffect(() => {
+    console.log(user)
+    if (user) {
+      BaseUrl.get("/profile/mainpage/?username=" + user, config)
+      .then((res) => {
+        console.log(res);
+        setCover(res.data.background_image);
+      })
+      .catch((err) => {
+        if (err.response.status == 404) Navhandler("/profile");
+        if (err.response.status == 401) Navhandler("/login");
+        console.log(err);
+      });
+    }
+  }, [])
     useEffect(()=>{
         if(page===1)
         setLoading(true);
@@ -75,9 +80,9 @@ const Home = () => {
         setscrollloading(true);
     }
 
-  const avatar = sessionStorage.getItem("avatar") || "";
-  const name = sessionStorage.getItem("name") || "";
-  const headline = sessionStorage.getItem("headLine") || "";
+  const avatar = localStorage.getItem("avatar") || "";
+  const name = localStorage.getItem("name") || "";
+  const headline = localStorage.getItem("headLine") || "";
   return (
     <div>
         { postClick ? <PostBox setPostClick={setPostClick} postClick={postClick} />: <div></div>}

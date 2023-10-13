@@ -108,7 +108,13 @@ function Login() {
         <div>
           <Heading />
           <img className='illustration' src={illustration} alt='' />
-          <div id='login'>
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleapi();
+            }}
+            id='login'
+          >
             <Oauth status='Log in' />
             <Input
               inp='logb'
@@ -125,7 +131,7 @@ function Login() {
               type='password'
               lable='Password'
               placeholder='Enter Your Password'
-              message='Must be at least 8 characters with 1 special character,1 number,1 capital,1 small alphabet.'
+              message='Must be at least 8 characters with 1 special character, 1 number, 1 capital, 1 small alphabet.'
               err_id='pass'
             />
             <p
@@ -134,13 +140,13 @@ function Login() {
             >
               Forgot Password?
             </p>
-            <Authblock onclick={handleapi} name='Log In' />
+            <Authblock name='Log In' />
             <Switch
               status="Don't"
               action='Sign Up'
               destination={() => Navhandler("/signup")}
             />
-          </div>
+          </form>
           <ToastContainer position='top-center' theme='dark' />
         </div>
       )}

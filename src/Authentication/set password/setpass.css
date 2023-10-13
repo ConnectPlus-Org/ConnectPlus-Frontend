@@ -1,55 +1,53 @@
 #setpass {
-    width: 30vw;
-    height: 30vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 1.1vw;
-    position: absolute;
-    top: 24vh;
-    left: 35.01vw;
-  }
-  
-  .svgsetpass{
-    width: 25.5556vw;
-    height: 40.5556vh;
-  }
-  #svg1{
-    position: absolute;
-    left: 5.89vw;
-    top: 11.1111vh;
+  width: 30vw;
+  height: 30vw;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.1vw;
+  position: absolute;
+  top: 24vh;
+  left: 35.01vw;
+}
 
-transform: matrix(-1, 0, 0, 1, 0, 0);
-  }
-  #svg2{
+.svgsetpass {
+  width: 25.5556vw;
+  height: 40.5556vh;
+}
+#svg1 {
+  position: absolute;
+  left: 5.89vw;
+  top: 11.1111vh;
+
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+#svg2 {
+  position: absolute;
+
+  right: 5.89vw;
+  top: 53.89vh;
+}
+#setpass pre {
+  margin-top: 1vh;
+  cursor: pointer;
+  text-align: center;
+  width: 30vw;
+  font-size: 1.1vw;
+}
+
+@media (max-width: 800px) {
+  #svg1 {
     position: absolute;
-    
-    right: 5.89vw;
-    top: 53.89vh;
+    width: 26.67vw;
+    height: 10.75vh;
+    left: 36.16vw;
+    top: 17vh;
 
+    transform: scaleX(-1);
   }
-  #setpass pre {
-    margin-top: 1vh;
-    cursor: pointer;
-    text-align: center;
-    width: 30vw;
-    font-size: 1.1vw;
-  }
-
-  @media (max-width: 800px){
-    #svg1{
-      position: absolute;
-      width: 26.67vw;
-      height: 10.75vh;
-      left:36.16vw;
-      top:17vh;
-      
-      transform: scaleX(-1);
-  }
-  #svg2{
+  #svg2 {
     display: none;
   }
-  #setpass{
+  #setpass {
     position: absolute;
     left: 8.44%;
     right: 4.44%;
@@ -59,9 +57,9 @@ transform: matrix(-1, 0, 0, 1, 0, 0);
     margin-top: 0;
     width: 91.1111vw;
     height: 37.25vh;
-}
-  #setpass pre{
+  }
+  #setpass pre {
     width: 80vw;
     font-size: 3vw;
-}
+  }
 }

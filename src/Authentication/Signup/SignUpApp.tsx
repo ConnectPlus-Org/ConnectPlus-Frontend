@@ -8,8 +8,8 @@ import Heading from "../components/heading";
 import axios from "axios";
 import Loader from "../../loader";
 import { useNavigate } from "react-router-dom";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import BaseUrl from "../../BaseUrl";
 const illustration: string = require("../images/signup.svg").default;
 
@@ -19,47 +19,47 @@ const SignUp = () => {
 
   var [email, setemail] = useState("");
   function handlemail(e: any) {
-    if (/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value) || e.target.value === "") {
+    if (
+      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(e.target.value) ||
+      e.target.value === ""
+    ) {
       setemail(e.target.value);
       document.getElementById("sign")!.style.visibility = "hidden";
-      if(e.target.value==="")
-      document.getElementById("signb")!.style.borderColor = "white";
-      else
-      document.getElementById("signb")!.style.borderColor = "#66DF98";
-    } 
-    else {
+      if (e.target.value === "")
+        document.getElementById("signb")!.style.borderColor = "white";
+      else document.getElementById("signb")!.style.borderColor = "#66DF98";
+    } else {
       document.getElementById("sign")!.style.visibility = "visible";
       document.getElementById("signb")!.style.borderColor = "#CF6679";
-      email = ""
+      email = "";
     }
   }
 
   function handleapi() {
-    if(email){setLoading(true);
-    localStorage.setItem("email", email);
-    localStorage.setItem("context", "register");
-    BaseUrl.post("/auth/otp/email/send/", {
+    if (email) {
+      setLoading(true);
+      localStorage.setItem("email", email);
+      localStorage.setItem("context", "register");
+      BaseUrl.post("/auth/otp/email/send/", {
         email: email,
         context: "register",
       })
-      .then((res) => {
-        console.log(res);
-        console.log(res.status);
-        if (res.status === 201) {
-          Navhandler("/otp");
-        } else {
-          console.log("f");
-        }
-      })
-      .catch((err) => {
-        setLoading(false);
-        console.log(err);
-        console.log(err.response.data.email)
-        toast.error(err.response.data.email)
-      });}
-      else
-      toast.error("Enter a valid email address")
-      
+        .then((res) => {
+          console.log(res);
+          console.log(res.status);
+          if (res.status === 201) {
+            Navhandler("/otp");
+          } else {
+            console.log("f");
+          }
+        })
+        .catch((err) => {
+          setLoading(false);
+          console.log(err);
+          console.log(err.response.data.email);
+          toast.error(err.response.data.email);
+        });
+    } else toast.error("Enter a valid email address");
   }
 
   return (
@@ -69,26 +69,32 @@ const SignUp = () => {
       ) : (
         <div>
           <Heading />
-          <img className="illustration" src={illustration} alt="" />
-          <div id="signup">
-            <Oauth status="Sign up" />
+          <img className='illustration' src={illustration} alt='' />
+          <form
+            onSubmit={(event) => {
+              event.preventDefault();
+              handleapi();
+            }}
+            id='signup'
+          >
+            <Oauth status='Sign up' />
             <Input
               onchange={handlemail}
-              type="text"
-              lable="Email Address"
-              placeholder="Enter Email"
-              message="Enter Valid Email Address"
-              err_id="sign"
-              inp="signb"
+              type='text'
+              lable='Email Address'
+              placeholder='Enter Email'
+              message='Enter Valid Email Address'
+              err_id='sign'
+              inp='signb'
             />
-            <Authblock onclick={handleapi} name="Sign Up" />
+            <Authblock name='Sign Up' />
             <Switch
-              status="Already"
-              action="Log In"
+              status='Already'
+              action='Log In'
               destination={() => Navhandler("/login")}
             />
-          </div>
-          <ToastContainer position="top-center" theme="dark" />
+          </form>
+          <ToastContainer position='top-center' theme='dark' />
         </div>
       )}
     </div>

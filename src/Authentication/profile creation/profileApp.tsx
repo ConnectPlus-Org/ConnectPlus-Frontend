@@ -33,10 +33,10 @@ function Profile(){
     }
 
     function handleclick(){
-        {sessionStorage.setItem("fname",fname);
-        sessionStorage.setItem("lname",lname);
-        sessionStorage.setItem("country",country);
-        sessionStorage.setItem("city",city);
+        {localStorage.setItem("fname",fname);
+        localStorage.setItem("lname",lname);
+        localStorage.setItem("country",country);
+        localStorage.setItem("city",city);
         Navhandler("/profilehead");}
     }
 

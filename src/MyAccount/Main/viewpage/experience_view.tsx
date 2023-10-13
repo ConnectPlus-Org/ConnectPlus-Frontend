@@ -19,9 +19,9 @@ const Experience_View = () => {
     borderLeft:'3px solid #A950FB',
    
 }
-const username = sessionStorage.getItem("username") || ""
+const username = localStorage.getItem("username") || ""
 var accesstoken=localStorage.getItem("accesstoken");
-var viewusername = sessionStorage.getItem("viewusername");
+var viewusername = localStorage.getItem("viewusername");
 
 const config ={
   headers:{

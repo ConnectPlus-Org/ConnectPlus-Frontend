@@ -6,7 +6,7 @@ var replyCheck:number = 0
 var replyar:number = 0
 
 const Comment = (comm:any) => {
-    const avatar = sessionStorage.getItem('avatar') || ""
+    const avatar = localStorage.getItem('avatar') || ""
     console.log(comm)
     var replyClass: string = 'replyar' + comm.comm.post
 

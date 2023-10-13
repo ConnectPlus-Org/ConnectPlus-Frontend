@@ -29,6 +29,7 @@ const Post = (box:any) => {
     const Navhandler = useNavigate()
     var [reactionStatus,setReaction] = useState(like)
   var [selfReaction,setReactState] = useState(box.box.self_reaction);
+  var [commentValue, setCommentValue] = useState("");
   var [comments,getComment] = useState([])
   const avatar = localStorage.getItem('avatar') || ""
 
@@ -64,22 +65,23 @@ const Post = (box:any) => {
             getComment([])
         }}
 
-    function postComment(e:any){
+    function postComment() {
         const details = {
-            text: e.target.value,
+            text: commentValue,
             post: box.box.id
         }
-       BaseUrl.post('/post/comments/',details,config)
-       .then((res)=>{
-           console.log(res)
-           e.target.value = ""
-           toast.info("Comment Successfully Posted")
-       })
-       .catch((err)=>{
-           console.log(err)
-            e.target.value = ""
-           viewComment();
-       })
+        if (commentValue) {
+            BaseUrl.post('/post/comments/', details, config)
+                .then((res) => {
+                    setCommentValue("")
+                    toast.info("Comment Successfully Posted")
+                })
+                .catch((err) => {
+                    setCommentValue("")
+                    viewComment()
+                    console.log(err)
+                })
+        }
     }
 
     var reaction = document.getElementsByClassName('reactions') as HTMLCollectionOf<HTMLElement>
@@ -215,11 +217,9 @@ const Post = (box:any) => {
             <p><img style={{width:"1.67vw",marginRight:"1vw",verticalAlign:"top"}} src={share} />Share</p>
             <p onClick={()=>bookmarkPost()}><img style={{width:"1.1vw",marginRight:"1vw",verticalAlign:"top"}} src={item} />Save</p>
         </div>
-        <div id="comment"><img className="commentAvatar" src={avatar} /><input className="commentInput" style={{}} onKeyDown={(e)=>{if(e.code==='Enter'){postComment(e)}}} placeholder="Comment Box"/></div>
+        <div style={{display:"flex",justifyContent:"space-between", alignItems:"center",paddingRight:"2vw" }}><div id="comment"><img className="commentAvatar" src={avatar} /><input className="commentInput" onChange={(e)=>setCommentValue(e.target.value)} onKeyDown={(e)=>{if(e.code==='Enter'){postComment()}}} placeholder="Comment Box"/></div><div id="commentBtn" onClick={postComment}>Comment</div></div>
         <div className='commentlist'>
-            {
-                comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})
-            }
+            {comments.map((comm:any,index)=>{return <Comment index={index} comm={comm} key={comm.id} />})}
         </div>
         <ToastContainer theme="dark" position="top-center" />
     </div>

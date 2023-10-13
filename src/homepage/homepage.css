@@ -159,12 +159,13 @@
   visibility: hidden;
 }
 
-#comment{
+#comment {
   display: flex;
-    justify-items: center;
-    border: 0.15vw solid #f5f5fa;
-    border-radius: 0.3vw;
-    align-items: center;
+  justify-items: center;
+  border: 0.15vw solid #f5f5fa;
+  border-radius: 0.3vw;
+  align-items: center;
+  width: 80%;
 }
 
 #comment img {
@@ -178,7 +179,9 @@
 }
 
 #comment input {
-  width: 37.78vw;
+  border-style: none;
+  border-left: 0.2vw solid #464646;
+  width: 100%;
   height: 2.5vw;
   background-color: #13131a;
   padding-left: 1vw;
@@ -186,6 +189,13 @@
 
 #comment input:focus {
   outline: none;
+}
+
+#commentBtn {
+  color: #a950fb;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1vw;
 }
 
 .commentDiv {

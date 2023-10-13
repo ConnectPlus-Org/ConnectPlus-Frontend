@@ -42,22 +42,25 @@ const Account = () => {
   const [cover, setcover] = useState("");
 
   useEffect(() => {
-    setabout(`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur pellentesque iaculis dolor, at pellentesque nisi efficitur a. Aliquam pulvinar sem a lacus volutpat feugiat. Sed luctus, enim eu cursus venenatis, nunc ante rhoncus urna, ac posuere felis dolor eget nulla. Duis efficitur convallis elementum. Pellentesque dapibus fringilla magna eu finibus. Phasellus ac auctor est. Suspendisse fermentum metus nisi, quis suscipit nisi dignissim et. Sed accumsan tristique turpis nec dignissim. Aenean id vestibulum ante, non dignissim massa. Praesent eu ante maximus, sagittis nunc nec, sollicitudin lectus. Nunc ultricies risus ac enim euismod, et mattis diam commodo. Maecenas sit amet diam vitae nibh placerat lacinia in et purus.
-
-    Duis tortor massa, tincidunt eu convallis vel, dapibus ac leo. Vivamus tincidunt pretium imperdiet. Praesent interdum lorem ac interdum vulputate. Fusce quis turpis porttitor, ornare ipsum ac, molestie magna. Morbi quam purus, gravida vitae est dignissim, porta posuere urna. Integer dapibus odio non sem porttitor pulvinar. Praesent mollis sodales metus, sit amet condimentum felis pulvinar eu. Nulla luctus orci felis, non feugiat tortor consequat id.
-    
-    Morbi metus diam, egestas a massa ut, vulputate accumsan enim. Sed pretium augue tellus, sit amet facilisis dui venenatis non. Maecenas placerat, purus at fermentum sollicitudin, metus lorem maximus turpis, a volutpat magna massa eu nisl. Sed tincidunt mi eget aliquet volutpat. Nullam eu dui dolor. Nam quis ante est. Pellentesque elementum lectus ut urna tristique, gravida porta risus faucibus. Sed urna dolor, auctor at lobortis nec, lacinia ac ipsum. Ut et turpis et arcu suscipit viverra. In convallis nulla nisl, non pretium arcu facilisis ac. Maecenas tincidunt dapibus nibh at ultricies. Vestibulum fringilla elit eget enim ultricies, nec convallis lacus pulvinar. Cras sed quam vitae augue eleifend tempor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed sagittis quis dui id commodo.
-    
-    Interdum et malesuada fames ac ante ipsum primis in faucibus. Vivamus vel interdum magna. Curabitur facilisis nec tortor nec faucibus. Phasellus vel massa vel nunc maximus egestas. Integer tempor ipsum sem, in euismod nulla cursus sit amet. Nam erat nisi, finibus sed velit vel, aliquet luctus tortor. Maecenas posuere consequat lorem ut maximus. Nulla tristique ante ac rhoncus mollis. Ut euismod mauris in finibus condimentum. Fusce at dolor mi. Integer ut laoreet risus. Etiam et leo felis. Praesent condimentum imperdiet mi eu accumsan. Duis consequat vel erat sed consequat. Quisque egestas, augue at egestas bibendum, libero diam ullamcorper magna, et malesuada lacus nisl et tortor.
-    
-    Aliquam aliquet odio at purus hendrerit, eget iaculis purus viverra. Quisque eget tellus interdum, viverra ipsum id, consectetur ante. Aenean consequat magna facilisis ornare tempus. Quisque vitae nisi hendrerit lacus sodales consectetur. Mauris scelerisque quam in scelerisque malesuada. In hac habitasse platea dictumst. Donec sodales, odio in lacinia tincidunt, dolor augue feugiat libero, eu imperdiet odio mi eu ante. Quisque a elit non mauris tincidunt dictum sed quis nunc. Donec facilisis libero dolor, et finibus quam vehicula vel. Morbi magna magna, blandit a luctus in, mollis eu tellus. Vestibulum varius finibus felis id tempus. Donec at auctor lectus. Donec interdum, dui a elementum varius, urna risus rutrum leo, non pharetra urna felis a felis.`);
-    setavatar(
-      "https://as1.ftcdn.net/v2/jpg/01/63/11/70/1000_F_163117064_syJkTuCddASYjvl4WqyRmnuy8cDXpoQY.jpg"
-    );
-    setcover(
-      "https://cdn.dribbble.com/users/983045/screenshots/3576265/cat-landscape.jpg"
-    );
-    setname("dany" + " " + "dayane");
+    BaseUrl.get("profile/mainpage/?username=" + viewusername, config)
+      .then((res) => {
+        console.log(res.data);
+        setheadline(res.data.profile.headline);
+        setfollower(res.data.followers_count);
+        setconnect(res.data.connections_count);
+        setabout(res.data.about);
+        setexp(res.data.experience_data);
+        setedu(res.data.education_data);
+        setskill(res.data.skill_data);
+        settest(res.data.testscore_data);
+        setcourse(res.data.course_data);
+        setavatar(res.data.profile.avatar);
+        setcover(res.data.background_image);
+        setname(res.data.profile.first_name + " " + res.data.profile.last_name);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, []);
 
   const Navhandler = useNavigate();

@@ -23,14 +23,14 @@
   margin-bottom: 3vw;
 }
 
-#avatar{
+#avatar {
   width: 7vw;
   height: 7vw;
-  border: 4px solid #F5F5FA;
+  border: 4px solid #f5f5fa;
   border-radius: 100%;
 }
 
-#editavatar{
+#editavatar {
   width: 2vw;
   height: 2vw;
   align-self: end;
@@ -38,22 +38,24 @@
   cursor: pointer;
 }
 
-#ava{
+#ava {
   display: flex;
   align-self: center;
 }
 
 #prof_head {
-  background-color: #0C0C0F;
+  background-color: #0c0c0f;
   border: 0.1vw solid white;
   border-radius: 0.4vw;
-  padding-left: 1vw;
+  padding-top: 0.5vw;
+  padding-left: 0.5vw;
+  margin-top: 1vw;
   font-size: 0.8vw;
   height: 5vw;
   width: 30vw;
 }
 
-#prof_head:focus{
+#prof_head:focus {
   -webkit-appearance: none;
   outline: none;
   background-color: #2e2e2e;

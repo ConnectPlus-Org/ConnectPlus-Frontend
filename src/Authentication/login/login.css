@@ -7,12 +7,12 @@
 }
 
 body {
-  background-color: #0C0C0F;
+  background-color: #0c0c0f;
   overflow-x: hidden;
   font-family: "Manrope";
 }
 
-.authbox{
+.authbox {
   height: 3vw;
   width: 30vw;
   font-style: normal;
@@ -25,7 +25,7 @@ body {
   font-size: 1.1vw;
 }
 
-.inputbox p{
+.inputbox p {
   padding-left: 0.3vw;
 }
 
@@ -37,7 +37,8 @@ body {
   border: 1px solid #f8f8f8;
   border-color: aliceblue;
   padding-left: 1.25vw;
-  background-color: #0C0C0F;
+  margin: 0.5vw 0;
+  background-color: #0c0c0f;
 }
 
 .input:focus {
@@ -279,5 +280,4 @@ header {
     margin-top: 1vh;
     font-size: 3.33vw;
   }
-
 }

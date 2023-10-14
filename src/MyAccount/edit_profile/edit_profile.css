@@ -37,11 +37,10 @@
   padding-left: 6.67vw;
   padding-right: 6.67vw;
   padding-top: 6.8vh;
-  padding-bottom: 4vw;
   background-color: #13131a;
   position: absolute;
   width: 51.11vw;
-  height: 80vh;
+  height: 85vh;
   border: 1px solid #cdccd9;
   border-radius: 0.2vw;
   margin-left: 36.67vw;
@@ -69,6 +68,7 @@ select {
 }
 .halfbox {
   width: 16.885vw;
+  padding-right: 0.5vw;
 }
 .midtext {
   font-family: "Manrope";
@@ -106,6 +106,7 @@ select {
   font-size: 0.8vw;
   height: 5vw;
   resize: none;
+  padding-top: 0.5vw;
 }
 
 #headline:focus {
@@ -122,6 +123,7 @@ select {
   border-radius: 0.4vw;
   cursor: pointer;
   margin-left: 1.34vw;
+  margin-bottom: 2vw;
 }
 
 .checkbox {
@@ -164,7 +166,6 @@ select {
   font-weight: 700;
   font-size: 1.11111vw;
   line-height: 3.05556vh;
-
 }
 #edit_profile div {
   font-family: "Manrope";
@@ -178,6 +179,7 @@ textarea {
 }
 
 #desc {
+  padding-top: 0.5vw;
   height: 6vw;
 }
 
@@ -209,16 +211,21 @@ textarea {
   color: #13131a;
   font-weight: 700;
   font-size: 0.9vw;
+  padding: 0.2vw;
   border-radius: 4px;
   display: inline;
   cursor: pointer;
 }
+
+.input_wrapper {
+  margin-block: 0.2vw;
+}
+
 .dropsearchbox {
   display: flex;
   flex-direction: column;
   position: absolute;
   z-index: 1;
-  
 }
 
 .flexelement {
@@ -238,13 +245,13 @@ textarea {
 .flexelement:hover {
   background-color: #a950fb;
 }
-.mobtext{
-  display:none;
-  font-size:5vw;
+.mobtext {
+  display: none;
+  font-size: 5vw;
 }
 
 @media (max-width: 800px) {
-  .mobtext{
+  .mobtext {
     display: block;
   }
   #account_nav {
@@ -272,18 +279,21 @@ textarea {
     font-size: 2.1vw;
   }
 
-#edit_profile div img{
-  width: 10vw;
-  height: 10vw;
-}
-.edit_input,#headline,#edit_profile button,#edit_profile b {
-  height: 8vw;
+  #edit_profile div img {
+    width: 10vw;
+    height: 10vw;
+  }
+  .edit_input,
+  #headline,
+  #edit_profile button,
+  #edit_profile b {
+    height: 8vw;
     width: 80vw;
     font-size: 2vw;
-}
+  }
 
-#edit_icon {
-  height: 4.2vw !important;
-  width: 4.2vw !important;
-}
+  #edit_icon {
+    height: 4.2vw !important;
+    width: 4.2vw !important;
+  }
 }

@@ -34,6 +34,13 @@
   font-size: 1.1vw;
 }
 
+.topline {
+  margin-bottom: 2%;
+}
+
+.middle {
+  margin-bottom: 10%;
+}
 @media (max-width: 800px) {
   #svg1 {
     position: absolute;

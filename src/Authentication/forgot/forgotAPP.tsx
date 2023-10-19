@@ -37,7 +37,7 @@ const Forgot = () => {
     }
   }
 
-  function Handleapi() {
+  function handleApi() {
     setLoading(true);
     if (correctMail) {
       BaseUrl.post("/auth/otp/email/send/", {
@@ -76,7 +76,7 @@ const Forgot = () => {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              Handleapi();
+              handleApi();
             }}
             id='forgot'
           >
@@ -94,7 +94,7 @@ const Forgot = () => {
               inp='emailb'
             />
             <br />
-            <Authblock onclick={Handleapi} name='Continue' />
+            <Authblock onclick={handleApi} name='Continue' />
             <pre onClick={() => Navhandler("/login")}> Back </pre>
           </form>
           <img id='forgotillustration2' src={illustration} alt='' />

@@ -32,7 +32,7 @@ const Score = () => {
         borderLeft:'3px solid #A950FB',
     }
 
-    function handleapi(){
+    function handleApi(){
 
       const testmonth1= testmonth+1;
     
@@ -142,7 +142,7 @@ const Score = () => {
           <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="edit_input profileinput" placeholder="Description" />
         </div>
         
-        <button  onClick={handleapi}>Save</button>
+        <button  onClick={handleApi}>Save</button>
       </div>
     </div>
   );

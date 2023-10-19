@@ -35,7 +35,7 @@ const SignUp = () => {
     }
   }
 
-  function handleapi() {
+  function handleApi() {
     if (email) {
       setLoading(true);
       localStorage.setItem("email", email);
@@ -73,7 +73,7 @@ const SignUp = () => {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              handleapi();
+              handleApi();
             }}
             id='signup'
           >

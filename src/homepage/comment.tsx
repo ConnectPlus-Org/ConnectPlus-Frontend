@@ -36,7 +36,7 @@ const Comment = (comm: any) => {
       getReply([]);
     }
   }
-  function replyarea() {
+  function replyArea() {
     if (replyar == 0) {
       replyBox[comm.index]!.style.display = "block";
       replyar = 1;
@@ -73,7 +73,7 @@ const Comment = (comm: any) => {
         <span style={{ float: "right" }}>{comm.comm.created_at.slice(10)}</span>
       </p>
       <div className='commentDiv'>{comm.comm.text}</div>
-      <span onClick={() => replyarea()}>Reply</span>
+      <span onClick={() => replyArea()}>Reply</span>
       <span onClick={getReplies}>View Replies</span>
       <div
         style={{ display: "none", margin: "1vw 0" }}

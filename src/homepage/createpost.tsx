@@ -23,18 +23,18 @@ function Post(props: any) {
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
 
-  function handlevideo(e: any) {
+  function handleVideo(e: any) {
     setVideoData(e.target.files[0]);
     vidsrc = URL.createObjectURL(e.target.files[0]);
     console.log(videoData);
   }
 
-  const inputphoto = () => {
+  const inputPhoto = () => {
     setImageData([]);
     imgarray = [];
     document.getElementById("inpPhoto")?.click();
   };
-  const inputvideo = () => {
+  const inputVideo = () => {
     setVideoData("");
     vidsrc = "";
     document.getElementById("inpVideo")?.click();
@@ -53,7 +53,7 @@ function Post(props: any) {
     }
   }
 
-  function handleapi() {
+  function handleApi() {
     const object = new FormData();
     object.append("text", text);
     if (imageData.length !== 0) {
@@ -128,7 +128,7 @@ function Post(props: any) {
               </Carousel>
             </div>
             <img
-              onClick={inputphoto}
+              onClick={inputPhoto}
               style={{ cursor: "pointer" }}
               src={photobox}
               alt="photobox"
@@ -142,7 +142,7 @@ function Post(props: any) {
               onChange={showPreview}
             ></input>
             <img
-              onClick={inputvideo}
+              onClick={inputVideo}
               style={{ cursor: "pointer" }}
               src={videobox}
               alt="videobox"
@@ -152,9 +152,9 @@ function Post(props: any) {
               type="file"
               id="inpVideo"
               accept="video/*"
-              onChange={handlevideo}
+              onChange={handleVideo}
             ></input>
-            <button onClick={handleapi} className="postButton">
+            <button onClick={handleApi} className="postButton">
               Post
             </button>
           </div>

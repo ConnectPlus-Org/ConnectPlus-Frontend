@@ -73,7 +73,7 @@ const Education = () => {
       });
   }
 
-  function handleapi() {
+  function handleApi() {
     const startmonth1 = startmonth + 1;
     const endmonth1 = endmonth + 1;
 
@@ -303,7 +303,7 @@ const Education = () => {
           />
         </div>
 
-        <button onClick={handleapi}>Save</button>
+        <button onClick={handleApi}>Save</button>
       </div>
     </div>
   );

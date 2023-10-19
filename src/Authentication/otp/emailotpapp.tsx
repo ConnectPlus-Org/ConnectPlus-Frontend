@@ -46,7 +46,7 @@ const Otp = () => {
             console.log("wait");
         }
     }
-    function handleapi(){
+    function handleApi(){
         if(value){setLoading(true);
         localStorage.setItem("otp",value);
         const email=localStorage.getItem("email");
@@ -96,7 +96,7 @@ const Otp = () => {
         />
         <p className="lowline">Didn't get OTP?<span id ="resend" onClick={ResendApi}> Resend OTP </span> 0:{seconds}</p>
     
-      <Authblock name="Verify" onclick={handleapi}/>
+      <Authblock name="Verify" onclick={handleApi}/>
     </div>
     </div>
     <ToastContainer position="top-center" theme="dark" />

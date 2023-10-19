@@ -101,7 +101,7 @@ const Account = () => {
         toast.error("Request already sent to this account!!");
       });
   }
-  const inputphoto = () => {
+  const inputPhoto = () => {
     document.getElementById("inpPhoto")?.click();
   };
 
@@ -136,7 +136,7 @@ const Account = () => {
           ></input>
           <img
             style={{ cursor: "pointer" }}
-            onClick={inputphoto}
+            onClick={inputPhoto}
             src={edit}
             id='editCover'
           />

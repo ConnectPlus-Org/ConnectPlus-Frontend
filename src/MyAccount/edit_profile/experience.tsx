@@ -72,7 +72,7 @@ const Experience = () => {
       });
   }
 
-  function handleapi() {
+  function handleApi() {
     const startmonth1 = startmonth + 1;
     const endmonth1 = endmonth + 1;
 
@@ -360,7 +360,7 @@ const Experience = () => {
             placeholder='Enter Skill'
           />
         </div>
-        <button onClick={handleapi}>Save</button>
+        <button onClick={handleApi}>Save</button>
       </div>
     </div>
   );

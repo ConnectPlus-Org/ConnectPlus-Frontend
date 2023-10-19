@@ -48,7 +48,7 @@ const Phoneotp = () => {
         }
     }
 
-    function handleapi(){
+    function handleApi(){
         setLoading(true);
         const number=localStorage.getItem("number");
         BaseUrl.post("/auth/otp/phone/verify/",{
@@ -90,7 +90,7 @@ const Phoneotp = () => {
         />
         <p className="lowline">Didn't get OTP?<span id ="resend" onClick={ResendApi}> Resend OTP </span> 0:{seconds}</p>
     
-      <Authblock name="Verify" onclick={handleapi}/>
+      <Authblock name="Verify" onclick={handleApi}/>
     </div>
     </div></div>)}
     </div>

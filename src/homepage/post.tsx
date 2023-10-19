@@ -20,7 +20,7 @@ const think: string = require("./images/think.svg").default;
 const heart: string = require("./images/heart.svg").default;
 const hand: string = require("./images/hand.svg").default;
 let reactionId: number;
-var commentlist: number = 0;
+var commentList: number = 0;
 
 const Post = (box: any) => {
   const username: string = localStorage.getItem("username") || "";
@@ -50,17 +50,17 @@ const Post = (box: any) => {
   var [selfReaction, setReactState] = useState(box.box.self_reaction);
   var [comments, getComment] = useState([]);
   function viewComment() {
-    if (commentlist == 0) {
+    if (commentList == 0) {
       BaseUrl.get("/post/comments/?post=" + box.box.id, config)
         .then((res) => {
           getComment(res.data);
-          commentlist = 1;
+          commentList = 1;
         })
         .catch((err) => {
           console.log(err);
         });
     } else {
-      commentlist = 0;
+      commentList = 0;
       getComment([]);
     }
   }
@@ -177,7 +177,7 @@ const Post = (box: any) => {
       });
   }
   return (
-    <div id='postbox'>
+    <div id='postBox'>
       <div className='postStatus' style={{ marginBottom: "2vw" }}>
         <span>{box.box.message}</span>
         <span style={{ float: "right" }}>{box.box.created_at}</span>
@@ -193,10 +193,10 @@ const Post = (box: any) => {
             box.box.post_owner_profile.username
           );
         }}
-        className='shortava'
+        className='shortAva'
         src={box.box.post_owner_profile.avatar}
       />
-      <div id='postprofile'>
+      <div id='postProfile'>
         <p>
           {box.box.post_owner_profile.name}{" "}
           {box.box.post_owner_profile.username != username ? (
@@ -212,7 +212,7 @@ const Post = (box: any) => {
       {images && (
         <Carousel showThumbs={false}>
           {images.map((data: any) => (
-            <div className='image_wrapper'>
+            <div className='imageWrapper'>
               <img id='postImg' src={data.image} />
             </div>
           ))}
@@ -353,7 +353,7 @@ const Post = (box: any) => {
           Comment
         </div>
       </div>
-      <div className='commentlist'>
+      <div className='commentList'>
         {comments.map((comm: any, index) => {
           return <Comment index={index} comm={comm} key={comm.id} />;
         })}

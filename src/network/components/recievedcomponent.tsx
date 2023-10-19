@@ -43,9 +43,9 @@ var config2 = {
         console.log(err)
     })
     }
-    return (<div className="networkcomponent">
-        <div><img className="sideimage" src={props.data.sender_data.avatar} alt="avatar" /></div>
-       <div  className="textflex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.sender_data.name}</p>
+    return (<div className="networkComponent">
+        <div><img className="sideImage" src={props.data.sender_data.avatar} alt="avatar" /></div>
+       <div  className="textFlex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.sender_data.name}</p>
         <span> {props.data.sender_data.headline}</span></div>
         <div style={{marginLeft:"auto",marginTop:"25px",marginRight:"2vw"}}>
         <p style={{ cursor:"pointer", width:"6vw" ,display:"inline-block", fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handleignore} >Ignore</p>

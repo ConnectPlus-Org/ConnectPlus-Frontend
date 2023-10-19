@@ -32,7 +32,7 @@ const Phone = () => {
   function handleskip(){
     Navhandler('/set_password');
   }
-  function Handleapi() {
+  function handleApi() {
     if(number){setLoading(true);
     axios
       .post("https://linkedin-backend.azurewebsites.net/auth/otp/phone/send/", {
@@ -76,7 +76,7 @@ const Phone = () => {
           inp="numb"
         />
         <div>
-          <button onClick={Handleapi}>Verify</button>
+          <button onClick={handleApi}>Verify</button>
           <span onClick={handleskip}>Skip</span>
         </div>
       </div>

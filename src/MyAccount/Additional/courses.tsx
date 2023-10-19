@@ -27,7 +27,7 @@ const Score = () => {
       });
     }
 
-    function handleapi(){
+    function handleApi(){
 
       let obj:any={
         "course_name":coursename,
@@ -105,7 +105,7 @@ const Score = () => {
         </div>
         
         
-        <button onClick={handleapi}>Save</button>
+        <button onClick={handleApi}>Save</button>
       </div>
     </div>
   );

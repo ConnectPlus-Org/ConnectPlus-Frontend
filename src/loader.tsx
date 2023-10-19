@@ -3,8 +3,8 @@ import "./spinner.css";
 
 export default function LoadingSpinner() {
   return (
-    <div className="spinner-container">
-      <div className="loading-spinner">
+    <div className="spinnerContainer">
+      <div className="loadingSpinner">
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-.overlay__background {
+.overlayBackground {
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
@@ -9,7 +9,7 @@
   z-index: 9;
 }
 
-.overlay__container {
+.overlayContainer {
   background-color: #13131A;
   position: fixed;
   top: 0;
@@ -25,31 +25,31 @@
   height: fit-content;
 }
 
-.overlay__controls {
+.overlayControls {
   display: flex;
   justify-content: flex-end;
   align-items: center;
 }
 
-.overlay__close:after {
+.overlayClose:after {
   display: inline-block;
   content: "\00d7";
 }
 
-.overlay__close {
+.overlayClose {
   border: none;
   background-color: transparent;
   font-size: 36px;
   cursor: pointer;
 }
 
-.postboxtopline{
+.postBoxTopline{
   margin-left: 2.7vw;
   font-size: 1.66667vw;
   line-height: 4.58333vh;
   font-weight: 700;
 }
-.createposttextbox{
+.createPostTextBox{
   background-color: #13131A;
   margin-top: 3vh;
   margin-left: 2.7vw;
@@ -65,7 +65,7 @@
   margin-top: 5vh;
   margin-left: 2.1vw;
 }
-.postbutton{
+.postButton{
   float: right;
   margin-top: 5vh;
   margin-right: 1.3vw;

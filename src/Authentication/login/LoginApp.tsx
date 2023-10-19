@@ -57,7 +57,7 @@ function Login() {
       document.getElementById("logb")!.style.borderColor = "#CF6679";
     }
   }
-  function handleapi() {
+  function handleApi() {
     if (email && password) {
       setLoading(true);
       BaseUrl.post("/auth/account/login/", {
@@ -111,7 +111,7 @@ function Login() {
           <form
             onSubmit={(event) => {
               event.preventDefault();
-              handleapi();
+              handleApi();
             }}
             id='login'
           >

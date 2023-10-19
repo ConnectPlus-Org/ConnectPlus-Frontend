@@ -48,7 +48,7 @@ function Passwordset() {
     }
   }
 
-  function handleapi() {
+  function handleApi() {
     setLoading(true);
     if (password === password2) {
       BaseUrl.put("/auth/password/forget/", {
@@ -95,7 +95,7 @@ function Passwordset() {
               }}
               onSubmit={(event) => {
                 event.preventDefault();
-                handleapi();
+                handleApi();
               }}
             >
               <Input
@@ -117,7 +117,7 @@ function Passwordset() {
                 err_id='pass2'
               />
               <br />
-              <Authblock onclick={handleapi} name='Save' />
+              <Authblock onclick={handleApi} name='Save' />
               <pre>Cancel</pre>
             </form>
           </div>

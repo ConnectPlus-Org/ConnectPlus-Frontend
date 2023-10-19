@@ -101,8 +101,8 @@ const Account = () => {
         toast.error("Request already sent to this account!!");
       });
   }
-  const inputphoto = () => {
-    document.getElementById("inpphoto")?.click();
+  const inputPhoto = () => {
+    document.getElementById("inpPhoto")?.click();
   };
 
   function showPreview(e: any) {
@@ -130,13 +130,13 @@ const Account = () => {
           <input
             style={{ display: "none" }}
             type='file'
-            id='inpphoto'
+            id='inpPhoto'
             accept='image/*'
             onChange={showPreview}
           ></input>
           <img
             style={{ cursor: "pointer" }}
-            onClick={inputphoto}
+            onClick={inputPhoto}
             src={edit}
             id='editCover'
           />

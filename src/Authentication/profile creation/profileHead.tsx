@@ -58,7 +58,7 @@ function ProfileHead(this: any) {
     toast.error("upload image less than 1 mb")
   }
 
-  function handleapi() {
+  function handleApi() {
 
     setLoading(true)
     const object = new FormData()
@@ -102,7 +102,7 @@ function ProfileHead(this: any) {
             <br />
             <textarea onChange={handlechange} id="prof_head" placeholder="Heading" />
           </div>
-          <Authblock onclick={handleapi} name='Next' />
+          <Authblock onclick={handleApi} name='Next' />
         </div>
       </div>}</div>
 }

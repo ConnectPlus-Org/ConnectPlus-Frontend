@@ -87,16 +87,16 @@ const Home = () => {
     <div>
         { postClick ? <PostBox setPostClick={setPostClick} postClick={postClick} />: <div></div>}
       <Nav />
-      <div onClick={()=>setPostClick(!postClick) } id="search_post">
+      <div onClick={()=>setPostClick(!postClick) } id="searchPost">
         <input 
             placeholder="Start Post" readOnly/>
         <img src={photo} /> Photo <img src={line} />
         <img src={video} /> Video <img src={line} />
         <div >Create Post</div>
       </div>
-      <div id="shortprofile">
-        <img id="shortcover" src={coverImgae} alt="" />
-        <img id="shortava" src={avatar} alt="avatar" />
+      <div id="shortProfile">
+        <img id="shortCover" src={coverImgae} alt="" />
+        <img id="shortAva" src={avatar} alt="avatar" />
         <p style={{cursor:"pointer"}} onClick={()=>Navhandler('/account')}>
           {name} <img src={right} />
         </p>

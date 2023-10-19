@@ -20,7 +20,7 @@ const AboutMe = () => {
     borderLeft: "3px solid #A950FB",
   };
   const [about, setabout] = React.useState("");
-  function handleapi() {
+  function handleApi() {
     BaseUrl.patch(
       "/profile/mainpage/?username=" + user,
       {
@@ -98,7 +98,7 @@ const AboutMe = () => {
             maxLength={1900}
           />
         </div>
-        <button onClick={handleapi}>Save</button>
+        <button onClick={handleApi}>Save</button>
       </div>
     </div>
   );

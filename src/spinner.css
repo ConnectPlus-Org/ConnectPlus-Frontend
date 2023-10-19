@@ -6,7 +6,7 @@
       transform: rotate(360deg);
     }
   }
-  .loading-spinner {
+  .loadingSpinner {
     position: absolute;
     top: 50%;
     left: 50%;

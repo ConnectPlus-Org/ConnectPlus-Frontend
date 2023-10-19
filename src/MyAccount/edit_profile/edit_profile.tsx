@@ -55,7 +55,7 @@ const Editprofile = () => {
     setavatar(fileData);
   }
 
-  function handleapi() {
+  function handleApi() {
     const object = new FormData();
     console.log(fname, lname, city, country, heading, fileData);
     object.append("first_name", fname);
@@ -185,7 +185,7 @@ const Editprofile = () => {
             onChange={(e: any) => (heading = e.target.value)}
           />
         </div>
-        <button onClick={handleapi}>Save</button>
+        <button onClick={handleApi}>Save</button>
       </div>
     </div>
   );

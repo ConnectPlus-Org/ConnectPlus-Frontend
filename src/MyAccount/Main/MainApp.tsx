@@ -102,7 +102,7 @@ const Account = () => {
       });
   }
   const inputphoto = () => {
-    document.getElementById("inpphoto")?.click();
+    document.getElementById("inpPhoto")?.click();
   };
 
   function showPreview(e: any) {
@@ -130,7 +130,7 @@ const Account = () => {
           <input
             style={{ display: "none" }}
             type='file'
-            id='inpphoto'
+            id='inpPhoto'
             accept='image/*'
             onChange={showPreview}
           ></input>

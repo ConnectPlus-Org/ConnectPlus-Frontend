@@ -32,9 +32,9 @@ var config2 = {
     }
 
     
-    return (<div className="networkcomponent">
-        <div><img className="sideimage" src={props.data.reciever_data.avatar} alt="avatar" /></div>
-       <div  className="textflex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.reciever_data.name}</p>
+    return (<div className="networkComponent">
+        <div><img className="sideImage" src={props.data.reciever_data.avatar} alt="avatar" /></div>
+       <div  className="textFlex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.reciever_data.name}</p>
         <span> {props.data.reciever_data.headline}</span></div>
         <div style={{marginLeft:"auto",marginTop:"25px",marginRight:"2vw"}}>
         <p style={{ cursor:"pointer", width:"6vw" ,display:"inline-block", fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handlewithdraw} >Withdraw</p>

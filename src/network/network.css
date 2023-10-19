@@ -1,7 +1,7 @@
 .none img{
     margin-left : 7.2vw;
 }
-.sideimage{
+.sideImage{
     display: inline-block;
     width: 5vw;
   height: 5vw;
@@ -9,19 +9,19 @@
   border-radius: 50%;
 }
 
-.networkcomponent span{
+.networkComponent span{
     color: #F5F5FA;
     font-weight: 400;
     font-size:  0.833333vw;
 }
-.networkcomponent{
+.networkComponent{
     display: flex;
     margin-bottom: 3vh;
     width: 48.3333vw;
 height: 10vh;
 margin-left: -4vw;
 }
-.textflex{
+.textFlex{
     display: flex;
     flex-direction: column;
     justify-content: center;

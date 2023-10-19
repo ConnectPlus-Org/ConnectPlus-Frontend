@@ -32,12 +32,12 @@ function Post(props: any) {
   const inputphoto = () => {
     setImageData([]);
     imgarray = [];
-    document.getElementById("inpphoto")?.click();
+    document.getElementById("inpPhoto")?.click();
   };
   const inputvideo = () => {
     setVideoData("");
     vidsrc = "";
-    document.getElementById("inpvideo")?.click();
+    document.getElementById("inpVideo")?.click();
   };
 
   function showPreview(event: any) {
@@ -79,17 +79,17 @@ function Post(props: any) {
   return (
     <div className="overlay">
       <div
-        className="overlay__background"
+        className="overlayBackground"
         onClick={() => {
           setImageData([]);
           setVideoData("");
           props.setPostClick(!props.postClick);
         }}
       />
-      <div className="overlay__container">
-        <div className="overlay__controls">
+      <div className="overlayContainer">
+        <div className="overlayControls">
           <button
-            className="overlay__close"
+            className="overlayClose"
             type="button"
             onClick={() => {
               setImageData([]);
@@ -98,7 +98,7 @@ function Post(props: any) {
             }}
           />
         </div>
-        <p className="postboxtopline">Create a post</p>
+        <p className="postboxTopline">Create a post</p>
         {loading ? (
           <Loader />
         ) : (
@@ -108,7 +108,7 @@ function Post(props: any) {
               onChange={(e: any) => {
                 setText(e.target.value);
               }}
-              className="createposttextbox"
+              className="createPostTextBox"
               value={text}
               placeholder="Write Something"
               name="post"
@@ -137,7 +137,7 @@ function Post(props: any) {
               multiple
               style={{ display: "none" }}
               type="file"
-              id="inpphoto"
+              id="inpPhoto"
               accept="image/*"
               onChange={showPreview}
             ></input>
@@ -150,11 +150,11 @@ function Post(props: any) {
             <input
               style={{ display: "none" }}
               type="file"
-              id="inpvideo"
+              id="inpVideo"
               accept="video/*"
               onChange={handlevideo}
             ></input>
-            <button onClick={handleapi} className="postbutton">
+            <button onClick={handleapi} className="postButton">
               Post
             </button>
           </div>

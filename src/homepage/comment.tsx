@@ -78,7 +78,7 @@ const Comment = (comm: any) => {
       <div
         style={{ display: "none", margin: "1vw 0" }}
         className={replyClass}
-        id='replybox'
+        id='replyBox'
       >
         <img src={avatar} />
         <input

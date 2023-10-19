@@ -29,7 +29,7 @@ const Saved = () => {
     return <div>
         { postClick ? <PostBox setPostClick={()=>setPostClick(!postClick)} />: <div></div>}
         <Nav />
-        <div onClick={()=>setPostClick(!postClick) } id="search_post">
+        <div onClick={()=>setPostClick(!postClick) } id="searchPost">
         <input 
             placeholder="Start Post" readOnly/>
         <img src={photo} /> Photo <img src={line} />

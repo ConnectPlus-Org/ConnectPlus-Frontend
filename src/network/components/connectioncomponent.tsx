@@ -40,9 +40,9 @@ var config2 = {
     }
     
     
-    return (<div className="networkcomponent">
-        <div><img className="sideimage" src={props.data.connection_data.avatar} alt="avatar" /></div>
-       <div  className="textflex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.connection_data.name}</p>
+    return (<div className="networkComponent">
+        <div><img className="sideImage" src={props.data.connection_data.avatar} alt="avatar" /></div>
+       <div  className="textFlex"> <p style={{ fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} >{props.data.connection_data.name}</p>
         <span> {props.data.connection_data.headline}</span></div>
         <div style={{marginLeft:"auto",marginTop:"25px"}}>
         <p style={{cursor:"pointer", color:"#A950FB", display:"inline-block",  fontSize:"1.10vw" ,marginLeft:"0",marginBottom:"0" }} onClick={handlemessage} >Message</p>    

@@ -75,7 +75,7 @@ const Editprofile = () => {
   return (
     <div>
       <Nav />
-      <div id='account_nav'>
+      <div id='accountNav'>
         <p style={activestyle}>Edit profile</p>
         <p
           onClick={() => {

@@ -68,7 +68,7 @@ const Score = () => {
   return (
     <div>
       <Nav />
-      <div id="account_nav">
+      <div id="accountNav">
         <p  onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
         <p  onClick={()=>{Navhandler("/account/experience"); } } >Experience</p>

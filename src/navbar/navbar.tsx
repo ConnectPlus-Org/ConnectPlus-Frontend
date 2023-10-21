@@ -29,12 +29,12 @@ const Nav = () => {
 
     const Navhandler = useNavigate();
     return <div id="navbar">
-        <div id="navlogo" className="navitem"><img id="navlogoimg" className="navimg" src={logo} alt="logo" />ConnectPlus</div>
-        <div onClick={()=>{ Navhandler("/")}} className="navitem"><img className="navimg" src={home} alt="home" />Homepage</div>
-        <div onClick={()=>{ Navhandler("/network/recieved")}} className="navitem"><img className="navimg" src={network} alt="network" />Networks</div>
-        <div className="navitem"onClick={()=>{;Navhandler("/search")}}><img className="navimg" src={search} alt="search" />Search</div>
-        <div className="navitem" onClick={()=>{localStorage.setItem('viewusername',username);Navhandler("/account")}} ><img id="accountimg" className="navimg" src={avatar} alt="ava" />My Account</div>
-        <div className="navitem" onClick={()=>{localStorage.clear();localStorage.clear();Navhandler('/login')}}><img className="navimg" src={signOut} alt="job" />Sign out</div>
+        <div id="navLogo" className="navItem"><img id="navLogoimg" className="navImg" src={logo} alt="logo" />ConnectPlus</div>
+        <div onClick={()=>{ Navhandler("/")}} className="navItem"><img className="navImg" src={home} alt="home" />Homepage</div>
+        <div onClick={()=>{ Navhandler("/network/recieved")}} className="navItem"><img className="navImg" src={network} alt="network" />Networks</div>
+        <div className="navItem"onClick={()=>{;Navhandler("/search")}}><img className="navImg" src={search} alt="search" />Search</div>
+        <div className="navItem" onClick={()=>{localStorage.setItem('viewusername',username);Navhandler("/account")}} ><img id="accountimg" className="navImg" src={avatar} alt="ava" />My Account</div>
+        <div className="navItem" onClick={()=>{localStorage.clear();localStorage.clear();Navhandler('/login')}}><img className="navImg" src={signOut} alt="job" />Sign out</div>
     </div>
 }
 

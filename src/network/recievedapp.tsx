@@ -45,7 +45,7 @@ const config ={
   return (
     <div>
       <Nav />
-      <div id="account_nav">
+      <div id="accountNav">
         <p onClick={()=>{Navhandler("/network/recieved"); } }  style={activestyle} >Invitations Recieved</p>
         <p onClick={()=>{Navhandler("/network/sent"); } }  >Invitations sent</p>
         <p onClick={()=>{Navhandler("/network/connection"); } } >Connections</p>

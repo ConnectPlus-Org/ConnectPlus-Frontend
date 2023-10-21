@@ -1,4 +1,4 @@
-#account_nav {
+#accountNav {
   background-color: #13131a;
   position: fixed;
   width: 17.77vw;
@@ -13,7 +13,7 @@
   visibility: hidden;
 }
 
-#account_nav p {
+#accountNav p {
   cursor: pointer;
   text-align: center;
   margin-top: 3.4vw;
@@ -254,7 +254,7 @@ textarea {
   .mobtext {
     display: block;
   }
-  #account_nav {
+  #accountNav {
     display: none;
   }
 

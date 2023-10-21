@@ -116,7 +116,7 @@ const Experience = () => {
   return (
     <div>
       <Nav />
-      <div id='account_nav'>
+      <div id='accountNav'>
         <p
           onClick={() => {
             Navhandler("/account/edit_profile");

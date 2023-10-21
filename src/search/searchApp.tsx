@@ -15,7 +15,7 @@ const Search = () => {
   
   const [searchres,setsearchres] = useState([]);
   const [none,setnone] = useState(true)
-  const [searchText,setSearchText] = useState("")
+  const [searchText,setsearchText] = useState("")
 
   const api =()=>{BaseUrl.get(`/profile/search/?search=${searchText}`,config)
     .then((res)=>{
@@ -45,13 +45,13 @@ const config ={
   return (
     <div>
       <Nav />
-      <div className="searchtext">Search</div>
-      <img className="searchicon" src={search} alt="searchicon" />
-      <input type="text" placeholder="Search" onChange={(e:any)=>{setSearchText(e.target.value); api()}} value={searchText} className="searchinput" />
+      <div className="searchText">Search</div>
+      <img className="searchIcon" src={search} alt="searchIcon" />
+      <input type="text" placeholder="Search" onChange={(e:any)=>{setsearchText(e.target.value); api()}} value={searchText} className="searchInput" />
         {none ?  
         <img src={nomatch} className="nomatch" alt="no match" />
         : 
-        <div className="searchresults">
+        <div className="searchResults">
           {searchres.map((data,index)=>{return <SearchComponent key={index} data={data} api={api}/>})}
         </div> }
       <ToastContainer position="top-center" theme="dark" />

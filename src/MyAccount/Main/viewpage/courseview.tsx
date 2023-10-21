@@ -57,7 +57,7 @@ if(username!=viewusername)
   return (
     <div>
       <Nav />
-      <div id="viewskill">
+      <div id="viewSkill">
         <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Course</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/additional/courses")}></img>
         <div>
             {

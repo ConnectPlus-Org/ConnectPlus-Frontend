@@ -39,7 +39,7 @@ const Skill = () => {
   var [skill, setskill] = useState("");
 
   var l: number = searches.length;
-  function handleskill(e: any) {
+  function handleSkill(e: any) {
     setskill(e.target.value);
     BaseUrl.get("/profile/skill/list/?search_input=" + e.target.value, config)
       .then((res) => {
@@ -51,7 +51,7 @@ const Skill = () => {
       });
   }
 
-  function addskill() {
+  function addSkill() {
     BaseUrl.post(
       "/profile/skill/",
       {
@@ -113,7 +113,7 @@ const Skill = () => {
       <div id='skill'>
         <p>
           <img
-            className='backarr'
+            className='backArr'
             src={arr}
             onClick={() => Navhandler("/mobnav")}
           />
@@ -125,13 +125,13 @@ const Skill = () => {
           <input
             id='i'
             placeholder='Enter Skill'
-            onChange={handleskill}
+            onChange={handleSkill}
             value={skill}
           />
           <div style={{ height: "15vw" }}>
             <div
               id='drop'
-              className='dropsearchbox'
+              className='dropSearchBox'
               onClick={() => {
                 setsearches([]);
                 const skillname: string = localStorage.getItem("skillname")!;
@@ -144,7 +144,7 @@ const Skill = () => {
             </div>
           </div>
         </div>
-        <button onClick={addskill}>Save</button>
+        <button onClick={addSkill}>Save</button>
       </div>
       <ToastContainer position='top-center' theme='dark' />
     </div>

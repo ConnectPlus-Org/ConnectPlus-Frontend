@@ -31,7 +31,7 @@ const config ={
 
 var [experience,setexp] = useState([])
 
-function handlexp (){
+function handlExp (){
   BaseUrl.get('/profile/experience/?username='+viewusername,config)
   .then((res)=>
   {
@@ -42,7 +42,7 @@ function handlexp (){
     console.log(err);
   })
 }
-useEffect(()=>handlexp(),[])
+useEffect(()=>handlExp(),[])
 
 if(username!=viewusername)
     {
@@ -55,7 +55,7 @@ if(username!=viewusername)
   return (
     <div>
       <Nav />
-      <div id="viewskill">
+      <div id="viewSkill">
         <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Experience</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/experience")}></img>
         <div>
             {

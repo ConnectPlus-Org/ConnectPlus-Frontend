@@ -9,7 +9,7 @@
   padding-bottom: 5vh;
 }
 
-.backarr {
+.backArr {
   visibility: hidden;
 }
 
@@ -57,7 +57,7 @@
   border-radius: 50%;
 }
 
-.profileinput,
+.profileInput,
 select {
   background-color: #13131a;
   width: 37.77vw;
@@ -66,7 +66,7 @@ select {
   padding-left: 1vw;
   font-size: 0.8vw;
 }
-.halfbox {
+.halfBox {
   width: 16.885vw;
   padding-right: 0.5vw;
 }
@@ -85,7 +85,7 @@ select {
   line-height: 140.8%;
 }
 
-.edit_input,
+.editInput,
 select {
   margin-top: 0.5vh;
   height: 2.77vw;
@@ -126,13 +126,13 @@ select {
   margin-bottom: 2vw;
 }
 
-.checkbox {
+.checkBox {
   display: inline-block;
   width: 1.66667vw;
   height: 1.66667vw;
   border: 2px solid #ebebf0;
 }
-.tickbox {
+.tickBox {
   display: inline-block;
   width: 1.66667vw;
   height: 1.66667vw;
@@ -157,7 +157,7 @@ select {
   background-color: #a950fb;
   color: #a950fb;
 }
-.checkboxlabel {
+.checkBoxLabel {
   position: relative;
   bottom: 17%;
   padding-left: 1vw;
@@ -221,7 +221,7 @@ textarea {
   margin-block: 0.2vw;
 }
 
-.dropsearchbox {
+.dropSearchBox {
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -267,7 +267,7 @@ textarea {
     height: 95vh;
     margin-left: 0;
   }
-  .backarr {
+  .backArr {
     visibility: visible;
     margin-right: 5vw;
     width: 2vw;
@@ -283,7 +283,7 @@ textarea {
     width: 10vw;
     height: 10vw;
   }
-  .edit_input,
+  .editInput,
   #headline,
   #edit_profile button,
   #edit_profile b {

@@ -31,15 +31,15 @@ const Additional = () => {
         <p  onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'77.7778vh',display:'block'}}>
-        <div className="linkbox" onClick={()=>{Navhandler("/account/additional/score")}}>
+        <div className="linkBox" onClick={()=>{Navhandler("/account/additional/score")}}>
             Add test score
-            <div className="rightarrowbox">
+            <div className="rightarrowBox">
                 <div className="rightarrow"></div>
             </div>
         </div>
-        <div className="linkbox" onClick={()=>{Navhandler("/account/additional/courses")}}>
+        <div className="linkBox" onClick={()=>{Navhandler("/account/additional/courses")}}>
             Add courses
-            <div className="rightarrowbox">
+            <div className="rightarrowBox">
             <div className="rightarrow"></div>
             </div>
         </div>

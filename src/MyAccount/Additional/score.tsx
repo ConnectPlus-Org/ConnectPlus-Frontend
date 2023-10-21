@@ -89,13 +89,13 @@ const Score = () => {
         <p onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'101.389vh'} }>
-        <div className="additionalline">
+        <div className="additionalLine">
         Add test scores
         </div>
         <div>
           Title
           <br />
-          <input  onChange={(e:any)=>{settitle(e.target.value);}} value={title} className="edit_input profileinput" placeholder="Title" />
+          <input  onChange={(e:any)=>{settitle(e.target.value);}} value={title} className="editInput profileInput" placeholder="Title" />
         </div>
         <div>
           Associated With
@@ -113,21 +113,21 @@ const Score = () => {
         <div>
           Score
           <br />
-          <input  onChange={(e:any)=>{setscore(e.target.value);}} value={score} className="edit_input profileinput dropdown" placeholder="Score" />
+          <input  onChange={(e:any)=>{setscore(e.target.value);}} value={score} className="editInput profileInput dropDown" placeholder="Score" />
         </div>
         
         
         <div>
             Test Date
             <br />
-            <select className="halfbox" onChange={(e:any)=>{settestmonth(e.target.value);}} name="month" id="month" >
+            <select className="halfBox" onChange={(e:any)=>{settestmonth(e.target.value);}} name="month" id="month" >
             {
             months.map((month, index) => {
               return <option key={`month${index}`} value={index}>{month}</option>
             })
            }
           </select>
-          <select style={{marginLeft:'3.8vw'}}  className="halfbox" onChange={(e:any)=>{settestyear(e.target.value);}} name="month" id="month" >
+          <select style={{marginLeft:'3.8vw'}}  className="halfBox" onChange={(e:any)=>{settestyear(e.target.value);}} name="month" id="month" >
             {
             years.map((year, index) => {
               return <option key={`year${index}`} value={year}>{year}</option>
@@ -139,7 +139,7 @@ const Score = () => {
         <div>
           Description
           <br />
-          <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="edit_input profileinput" placeholder="Description" />
+          <textarea  onChange={(e:any)=>{setdescription(e.target.value);}} value={description} id="desc" className="editInput profileInput" placeholder="Description" />
         </div>
         
         <button  onClick={handleApi}>Save</button>

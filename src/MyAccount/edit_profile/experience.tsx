@@ -163,7 +163,7 @@ const Experience = () => {
             onChange={(e: any) => {
               settitle(e.target.value);
             }}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Title'
           />
         </div>
@@ -173,13 +173,13 @@ const Experience = () => {
           <input
             id='i'
             onChange={handlecompanyname}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             value={company}
             placeholder='Company Name'
           />
           <div
             id='drop'
-            className='dropsearchbox'
+            className='dropSearchBox'
             onClick={() => {
               setsearchres([]);
               const compname: string = localStorage.getItem("compname")!;
@@ -194,7 +194,7 @@ const Experience = () => {
         <div>
           Employment Type
           <br />
-          {/* <input onChange={(e:any)=>{setemptype(e.target.value);}} className="edit_input profileinput dropdown" placeholder="Employment Type" /> */}
+          {/* <input onChange={(e:any)=>{setemptype(e.target.value);}} className="editInput profileInput dropDown" placeholder="Employment Type" /> */}
           <select
             onChange={(e: any) => {
               setemptype(e.target.value);
@@ -215,20 +215,20 @@ const Experience = () => {
               setlocation(e.target.value);
             }}
             value={location}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Location'
           />
         </div>
         <div>
           {checked ? (
-            <div className='tickbox' onClick={handleChange}>
+            <div className='tickBox' onClick={handleChange}>
               {" "}
               <div className='tick'></div>
             </div>
           ) : (
-            <div className='checkbox' onClick={handleChange}></div>
+            <div className='checkBox' onClick={handleChange}></div>
           )}{" "}
-          <span className='checkboxlabel'>
+          <span className='checkBoxLabel'>
             I am currently working on this role
           </span>
         </div>
@@ -236,7 +236,7 @@ const Experience = () => {
           Start Date
           <br />
           <select
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setstartmonth(e.target.value);
             }}
@@ -253,7 +253,7 @@ const Experience = () => {
           </select>
           <select
             style={{ marginLeft: "3.8vw" }}
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setstartyear(e.target.value);
             }}
@@ -274,13 +274,13 @@ const Experience = () => {
             End Date
             <br />
             <input
-              className='edit_input profileinput dropdown halfbox'
+              className='editInput profileInput dropDown halfBox'
               placeholder='Month'
               readOnly
             />
             <input
               style={{ marginLeft: "3.8vw" }}
-              className='edit_input profileinput dropdown halfbox'
+              className='editInput profileInput dropDown halfBox'
               placeholder='Year'
               readOnly
             />
@@ -290,7 +290,7 @@ const Experience = () => {
             End Date
             <br />
             <select
-              className='halfbox'
+              className='halfBox'
               onChange={(e: any) => {
                 setendmonth(e.target.value);
               }}
@@ -307,7 +307,7 @@ const Experience = () => {
             </select>
             <select
               style={{ marginLeft: "3.8vw" }}
-              className='halfbox'
+              className='halfBox'
               onChange={(e: any) => {
                 setendyear(e.target.value);
               }}
@@ -332,7 +332,7 @@ const Experience = () => {
               setindustry(e.target.value);
             }}
             value={industry}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Industry'
           />
         </div>
@@ -345,7 +345,7 @@ const Experience = () => {
             }}
             value={description}
             id='desc'
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Description'
           />
         </div>
@@ -356,7 +356,7 @@ const Experience = () => {
             appear in your Skills section.{" "}
           </p>
           <input
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Enter Skill'
           />
         </div>

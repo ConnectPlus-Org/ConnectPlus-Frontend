@@ -87,7 +87,7 @@ function Passwordset() {
             </div>
             <form
               style={{
-                height: "25vw",
+                height: "fit-content",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",

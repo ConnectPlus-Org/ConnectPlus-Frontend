@@ -9,6 +9,10 @@
   left: 35.01vw;
 }
 
+form{
+  gap: 4.4vw;
+}
+
 .svgsetpass {
   width: 25.5556vw;
   height: 40.5556vh;

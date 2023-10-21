@@ -5,8 +5,8 @@ const edit:string = require('../images/edit.svg').default
 const username = localStorage.getItem("username")
 const viewusername = localStorage.getItem("viewusername")
 const EducationBox:any = (box:any) => {
-    return <div className="expbox">
-        <img className="explogo" src={box.box.school_data.logo} alt="logo"/>
+    return <div className="expBox">
+        <img className="expLogo" src={box.box.school_data.logo} alt="logo"/>
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{box.box.school_data.name}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{box.box.degree} - {box.box.field_of_study} </p>

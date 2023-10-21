@@ -1,4 +1,4 @@
-#viewskill {
+#viewSkill {
   position: absolute;
   width: 77.78vw;
   margin-left: 16.67vw;
@@ -8,12 +8,12 @@
   padding: 2vw;
 }
 
-#viewskill span {
+#viewSkill span {
     font-size: 1.7vw;
     font-weight: 700;
     margin-left: 1vw;
 }
-#viewskill img {
+#viewSkill img {
   width: 1.2vw;
   height: 1.2vw;
   cursor: pointer;

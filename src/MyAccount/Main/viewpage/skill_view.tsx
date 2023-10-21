@@ -32,7 +32,7 @@ const config ={
 const [reload,setreload] = useState(false)
 var [skills,setskill] = useState([])
 
-function handleskill (){
+function handleSkill (){
   BaseUrl.get('/profile/skill/?username='+viewusername,config)
   .then((res)=>
   {
@@ -43,9 +43,9 @@ function handleskill (){
     console.log(err);
   })
 }
-useEffect(()=>handleskill(),[reload])
+useEffect(()=>handleSkill(),[reload])
 
-function removeskill(skill:number){
+function removeSkill(skill:number){
     BaseUrl.delete("/profile/skill/"+skill+"/",config)
     .then((res)=>{
         console.log(res)
@@ -85,11 +85,11 @@ useEffect(()=>{if(username!=viewusername)
   return (
     <div>
       <Nav />
-      <div id="viewskill">
+      <div id="viewSkill">
           <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Skill</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/skills")}></img>
           <div>
               {            
-                skills.map((box:any,index)=>{return <div key={box.id} style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline",paddingBottom:"1vw"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>{removeskill(box.id)}} />
+                skills.map((box:any,index)=>{return <div key={box.id} style={{fontWeight: '700',fontSize: '1.5vw',borderBottom:"1px solid white",margin:"2vw 0"}}><p style={{display:"inline",paddingBottom:"1vw"}}>{box.skill_name}</p><img style={{float:"right",cursor:"pointer"}} className="action" src={del} onClick={()=>{removeSkill(box.id)}} />
                 {(username!=viewusername)?((box.endorsed===false)?<span onClick={()=>doEndorse(box.id,index)} className="endorse">Endorse</span>:<span onClick={()=>doEndorse(box.id,index)} className="endorse">Endorsed</span>):null}</div>})
               }
           </div>

@@ -40,7 +40,7 @@ const AboutMe = () => {
   return (
     <div>
       <Nav />
-      <div id='account_nav'>
+      <div id='accountNav'>
         <p
           onClick={() => {
             Navhandler("/account/edit_profile");
@@ -81,7 +81,7 @@ const AboutMe = () => {
       <div id='skill'>
         <p>
           <img
-            className='backarr'
+            className='backArr'
             src={arr}
             onClick={() => Navhandler("/mobnav")}
           />

@@ -1,11 +1,11 @@
-.linkbox{
+.linkBox{
     width: 33.3333vw;
 height: 4.44444vh;
 margin-bottom: 5vh;
 border-bottom: 1px solid white;
 cursor: pointer;
 }
-.rightarrowbox{
+.rightArrowBox{
     float: right;
     width: 1.66667vw;
 height:1.66667vw;
@@ -27,7 +27,7 @@ right: 3.33%;
     border-style: solid;
 }
 
-.additionalline{
+.additionalLine{
     font-weight: 700 !important ; 
 font-size: 1.11111vw  !important;
 line-height: 3.05556vh  !important;

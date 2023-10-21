@@ -75,7 +75,7 @@ const Editprofile = () => {
   return (
     <div>
       <Nav />
-      <div id='account_nav'>
+      <div id='accountNav'>
         <p style={activestyle}>Edit profile</p>
         <p
           onClick={() => {
@@ -116,7 +116,7 @@ const Editprofile = () => {
       <div id='edit_profile'>
         <p className='mobtext'>
           <img
-            className='backarr'
+            className='backArr'
             src={arr}
             onClick={() => Navhandler("/mobnav")}
           />
@@ -139,7 +139,7 @@ const Editprofile = () => {
           First Name
           <br />
           <input
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='First Name'
             defaultValue={fname}
             onChange={(e: any) => (fname = e.target.value)}
@@ -149,7 +149,7 @@ const Editprofile = () => {
           Last Name
           <br />
           <input
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Last Name'
             defaultValue={lname}
             onChange={(e: any) => (lname = e.target.value)}
@@ -159,7 +159,7 @@ const Editprofile = () => {
           Country/Region
           <br />
           <input
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Country/Region'
             defaultValue={country}
             onChange={(e: any) => (country = e.target.value)}
@@ -169,7 +169,7 @@ const Editprofile = () => {
           City/District
           <br />
           <input
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='City/District'
             defaultValue={city}
             onChange={(e: any) => (city = e.target.value)}

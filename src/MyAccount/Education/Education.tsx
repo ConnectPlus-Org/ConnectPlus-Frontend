@@ -110,7 +110,7 @@ const Education = () => {
   return (
     <div>
       <Nav />
-      <div id='account_nav'>
+      <div id='accountNav'>
         <p
           onClick={() => {
             Navhandler("/account/edit_profile");
@@ -151,7 +151,7 @@ const Education = () => {
       <div id='edit_profile' style={{ height: "125vh" }}>
         <p className='accountnavtopline'>
           <img
-            className='backarr'
+            className='backArr'
             src={arr}
             onClick={() => Navhandler("/mobnav")}
           />
@@ -164,12 +164,12 @@ const Education = () => {
             id='i'
             onChange={handleschoolname}
             value={school}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='School'
           />
           <div
             id='drop'
-            className='dropsearchbox'
+            className='dropSearchBox'
             onClick={() => {
               setsearchres([]);
               const schoolname: string = localStorage.getItem("schoolname")!;
@@ -188,7 +188,7 @@ const Education = () => {
             onChange={(e: any) => {
               setdegree(e.target.value);
             }}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Degree'
           />
         </div>
@@ -199,7 +199,7 @@ const Education = () => {
             onChange={(e: any) => {
               setfos(e.target.value);
             }}
-            className='edit_input profileinput dropdown'
+            className='editInput profileInput dropDown'
             placeholder='Field of Study'
           />
         </div>
@@ -211,7 +211,7 @@ const Education = () => {
             onChange={(e: any) => {
               setgrade(e.target.value);
             }}
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Grade'
           />
         </div>
@@ -219,7 +219,7 @@ const Education = () => {
           Start Date
           <br />
           <select
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setstartmonth(e.target.value);
             }}
@@ -236,7 +236,7 @@ const Education = () => {
           </select>
           <select
             style={{ marginLeft: "3.8vw" }}
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setstartyear(e.target.value);
             }}
@@ -256,7 +256,7 @@ const Education = () => {
           End Date
           <br />
           <select
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setendmonth(e.target.value);
             }}
@@ -273,7 +273,7 @@ const Education = () => {
           </select>
           <select
             style={{ marginLeft: "3.8vw" }}
-            className='halfbox'
+            className='halfBox'
             onChange={(e: any) => {
               setendyear(e.target.value);
             }}
@@ -298,7 +298,7 @@ const Education = () => {
             }}
             value={description}
             id='desc'
-            className='edit_input profileinput'
+            className='editInput profileInput'
             placeholder='Description'
           />
         </div>

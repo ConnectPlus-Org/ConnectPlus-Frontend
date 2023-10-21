@@ -6,7 +6,7 @@ const CourseBox:any = (box:any) => {
     var org_name= ""
     else 
     org_name = box.box.organisation_data.name
-    return <div className="expbox">
+    return <div className="expBox">
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw'}}>{box.box.course_name}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{org_name} </p>

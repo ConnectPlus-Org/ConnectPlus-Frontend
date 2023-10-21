@@ -22,7 +22,7 @@ const Additional = () => {
   return (
     <div>
       <Nav />
-      <div id="account_nav">
+      <div id="accountNav">
         <p  onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
         <p   onClick={()=>{Navhandler("/account/experience"); } }>Experience</p>
@@ -31,15 +31,15 @@ const Additional = () => {
         <p  onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'77.7778vh',display:'block'}}>
-        <div className="linkbox" onClick={()=>{Navhandler("/account/additional/score")}}>
+        <div className="linkBox" onClick={()=>{Navhandler("/account/additional/score")}}>
             Add test score
-            <div className="rightarrowbox">
+            <div className="rightArrowBox">
                 <div className="rightarrow"></div>
             </div>
         </div>
-        <div className="linkbox" onClick={()=>{Navhandler("/account/additional/courses")}}>
+        <div className="linkBox" onClick={()=>{Navhandler("/account/additional/courses")}}>
             Add courses
-            <div className="rightarrowbox">
+            <div className="rightArrowBox">
             <div className="rightarrow"></div>
             </div>
         </div>

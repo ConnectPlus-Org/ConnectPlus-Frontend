@@ -54,7 +54,7 @@ const App = () => {
     <Route path="/account/edit_profile" element={ <ProtectedRoute><Editprofile /></ProtectedRoute>}></Route>
     <Route path="/account/experience" element={ <ProtectedRoute><Experience /></ProtectedRoute>}></Route>
     <Route path="/account/skills" element={<ProtectedRoute><Skill /></ProtectedRoute>}></Route>
-    <Route path="/account/viewskills" element={<ProtectedRoute><Skill_View /></ProtectedRoute>}></Route>
+    <Route path="/account/viewSkills" element={<ProtectedRoute><Skill_View /></ProtectedRoute>}></Route>
     <Route path="/account/viewexperience" element={<ProtectedRoute><Experience_View /></ProtectedRoute>}></Route>
     <Route path="/account/aboutme" element={<ProtectedRoute><AboutMe /></ProtectedRoute>}></Route>
     <Route path="/account/education" element={<ProtectedRoute><Education/></ProtectedRoute>}></Route>

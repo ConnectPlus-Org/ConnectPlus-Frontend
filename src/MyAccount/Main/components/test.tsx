@@ -9,7 +9,7 @@ const TestBox:any = (box:any) => {
     var org = " "
     else
     org =box.box.organization_data.name
-    return <div className="expbox">
+    return <div className="expBox">
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw'}}>{org}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{box.box.title}</p>

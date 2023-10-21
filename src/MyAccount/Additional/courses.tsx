@@ -68,7 +68,7 @@ const Score = () => {
   return (
     <div>
       <Nav />
-      <div id="account_nav">
+      <div id="accountNav">
         <p  onClick={()=>{Navhandler("/account/edit_profile"); } }>Edit profile</p>
         <p  onClick={()=>{Navhandler("/account/skills"); } }>Skill Section</p>
         <p  onClick={()=>{Navhandler("/account/experience"); } } >Experience</p>
@@ -77,13 +77,13 @@ const Score = () => {
         <p onClick={()=>{Navhandler("/account/additional"); } } style={activestyle}  >Additional</p>
       </div>
       <div id="edit_profile"  style={{height:'78.3333vh',justifyContent:'space-evenly '}}>
-        <div className="additionalline">
+        <div className="additionalLine">
         Add courses
         </div>
         <div>
           Course name
           <br />
-          <input onChange={(e:any)=>{setcoursename(e.target.value);}} className="edit_input profileinput" value={coursename} placeholder="Course name" />
+          <input onChange={(e:any)=>{setcoursename(e.target.value);}} className="editInput profileInput" value={coursename} placeholder="Course name" />
         </div>
         <div>
           Associated With
@@ -101,7 +101,7 @@ const Score = () => {
         <div>
           Number
           <br />
-          <input  onChange={(e:any)=>{setnumber(e.target.value);}} value={number}className="edit_input profileinput dropdown" placeholder="Number" />
+          <input  onChange={(e:any)=>{setnumber(e.target.value);}} value={number}className="editInput profileInput dropDown" placeholder="Number" />
         </div>
         
         

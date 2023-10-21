@@ -19,8 +19,8 @@ const ExperienceBox:any = (box:any) => {
     const username = localStorage.getItem("username")
 const viewusername = localStorage.getItem("viewusername")
 
-    return <div className="expbox">
-        <img className="explogo" src={box.box.company_data.logo} alt="logo"/>
+    return <div className="expBox">
+        <img className="expLogo" src={box.box.company_data.logo} alt="logo"/>
         <div>
         <p style={{fontWeight: '700',fontSize: '1.7vw',color:"F5F5FA"}}>{box.box.role}</p>
         <p style={{fontWeight: '700',fontSize: '1.2vw',color:"#E6E6EB"}}>{box.box.company_data.name} · {employment_type} </p>

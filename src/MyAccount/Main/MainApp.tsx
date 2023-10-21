@@ -144,7 +144,7 @@ const Account = () => {
             <img id='account_avatar' alt='avatar' src={avatar} />
             <div
               className='action'
-              id='Updateprofile'
+              id='UpdateProfile'
               onClick={() => Navhandler("edit_profile")}
             >
               <img src={edit} />
@@ -180,9 +180,9 @@ const Account = () => {
           </div>
           <p style={{ fontSize: "1.4vw", marginLeft: "2vw" }}>{headline}</p>
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>About Me</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img
               style={{ marginLeft: "5vw" }}
               src={edit}
@@ -196,9 +196,9 @@ const Account = () => {
           <br />
           {about}
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>Experience</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img src={plus} onClick={() => Navhandler("experience")} />
           </div>
           <div>
@@ -211,9 +211,9 @@ const Account = () => {
             Show more Experience <img src={arr} />
           </pre>
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>Education</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img src={plus} onClick={() => Navhandler("education")} />
           </div>
           <div>
@@ -225,9 +225,9 @@ const Account = () => {
             Show more Education <img src={arr} />
           </pre>
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>Skills</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img src={plus} onClick={() => Navhandler("skills")} />
           </div>
           {skills.map((box: any) => {
@@ -244,13 +244,13 @@ const Account = () => {
               </div>
             );
           })}
-          <pre onClick={() => Navhandler("viewskills")}>
+          <pre onClick={() => Navhandler("viewSkills")}>
             Show more Skills <img src={arr} />
           </pre>
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>Test score</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img src={plus} onClick={() => Navhandler("additional/score")} />
           </div>
           {test.map((box: any) => {
@@ -260,9 +260,9 @@ const Account = () => {
             Show more Test <img src={arr} />
           </pre>
         </div>
-        <div className='acc_box'>
+        <div className='accBox'>
           <span>Courses</span>
-          <div className='acc_icon action'>
+          <div className='accIcon action'>
             <img src={plus} onClick={() => Navhandler("additional/courses")} />
           </div>
           {course.map((box: any) => {

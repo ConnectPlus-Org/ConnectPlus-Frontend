@@ -30,7 +30,7 @@ const config ={
 
 var [education,setedu] = useState([])
 
-function handledu (){
+function handlEdu (){
   BaseUrl.get('/profile/education/?username='+viewusername,config)
   .then((res)=>
   {
@@ -41,7 +41,7 @@ function handledu (){
     console.log(err);
   })
 }
-useEffect(()=>handledu(),[])
+useEffect(()=>handlEdu(),[])
 
 if(username!=viewusername)
     {
@@ -54,7 +54,7 @@ if(username!=viewusername)
   return (
     <div>
       <Nav />
-      <div id="viewskill">
+      <div id="viewSkill">
         <img src={left} alt='back' onClick={() => Navhandler("/account")}/> <span>Experience</span> <img className="action" id="add" src={add} alt='add' onClick={() => Navhandler("/account/experience")}></img>
         <div>
             {

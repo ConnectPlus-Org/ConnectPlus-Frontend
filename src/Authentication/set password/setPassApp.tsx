@@ -93,11 +93,12 @@ function Passwordset() {
             </div>
             <form
               style={{
-                height: "25vw",
+                height: "fit-content",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
                 marginTop: "0.5vw",
+                
               }}
               onSubmit={(event) => {
                 event.preventDefault();
@@ -112,6 +113,7 @@ function Passwordset() {
                 placeholder='Enter Password'
                 message='Must be at least 8 characters with 1 special character, 1 number, 1 capital, 1 small alphabet'
                 err_id='pass'
+                
               />
               <Input
                 inp='pass2b'

@@ -79,6 +79,7 @@ const Forgot = () => {
               handleApi();
             }}
             id='forgot'
+            style={{height:"fit-content"}}
           >
             <div>
               <h1>Forgot password?</h1>

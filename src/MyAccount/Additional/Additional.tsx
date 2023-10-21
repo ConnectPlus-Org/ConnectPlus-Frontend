@@ -33,13 +33,13 @@ const Additional = () => {
       <div id="edit_profile"  style={{height:'77.7778vh',display:'block'}}>
         <div className="linkBox" onClick={()=>{Navhandler("/account/additional/score")}}>
             Add test score
-            <div className="rightarrowBox">
+            <div className="rightArrowBox">
                 <div className="rightarrow"></div>
             </div>
         </div>
         <div className="linkBox" onClick={()=>{Navhandler("/account/additional/courses")}}>
             Add courses
-            <div className="rightarrowBox">
+            <div className="rightArrowBox">
             <div className="rightarrow"></div>
             </div>
         </div>
